@@ -5,11 +5,20 @@ class studentDAO:
         conn = cx_Oracle.connect('sangil/1234@localhost:1521/xe')
         cursor = conn.cursor()
         
-    def getStudentInfo(studentDTO: studentDTO):
+    def getStudentInfo(studentDTO: studentDTO) -> studentDTO:
         query = "select * from student where id = :0"
         cursor.execute(query, [studentDTO.id])
         row = cursor.fetchone()
         result = studentDTO(*row)
+        return result
+    
+    def getStudentList(studentDTO: stduentDTO) -> studentDTO:
+        query = "select * from student"
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        result = []
+        for row in rows:
+            result.append(studentDTO(*row))
         return result
         
     def addStudent(studentDTO: studentDTO):

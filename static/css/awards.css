@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'S-CoreDream-3Light';
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    width: 100%;
+    display: flex;
+    font-size: 2.5em;
+    color: #ff8c00;
+    justify-content: center;
+}
+
+.awards-icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 12%;
+    font-size: 1.5em;
+}
+
+h2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+}
+
+#sub1 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    background-color: #FCD363;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#text1 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    font-size: 20px;
+}
+
+#sub2 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 55%;
+    left: 10%;
+    background-color: #FCD363;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#text2 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    font-size: 20px;
+}
+
+#sub3 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    background-color: #FCD363;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#text3 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    font-size: 20px;
+}
+
+#sub4 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 95%;
+    left: 10%;
+    background-color: #FCD363;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#text4 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    font-size: 20px;
+}
+
+#sub5 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 120%;
+    left: 10%;
+    background-color: #FCD363;
+    color: white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#text5 {
+    width: 80%;
+    height: 5%;
+    position: absolute;
+    top: 125%;
+    left: 10%;
+    font-size: 20px;
+    margin-bottom: 50%;
+}

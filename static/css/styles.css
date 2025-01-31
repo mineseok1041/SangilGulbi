@@ -1,0 +1,632 @@
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.wrap {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1.5s;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.container:nth-child(1) {
+  background-color: #F4F4F4;
+}
+
+.container:nth-child(2) {
+  background-color: #F4F4F4;
+}
+
+.container:nth-child(3) {
+  background-color: #F4F4F4;
+}
+
+.container:nth-child(4) {
+  background-color: #F4F4F4;
+}
+
+.container:nth-child(5) {
+  background-color: #F4F4F4;
+}
+
+.container:nth-child(6) {
+  background-color: #F4F4F4;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cal > a{
+  color: black;
+  background: white;
+  display: flex;
+  text-align: center;
+  width: 130px;
+  height: 35px;
+  border-radius: 15px;
+  position: absolute;
+  right: 45%;
+  top: 1%;
+  border: 1.5px solid black;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 30px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#cal1{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 46%;
+  top: 45px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
+
+#cal2{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 46%;
+  top: 75px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
+
+.cal>a:hover ~ .menubar { display: block; } 
+.menubar:hover {display: block;}
+.menubar { display: none; }
+
+.save > a{
+  color: black;
+  background: white;
+  display: flex;
+  text-align: center;
+  width: 130px;
+  height: 35px;
+  border-radius: 15px;
+  position: absolute;
+  right: 35%;
+  top: 1%;
+  border: 1.5px solid black;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 30px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.game > a{
+  color: black;
+  background: white;
+  display: flex;
+  text-align: center;
+  width: 130px;
+  height: 35px;
+  border-radius: 15px;
+  position: absolute;
+  right: 25%;
+  top: 1%;
+  border: 1.5px solid black;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 30px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#game1{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 26%;
+  top: 45px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
+
+#game2{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 26%;
+  top: 75px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
+
+.game>a:hover ~ .menubar { display: block; } 
+.menubar:hover {display: block;}
+.menubar { display: none; }
+
+.awards > a{
+  color: black;
+  background: white;
+  display: flex;
+  text-align: center;
+  width: 130px;
+  height: 35px;
+  border-radius: 15px;
+  position: absolute;
+  right: 15%;
+  top: 1%;
+  border: 1.5px solid black;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+  font-size: 30px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.login-button {
+  width: 10%;
+  position: absolute;
+  top: 1%;
+  right: 3%;
+  background-color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.welcome {
+  text-align: left;
+  padding: 20px;
+  position: absolute;
+  top: 30%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.new-label {
+  height: 10%;
+  width: 8%;
+  background-color: #ffd700;
+  padding: 1px 2px;
+  border-radius: 50px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 1%;
+  left: 11%;
+  z-index: 2;
+  font-family:'S-CoreDream-3Light';
+}
+
+.new-label2 {
+  height: 10%;
+  width: 30%;
+  background-color: #D1D5DB;
+  border-radius: 50px;
+  padding: 3px 5px;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+}
+
+.welcome-text {
+  width: 130%;
+  font-size: 18px;
+  padding-left: 5%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.main-title {
+  text-align: center;
+  font-size: 100px;
+  margin-top: 20px;
+  position: absolute;
+  top: 52%;
+  left: 2%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.subtitle {
+  text-align: left;
+  color: #ffffff;
+  font-size: 100px;
+  margin-top: 20px;
+  position: absolute;
+  top: 70%;
+  left: 2%;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+
+#logo {
+  width: 30%;
+  height: auto;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
+.introduce {
+  width: 100%;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  margin-left: -50%;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family:'S-CoreDream-3Light';
+}
+
+.activity-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 115%;
+  left: 57%;
+  margin-left: -50%;
+  width: 86%;
+  justify-content: center;
+  height: 72%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.side-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: absolute;
+  left: -5%;
+  top: 5%;
+  background-color: #fff;
+}
+
+.icon {
+  position: absolute;
+  top: 5%;
+  width: 95%;
+  height: auto;
+}
+
+.intro-text {
+  width: 87%;
+  position: absolute;
+  top: 171%;
+  left: 58%;
+  margin-left: -50%;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px dashed #000;
+  font-family:'S-CoreDream-3Light';
+}
+
+.activity-box2 {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 215%;
+  left: 5%;
+  width: 40%;
+  justify-content: center;
+  height: 72%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.intro-text2 {
+  width: 87%;
+  position: absolute;
+  top: 80%;
+  left: 58%;
+  margin-left: -50%;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px dashed #000;
+  font-family:'S-CoreDream-3Light';
+  z-index: 2;
+}
+
+.activity-box3 {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 215%;
+  right: 5%;
+  width: 40%;
+  justify-content: center;
+  height: 72%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.intro-text3 {
+  width: 87%;
+  position: absolute;
+  top: 80%;
+  left: 58%;
+  margin-left: -50%;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px dashed #000;
+  font-family:'S-CoreDream-3Light';
+  z-index: 2;
+}
+
+.activity-box4 {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 315%;
+  left: 5%;
+  width: 40%;
+  justify-content: center;
+  height: 72%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.intro-text4 {
+  width: 87%;
+  position: absolute;
+  top: 80%;
+  left: 58%;
+  margin-left: -50%;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px dashed #000;
+  font-family:'S-CoreDream-3Light';
+  z-index: 2;
+}
+
+.activity-box5 {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  position: absolute;
+  top: 315%;
+  right: 5%;
+  width: 40%;
+  justify-content: center;
+  height: 72%;
+  font-family:'S-CoreDream-3Light';
+}
+
+.intro-text5 {
+  width: 87%;
+  position: absolute;
+  top: 80%;
+  left: 58%;
+  margin-left: -50%;
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px dashed #000;
+  font-family:'S-CoreDream-3Light';
+  z-index: 2;
+}
+
+.Awards {
+  width: 100%;
+  height: 11%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light';
+  display: flex
+;
+  justify-content: center;
+  align-items: flex-end;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 2%;
+}
+.card {
+  height: 85%;
+  margin-top: 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card .author {
+  font-weight: bold;
+}
+.card .date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+.card .content {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.show-more {
+  margin-top: 0%;
+}
+.show-more button {
+  margin-left: 45%;
+  background: #FCD363;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.show-more button:hover {
+  background: #ffc423;
+}
+
+.Join {
+  width: 100%;
+  height: 11%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'S-CoreDream-3Light';
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #666;
+}
+
+.cards2 {
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card2 {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  width: 25%;
+  height: 50%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: left;
+}
+
+.icon2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.see-more {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.see-more:hover {
+  text-decoration: underline;
+}
+
+.image {
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
