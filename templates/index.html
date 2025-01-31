@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>꿀비's Homepage</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                         </article>
                     </article>
                     <article class="awards">
-                        <a href="/html/awards.html">
+                        <a href="/awards">
                             <h6 id="text">awards</h6>
                         </a>
                     </article>
@@ -51,7 +51,7 @@
               </button>
                 </article>
             </article>
-            <button class="login-button" href="login.html">LOGIN</button>
+            <button class="login-button" href="/login">LOGIN</button>
             </header>
 
             <main>
@@ -225,7 +225,7 @@
             </article>
         </section>
 
-        <script type="text/javascript" src="{{ url_for('static', filename='/js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='/js/index.js') }}"></script>
 </body>
 
 </html>
