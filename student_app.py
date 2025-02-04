@@ -27,6 +27,32 @@ def dosignup():
         print(e)
         return redirect(url_for('signup'))
     
+@blue_student.route('/login.do', methods=['POST'])
+def dologin():
+    id = request.form['id']
+    password = request.form['password']
+    
+    reqDTO = studentDTO(id=id, password=password)
+    
+    try:
+        if SVC.login(reqDTO):
+            print(f"login success id: {id}")
+            loginDTO = SVC.getStudentInfo(reqDTO)
+            # session['id'] = id
+            # session['name'] = loginDTO.name
+        
+        return redirect(url_for('index'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('login'))
+    
+@blue_student.route('/logout.do')
+def dologout():
+    session.pop('id', None)
+    session.pop('name', None)
+    return redirect(url_for('index'))
+
+
 @blue_student.route('/test')
 def test():
     return "test success"

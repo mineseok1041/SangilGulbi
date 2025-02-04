@@ -75,24 +75,17 @@ class studentDAO:
 
     def isPWDCorrect(self, reqDTO: studentDTO) -> bool:
         query = "SELECT COUNT(*) FROM student WHERE id = :1 AND password = :2"
+
+        conn = self.get_connection()
+        cursor = conn.cursor()
         
-        conn = None
-        cursor = None
-        try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
-            
-            cursor.execute(query, [reqDTO.id, reqDTO.password])
-            count = cursor.fetchone()[0]
-            
-            return count > 0
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"DB Error: {e}")
-        finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
+        cursor.execute(query, [reqDTO.id, reqDTO.password])
+        count = cursor.fetchone()[0]
+        
+        cursor.close()
+        conn.close()
+        
+        return count > 0
 
     def addStudent(self, reqDTO: studentDTO):
         query = "INSERT INTO student(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
