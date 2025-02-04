@@ -1,6 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Blueprint
+import student_app
 
 app  = Flask(__name__)
+app.register_blueprint(student_app.blue_student)
+
+app.secret_key = 'ggulbi'
 
 # 메인페이지
 @app.route('/')
@@ -31,6 +35,10 @@ def mypage():
 @app.route('/awards')
 def awards():
     return render_template('awards.html')
+
+@app.route('/rhythm')
+def rhythm():
+    return render_template('rhythm.html')
 
 if __name__ == '__main__':
     app.run()

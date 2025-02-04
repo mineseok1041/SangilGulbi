@@ -10,4 +10,6 @@ where id = 'test1';
 
 delete from student where id = 'test1';
 
+SELECT SEQ_STUDENT_ID.CURRVAL FROM DUAL; 
+
 commit;
