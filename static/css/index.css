@@ -59,209 +59,6 @@ body {
     background-color: #F4F4F4;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.cal>a {
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 45%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-}
-
-#cal1 {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 46%;
-    top: 45px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-}
-
-#cal2 {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 46%;
-    top: 75px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-}
-
-.cal>a:hover~.menubar {
-    display: block;
-}
-
-.menubar:hover {
-    display: block;
-}
-
-.menubar {
-    display: none;
-}
-
-.save>a {
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 35%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.game>a {
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 25%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-}
-
-#game1 {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 26%;
-    top: 45px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-}
-
-#game2 {
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 26%;
-    top: 75px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-}
-
-.game>a:hover~.menubar {
-    display: block;
-}
-
-.menubar:hover {
-    display: block;
-}
-
-.menubar {
-    display: none;
-}
-
-.awards>a {
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 15%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.login-button {
-    width: 10%;
-    position: absolute;
-    top: 1%;
-    right: 3%;
-    background-color: #ffd700;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 15px;
-}
-
 .welcome {
     text-align: left;
     padding: 20px;
@@ -326,7 +123,7 @@ body {
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
-#logo {
+.logo {
     width: 30%;
     height: auto;
     position: absolute;
@@ -378,7 +175,7 @@ body {
     font-weight: bold;
     position: absolute;
     left: -5%;
-    top: 5%;
+    top: 3%;
     background-color: #fff;
 }
 
@@ -390,16 +187,21 @@ body {
 }
 
 .intro-text {
-    width: 87%;
+    width: 95%;
     position: absolute;
-    top: 171%;
-    left: 58%;
-    margin-left: -50%;
-    margin-top: 20px;
+    top: 80%;
     font-size: 1rem;
-    text-align: center;
-    border-top: 2px dashed #000;
+    text-align: left;
     font-family: 'S-CoreDream-3Light';
+}
+
+.line_first {
+    position: absolute;
+    top: 75%;
+    left: 51%;
+    margin-left: -50%;
+    width: 97%;
+    border: 2px dashed #000;
 }
 
 .activity-box2 {
@@ -412,24 +214,18 @@ body {
     position: absolute;
     top: 215%;
     left: 5%;
+    margin-right: 50px;
     width: 40%;
     justify-content: center;
     height: 72%;
     font-family: 'S-CoreDream-3Light';
 }
 
-.intro-text2 {
-    width: 87%;
+.icon2 {
     position: absolute;
-    top: 80%;
-    left: 58%;
-    margin-left: -50%;
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
-    border-top: 2px dashed #000;
-    font-family: 'S-CoreDream-3Light';
-    z-index: 2;
+    top: 5%;
+    width: 88%;
+    height: auto;
 }
 
 .activity-box3 {
@@ -448,20 +244,6 @@ body {
     font-family: 'S-CoreDream-3Light';
 }
 
-.intro-text3 {
-    width: 87%;
-    position: absolute;
-    top: 80%;
-    left: 58%;
-    margin-left: -50%;
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
-    border-top: 2px dashed #000;
-    font-family: 'S-CoreDream-3Light';
-    z-index: 2;
-}
-
 .activity-box4 {
     display: flex;
     align-items: center;
@@ -476,20 +258,6 @@ body {
     justify-content: center;
     height: 72%;
     font-family: 'S-CoreDream-3Light';
-}
-
-.intro-text4 {
-    width: 87%;
-    position: absolute;
-    top: 80%;
-    left: 58%;
-    margin-left: -50%;
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
-    border-top: 2px dashed #000;
-    font-family: 'S-CoreDream-3Light';
-    z-index: 2;
 }
 
 .activity-box5 {
@@ -508,20 +276,6 @@ body {
     font-family: 'S-CoreDream-3Light';
 }
 
-.intro-text5 {
-    width: 87%;
-    position: absolute;
-    top: 80%;
-    left: 58%;
-    margin-left: -50%;
-    margin-top: 20px;
-    font-size: 1rem;
-    text-align: center;
-    border-top: 2px dashed #000;
-    font-family: 'S-CoreDream-3Light';
-    z-index: 2;
-}
-
 .Awards {
     width: 100%;
     height: 11%;
@@ -538,12 +292,12 @@ body {
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 32px;
     padding: 2%;
 }
 
 .card {
-    height: 85%;
+    height: 88%;
     margin-top: 0%;
     background: white;
     border-radius: 10px;
@@ -568,8 +322,9 @@ body {
 }
 
 .card .content {
-    font-size: 1rem;
-    line-height: 1.5;
+    width: 100%;
+    height: auto;
+    z-index: 2;
 }
 
 .show-more {
@@ -625,7 +380,7 @@ body {
     text-align: left;
 }
 
-.icon2 {
+.shape2 {
     font-size: 2rem;
     margin-bottom: 10px;
 }
@@ -636,7 +391,7 @@ h2 {
 }
 
 .see-more {
-    color: #007bff;
+    color: #FCD363;
     text-decoration: none;
     font-weight: bold;
 }
