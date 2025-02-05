@@ -32,3 +32,12 @@ class studentSVC:
             
         except Exception as e:
             raise Exception(f"Login Error: {e}")
+        
+    def isIDExist(self, reqDTO:studentDTO) -> bool:
+        try:
+            if self.DAO.isIDExist(reqDTO):
+                return True
+            else:
+                return False
+        except Exception as e:
+            raise Exception(f"isIDExist Error: {e}")

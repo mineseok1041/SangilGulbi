@@ -1,7 +1,9 @@
 from flask import Flask, render_template, Blueprint
+from flask_cors import CORS
 import student_app
 
 app  = Flask(__name__)
+CORS(app)
 app.register_blueprint(student_app.blue_student)
 
 app.secret_key = 'ggulbi'

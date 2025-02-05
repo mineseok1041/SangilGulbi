@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, flash
+from flask import Blueprint, request, redirect, url_for, flash, session
 import studentSVC
 from studentDTO import studentDTO
 
@@ -9,16 +9,16 @@ SVC = studentSVC.studentSVC()
 
 @blue_student.route('/signup.do', methods=['POST'])
 def dosignup():
-    id = request.form['id']
-    password = request.form['password']
-    name = request.form['name']
-    email = request.form['email']
-    birth = request.form['birth']
-    birth = birth.replace("-", "")
-    
-    reqDTO = studentDTO(id=id, password=password, name=name, email=email, birth=birth)
-
     try:
+        id = request.form['id']
+        password = request.form['password']
+        name = request.form['name']
+        email = request.form['email']
+        birth = request.form['birth']
+        birth = birth.replace("-", "")
+
+        reqDTO = studentDTO(id=id, password=password, name=name, email=email, birth=birth)
+
         SVC.signup(reqDTO)
         print("signup success")
         
@@ -29,18 +29,17 @@ def dosignup():
     
 @blue_student.route('/login.do', methods=['POST'])
 def dologin():
-    id = request.form['id']
-    password = request.form['password']
-    
-    reqDTO = studentDTO(id=id, password=password)
-    
     try:
-        if SVC.login(reqDTO):
-            print(f"login success id: {id}")
-            loginDTO = SVC.getStudentInfo(reqDTO)
-            # session['id'] = id
-            # session['name'] = loginDTO.name
+        id = request.form['id']
+        password = request.form['password']
+
+        reqDTO = studentDTO(id=id, password=password)
         
+        SVC.login(reqDTO)
+        loginDTO = SVC.getStudentInfo(reqDTO)
+        session['id'] = loginDTO.id
+        session['name'] = loginDTO.name
+
         return redirect(url_for('index'))
     except Exception as e:
         print(e)
@@ -48,11 +47,21 @@ def dologin():
     
 @blue_student.route('/logout.do')
 def dologout():
-    session.pop('id', None)
-    session.pop('name', None)
-    return redirect(url_for('index'))
+    try:
+        session.clear()
+        return redirect(url_for('index'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('index'))
 
-
-@blue_student.route('/test')
-def test():
-    return "test success"
+@blue_student.route('/IDcheck.do', methods=['POST'])
+def IDcheck():
+    try:
+        reqDTO = studentDTO(id=request.form['id'])
+        if SVC.isIDExist(reqDTO):
+            return "false"
+        else:
+            return "true"
+    except Exception as e:
+        print(e)
+        return False
