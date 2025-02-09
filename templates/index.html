@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}"> {% if session['id'] %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/header2.css') }}"> {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
 </head>
 
 <body>
@@ -41,41 +40,42 @@
               <h6 class="text">save</h6>
             </a>
           </article>
-          <article class="cal">
-            <a href="#">
-              <h6 class="text">calendar</h6>
-            </a>
-            <article class="menubar">
-              <button class="cal1">
-                <p>공지사항</p>
-              </button>
-              <button class="cal2">
-                <p>캘린더보기</p>
-              </button>
-            </article>
-          </article>
-          {% if session['id'] %}
-          <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button>
-          <a class="mypage" href="/mypage">
-            <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
-              alt="Profile" class="profile-pic">
-          </a>
-          {% else %}
-          <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
-        </header>
-        <main>
-          <section class="welcome">
-            <div class="new-label">NEW</div>
-            <div class="new-label2"></div>
-            <p class="welcome-text">
-              안녕하세요!
-              <br>꿀비에 오신것을 환영합니다!
-              <br> 앞으로 많은 활동을 함께 해보아요
-          </section>
-          <h1 class="main-title">상일미디어고등학교</h1>
-          <h2 class="subtitle">인공지능소프트웨어과</h2>
-          <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
-        </main>
+      </article>
+      <article class="cal">
+        <a href="#">
+          <h6 class="text">calendar</h6>
+        </a>
+        <article class="menubar">
+          <button class="cal1" href="#">
+            <p>공지사항</p>
+          </button>
+          <button class="cal2" href="#">
+            <p>캘린더보기</p>
+          </button>
+        </article>
+      </article>
+      {% if session['id'] %}
+      <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button>
+      <a class="mypage" href="/mypage">
+        <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+          alt="Profile" class="profile-pic">
+      </a>
+      {% else %}
+      <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+      </header>
+      <main>
+        <section class="welcome">
+          <div class="new-label">NEW</div>
+          <div class="new-label2"></div>
+          <p class="welcome-text">
+            안녕하세요!
+            <br>꿀비에 오신것을 환영합니다!
+            <br> 앞으로 많은 활동을 함께 해보아요
+        </section>
+        <h1 class="main-title">상일미디어고등학교</h1>
+        <h2 class="subtitle">인공지능소프트웨어과</h2>
+        <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
+      </main>
     </section>
 
     <section class="container">

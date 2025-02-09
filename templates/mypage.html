@@ -14,46 +14,51 @@
         <a class="header_logo" href="/">
             <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GB">
         </a>
-        <h1 id="mypage">MyPage</h1>
-        <article class="game">
-            <a href="#">
-                <h6 class="text">game</h6>
-            </a>
-            <article class="menubar">
-                <button class="game1" href="#">
-                    <p>사다리타기</p>
-                </button>
-                <button class="game2" href="#">
-                    <p>룰렛 돌리기</p>
-                </button>
+        <<<<<<< HEAD <h1 id="mypage">MyPage</h1>
+            =======
+            <h1 id="mypage">My Page</h1>
+            >>>>>>> 556fbd4 (인덱스, 마이페이지)
+            <article class="game">
+                <a href="#">
+                    <h6 class="text">game</h6>
+                </a>
+                <article class="menubar">
+                    <button class="game1" href="#">
+                        <p>사다리타기</p>
+                    </button>
+                    <button class="game2" href="#">
+                        <p>룰렛 돌리기</p>
+                    </button>
+                </article>
             </article>
-        </article>
-        <article class="awards">
-            <a href="/awards">
-                <h6 class="text">awards</h6>
-            </a>
-        </article>
-        <article class="save">
-            <a href="#">
-                <h6 class="text">save</h6>
-            </a>
-        </article>
-        <article class="cal">
-            <a href="#">
-                <h6 class="text">calendar</h6>
-            </a>
-            <article class="menubar">
-                <button class="cal1" href="#">
-                    <p>공지사항</p>
-                </button>
-                <button class="cal2" href="#">
-                    <p>캘린더보기</p>
-                </button>
+            <article class="awards">
+                <a href="/awards">
+                    <h6 class="text">awards</h6>
+                </a>
             </article>
-        </article>
-        {% if session['id'] %}
-        <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button> {% else %}
-        <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+            <article class="save">
+                <a href="#">
+                    <h6 class="text">save</h6>
+                </a>
+            </article>
+            <<<<<<< HEAD=======< /article>
+                >>>>>>> 556fbd4 (인덱스, 마이페이지)
+                <article class="cal">
+                    <a href="#">
+                        <h6 class="text">calendar</h6>
+                    </a>
+                    <article class="menubar">
+                        <button class="cal1" href="#">
+                            <p>공지사항</p>
+                        </button>
+                        <button class="cal2" href="#">
+                            <p>캘린더보기</p>
+                        </button>
+                    </article>
+                </article>
+                {% if session['id'] %}
+                <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button> {% else %}
+                <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
     </header>
 
     <div id="photo">
