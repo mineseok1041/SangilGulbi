@@ -9,23 +9,16 @@
     width: 20%;
     height: auto;
     position: absolute;
-    top: 1%;
-    left: 2%;
+    top: 0%;
+    left: 5%;
     font-size: 25px;
     font-weight: 10px;
     font-family: 'S-CoreDream-3Light';
 }
 
-#line {
-    position: absolute;
-    top: 10%;
-    width: 98%;
-    border: solid 0.5px rgb(173, 173, 173);
-}
-
 #basic {
     position: absolute;
-    top: 14%;
+    top: 12%;
     left: 3%;
     width: 8%;
     height: auto;
@@ -52,7 +45,7 @@
     color: gray;
 }
 
-#line2 {
+#line {
     position: absolute;
     top: 30%;
     width: 98%;
@@ -61,14 +54,14 @@
 
 .information_box{
     background-color: white;
-    width: 35%;
-    height: 59%;
+    width: 60%;
+    height: 58%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
+    bottom: 5%;
     left: 3%;
 }
 
@@ -79,24 +72,31 @@
     font-family: 'S-CoreDream-3Light';
 }
 
-#name{
+#num {
     position: absolute;
     top: 15%;
     left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
-#e-mail{
+#name{
     position: absolute;
-    top: 40%;
-    left: 3%;
+    top: 15%;
+    left: 50%;
     font-family: 'S-CoreDream-3Light';
 }
 
 #phone{
     position: absolute;
-    top: 65%;
+    top: 50%;
     left: 3%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+#e-mail{
+    position: absolute;
+    top: 50%;
+    left: 50%;
     font-family: 'S-CoreDream-3Light';
 }
 
@@ -122,33 +122,42 @@
 
 .score_box{
     background-color: white;
-    width: 32%;
-    height: 59%;
+    width: 31%;
+    height: 10%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 40%;
+    bottom: 53%;
+    right: 3%;
 }
 
 #score{
-    position: absolute;
-    top: 1%;
-    left: 3%;
+    height: 50%;
     font-family: 'S-CoreDream-3Light';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
 }
 
-.etc_box{
+.awards_box{
     background-color: white;
-    width: 22%;
-    height: 59%;
+    width: 31%;
+    height: 43%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 75%;
+    bottom: 5%;
+    right: 3%;
+}
+
+#awards{
+    font-family: 'S-CoreDream-3Light';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    margin-top: 3%;
 }

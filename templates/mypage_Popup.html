@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage_Popup.css') }}">
+    <title>수정</title>
+</head>
+
+<body>
+    <article class="information_box">
+        <h3 class="info">사용자 정보</h3>
+        <p class="num">학번</p>
+        <input class="num_input">
+
+        <p class="name">이름</p>
+        <input class="name_input">
+
+        <p class="phone">전화번호</p>
+        <input class="phone_input">
+
+        <p class="e-mail">이메일</p>
+        <input class="e-mail_input">
+
+        <button class="fin" onclick="closePopup()">완료</button>
+    </article>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+</body>
+
+</html>

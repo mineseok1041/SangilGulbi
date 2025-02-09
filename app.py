@@ -33,6 +33,11 @@ def signup():
 def mypage():
     return render_template('mypage.html')
 
+# 마이페이지 수정정
+@app.route('/mypage_Popup')
+def mypage_Popup():
+    return render_template('mypage_Popup.html')
+
 # 수상내역
 @app.route('/awards')
 def awards():
