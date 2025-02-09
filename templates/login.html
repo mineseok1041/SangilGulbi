@@ -15,7 +15,7 @@
     <div class="login-container">
         <h1>로그인</h1>
         <p>아직 계정이 없으시다면 회원 가입을 해주세요!</p>
-        <form action="/student/login.do" method="post">
+        <form action="{{ url_for('student.dologin') }}" method="post">
             <label id="email" , for="email"><strong>아이디</strong></label>
             <input type="text" id="email" name="id" required>
             <label id="password" for="password"><strong>비밀번호</strong></label>
