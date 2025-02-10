@@ -71,6 +71,16 @@ def mypage_Popup():
     
     return render_template('mypage_Popup.html', user=user)
 
+# 관리페이지 메인
+@app.route('/mgmt')
+def manager_page():
+    return render_template('manager_page_main.html')
+
+# 관리페이지 유저 관리
+@app.route('/mgmt_user')
+def manager_page_user():
+    return render_template('manager_page_user.html')
+
 # 수상내역
 @app.route('/awards')
 def awards():
