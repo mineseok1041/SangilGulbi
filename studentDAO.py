@@ -189,3 +189,23 @@ class studentDAO:
                 cursor.close()
             if conn:
                 conn.close()
+
+    def updateUserInfo(self, reqDTO: studentDTO):
+        query = "UPDATE student SET firststdnum = :1, name = :2, phone = :3, email = :4 WHERE id = :5"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            cursor.execute(query, [reqDTO.firststdnum, reqDTO.name, reqDTO.phone, reqDTO.email, reqDTO.id])
+            
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()

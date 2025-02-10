@@ -68,3 +68,20 @@ def IDcheck():
     except Exception as e:
         print(e)
         return False
+
+@blue_student.route('/update_user_info', methods=['POST'])
+def update_user_info():
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    student_service = studentSVC.studentSVC()
+    user = studentDTO(
+        id=session['id'],
+        firststdnum=request.form['num'],
+        name=request.form['name'],
+        phone=request.form['phone'],
+        email=request.form['email']
+    )
+    student_service.updateUserInfo(user)
+    
+    return redirect(url_for('mypage'))

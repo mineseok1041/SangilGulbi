@@ -46,3 +46,9 @@ class studentSVC:
             self.DAO.updateProfilePic(reqDTO)
         except Exception as e:
             raise Exception(f"updateProfilePic Error: {e}")
+
+    def updateUserInfo(self, reqDTO:studentDTO):
+        try:
+            self.DAO.updateUserInfo(reqDTO)
+        except Exception as e:
+            raise Exception(f"updateUserInfo Error: {e}")
