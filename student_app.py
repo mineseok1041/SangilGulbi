@@ -2,7 +2,6 @@ from flask import Blueprint, request, redirect, url_for, flash, session
 import studentSVC
 from studentDTO import studentDTO
 
-
 blue_student = Blueprint('student', __name__, url_prefix='/student')
 
 SVC = studentSVC.studentSVC()
@@ -35,14 +34,18 @@ def dologin():
 
         reqDTO = studentDTO(id=id, password=password)
         
-        SVC.login(reqDTO)
-        loginDTO = SVC.getStudentInfo(reqDTO)
-        session['id'] = loginDTO.id
-        session['name'] = loginDTO.name
-
-        return redirect(url_for('index'))
+        if SVC.login(reqDTO):
+            loginDTO = SVC.getStudentInfo(reqDTO)
+            session['id'] = loginDTO.id
+            session['name'] = loginDTO.name
+            session['profile_pic'] = loginDTO.profile_pic  # 프로필 사진 경로를 세션에 저장
+            return redirect(url_for('index'))
+        else:
+            flash('로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.')
+            return redirect(url_for('login'))
     except Exception as e:
         print(e)
+        flash('로그인 중 오류가 발생했습니다.')
         return redirect(url_for('login'))
     
 @blue_student.route('/logout.do')
