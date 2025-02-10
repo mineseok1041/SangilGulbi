@@ -192,3 +192,215 @@
     border-radius: 15px;
     font-family: 'S-CoreDream-3Light';
   }
+
+  @media (max-width: 768px) {
+
+    .header {
+      height: 30%;
+      padding: 0% 1%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .header_logo>img {
+      width: 10%;
+      height: auto;
+      cursor: pointer;
+    }
+  
+    .cal>a {
+      color: black;
+      background: white;
+      display: flex;
+      text-align: center;
+      width: 15%;
+      height: 4%;
+      border-radius: 15px;
+      position: absolute;
+      right: 70%;
+      top: 1.5%;
+      border: 1.5px solid black;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+      font-size: 25px;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .cal1 {
+      width: 70px;
+      height: 25px;
+      position: absolute;
+      right: 71%;
+      top: 45px;
+      color: gray;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+    }
+  
+    .cal2 {
+      width: 70px;
+      height: 25px;
+      position: absolute;
+      right: 71%;
+      top: 70px;
+      color: gray;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+    }
+  
+    .cal>a:hover~.menubar {
+      display: block;
+    }
+  
+    .menubar:hover {
+      display: block;
+    }
+  
+    .menubar {
+      display: none;
+    }
+  
+    .save>a {
+      color: black;
+      background: white;
+      display: flex;
+      text-align: center;
+      width: 13%;
+      height: 4%;
+      border-radius: 15px;
+      position: absolute;
+      right: 55%;
+      top: 1.5%;
+      border: 1.5px solid black;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+      font-size: 25px;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .game>a {
+      color: black;
+      background: white;
+      display: flex;
+      text-align: center;
+      width: 15%;
+      height: 4%;
+      border-radius: 15px;
+      position: absolute;
+      right: 38%;
+      top: 1.5%;
+      border: 1.5px solid black;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+      font-size: 25px;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .game1 {
+      width: 70px;
+      height: 25px;
+      position: absolute;
+      right: 38.5%;
+      top: 45px;
+      color: gray;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+    }
+  
+    .game2 {
+      width: 70px;
+      height: 25px;
+      position: absolute;
+      right: 38.5%;
+      top: 71px;
+      color: gray;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+    }
+  
+    .game>a:hover~.menubar {
+      display: block;
+    }
+  
+    .menubar:hover {
+      display: block;
+    }
+  
+    .menubar {
+      display: none;
+    }
+  
+    .awards>a {
+      color: black;
+      background: white;
+      display: flex;
+      text-align: center;
+      width: 15%;
+      height: 4%;
+      border-radius: 15px;
+      position: absolute;
+      right: 21%;
+      top: 1.5%;
+      border: 1.5px solid black;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+      font-size: 25px;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+  
+    }
+  
+    .login-button {
+      width: 15%;
+      height: 4.5%;
+      position: absolute;
+      top: 1.5%;
+      right: 3%;
+      background-color: #ffd700;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 15px;
+      font-family: 'S-CoreDream-3Light';
+      border: 1.5px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
