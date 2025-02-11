@@ -136,23 +136,41 @@
     font-family: 'S-CoreDream-3Light';
   }
   
-  .game2{
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 26%;
-    top: 75px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-  }
+.game2 {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 26%;
+  top: 75px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
+
+.game3 {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  right: 26%;
+  top: 105px;
+  color: gray;
+  background: white;
+  border: 1px solid gray;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  font-family: 'S-CoreDream-3Light';
+}
   
   .game>a:hover ~ .menubar { display: block; } 
   .menubar:hover {display: block;}
@@ -340,6 +358,24 @@
       position: absolute;
       right: 38.5%;
       top: 71px;
+      color: gray;
+      background: white;
+      border: 1px solid gray;
+      border-radius: 10px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 2;
+      font-family: 'S-CoreDream-3Light';
+    }
+
+    .game3 {
+      width: 70px;
+      height: 25px;
+      position: absolute;
+      right: 38.5%;
+      top: 97px;
       color: gray;
       background: white;
       border: 1px solid gray;
