@@ -2,6 +2,7 @@ from flask import Blueprint, request, redirect, url_for, flash, session
 import studentSVC
 from studentDTO import studentDTO
 
+
 blue_student = Blueprint('student', __name__, url_prefix='/student')
 
 SVC = studentSVC.studentSVC()
@@ -45,7 +46,6 @@ def dologin():
             return redirect(url_for('login'))
     except Exception as e:
         print(e)
-        flash('로그인 중 오류가 발생했습니다.')
         return redirect(url_for('login'))
     
 @blue_student.route('/logout.do')

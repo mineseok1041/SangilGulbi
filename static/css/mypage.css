@@ -1,4 +1,4 @@
-@font-face { 
+@font-face {
     font-family: 'S-CoreDream-3Light';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
     font-weight: normal;
@@ -9,21 +9,26 @@
     width: 20%;
     height: auto;
     position: absolute;
-    top: 0%;
-    left: 5%;
+    top: 1%;
+    left: 2%;
     font-size: 25px;
     font-weight: 10px;
     font-family: 'S-CoreDream-3Light';
 }
 
+#line {
+    position: absolute;
+    top: 10%;
+    width: 98%;
+    border: solid 0.5px rgb(173, 173, 173);
+}
+
 #basic {
     position: absolute;
-    top: 12%;
+    top: 14%;
     left: 3%;
-    width: 150px;  /* 최대 너비를 150px로 제한 */
-    height: 150px; /* 최대 높이를 150px로 제한 */
-    object-fit: cover; /* 이미지가 영역을 벗어나지 않도록 조정 */
-    border-radius: 50%; /* 원형으로 만들기 */
+    width: 8%;
+    height: auto;
 }
 
 #upload {
@@ -47,7 +52,7 @@
     color: gray;
 }
 
-#line {
+#line2 {
     position: absolute;
     top: 30%;
     width: 98%;
@@ -56,14 +61,14 @@
 
 .information_box {
     background-color: white;
-    width: 60%;
-    height: 58%;
+    width: 35%;
+    height: 59%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    bottom: 5%;
+    top: 36%;
     left: 3%;
 }
 
@@ -74,31 +79,24 @@
     font-family: 'S-CoreDream-3Light';
 }
 
-#num {
-    position: absolute;
-    top: 15%;
-    left: 3%;
-    font-family: 'S-CoreDream-3Light';
-}
-
 #name {
     position: absolute;
     top: 15%;
-    left: 50%;
-    font-family: 'S-CoreDream-3Light';
-}
-
-#phone {
-    position: absolute;
-    top: 50%;
     left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
 #e-mail {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 3%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+#phone {
+    position: absolute;
+    top: 65%;
+    left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
@@ -124,29 +122,28 @@
 
 .score_box {
     background-color: white;
-    width: 31%;
-    height: 10%;
+    width: 32%;
+    height: 59%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    bottom: 53%;
-    right: 3%;
+    top: 36%;
+    left: 40%;
 }
 
 #score {
-    height: 50%;
+    position: absolute;
+    top: 1%;
+    left: 3%;
     font-family: 'S-CoreDream-3Light';
-    display: flex;
-    align-items: center;
-    margin-left: 3%;
 }
 
-.awards_box {
+.etc_box {
     background-color: white;
-    width: 31%;
-    height: 43%;
+    width: 22%;
+    height: 59%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
