@@ -169,23 +169,3 @@ class studentDAO:
                 cursor.close()
             if conn:
                 conn.close()
-
-    def updateProfilePic(self, reqDTO: studentDTO):
-        query = "UPDATE student SET profile_pic = :1 WHERE id = :2"
-        
-        conn = None
-        cursor = None
-        try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
-            
-            cursor.execute(query, [reqDTO.profile_pic, reqDTO.id])
-            
-            conn.commit()
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"DB Error: {e}")
-        finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
