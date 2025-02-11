@@ -7,24 +7,24 @@
 
 .header {
   height: 10%;
-  padding: 0% 1%;
+  padding: 0px 10px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
 }
 
-.header_logo>img {
+.header_logo > img {
   width: 4%;
   height: auto;
   cursor: pointer;
 }
 
-.cal>a {
+.cal > a {
   color: black;
   background: white;
   display: flex;
   text-align: center;
-  width: 9%;
-  height: 5%;
+  width: 130px;
+  height: 35px;
   border-radius: 15px;
   position: absolute;
   right: 45%;
@@ -43,7 +43,7 @@
   height: 30px;
   position: absolute;
   right: 46%;
-  top: 47px;
+  top: 45px;
   color: gray;
   background: white;
   border: 1px solid gray;
@@ -61,7 +61,7 @@
   height: 30px;
   position: absolute;
   right: 46%;
-  top: 77px;
+  top: 75px;
   color: gray;
   background: white;
   border: 1px solid gray;
@@ -74,7 +74,7 @@
   font-family: 'S-CoreDream-3Light';
 }
 
-.cal>a:hover~.menubar {
+.cal > a:hover ~ .menubar {
   display: block;
 }
 
@@ -86,13 +86,13 @@
   display: none;
 }
 
-.save>a {
+.save > a {
   color: black;
   background: white;
   display: flex;
   text-align: center;
-  width: 9%;
-  height: 5%;
+  width: 130px;
+  height: 35px;
   border-radius: 15px;
   position: absolute;
   right: 35%;
@@ -106,13 +106,13 @@
   justify-content: center;
 }
 
-.game>a {
+.game > a {
   color: black;
   background: white;
   display: flex;
   text-align: center;
-  width: 9%;
-  height: 5%;
+  width: 130px;
+  height: 35px;
   border-radius: 15px;
   position: absolute;
   right: 25%;
@@ -162,7 +162,7 @@
   font-family: 'S-CoreDream-3Light';
 }
 
-.game>a:hover~.menubar {
+.game > a:hover ~ .menubar {
   display: block;
 }
 
@@ -174,13 +174,13 @@
   display: none;
 }
 
-.awards>a {
+.awards > a {
   color: black;
   background: white;
   display: flex;
   text-align: center;
-  width: 9%;
-  height: 5%;
+  width: 130px;
+  height: 35px;
   border-radius: 15px;
   position: absolute;
   right: 15%;
@@ -192,7 +192,6 @@
   text-decoration: none;
   align-items: center;
   justify-content: center;
-
 }
 
 .login-button {
@@ -209,23 +208,18 @@
   font-family: 'S-CoreDream-3Light';
 }
 
-.logout {
-  width: 10%;
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   position: absolute;
   top: 1%;
-  right: 3%;
-  background-color: #ff4d4d;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 15px;
-  font-family: 'S-CoreDream-3Light';
-  color: white;
+  right: 5%;
+  border: 1.5px solid black;
+  object-fit: cover; /* 이미지가 원형 안에 맞게 조정되도록 설정 */
 }
 
 @media (max-width: 768px) {
-
   .header {
     height: 30%;
     padding: 0% 1%;
@@ -233,13 +227,13 @@
     border-bottom: 1px solid #ddd;
   }
 
-  .header_logo>img {
+  .header_logo > img {
     width: 10%;
     height: auto;
     cursor: pointer;
   }
 
-  .cal>a {
+  .cal > a {
     color: black;
     background: white;
     display: flex;
@@ -295,7 +289,7 @@
     font-family: 'S-CoreDream-3Light';
   }
 
-  .cal>a:hover~.menubar {
+  .cal > a:hover ~ .menubar {
     display: block;
   }
 
@@ -307,7 +301,7 @@
     display: none;
   }
 
-  .save>a {
+  .save > a {
     color: black;
     background: white;
     display: flex;
@@ -327,7 +321,7 @@
     justify-content: center;
   }
 
-  .game>a {
+  .game > a {
     color: black;
     background: white;
     display: flex;
@@ -383,7 +377,7 @@
     font-family: 'S-CoreDream-3Light';
   }
 
-  .game>a:hover~.menubar {
+  .game > a:hover ~ .menubar {
     display: block;
   }
 
@@ -395,7 +389,7 @@
     display: none;
   }
 
-  .awards>a {
+  .awards > a {
     color: black;
     background: white;
     display: flex;
@@ -413,7 +407,6 @@
     text-decoration: none;
     align-items: center;
     justify-content: center;
-
   }
 
   .login-button {
@@ -435,23 +428,14 @@
     align-items: center;
   }
 
-  .logout {
-    width: 15%;
-    height: 4.5%;
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     position: absolute;
     top: 1.5%;
-    right: 3%;
-    background-color: #ff4d4d;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 15px;
-    font-family: 'S-CoreDream-3Light';
-    color: white;
+    right: 5%;
     border: 1.5px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
   }
 }

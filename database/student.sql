@@ -57,5 +57,3 @@ BEGIN
 END;
 
 commit;
-
-ALTER TABLE student ADD profile_pic VARCHAR2(255);
