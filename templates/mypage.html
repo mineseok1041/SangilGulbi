@@ -12,23 +12,43 @@
     <h1 id="mypage">My Page</h1>
     <hr id="line">
     <div id="photo">
-        <img id="basic" src="{{ url_for('static', filename='/img/인스타기본프사.jpg') }}">
-        <button id="upload">사진 업로드</button>
-        <p id="text">800x800 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
+        <img id="basic"
+            src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}">
+        <form id="uploadForm" action="{{ url_for('upload.upload_profile_pic') }}" method="POST"
+            enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;"
+                onchange="previewImage(event)">
+            <button type="button" id="upload" onclick="document.getElementById('fileInput').click();">사진 업로드</button>
+        </form>
+        <p id="text">400x400 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
     </div>
     <hr id="line2">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-        <p id="name">이름</p>
-        <p id="e-mail">이메일</p>
-        <p id="phone">전화번호</p>
-        <button class="add">수정</button>
+        <p id="num">학번: {{ user.firststdnum }}</p>
+        <p id="name">이름: {{ user.name }}</p>
+        <p id="phone">전화번호: {{ user.phone }}</p>
+        <p id="e-mail">이메일: {{ user.email }}</p>
+        <button class="add" onclick="openPopup()">수정</button>
     </article>
     <article class="score_box">
         <h3 id="score">상벌점</h3>
     </article>
     <article class="etc_box">
     </article>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById('basic');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            document.getElementById('uploadForm').submit();
+        }
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 </body>
 
 </html>
