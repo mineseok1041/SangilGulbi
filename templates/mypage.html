@@ -69,11 +69,10 @@
     <hr id="line">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-        <p id="num">학번: {{ user.firststdnum }}</p>
-        <p id="name">이름: {{ user.name }}</p>
-        <p id="phone">전화번호: {{ user.phone }}</p>
-        <p id="e-mail">이메일: {{ user.email }}</p>
-        <button class="add" onclick="openPopup()">수정</button>
+        <p id="name">이름</p>
+        <p id="e-mail">이메일</p>
+        <p id="phone">전화번호</p>
+        <button class="add">수정</button>
     </article>
     <article class="score_box">
         <h3 id="score">상벌점</h3>
@@ -94,6 +93,7 @@
         }
     </script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+
 </body>
 
 </html>

@@ -34,15 +34,12 @@ def dologin():
 
         reqDTO = studentDTO(id=id, password=password)
         
-        if SVC.login(reqDTO):
-            loginDTO = SVC.getStudentInfo(reqDTO)
-            session['id'] = loginDTO.id
-            session['name'] = loginDTO.name
-            session['profile_pic'] = loginDTO.profile_pic
-            return redirect(url_for('index'))
-        else:
-            flash('로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.')
-            return redirect(url_for('login'))
+        SVC.login(reqDTO)
+        loginDTO = SVC.getStudentInfo(reqDTO)
+        session['id'] = loginDTO.id
+        session['name'] = loginDTO.name
+
+        return redirect(url_for('index'))
     except Exception as e:
         print(e)
         flash('로그인 중 오류가 발생했습니다.')
@@ -68,20 +65,3 @@ def IDcheck():
     except Exception as e:
         print(e)
         return False
-
-@blue_student.route('/update_user_info', methods=['POST'])
-def update_user_info():
-    if 'id' not in session:
-        return redirect(url_for('login'))
-    
-    student_service = studentSVC.studentSVC()
-    user = studentDTO(
-        id=session['id'],
-        firststdnum=request.form['num'],
-        name=request.form['name'],
-        phone=request.form['phone'],
-        email=request.form['email']
-    )
-    student_service.updateUserInfo(user)
-    
-    return redirect(url_for('mypage'))

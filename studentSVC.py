@@ -52,3 +52,4 @@ class studentSVC:
             self.DAO.updateUserInfo(reqDTO)
         except Exception as e:
             raise Exception(f"updateUserInfo Error: {e}")
+

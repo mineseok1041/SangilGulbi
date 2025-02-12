@@ -3,9 +3,9 @@
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
-#mypage {
+#mypage{
     width: 20%;
     height: auto;
     position: absolute;
@@ -54,7 +54,7 @@
     border: solid 0.5px rgb(173, 173, 173);
 }
 
-.information_box {
+.information_box{
     background-color: white;
     width: 60%;
     height: 58%;
@@ -67,7 +67,7 @@
     left: 3%;
 }
 
-#info {
+#info{
     position: absolute;
     top: 1%;
     left: 3%;
@@ -75,6 +75,7 @@
 }
 
 #num {
+
     position: absolute;
     top: 15%;
     left: 3%;
@@ -82,13 +83,14 @@
 }
 
 #name {
+
     position: absolute;
     top: 15%;
     left: 50%;
     font-family: 'S-CoreDream-3Light';
 }
 
-#phone {
+#phone{
     position: absolute;
     top: 50%;
     left: 3%;
@@ -103,6 +105,7 @@
 }
 
 .add {
+
     width: 20%;
     height: 8%;
     position: absolute;
@@ -120,9 +123,9 @@
 
 .add button:hover {
     background: #ffbb00;
-}
+  }
 
-.score_box {
+.score_box{
     background-color: white;
     width: 31%;
     height: 10%;
@@ -137,6 +140,7 @@
 
 #score {
     height: 50%;
+
     font-family: 'S-CoreDream-3Light';
     display: flex;
     align-items: center;
@@ -144,6 +148,7 @@
 }
 
 .awards_box {
+
     background-color: white;
     width: 31%;
     height: 43%;
@@ -152,33 +157,6 @@
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    bottom: 5%;
-    right: 3%;
-}
-
-#awards {
-    font-family: 'S-CoreDream-3Light';
-    display: flex;
-    align-items: center;
-    margin-left: 3%;
-    margin-top: 3%;
-}
-
-.logout {
-    width: 10%;
-    height: 4.5%;
-    position: absolute;
-    top: 1.5%;
-    right: 3%;
-    background-color: #ffd700;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 15px;
-    font-family: 'S-CoreDream-3Light';
-    border: 1.5px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 36%;
+    left: 75%;
 }
