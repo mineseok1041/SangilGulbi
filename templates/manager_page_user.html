@@ -12,14 +12,16 @@
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <div class="nav_logo">
-            <a href="{{ url_for('manager_page') }}" class="link_main">
+            <a href="/" class="link_main">
                 <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
             </a>
         </div>
         <div class="nav_menu">
-            <span class="title">Manager Page</span>
-            <a href="{{ url_for('manager_page_user') }}" class="link_user">사용자 관리</a>
-            <!-- 이 부분 수정 -->
+
+            <span class="title">
+                <a href="/mgmt" class="link_mgmt">Manager Page</a>
+            </span>
+            <a href="/mgmt_user" class="link_user">사용자 관리</a>
         </div>
         <div class="nav_user">
             <a href="" class="click_mypage">
@@ -33,23 +35,27 @@
         <div class="header">
             <div class="icon_box">
                 <div class="icons">
-                    <!-- 비밀번호 관리 아이콘 클릭 시 pwModal 열기 -->
-                    <a href="javascript:void(0)" class="password_management" onclick="openModal('pwModal')">
+                    <!-- 비밀번호 관리 -->
+                    <a href="javascript:void(0)" class="password_management" onclick="openModal('pwModal')"
+                        title="비밀번호 재설정">
                         <img src="{{ url_for('static', filename='img/pw_mgmt.png') }}" alt="pwmgmt">
                     </a>
 
-                    <!-- 포인트 관리 아이콘 클릭 시 pointModal 열기 -->
-                    <a href="javascript:void(0)" class="point_management" onclick="openModal('pointModal')">
+                    <!-- 포인트 관리 -->
+                    <a href="javascript:void(0)" class="point_management" onclick="openModal('rewardModal')"
+                        title="상벌점 관리">
                         <img src="{{ url_for('static', filename='img/point_mgmt.png') }}" alt="pointmgmt">
                     </a>
 
-                    <!-- 상벌점 관리 아이콘 클릭 시 awardModal 열기 -->
-                    <a href="javascript:void(0)" class="award_management" onclick="openModal('awardModal')">
+                    <!-- 상벌점 관리 -->
+                    <a href="javascript:void(0)" class="award_management" onclick="openModal('awardModal')"
+                        title="수상 내역 관리">
                         <img src="{{ url_for('static', filename='img/award_mgmt.png') }}" alt="awardmgmt">
                     </a>
 
-                    <!-- 계정 삭제 아이콘 클릭 시 deleteModal 열기 -->
-                    <a href="javascript:void(0)" class="delete_management" onclick="openModal('deleteModal')">
+                    <!-- 계정 삭제 -->
+                    <a href="javascript:void(0)" class="delete_management" onclick="openModal('deleteModal')"
+                        title="계정 삭제">
                         <img src="{{ url_for('static', filename='img/delete_account.png') }}" alt="deletemgmt">
                     </a>
                 </div>
@@ -63,7 +69,7 @@
             <div id="pwModal" class="modal pw-modal">
                 <div class="modal-content">
                     <div class="password-container">
-                        <label>비밀번호 변경</label>
+                        <label>비밀번호 재설정</label>
                         <h2>여러 사용자를 선택했을 경우 일괄로 수정되기 때문에 유의하여 사용해주시길 바랍니다.</h2>
                         <div class="password-input">
                             <input type="password" id="newPassword" placeholder="새 비밀번호" />
@@ -81,21 +87,75 @@
                         </div>
                         <button onclick="changePassword()">변경</button>
                     </div>
-
                 </div>
             </div>
 
-            <div id="pointModal" class="modal point-modal">
+            <!-- ✅ 상점 모달 -->
+            <div id="rewardModal" class="modal">
                 <div class="modal-content">
-                    <h2>상벌점 관리</h2>
-                    <p>상벌점 관리입니다~!</p>
+                    <h2>상점 관리</h2>
+                    <div class="point-container">
+                        <div class="select-options">
+                            <select id="rewardSelect" onchange="updatePointValue('rewardSelect', 'rewardInput')">
+                                <option value="">사유를 선택하세요</option>
+                                <option value="1">숙제를 성실히 함 (+1점)</option>
+                                <option value="2">수업시간에 집중을 잘함 (+2점)</option>
+                                <option value="3">친구를 도와줌 (+3점)</option>
+                                <option value="5">학교 행사 참여 (+5점)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="point-input-container">
+                        <label for="rewardInput">상점:</label>
+                        <input type="number" id="rewardInput" value="0" readonly />
+                        <button id="saveRewardButton">저장</button>
+                    </div>
+                    <div class="point-buttons">
+                        <!-- 상점 & 벌점 버튼 -->
+                        <button id="penaltyButton" onclick="openModal('penaltyModal'); closeModal('rewardModal')">벌점 관리
+                            >></button>
+                    </div>
                 </div>
             </div>
 
+            <!-- ✅ 벌점 모달 -->
+            <div id="penaltyModal" class="modal">
+                <div class="modal-content">
+                    <h2>벌점 관리</h2>
+                    <div class="point-container">
+                        <div class="select-options">
+                            <select id="penaltySelect" onchange="updatePointValue('penaltySelect', 'penaltyInput')">
+                                <option value="">사유를 선택하세요</option>
+                                <option value="-2">수업 중 잡담 (-2점)</option>
+                                <option value="-3">무단 지각 (-3점)</option>
+                                <option value="-5">무단 결석 (-5점)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="point-input-container">
+                        <label for="penaltyInput">벌점:</label>
+                        <input type="number" id="penaltyInput" value="0" readonly />
+                        <button onclick="updatePoints('penaltyInput')">저장</button>
+                    </div>
+                    <div class="point-buttons">
+                        <!-- 상점 & 벌점 버튼 -->
+                        <button id="rewardButton" onclick="openModal('rewardModal'); closeModal('penaltyModal')">
+                            << 상점 관리</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ 수상 내역 모달 -->
             <div id="awardModal" class="modal award-modal">
                 <div class="modal-content">
-                    <h2>수상 내역</h2>
-                    <p>수상 내역입니다~</p>
+                    <h2>수상 내역 관리</h2>
+                    <div class="award-container">
+                        <div class="award-input">
+                            <label for="award-input">수상 내역 추가</label>
+                            <input type="text" id="awardTitle" placeholder="대회 이름과 상의 이름을 적어주세요. (ex. 전공학술대회 우수상)" />
+                        </div>
+                        <button onclick="saveAward()">저장</button>
+                    </div>
                 </div>
             </div>
 
@@ -163,5 +223,6 @@
 
     <script src="{{ url_for('static', filename='js/manager_page_user.js') }}"></script>
 </body>
+<<<<<<< HEAD=======>>>>>>> 46c6ee8 (프론트 대부분 마무리)
 
 </html>
