@@ -10,13 +10,15 @@
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <div class="nav_logo">
-            <a href="{{ url_for('manager_page') }}" class="link_main">
+            <a href="/" class="link_main">
                 <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
             </a>
         </div>
         <div class="nav_menu">
-            <span class="title">Manager Page</span>
-            <a href="{{ url_for('manager_page_user') }}" class="link_user">사용자 관리</a> <!-- 이 부분 수정 -->
+            <span class="title">
+                <a href="/mgmt" class="link_mgmt">Manager Page</a>
+            </span>
+            <a href="/mgmt_user" class="link_user">사용자 관리</a>
         </div>    
         <div class="nav_user">
             <a href="" class="click_mypage">

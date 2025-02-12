@@ -12,8 +12,7 @@ body {
     background-color: #ffffff;
 }
 
-/*' 네비바 css 설정 '*/
-
+/* 네비게이션 바 */
 .navbar {
     display: flex;
     align-items: center;
@@ -23,11 +22,6 @@ body {
     min-width: 700px;
 }
 
-.nav_logo {
-    display: flex;
-    align-items: center;
-}
-
 .nav_logo img {
     width: 110px;
     height: auto;
@@ -35,20 +29,21 @@ body {
 
 .nav_menu {
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav_menu span {
     color: white;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 10px;
 }
 
 .nav_menu a {
     color: white;
     text-decoration: none;
     font-size: 28px;
-    margin-left: 45.5px;
+    margin-left: 30px;
 }
 
 .nav_menu a:hover {
@@ -63,7 +58,6 @@ body {
     width: 50px;
     height: auto;
 }
-
 
 /* 관리 페이지 메인 박스 css 설정 */
 

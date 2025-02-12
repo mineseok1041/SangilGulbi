@@ -40,14 +40,13 @@ html, body {
     color: white;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 10px;
 }
 
 .nav_menu a {
     color: white;
     text-decoration: none;
     font-size: 28px;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .nav_menu a:hover {
@@ -184,6 +183,10 @@ tbody tr:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
 }
 
+.modal-content h2 {
+    font-size: 30px;
+}
+
 /* pwModal 스타일 */
 #pwModal .modal-content {
     background-color: #ffd380fa; /* pwModal 배경색 */
@@ -257,16 +260,208 @@ button:hover {
     background-color: #45a049;
 }
 
+/* 상벌점 모달 스타일 */
+#rewardModal .modal-content,
+#penaltyModal .modal-content {
+    background-color: #ffd380fa; /* 배경색 */
+    width: 500px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* 상벌점 입력 폼 스타일 */
+.point-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    margin: 10px 0;
+}
+
+/* 드롭다운 및 입력창 스타일 */
+.point-container select,
+.point-container input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.select-options {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    gap: 5%;
+}
+
+.select-options select {
+    width: 100%;
+}
+
+.select-options button:hover {
+    background-color: #45a049;
+}
+
+.point-input-container {
+    display: flex;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+}
+
+.point-input-container label {
+    font-size: 20px;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+.point-input-container input {
+    width: 80%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.point-input-container button {
+    width: 15%;
+    padding: 7px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 42.5%;
+}
+
+#rewardInput,
+#penaltyInput {
+    font-size: 20px;
+    width: 10%;
+    text-align: center;
+    margin-top: 3.75%;
+}
+
+.point-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 25%;
+}
+
+.point-buttons button {
+    width: 30%;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 3%;
+}
+
+/* 버튼 스타일 */
+#rewardButton {
+    background-color: #4CAF50;
+}
+
+#rewardModalButton:hover {
+    background-color: #45a049;
+}
+
+#penaltyButton {
+    background-color: #fc5234fa;
+
+}
+
+#penaltyButton:hover {
+    background-color: #db4b31fa;
+}
 
 
-/* pointModal 스타일 */
-#pointModal .modal-content {
-    background-color: #ffd380fa; /* pointModal 배경색 */
+/* 공통 모달 내용 스타일 */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px; /* 둥글둥글하게 */
+    text-align: center;
+    width: 80%; /* 모달의 너비를 화면 비율로 설정 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
+}
+
+.modal-content h2 {
+    font-size: 30px;
 }
 
 /* awardModal 스타일 */
 #awardModal .modal-content {
     background-color: #ffd380fa; /* awardModal 배경색 */
+    width: 40%;
+    height: auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.award-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+    margin: 10px 0;
+}
+
+.award-input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.award-input label {
+    font-size: 18px;
+    text-align: left;
+}
+
+.award-input input,
+.award-input textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.award-input textarea {
+    resize: vertical; /* 수직 크기 조절 가능 */
+    height: 100px; /* 기본 높이 */
+}
+
+.award-container button {
+    width: 20%;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 3%;
+}
+
+.award-container button:hover {
+    background-color: #45a049;
 }
 
 /* deleteModal 스타일 */
