@@ -29,7 +29,6 @@ class studentSVC:
                     raise Exception("비밀번호가 일치하지 않습니다.")
             else:
                 raise Exception("존재하지 않는 ID입니다.")
-            
         except Exception as e:
             raise Exception(f"Login Error: {e}")
         

@@ -19,3 +19,4 @@ class studentDTO:
     parentphone: str = None
     email: str = None
     birth: str = None
+    profile_pic: str = None
