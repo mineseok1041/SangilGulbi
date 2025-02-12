@@ -29,6 +29,7 @@ class studentSVC:
                     raise Exception("비밀번호가 일치하지 않습니다.")
             else:
                 raise Exception("존재하지 않는 ID입니다.")
+            
         except Exception as e:
             raise Exception(f"Login Error: {e}")
         
@@ -40,16 +41,3 @@ class studentSVC:
                 return False
         except Exception as e:
             raise Exception(f"isIDExist Error: {e}")
-
-    def updateProfilePic(self, reqDTO:studentDTO):
-        try:
-            self.DAO.updateProfilePic(reqDTO)
-        except Exception as e:
-            raise Exception(f"updateProfilePic Error: {e}")
-
-    def updateUserInfo(self, reqDTO:studentDTO):
-        try:
-            self.DAO.updateUserInfo(reqDTO)
-        except Exception as e:
-            raise Exception(f"updateUserInfo Error: {e}")
-
