@@ -1,0 +1,45 @@
+<header class="header">
+  <a class="header_logo" href="/">
+    <img src="{{ url_for('static', filename='/img/logo.png') }}" alt="GB">
+  </a>
+  <article class="game">
+    <a href="#">
+      <h6 class="text">game</h6>
+    </a>
+    <article class="menubar">
+      <button class="game1">
+        <p>사다리타기</p>
+      </button>
+      <button class="game2">
+        <p>룰렛 돌리기</p>
+      </button>
+    </article>
+  </article>
+  <article class="awards">
+    <a href="/awards">
+      <h6 class="text">awards</h6>
+    </a>
+  </article>
+  <article class="save">
+    <a href="#">
+      <h6 class="text">save</h6>
+    </a>
+  </article>
+  <article class="cal">
+    <a href="#">
+      <h6 class="text">calendar</h6>
+    </a>
+    <article class="menubar">
+      <button class="cal1">
+        <p>공지사항</p>
+      </button>
+      <button class="cal2">
+        <p>캘린더보기</p>
+      </button>
+    </article>
+  </article>
+  <button class="logout" onClick="location.href='/student/logout.do'">LOGOUT</button>
+  <a class="mypage" href="/mypage">
+    <img src="{{ url_for('static', filename='/img/인스타기본프사.jpg') }}">
+  </a>
+</header>
