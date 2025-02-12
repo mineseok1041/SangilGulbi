@@ -1,12 +1,19 @@
-from flask import Flask, render_template, Blueprint
+from flask import Flask, redirect, render_template, session, url_for
 from flask_cors import CORS
 import student_app
+import upload
+import os
+import studentSVC
+from studentDTO import studentDTO
 
-app  = Flask(__name__)
+app = Flask(__name__)
 CORS(app)
 app.register_blueprint(student_app.blue_student)
+app.register_blueprint(upload.upload_bp)
 
 app.secret_key = 'ggulbi'
+
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
 
 # 메인페이지
 @app.route('/')
@@ -31,7 +38,24 @@ def signup():
 # 마이페이지
 @app.route('/mypage')
 def mypage():
-    return render_template('mypage.html')
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    student_service = studentSVC.studentSVC()
+    user = student_service.getStudentInfo(studentDTO(id=session['id']))
+    
+    return render_template('mypage.html', user=user)
+
+# 마이페이지 수정
+@app.route('/mypage_Popup')
+def mypage_Popup():
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    student_service = studentSVC.studentSVC()
+    user = student_service.getStudentInfo(studentDTO(id=session['id']))
+    
+    return render_template('mypage_Popup.html', user=user)
 
 # 수상내역
 @app.route('/awards')

@@ -15,7 +15,8 @@ create table student (
     phone varchar2(12),
     parentphone varchar2(12),
     email varchar2(50),
-    birth varchar2(8)
+    birth varchar2(8),
+    profile_pic varchar2(255)
 );
 
 create sequence seq_student_id
@@ -56,4 +57,3 @@ BEGIN
 END;
 
 commit;
-
