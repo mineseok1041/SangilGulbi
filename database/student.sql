@@ -56,5 +56,4 @@ BEGIN
 END;
 
 commit;
-commit;
 

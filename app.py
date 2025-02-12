@@ -1,4 +1,4 @@
-from flask import Flask, redirect, Blueprint, render_template, session, url_for
+from flask import Flask, render_template, Blueprint
 from flask_cors import CORS
 import student_app
 
@@ -32,17 +32,6 @@ def signup():
 @app.route('/mypage')
 def mypage():
     return render_template('mypage.html')
-
-# 마이페이지 수정
-@app.route('/mypage_Popup')
-def mypage_Popup():
-    if 'id' not in session:
-        return redirect(url_for('login'))
-    
-    student_service = studentSVC.studentSVC()
-    user = student_service.getStudentInfo(studentDTO(id=session['id']))
-    
-    return render_template('mypage_Popup.html', user=user)
 
 # 수상내역
 @app.route('/awards')

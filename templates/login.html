@@ -9,18 +9,21 @@
 </head>
 
 <body>
+    <a href="/">
+        <img id="exit" src="/png/Exit.png">
+    </a>
     <div class="login-container">
         <h1>로그인</h1>
         <p>아직 계정이 없으시다면 회원 가입을 해주세요!</p>
         <form action="/student/login.do" method="post">
-            <label class="email" , for="email"><strong>아이디</strong></label>
-
-            <div class=" ">
-                <input type="text" class="email" name="id" required>
-            </div>
-            <label class="password" for="password"><strong>비밀번호</strong></label>
+            <label id="email" , for="email"><strong>아이디</strong></label>
+            <input type="text" id="email" name="id" required>
+            <label id="password" for="password"><strong>비밀번호</strong></label>
             <div class="password-container">
-                <input type="password" class="password" name="password" required>
+                <input type="password" id="password" name="password" required>
+                <button type="button" class="toggle-password">
+                    <img src="/png/eye_icon.png" alt="Show/Hide Password">
+                </button>
             </div>
             <small>비밀번호는 숫자, 영문자를 포함한 8글자 이상으로 작성해주세요.</small>
             <div class="remember-me">
@@ -30,6 +33,23 @@
             <button type="submit" class="login-btn">로그인</button>
             <a href="/forget" class="forgot-password">비밀번호를 잊어버리셨나요?</a>
         </form>
+        <div class="social-login">
+            <p><strong>또는 다음 계정으로 로그인 하기:</strong></p>
+            <div class="social-buttons">
+                <button class="google-btn">
+                    <img src="/png/google_icon.png" alt="Google">
+                    Google
+                </button>
+                <button class="apple-btn">
+                    <img src="/png/apple_icon.png" alt="Apple">
+                    Apple
+                </button>
+                <button class="twitter-btn">
+                    <img src="/png/twitter_icon.png" alt="Twitter">
+                    Twitter
+                </button>
+            </div>
+        </div>
         <p class="signup-prompt">아직 계정이 없으신가요? <a href="/signup">회원가입 하기!</a></p>
     </div>
 </body>

@@ -49,48 +49,42 @@ label {
 }
 
 input[type="email"],
-input[type="text"]{
-    width: 100%;
-    padding: 9px;
-    margin-bottom: 5%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: "Jua", sans-serif;
-    z-index: 1;
-}
-
 input[type="password"] {
     width: 100%;
-    padding: 9px;
-    margin-bottom: 5px;
+    padding: 12px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     font-family: "Jua", sans-serif;
-    z-index: 1;
 }
-
-
 
 .password-container {
     position: relative;
     width: 100%;
 }
 
-.e-mail-container {
-    position: relative;
-    width: 100%;
+.toggle-password {
+    position: absolute;
+    right: -10px;
+    top: 40%;
+    transform: translateY(-50%); /* 중앙에 위치 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.email-container {
-    position: relative; /* 내부 요소를 상대적으로 배치할 수 있도록 설정 */
-    display: flex; /* 내부 요소를 가로 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
+
+.toggle-password img {
+    height: 20px; /* 높이 설정 (수정 가능) */
+    width: 40px; /* 너비는 자동으로 설정되어 비율 유지 */
 }
 
 small {
     display: block;
-    margin-bottom: 5%;
+    margin-bottom: 25px;
     color: #999;
     font-size: 14px;
     font-family: "Jua", sans-serif;
@@ -99,12 +93,12 @@ small {
 .remember-me {
     display: flex;
     align-items: center;
-    margin-bottom: 15%;
+    margin-bottom: 20px;
 }
 
 .remember-me label {
     position: absolute;
-    top: 54%;
+    top: 51%;
     left: 10%;
     margin-left: 5px;
     font-size: 16px;
@@ -117,11 +111,9 @@ small {
     padding: 12px;
     background-color: #FCD363;
     border: none;
-    position: relative;
     border-radius: 5px;
     color: #fff;
     font-size: 18px;
-    bottom: 1%;
     cursor: pointer;
     margin-bottom: 5px;
     transition: background-color 0.3s;
@@ -137,8 +129,45 @@ small {
     text-align: right;
     color: #9CA3AF;
     font-size: 14px;
-    margin-bottom: 29px;
+    margin-bottom: 25px;
     font-family: "Jua", sans-serif;
+}
+
+.social-login {
+    margin-top: 25px;
+}
+
+.social-login p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: "Jua", sans-serif;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-buttons button {
+    width: 32%;
+    padding: 10px;
+    border: 1px solid #9CA3AF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #9CA3AF;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Jua", sans-serif;
+}
+
+.social-buttons button img {
+    height: 20px; /* 아이콘의 높이만 설정 */
+    margin-right: 8px;
 }
 
 .signup-prompt {
@@ -152,14 +181,18 @@ small {
     font-family: "Jua", sans-serif;
 }
 
-.email{
+#email{
     font-family: "Jua", sans-serif;
 }
 
-.password{
+#password{
     font-family: "Jua", sans-serif;
 }
 
-.e-mail{
-    font-family: "Jua", sans-serif;
+#exit{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    left: 30px;
 }
