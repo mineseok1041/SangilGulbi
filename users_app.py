@@ -87,10 +87,10 @@ def update_user_info():
         return redirect(url_for('login'))
     
     users_service = usersSVC.usersSVC()
-    num = str(request.form['num'])
+    num = str(request.form['num']).strip()  # 공백 제거
     currentgrade = int(num[0])
-    currentclass = int(num[1])*10+int(num[2])
-    currentnum = int(num[3])*10+int(num[4])
+    currentclass = int(num[1]) * 10 + int(num[2])
+    currentnum = int(num[3]) * 10 + int(num[4])
     
     user = usersDTO(
         id=session['id'],
