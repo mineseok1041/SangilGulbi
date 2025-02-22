@@ -16,9 +16,9 @@
         </div>
         <div class="nav_menu">
             <span class="title">
-                <a href="/mgmt" class="link_mgmt">Manager Page</a>
-            </span>
-            <a href="/mgmt_user" class="link_user">사용자 관리</a>
+                <a href="/mgmt" class="link_mgmt">Manager Page</a></span>
+                <a href="/mgmt_user" class="link_user">학생 관리</a>
+                <a href="/mgmt_add" class="link_add">관리자 추가</a>
         </div>    
         <div class="nav_user">
             <a href="" class="click_mypage">
@@ -26,11 +26,15 @@
             </a>
         </div>
     </nav>
-    <!-- 사용자, 일정, 공지사항 박스 -->
+    <!-- 학생, 일정, 공지사항 박스 -->
     <div class="box_container">
         <div class="box user_box">
-            <img src="{{ url_for('static', filename='img/user.png') }}" alt="User">
-            <h1>사용자</h1>
+            <div class="user_box_header">
+                <img src="{{ url_for('static', filename='img/user.png') }}" alt="User">
+                <h1>학생</h1>
+            </div>
+            <div id="userCount">11</div>  <!-- 학생 수 표시 -->
+            <div class="expand_arrow" onclick="toggleUserBox()">&#9660;</div>  <!-- 화살표 추가 -->
         </div>
         <div class="box calendar_box">
             <img src="{{ url_for('static', filename='img/calendar.png') }}" alt="Calendar">
