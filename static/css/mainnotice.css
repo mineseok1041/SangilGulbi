@@ -163,9 +163,39 @@ th {
 .pagination button:hover {
     background-color: rgb(104, 104, 104);
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1024px) {
     .container {
         width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .top-controls {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-controls {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-box input {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 98%;
         padding: 10px;
     }
 
@@ -174,38 +204,43 @@ th {
         text-align: center;
     }
 
-    .header {
+    .top-controls {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    /* 🔥 검색창과 버튼이 한 줄로 유지되도록 수정 */
     .right-controls {
+        flex-direction: column;
+        align-items: center;
         width: 100%;
-        display: flex;
-        justify-content: center; /* 🔥 중앙 정렬 유지 */
-        flex-wrap: wrap;
-        gap: 10px;
     }
 
     .search-box, .add-box {
-        display: flex;
-        flex-direction: row; /* 🔥 버튼과 검색창이 한 줄 유지 */
+        width: 100%;
         justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: auto;
+        gap: 5px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .add {
+        width: 100%;
     }
 
     table {
-        width: 100%;
-        overflow-x: auto;
+        font-size: 14px;
     }
 
     th, td {
-        font-size: 14px;
         padding: 10px;
+    }
+
+    .pagination {
+        width: 90%;
+        bottom: 10px;
     }
 }
 
@@ -214,14 +249,8 @@ th {
         font-size: 24px;
     }
 
-    .right-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .search-box, .add-box {
-        flex-direction: column; /* 🔥 작은 화면에서는 세로 정렬 */
-        gap: 5px;
+        flex-direction: column;
         width: 100%;
     }
 
@@ -231,6 +260,24 @@ th {
 
     .add {
         width: 100%;
-        text-align: center;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 5px;
+        padding: 5px;
+    }
+
+    .pagination button {
+        font-size: 12px;
+        padding: 5px;
     }
 }
