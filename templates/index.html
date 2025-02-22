@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-  {% if session['id'] %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/header2.css') }}">
-  {% endif %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}"> {% if session['id'] %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header2.css') }}"> {% endif %}
 </head>
 
 <body>
@@ -57,13 +55,13 @@
             </article>
           </article>
           {% if session['id'] %}
-            <button class="logout" onClick="location.href='/student/logout.do'">LOGOUT</button>
-            <a class="mypage" href="/mypage">
-              <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}" alt="Profile" class="profile-pic">
-            </a>
+          <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button>
+          <a class="mypage" href="/mypage">
+            <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+              alt="Profile" class="profile-pic">
+          </a>
           {% else %}
-            <button class="login-button" onClick="location.href='/login'">LOGIN</button>
-          {% endif %}
+          <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
         </header>
         <main>
           <section class="welcome">

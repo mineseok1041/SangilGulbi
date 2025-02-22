@@ -1,8 +1,8 @@
 from flask import Blueprint, request, redirect, url_for, session, current_app
 from werkzeug.utils import secure_filename
 import os
-import studentSVC
-from studentDTO import studentDTO
+import usersSVC
+from usersDTO import usersDTO
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -31,10 +31,10 @@ def upload_profile_pic():
         file.save(os.path.join(upload_folder, filename))
 
         if 'id' in session:
-            student_service = studentSVC.studentSVC()
-            student = studentDTO(id=session['id'])
-            student.profile_pic = filename
-            student_service.updateProfilePic(student)
+            users_service = usersSVC.usersSVC()
+            users = usersDTO(id=session['id'])
+            users.profile_pic = filename
+            users_service.updateProfilePic(users)
         
         session['profile_pic'] = filename
         

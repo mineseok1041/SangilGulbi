@@ -1,12 +1,12 @@
 from flask import Blueprint, request, redirect, url_for, flash, session, make_response, render_template
-import studentSVC
-from studentDTO import studentDTO
+import usersSVC
+from usersDTO import usersDTO
 
-blue_student = Blueprint('student', __name__, url_prefix='/student')
+blue_users = Blueprint('users', __name__, url_prefix='/users')
 
-SVC = studentSVC.studentSVC()
+SVC = usersSVC.usersSVC()
 
-@blue_student.route('/signup.do', methods=['POST'])
+@blue_users.route('/signup.do', methods=['POST'])
 def dosignup():
     try:
         id = request.form['id']
@@ -16,7 +16,7 @@ def dosignup():
         birth = request.form['birth']
         birth = birth.replace("-", "")
 
-        reqDTO = studentDTO(id=id, password=password, name=name, email=email, birth=birth)
+        reqDTO = usersDTO(id=id, password=password, name=name, email=email, birth=birth)
 
         SVC.signup(reqDTO)
         print("signup success")
@@ -26,26 +26,23 @@ def dosignup():
         print(e)
         return redirect(url_for('signup'))
     
-@blue_student.route('/login.do', methods=['POST'])
+@blue_users.route('/login.do', methods=['POST'])
 def dologin():
     try:
         print('dologin')
         if request.form.get('id') and request.form.get('password'):
             id = request.form.get('id')
             password = request.form.get('password')
-            print('form')
         elif 'SangilGulbiUserID' in request.cookies and 'SangilGulbiUserPWD' in request.cookies:
             id = request.cookies.get('SangilGulbiUserID')
             password = request.cookies.get('SangilGulbiUserPWD')
-            print('cookie')
         else:
-            print('no id or password')
             return redirect(url_for('login'))
 
-        reqDTO = studentDTO(id=id, password=password)
+        reqDTO = usersDTO(id=id, password=password)
         
         if SVC.login(reqDTO):
-            loginDTO = SVC.getStudentInfo(reqDTO)
+            loginDTO = SVC.getUsersInfo(reqDTO)
             
             session['id'] = loginDTO.id
             session['name'] = loginDTO.name
@@ -61,7 +58,7 @@ def dologin():
         print(e)
         return redirect(url_for('login'))
     
-@blue_student.route('/logout.do')
+@blue_users.route('/logout.do')
 def dologout():
     try:
         session.clear()
@@ -73,10 +70,10 @@ def dologout():
         print(e)
         return redirect(url_for('index'))
 
-@blue_student.route('/IDcheck.do', methods=['POST'])
+@blue_users.route('/IDcheck.do', methods=['POST'])
 def IDcheck():
     try:
-        reqDTO = studentDTO(id=request.form['id'])
+        reqDTO = usersDTO(id=request.form['id'])
         if SVC.isIDExist(reqDTO):
             return "false"
         else:
@@ -85,19 +82,19 @@ def IDcheck():
         print(e)
         return False
 
-@blue_student.route('/update_user_info', methods=['POST'])
+@blue_users.route('/update_user_info', methods=['POST'])
 def update_user_info():
     if 'id' not in session:
         return redirect(url_for('login'))
     
-    student_service = studentSVC.studentSVC()
-    user = studentDTO(
+    users_service = usersSVC.usersSVC()
+    user = usersDTO(
         id=session['id'],
         firststdnum=request.form['num'],
         name=request.form['name'],
         phone=request.form['phone'],
         email=request.form['email']
     )
-    student_service.updateUserInfo(user)
+    users_service.updateUserInfo(user)
     
     return redirect(url_for('mypage'))

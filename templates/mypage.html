@@ -52,16 +52,17 @@
             </article>
         </article>
         {% if session['id'] %}
-            <button class="logout" onClick="location.href='/student/logout.do'">LOGOUT</button>
-        {% else %}
-            <button class="login-button" onClick="location.href='/login'">LOGIN</button>
-        {% endif %}
+        <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button> {% else %}
+        <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
     </header>
 
     <div id="photo">
-        <img id="basic" src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}">
-        <form id="uploadForm" action="{{ url_for('upload.upload_profile_pic') }}" method="POST" enctype="multipart/form-data">
-            <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;" onchange="previewImage(event)">
+        <img id="basic"
+            src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}">
+        <form id="uploadForm" action="{{ url_for('upload.upload_profile_pic') }}" method="POST"
+            enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;"
+                onchange="previewImage(event)">
             <button type="button" id="upload" onclick="document.getElementById('fileInput').click();">사진 업로드</button>
         </form>
         <p id="text">400x400 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
@@ -85,7 +86,7 @@
     <script>
         function previewImage(event) {
             const reader = new FileReader();
-            reader.onload = function() {
+            reader.onload = function () {
                 const output = document.getElementById('basic');
                 output.src = reader.result;
             };

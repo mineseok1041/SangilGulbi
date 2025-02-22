@@ -11,7 +11,7 @@
 <body>
     <article class="information_box">
         <h3 class="info">사용자 정보</h3>
-        <form id="updateForm" action="{{ url_for('student.update_user_info') }}" method="POST">
+        <form id="updateForm" action="{{ url_for('users.update_user_info') }}" method="POST">
             <p class="num">학번</p>
             <input class="num_input" name="num" value="{{ user.firststdnum }}">
 
@@ -29,7 +29,7 @@
     </article>
     <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
     <script>
-        document.getElementById('updateForm').addEventListener('submit', function(event) {
+        document.getElementById('updateForm').addEventListener('submit', function (event) {
             event.preventDefault(); // 기본 폼 제출 동작 방지
 
             const form = event.target;

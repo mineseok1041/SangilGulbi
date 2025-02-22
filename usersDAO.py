@@ -1,7 +1,7 @@
-from studentDTO import studentDTO
+from usersDTO import usersDTO
 import cx_Oracle
 
-class studentDAO:
+class usersDAO:
     def __init__(self):
         self.dsn = cx_Oracle.makedsn('localhost', 1521, service_name='xe')
         self.db_user = 'sangil'
@@ -10,8 +10,8 @@ class studentDAO:
     def get_connection(self):
         return cx_Oracle.connect(self.db_user, self.db_password, self.dsn)
 
-    def getStudentInfo(self, reqDTO: studentDTO) -> studentDTO:
-        query = "SELECT * FROM student WHERE id = :1"
+    def getUsersInfo(self, reqDTO: usersDTO) -> usersDTO:
+        query = "SELECT * FROM users WHERE id = :1"
         
         conn = None
         cursor = None
@@ -23,7 +23,7 @@ class studentDAO:
             row = cursor.fetchone()
             
             if row:
-                return studentDTO(*row)
+                return usersDTO(*row)
             else:
                 raise ValueError(f"ID {reqDTO.id} not found")
         except cx_Oracle.DatabaseError as e:
@@ -34,8 +34,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def getStudentList(self) -> list[studentDTO]:
-        query = "SELECT * FROM student"
+    def getUsersList(self) -> list[usersDTO]:
+        query = "SELECT * FROM users"
         
         conn = None
         cursor = None
@@ -48,7 +48,7 @@ class studentDAO:
             
             result = []
             for row in rows:
-                result.append(studentDTO(*row))
+                result.append(usersDTO(*row))
             
             return result
         except cx_Oracle.DatabaseError as e:
@@ -59,8 +59,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def isIDExist(self, reqDTO: studentDTO) -> bool:
-        query = "SELECT COUNT(*) FROM student WHERE id = :1"
+    def isIDExist(self, reqDTO: usersDTO) -> bool:
+        query = "SELECT COUNT(*) FROM users WHERE id = :1"
         
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -73,8 +73,8 @@ class studentDAO:
         
         return count > 0
 
-    def isPWDCorrect(self, reqDTO: studentDTO) -> bool:
-        query = "SELECT COUNT(*) FROM student WHERE id = :1 AND password = :2"
+    def isPWDCorrect(self, reqDTO: usersDTO) -> bool:
+        query = "SELECT COUNT(*) FROM users WHERE id = :1 AND password = :2"
 
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -87,8 +87,8 @@ class studentDAO:
         
         return count > 0
 
-    def addStudent(self, reqDTO: studentDTO):
-        query = "INSERT INTO student(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
+    def addUsers(self, reqDTO: usersDTO):
+        query = "INSERT INTO users(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
         
         conn = None
         cursor = None
@@ -107,8 +107,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def delStudent(self, reqDTO: studentDTO):
-        query = "DELETE FROM student WHERE id = :1"
+    def delUsers(self, reqDTO: usersDTO):
+        query = "DELETE FROM users WHERE id = :1"
         
         conn = None
         cursor = None
@@ -127,11 +127,11 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def altStdNum(self, reqDTO: studentDTO):
+    def altStdNum(self, reqDTO: usersDTO):
         if reqDTO.currentgrade not in [1, 2, 3]:
             raise ValueError(f"Invalid grade: {reqDTO.currentgrade}. Must be 1, 2, or 3.")
 
-        query = "UPDATE student SET currentgrade = :1, currentclass = :2, currentnum = :3 WHERE id = :4"
+        query = "UPDATE users SET currentgrade = :1, currentclass = :2, currentnum = :3 WHERE id = :4"
         
         conn = None
         cursor = None
@@ -150,8 +150,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def addPoint(self, reqDTO: studentDTO, point: int):
-        query = "UPDATE student SET point = point + :1 WHERE id = :2"
+    def addPoint(self, reqDTO: usersDTO, point: int):
+        query = "UPDATE users SET point = point + :1 WHERE id = :2"
         
         conn = None
         cursor = None
@@ -170,8 +170,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def updateProfilePic(self, reqDTO: studentDTO):
-        query = "UPDATE student SET profile_pic = :1 WHERE id = :2"
+    def updateProfilePic(self, reqDTO: usersDTO):
+        query = "UPDATE users SET profile_pic = :1 WHERE id = :2"
         
         conn = None
         cursor = None
@@ -190,8 +190,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def updateUserInfo(self, reqDTO: studentDTO):
-        query = "UPDATE student SET firststdnum = :1, name = :2, phone = :3, email = :4 WHERE id = :5"
+    def updateUserInfo(self, reqDTO: usersDTO):
+        query = "UPDATE users SET firststdnum = :1, name = :2, phone = :3, email = :4 WHERE id = :5"
         
         conn = None
         cursor = None

@@ -1,15 +1,15 @@
 from flask import Flask, redirect, render_template, session, url_for, request, Response
 import requests
 from flask_cors import CORS
-import student_app
+import users_app
 import upload
 import os
-import studentSVC
-from studentDTO import studentDTO
+import usersSVC
+from usersDTO import usersDTO
 
 app = Flask(__name__)
 CORS(app)
-app.register_blueprint(student_app.blue_student)
+app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
 
 app.secret_key = 'ggulbi'
@@ -22,7 +22,7 @@ def index():
     if 'id' in session:
         return render_template('index.html')
     elif 'SangilGulbiUserID' in request.cookies and 'SangilGulbiUserPWD' in request.cookies:
-        resp = requests.post(url_for('student.dologin', _external=True))
+        resp = requests.post(url_for('users.dologin', _external=True))
         return Response(resp.content, status=resp.status_code, headers=dict(resp.headers))
     else:
         return render_template('index.html')
@@ -55,8 +55,8 @@ def mypage():
     if 'id' not in session:
         return redirect(url_for('login'))
     
-    student_service = studentSVC.studentSVC()
-    user = student_service.getStudentInfo(studentDTO(id=session['id']))
+    users_service = usersSVC.usersSVC()
+    user = users_service.getUsersInfo(usersDTO(id=session['id']))
     
     return render_template('mypage.html', user=user)
 
@@ -66,8 +66,8 @@ def mypage_Popup():
     if 'id' not in session:
         return redirect(url_for('login'))
     
-    student_service = studentSVC.studentSVC()
-    user = student_service.getStudentInfo(studentDTO(id=session['id']))
+    users_service = usersSVC.usersSVC()
+    user = users_service.getUsersInfo(usersDTO(id=session['id']))
     
     return render_template('mypage_Popup.html', user=user)
 

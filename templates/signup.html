@@ -13,7 +13,7 @@
         <div class="signup-form">
             <h1>회원가입</h1>
             <p>저희 동아리에 가입해주세요!</p>
-            <form action="/student/signup.do" method="post">
+            <form action="/users/signup.do" method="post">
                 <div class="id">
                     <input type="text" name="id" placeholder="아이디" required>
                     <button type="submit" class="btn">중복 확인</button>
@@ -23,14 +23,14 @@
                 <div class="password">
                     <input type="password" name="password" placeholder="비밀번호" required>
                 </div>
-                
+
                 <div class="dateinput">
                     <input type="text" name="name" placeholder="이름" required>
                     <input type="date" name="birth" placeholder="생년월일" required>
                 </div>
-                
+
                 <input type="email" name="email" placeholder="이메일" required>
-                
+
                 <button type="submit" class="join">회원가입</button>
             </form>
             <p><a href="/login">이미 계정이 있으신가요?</a></p>

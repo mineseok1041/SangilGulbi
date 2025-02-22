@@ -1,26 +1,26 @@
-import studentDAO
-import studentDTO
+import usersDAO
+import usersDTO
 
-class studentSVC:
+class usersSVC:
     def __init__(self):
-        self.DAO = studentDAO.studentDAO()
+        self.DAO = usersDAO.usersDAO()
         
-    def getStudentInfo(self, reqDTO:studentDTO) -> studentDTO:
+    def getUsersInfo(self, reqDTO:usersDTO) -> usersDTO:
         try:
-            return self.DAO.getStudentInfo(reqDTO)
+            return self.DAO.getUsersInfo(reqDTO)
         except Exception as e:
-            raise Exception(f"getStudentInfo Error: {e}")
+            raise Exception(f"getUsersInfo Error: {e}")
     
-    def signup(self, reqDTO:studentDTO):
+    def signup(self, reqDTO:usersDTO):
         if not self.DAO.isIDExist(reqDTO):
             try:
-                self.DAO.addStudent(reqDTO)
+                self.DAO.addUsers(reqDTO)
             except Exception as e:
                 raise Exception(e)
         else:
             raise Exception("ID already exists")
         
-    def login(self, reqDTO:studentDTO) -> bool:
+    def login(self, reqDTO:usersDTO) -> bool:
         try:
             if self.DAO.isIDExist(reqDTO):
                 if self.DAO.isPWDCorrect(reqDTO):
@@ -32,7 +32,7 @@ class studentSVC:
         except Exception as e:
             raise Exception(f"Login Error: {e}")
         
-    def isIDExist(self, reqDTO:studentDTO) -> bool:
+    def isIDExist(self, reqDTO:usersDTO) -> bool:
         try:
             if self.DAO.isIDExist(reqDTO):
                 return True
@@ -41,13 +41,13 @@ class studentSVC:
         except Exception as e:
             raise Exception(f"isIDExist Error: {e}")
 
-    def updateProfilePic(self, reqDTO:studentDTO):
+    def updateProfilePic(self, reqDTO:usersDTO):
         try:
             self.DAO.updateProfilePic(reqDTO)
         except Exception as e:
             raise Exception(f"updateProfilePic Error: {e}")
 
-    def updateUserInfo(self, reqDTO:studentDTO):
+    def updateUserInfo(self, reqDTO:usersDTO):
         try:
             self.DAO.updateUserInfo(reqDTO)
         except Exception as e:
