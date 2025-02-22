@@ -4,26 +4,8 @@ let searchKeyword = "";
 
 document.addEventListener("DOMContentLoaded", function () {
     loadNotices();
-    checkAdminControls(); // 관리자 권한 체크
     document.getElementById("searchBtn").addEventListener("click", searchNotices);
 });
-
-// ✅ 관리자 권한 체크 및 삭제 열 숨김 처리
-function checkAdminControls() {
-    let userRole = localStorage.getItem("userRole");
-    let addNoticeBtn = document.querySelector(".add-box .add");
-    let deleteColumnHeader = document.getElementById("delete-column");
-
-    // 공지 추가 버튼 설정
-    if (addNoticeBtn) {
-        addNoticeBtn.style.display = userRole === "admin" ? "block" : "none";
-    }
-
-    // 삭제 열 헤더 숨김
-    if (deleteColumnHeader) {
-        deleteColumnHeader.style.display = userRole === "admin" ? "table-cell" : "none";
-    }
-}
 
 // ✅ 공지사항 목록 로드
 function loadNotices() {
@@ -39,7 +21,7 @@ function loadNotices() {
         let message = searchKeyword.trim() !== "" 
             ? "검색어와 연관된 목록이 없습니다." 
             : "업로드 된 공지사항이 없습니다.";
-        noticeList.innerHTML = `<tr><td colspan="5" style="text-align:center;">${message}</td></tr>`;
+        noticeList.innerHTML = `<tr><td colspan="4" style="text-align:center;">${message}</td></tr>`; // 🔥 삭제 버튼 칼럼 제외
         document.getElementById("page-info").innerText = "0 / 0";
         return;
     }
@@ -50,8 +32,6 @@ function loadNotices() {
     let startIndex = (currentPage - 1) * itemsPerPage;
     let paginatedNotices = filteredNotices.slice(startIndex, startIndex + itemsPerPage);
 
-    let userRole = localStorage.getItem("userRole");
-
     paginatedNotices.forEach((notice, index) => {
         let row = document.createElement("tr");
         row.innerHTML = `
@@ -59,31 +39,11 @@ function loadNotices() {
             <td class="notice-title" onclick="viewNotice(${notice.id})">${notice.title}</td>
             <td>${notice.author}</td>
             <td>${notice.date}</td>
-            ${userRole === "admin" ? `<td class="delete-column"><button class="delete-btn" onclick="deleteNotice(${notice.id})">삭제</button></td>` : ""}
         `;
         noticeList.appendChild(row);
     });
 
-    // ✅ 관리자 아닌 경우 삭제 버튼 숨김
-    if (userRole !== "admin") {
-        document.querySelectorAll(".delete-column").forEach(el => el.style.display = "none");
-    }
-
     document.getElementById("page-info").innerText = `${currentPage} / ${totalPages}`;
-}
-
-// ✅ 공지 삭제 기능 (관리자만 가능)
-function deleteNotice(id) {
-    if (localStorage.getItem("userRole") !== "admin") {
-        alert("삭제 권한이 없습니다.");
-        return;
-    }
-    if (!confirm("정말 삭제하시겠습니까?")) return;
-
-    let notices = JSON.parse(localStorage.getItem("notices")) || [];
-    localStorage.setItem("notices", JSON.stringify(notices.filter(notice => notice.id !== id)));
-    alert("공지사항이 삭제되었습니다.");
-    loadNotices();
 }
 
 // ✅ 검색 기능
