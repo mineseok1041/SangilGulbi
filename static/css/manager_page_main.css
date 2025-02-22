@@ -1,0 +1,179 @@
+/* font-face 설정 */
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden; /* 가로 스크롤 제거 */
+    overflow-y: hidden; /* 세로 스크롤 활성화 */
+}
+
+/* 네비게이션 바 */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #3d3d3d;
+    padding: 10px 20px;
+    height: 60px;
+    min-width: 700px;
+}
+
+.nav_logo img {
+    width: 110px;
+    height: auto;
+}
+
+.nav_menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav_menu span {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nav_menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    margin-left: 30px;
+}
+
+.nav_menu a:hover {
+    color: #ffcc00;
+}
+
+.nav_user {
+    margin-left: auto;
+}
+
+.nav_user img {
+    width: 50px;
+    height: auto;
+}
+
+
+/* 관리 페이지 메인 박스 css 설정 */
+.box_container {
+    display: flex;  /* 박스들을 가로로 배치 */
+    flex-wrap: wrap;  /* 공간이 부족하면 줄 바꿈 */
+    justify-content: flex-start;  /* 왼쪽 정렬 */
+    gap: 10px;  /* 박스 간의 간격 */
+    margin-top: 20px;  /* 네비게이션 바와 간격 */
+    padding: 0 20px;  /* 양옆에 여백 */
+}
+
+.box {
+    display: flex;
+    gap: 5%;
+    color: white;  /* 글자 색 */
+    padding: 20px;  /* 여백 */
+    width: 25%;  /* 각 박스의 너비 (5개 박스가 한 줄에 배치되도록 설정) */
+    border-radius: 10px;  /* 둥근 모서리 */
+    box-sizing: border-box;  /* padding과 border 포함한 너비 설정 */
+}
+
+.user_box {
+    background-color: #3a3a3a;  /* 박스 배경색 */
+    margin-top: 3%;  /* 네비게이션 바와 간격을 주기 위한 margin */
+    border-radius: 10px;  /* 둥근 모서리 */
+    width: 25%;  /* 박스 너비 */
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;  /* 화살표 위치를 위한 상대적 위치 설정 */
+    flex-direction: column;  /* 내부 요소를 세로로 배치 */
+}
+
+.user_box_header {
+    display: flex;
+    gap: 5%;  /* 이미지와 텍스트 간 간격 */
+    align-items: center;  /* 세로 가운데 정렬 */
+    width: 100%;
+}
+
+.user_box img {
+    width: 40px;
+    height: 40px;
+}
+
+.user_box h1 {
+    color: white;
+    font-size: 32px;
+}
+
+#userCount {
+    color: white;
+    font-size: 48px;
+    margin-top: 10px;
+    margin-left: 3%;
+}
+
+.expand_arrow {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    position: absolute;
+    bottom: 10px;  /* 박스 하단에 고정 */
+    left: 50%;
+    transform: translateX(-50%);  /* 중앙 정렬 */
+    transition: transform 0.3s ease;
+}
+
+/* 화살표 회전 효과 */
+.user_box.open .expand_arrow {
+    transform: rotate(180deg) translateX(50%);  /* 화살표 회전 */
+}
+
+/* 일정 박스 */
+.calendar_box {
+    background-color: #3a3a3a;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 25%;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.notification_box {
+    background-color: #3a3a3a;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 37%;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 이미지 크기 설정 */
+.box img {
+    width: 90px;
+    height: 90px;
+}
+
+/* 제목 스타일 */
+.calendar_box h1, .notification_box h1 {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}
+
+/* 박스가 열릴 때 */
+.user_box.open {
+    height: auto;  /* 내용에 맞게 높이 자동 조정 */
+    padding-bottom: 60px;  /* 박스가 늘어날 때 여유 공간 추가 */
+}
