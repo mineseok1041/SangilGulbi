@@ -8,7 +8,7 @@
 
 body {
     background-color: #f9f9f9;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
 
@@ -56,11 +56,11 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
 button[type="submit"] {
-    background-color: #FCD363;
+    background-color: #b1b0b0;
     color: white;
     padding: 10px;
     border: none;
@@ -68,9 +68,9 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
 button[type="submit"]:hover {
-    background-color: #fcb900;
+    background-color: #999999;
 }

@@ -13,25 +13,34 @@
         <h1>로그인</h1>
         <p>아직 계정이 없으시다면 회원 가입을 해주세요!</p>
         <form action="/users/login.do" method="post">
-            <label class="email" , for="email"><strong>아이디</strong></label>
-
-            <div class=" ">
+            <label class="email" for="email"><strong>아이디</strong></label>
+            <div>
                 <input type="text" class="email" name="id" required>
             </div>
+
             <label class="password" for="password"><strong>비밀번호</strong></label>
-            <div class="password-container">
-                <input type="password" class="password" name="password" required>
-            </div>
             <small>비밀번호는 숫자, 영문자를 포함한 8글자 이상으로 작성해주세요.</small>
+
+            <!-- 비밀번호 입력 및 토글 버튼 추가 -->
+            <div class="password-container">
+                <input type="password" id="passwordInput">
+                <img src="/static/img/eye_off_icon.png" alt="비밀번호 보기" class="eye-icon"
+                    onclick="togglePasswordVisibility('passwordInput', this)" data-show="/static/img/eye_icon.png"
+                    data-hide="/static/img/eye_off_icon.png">
+            </div>
+
             <div class="remember-me">
                 <input type="checkbox" id="remember" , name="remember">
                 <label for="remember">로그인 내용 기억하기</label>
             </div>
+
             <button type="submit" class="login-btn">로그인</button>
             <a href="/forget" class="forgot-password">비밀번호를 잊어버리셨나요?</a>
         </form>
         <p class="signup-prompt">아직 계정이 없으신가요? <a href="/signup">회원가입 하기!</a></p>
     </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 
 </html>

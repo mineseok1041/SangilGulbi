@@ -96,6 +96,7 @@ def awards():
 def rhythm():
     return render_template('rhythm.html')
 
+<<<<<<< HEAD
 @app.route('/roulette')
 def roulette():
     return render_template('roulette.html')
@@ -103,6 +104,19 @@ def roulette():
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
+=======
+@app.route('/mainnotice')
+def mainnotice():
+    return render_template('mainnotice.html')
+
+@app.route('/noticeadd')
+def noticeadd():
+    return render_template('noticeadd.html')
+
+@app.route('/noticepage')
+def noticepage():
+    return render_template('noticepage.html')
+>>>>>>> 859baa4 (공지사항 브라우저 저장 기능 수정 및 디자인 수정(미완), 로그인 및 회원가입 비밀번호 표시 기능 추가)
 
 if __name__ == '__main__':
     app.run()

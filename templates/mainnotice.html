@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 
 <body>
     <div class="container">
-        <div class="top-controls">        
+        <div class="top-controls">
             <h1>공지사항</h1>
             <div class="right-controls">
                 <div class="search-box">
@@ -29,7 +30,8 @@
                     <th>제목</th>
                     <th>작성자</th>
                     <th>작성일</th>
-                    <th id="delete-column">삭제</th>  <!-- 삭제 열을 숨기기 위해 ID 추가 -->
+                    <th id="delete-column">삭제</th>
+                    <!-- 삭제 열을 숨기기 위해 ID 추가 -->
                 </tr>
             </thead>
             <tbody class="notice-list">
@@ -46,4 +48,5 @@
 
     <script type="text/javascript" src="{{ url_for('static', filename='js/mainnotice.js') }}"></script>
 </body>
+
 </html>
