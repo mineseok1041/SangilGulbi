@@ -1,34 +1,29 @@
-@font-face {
+@font-face { 
     font-family: 'S-CoreDream-3Light';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
-#mypage{
+#mypage {
     width: 20%;
     height: auto;
     position: absolute;
-    top: 1%;
-    left: 2%;
+    top: 0%;
+    left: 5%;
     font-size: 25px;
     font-weight: 10px;
     font-family: 'S-CoreDream-3Light';
 }
 
-#line {
-    position: absolute;
-    top: 10%;
-    width: 98%;
-    border: solid 0.5px rgb(173, 173, 173);
-}
-
 #basic {
     position: absolute;
-    top: 14%;
+    top: 12%;
     left: 3%;
-    width: 8%;
-    height: auto;
+    width: 150px;  /* 최대 너비를 150px로 제한 */
+    height: 150px; /* 최대 높이를 150px로 제한 */
+    object-fit: cover; /* 이미지가 영역을 벗어나지 않도록 조정 */
+    border-radius: 50%; /* 원형으로 만들기 */
 }
 
 #upload {
@@ -52,55 +47,62 @@
     color: gray;
 }
 
-#line2 {
+#line {
     position: absolute;
     top: 30%;
     width: 98%;
     border: solid 0.5px rgb(173, 173, 173);
 }
 
-.information_box{
+.information_box {
     background-color: white;
-    width: 35%;
-    height: 59%;
+    width: 60%;
+    height: 58%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
+    bottom: 5%;
     left: 3%;
 }
 
-#info{
+#info {
     position: absolute;
     top: 1%;
     left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
-#name{
+#num {
     position: absolute;
     top: 15%;
     left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
-#e-mail{
+#name {
     position: absolute;
-    top: 40%;
+    top: 15%;
+    left: 50%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+#phone {
+    position: absolute;
+    top: 50%;
     left: 3%;
     font-family: 'S-CoreDream-3Light';
 }
 
-#phone{
+#e-mail {
     position: absolute;
-    top: 65%;
-    left: 3%;
+    top: 50%;
+    left: 50%;
     font-family: 'S-CoreDream-3Light';
 }
 
-.add{
+.add {
     width: 20%;
     height: 8%;
     position: absolute;
@@ -118,37 +120,65 @@
 
 .add button:hover {
     background: #ffbb00;
-  }
+}
 
-.score_box{
+.score_box {
     background-color: white;
-    width: 32%;
-    height: 59%;
+    width: 31%;
+    height: 10%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 40%;
+    bottom: 53%;
+    right: 3%;
 }
 
-#score{
-    position: absolute;
-    top: 1%;
-    left: 3%;
+#score {
+    height: 50%;
     font-family: 'S-CoreDream-3Light';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
 }
 
-.etc_box{
+.awards_box {
     background-color: white;
-    width: 22%;
-    height: 59%;
+    width: 31%;
+    height: 43%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 75%;
+    bottom: 5%;
+    right: 3%;
+}
+
+#awards {
+    font-family: 'S-CoreDream-3Light';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.logout {
+    width: 10%;
+    height: 4.5%;
+    position: absolute;
+    top: 1.5%;
+    right: 3%;
+    background-color: #ffd700;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    font-family: 'S-CoreDream-3Light';
+    border: 1.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

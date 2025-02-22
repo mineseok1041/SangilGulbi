@@ -13,27 +13,26 @@
         <div class="signup-form">
             <h1>회원가입</h1>
             <p>저희 동아리에 가입해주세요!</p>
-            <form action="/student/signup.do" method="post">
-                <div class="input-group">
+            <form action="/users/signup.do" method="post">
+                <div class="id">
                     <input type="text" name="id" placeholder="아이디" required>
+                    <button type="submit" class="btn">중복 확인</button>
+                    <span>사용가능한 아이디입니다.</span>
+                </div>
+
+                <div class="password">
+                    <input type="password" name="password" placeholder="비밀번호" required>
+                </div>
+
+                <div class="dateinput">
                     <input type="text" name="name" placeholder="이름" required>
                     <input type="date" name="birth" placeholder="생년월일" required>
                 </div>
+
                 <input type="email" name="email" placeholder="이메일" required>
-                <div class="password-group">
-                    <input type="password" name="password" placeholder="비밀번호" required>
-                    <button type="button" class="toggle-password">
-                        <img src="/png/eye_icon.png" alt="눈">
-                    </button>
-                </div>
-                <button type="submit">회원가입</button>
+
+                <button type="submit" class="join">회원가입</button>
             </form>
-            <p>또는 다음 계정으로 회원가입 하기 :</p>
-            <div class="social-buttons">
-                <button>Google</button>
-                <button>Apple</button>
-                <button>Twitter</button>
-            </div>
             <p><a href="/login">이미 계정이 있으신가요?</a></p>
         </div>
     </div>

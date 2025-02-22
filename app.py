@@ -1,17 +1,38 @@
-from flask import Flask, render_template, Blueprint
+from flask import Flask, redirect, render_template, session, url_for, request, Response
+import requests
 from flask_cors import CORS
-import student_app
+import users_app
+import upload
+import os
+import usersSVC
+from usersDTO import usersDTO
 
-app  = Flask(__name__)
+app = Flask(__name__)
 CORS(app)
-app.register_blueprint(student_app.blue_student)
+app.register_blueprint(users_app.blue_users)
+app.register_blueprint(upload.upload_bp)
 
 app.secret_key = 'ggulbi'
+
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
 
 # 메인페이지
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'id' in session:
+        return render_template('index.html')
+    elif 'SangilGulbiUserID' in request.cookies and 'SangilGulbiUserPWD' in request.cookies:
+        resp = requests.post(url_for('users.dologin', _external=True))
+        return Response(resp.content, status=resp.status_code, headers=dict(resp.headers))
+    else:
+        return render_template('index.html')
+    
+@app.route('/check')
+def check():
+    id = request.cookies.get('SangilGulbiUserID')
+    password = request.cookies.get('SangilGulbiUserPWD')
+    print(id, password)
+    return redirect(url_for('index'))
 
 # 로그인
 @app.route('/login')
@@ -31,7 +52,24 @@ def signup():
 # 마이페이지
 @app.route('/mypage')
 def mypage():
-    return render_template('mypage.html')
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    users_service = usersSVC.usersSVC()
+    user = users_service.getUsersInfo(usersDTO(id=session['id']))
+    
+    return render_template('mypage.html', user=user)
+
+# 마이페이지 수정
+@app.route('/mypage_Popup')
+def mypage_Popup():
+    if 'id' not in session:
+        return redirect(url_for('login'))
+    
+    users_service = usersSVC.usersSVC()
+    user = users_service.getUsersInfo(usersDTO(id=session['id']))
+    
+    return render_template('mypage_Popup.html', user=user)
 
 # 수상내역
 @app.route('/awards')

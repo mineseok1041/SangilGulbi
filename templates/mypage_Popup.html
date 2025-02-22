@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage_Popup.css') }}">
+    <title>수정</title>
+</head>
+
+<body>
+    <article class="information_box">
+        <h3 class="info">사용자 정보</h3>
+        <form id="updateForm" action="{{ url_for('users.update_user_info') }}" method="POST">
+            <p class="num">학번</p>
+            <input class="num_input" name="num" value="{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{ user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}">
+        
+            <p class="name">이름</p>
+            <input class="name_input" name="name" value="{{ user.name | trim }}">
+        
+            <p class="phone">전화번호</p>
+            <input class="phone_input" name="phone" value="{{ user.phone | trim }}">
+        
+            <p class="e-mail">이메일</p>
+            <input class="e-mail_input" name="email" value="{{ user.email | trim }}">
+        
+            <button type="submit" class="fin">완료</button>
+        </form>
+    </article>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // 기본 폼 제출 동작 방지
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+            }).then(response => {
+                if (response.ok) {
+                    window.opener.location.reload(); // 부모 창 새로고침
+                    window.close(); // 팝업 창 닫기
+                } else {
+                    alert('사용자 정보를 업데이트하는 데 실패했습니다.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('사용자 정보를 업데이트하는 도중 오류가 발생했습니다.');
+            });
+        });
+    </script>
+</body>
+
+</html>
