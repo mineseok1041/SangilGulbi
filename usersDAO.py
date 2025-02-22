@@ -191,7 +191,7 @@ class usersDAO:
                 conn.close()
 
     def updateUserInfo(self, reqDTO: usersDTO):
-        query = "UPDATE users SET firststdnum = :1, name = :2, phone = :3, email = :4 WHERE id = :5"
+        query = "UPDATE users SET currentgrade = :1, currentclass = :2, currentnum = :3, name = :4, phone = :5, email = :6 WHERE id = :7"
         
         conn = None
         cursor = None
@@ -199,7 +199,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [reqDTO.firststdnum, reqDTO.name, reqDTO.phone, reqDTO.email, reqDTO.id])
+            cursor.execute(query, [reqDTO.currentgrade, reqDTO.currentclass, reqDTO.currentnum, reqDTO.name, reqDTO.phone, reqDTO.email, reqDTO.id])
             
             conn.commit()
         except cx_Oracle.DatabaseError as e:

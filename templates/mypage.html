@@ -70,7 +70,9 @@
     <hr id="line">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-        <p id="num">학번: {{ user.firststdnum }}</p>
+        <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
+            user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+        </p>
         <p id="name">이름: {{ user.name }}</p>
         <p id="phone">전화번호: {{ user.phone }}</p>
         <p id="e-mail">이메일: {{ user.email }}</p>

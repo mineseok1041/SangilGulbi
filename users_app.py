@@ -29,7 +29,6 @@ def dosignup():
 @blue_users.route('/login.do', methods=['POST'])
 def dologin():
     try:
-        print('dologin')
         if request.form.get('id') and request.form.get('password'):
             id = request.form.get('id')
             password = request.form.get('password')
@@ -88,9 +87,16 @@ def update_user_info():
         return redirect(url_for('login'))
     
     users_service = usersSVC.usersSVC()
+    num = str(request.form['num'])
+    currentgrade = int(num[0])
+    currentclass = int(num[1])*10+int(num[2])
+    currentnum = int(num[3])*10+int(num[4])
+    
     user = usersDTO(
         id=session['id'],
-        firststdnum=request.form['num'],
+        currentgrade=currentgrade,
+        currentclass=currentclass,
+        currentnum=currentnum,
         name=request.form['name'],
         phone=request.form['phone'],
         email=request.form['email']
