@@ -11,54 +11,30 @@
 
 <body>
     <header class="header">
-        <a class="header_logo" href="/">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GB">
-        </a>
-        <h1 id="mypage">My Page</h1>
-        <article class="game">
-            <a href="#">
-                <h6 class="text">game</h6>
-            </a>
-            <article class="menubar">
-                <button class="game1" href="#">
-                    <p>사다리타기</p>
-                </button>
-                <button class="game2" href="#">
-                    <p>룰렛 돌리기</p>
-                </button>
-            </article>
-        </article>
-        <article class="awards">
-            <a href="/awards">
-                <h6 class="text">awards</h6>
-            </a>
-        </article>
-        <article class="save">
-            <a href="#">
-                <h6 class="text">save</h6>
-            </a>
-        </article>
-        </article>
-        <article class="cal">
-            <a href="#">
-                <h6 class="text">calendar</h6>
-            </a>
-            <article class="menubar">
-                <button class="cal1" href="#">
-                    <p>공지사항</p>
-                </button>
-                <button class="cal2" href="#">
-                    <p>캘린더보기</p>
-                </button>
-            </article>
-        </article>
-        <button class="login-button" onClick="location.href='/login'">LOGIN</button>
-    </header>
+        <a class="logo">GB</a>
+
+        <div class="main_menu">
+          <a class="text" href="#">Calender</a>
+          <a class="text" href="#">Save</a>
+          <a class="text" href="#">Game</a>
+          <a class="text" href="#">Awards</a>
+          <a class="text" href="#">Login</a>
+        </div>
+
+        <div class="sub_menu">
+          <button class="cal1" href="#">공지사항</button>
+          <button class="cal2" href="#">캘린더보기</button>
+          <button class="game1" href="#">사다리타기</button>
+          <button class="game2" href="#">룰렛돌리기</button>
+          <button class="login1" href="#">로그인</button>
+          <button class="login2" href="#">회원가입</button>
+        </div>
+      </header>
 
     <div id="photo">
-        <img id="basic" src="{{ url_for('static', filename='img/인스타기본프사.jpg') }}">
+        <img id="basic" src="{{ url_for('static', filename='img/인스타기본프사.png') }}">
         <button id="upload">사진 업로드</button>
-        <p id="text">800x800 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
+        <p id="text">400x400 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
     </div>
     <hr id="line">
     <article class="information_box">
