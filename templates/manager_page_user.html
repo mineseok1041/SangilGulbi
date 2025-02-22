@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>사용자 관리</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/manager_page_user.css') }}">
+    <title>학생 관리</title>
+    <link rel="stylesheet" href={{ url_for( 'static' , filename='css/manager_page_user.css' ) }}>
 </head>
 
 <body>
@@ -17,14 +17,12 @@
             </a>
         </div>
         <div class="nav_menu">
-
-            <span class="title">
-                <a href="/mgmt" class="link_mgmt">Manager Page</a>
-            </span>
-            <a href="/mgmt_user" class="link_user">사용자 관리</a>
+            <span class="title"><a href="/mgmt">Manager Page</a></span>
+            <a href="/mgmt_user" class="link_user">학생 관리</a>
+            <a href="/mgmt_add" class="link_add">관리자 추가</a>
         </div>
         <div class="nav_user">
-            <a href="" class="click_mypage">
+            <a href="#" class="click_mypage">
                 <img src="{{ url_for('static', filename='img/user_profile.png') }}" alt="UserProfile">
             </a>
         </div>

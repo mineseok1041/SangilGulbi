@@ -81,6 +81,11 @@ def manager_page():
 def manager_page_user():
     return render_template('manager_page_user.html')
 
+# 관리페이지 관리자 추가
+@app.route('/mgmt_add')
+def manager_page_add():
+    return render_template('manager_page_add.html')
+
 # 수상내역
 @app.route('/awards')
 def awards():
