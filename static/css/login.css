@@ -23,7 +23,7 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 500px; /* 너비를 500px로 확장 */
+    width: 500px; 
     height: 600px;
     text-align: center;
     position: relative; /* 원 위에 표시되도록 설정 */
@@ -96,6 +96,7 @@ input[type="password"] {
     position: relative;
     width: 100%;
 }
+
 .email-container {
     position: relative; /* 내부 요소를 상대적으로 배치할 수 있도록 설정 */
     display: flex; /* 내부 요소를 가로 정렬 */
@@ -109,6 +110,7 @@ small {
     font-family: 'MinSans-Regular';
     margin-bottom: 0.5%;
 }
+
 .remember-me {
     display: flex;
     align-items: center; /* 세로 중앙 정렬 */
@@ -123,13 +125,12 @@ small {
 }
 
 .remember-me label {
-    position: static; /* 기존 absolute 제거 */
+    position: static;
     font-size: 16px;
     color: #666;
     font-family: 'MinSans-Regular';
     margin: 0; /* 기본 마진 제거 */
 }
-
 
 .login-btn {
     width: 100%;
@@ -178,7 +179,7 @@ small {
     width: 100%;
 }
 
-.eye-icon {
+.eye-icon { /* 비밀번호 표시해주는 아이콘 */
     position: absolute;
     right: 10px;
     top: 40%;
@@ -187,31 +188,22 @@ small {
     height: 24px;
     cursor: pointer;
     object-fit: contain;
-    z-index: 1; /* 너무 높게 하면 다른 요소들과 충돌할 수 있으니 1 정도로 조정 */
+    z-index: 1; 
     pointer-events: auto; /* 클릭 가능하도록 설정 */
 }
-
-.icons {
-    display: flex;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    gap: 20px;
-    height: 50px; /* 아이콘 높이에 맞게 설정 */
-}
-
 
 .icons a {
     display: block;
     width: 50px;
     height: 50px;
 }
+
 .icons img {
     width: 50px;
     height: 50px;
     cursor: pointer;
     vertical-align: middle; /* 세로 중앙 정렬 */
 }
-
 
 .signup-prompt {
     margin-top: 25px;
@@ -237,6 +229,28 @@ small {
 }
 
 /* 기존 스타일 유지 */
+@media (max-width: 1024px) {
+    .login-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {

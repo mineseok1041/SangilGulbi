@@ -13,7 +13,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 상단 정렬로 변경 */
+    align-items: flex-start;
     min-height: 100vh;
     background-color: #fffefe;
 }
@@ -22,16 +22,15 @@ body {
     width: 90%;
     max-width: 1200px;
     padding: 20px;
-    min-height: auto; /* 기존 height: 100vh 제거 */
+    min-height: auto;
     border-radius: 10px;
 }
-/* 🔹 검색 및 추가 버튼 */
 
 .top-controls {
     font-family: 'MinSans-Regular';
     display: flex;
-    justify-content: space-between; /* 🔥 h1 왼쪽, 검색창 오른쪽 */
-    align-items: center; /* 🔥 수직 가운데 정렬 */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin-top: 5%;
 }
@@ -39,15 +38,15 @@ body {
 h1 {
     font-size: 40px;
     margin: 0;
+    text-align: left; /* 공지사항 제목 왼쪽 정렬 */
 }
 
 .right-controls {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto; /* 검색창과 버튼들을 오른쪽으로 이동 */
 }
-
-
 
 .add-box {
     font-family: 'MinSans-Regular';
@@ -99,7 +98,7 @@ h1 {
     background-color: #434343;
 }
 
-/* 🔹 공지 목록 테이블 */
+/* 공지 목록 테이블 */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -118,7 +117,7 @@ th {
     font-weight: bold;
 }
 
-/* 🔹 삭제 버튼 */
+/* 삭제 버튼 */
 .delete-btn {
     background-color: #ff4d4d;
     color: white;
@@ -134,13 +133,13 @@ th {
     background-color: #cc0000;
 }
 
-/* 🔹 페이지네이션 */
+/* 페이지네이션 */
 .pagination {
     display: flex;
-    justify-content: center; /* 🔥 하단 중앙 정렬 */
+    justify-content: center;
     align-items: center;
     position: fixed;
-    bottom: 20px; /* 화면 하단에서 20px 위 */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     gap: 10px;
@@ -164,120 +163,51 @@ th {
     background-color: rgb(104, 104, 104);
 }
 
-@media (max-width: 1024px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 35px;
-        text-align: center;
-    }
-
-    .top-controls {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .right-controls {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .search-box input {
-        width: 250px;
-    }
-}
-
+/* 반응형 스타일 수정 */
 @media (max-width: 768px) {
     .container {
-        width: 98%;
+        width: 95%;
         padding: 10px;
     }
 
     h1 {
         font-size: 30px;
-        text-align: center;
+        text-align: left;
     }
 
     .top-controls {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
     }
 
     .right-controls {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .search-box, .add-box {
-        width: 100%;
-        justify-content: center;
-        gap: 5px;
-    }
-
-    .search-box input {
-        width: 100%;
-    }
-
-    .add {
-        width: 100%;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 10px;
-    }
-
-    .pagination {
-        width: 90%;
-        bottom: 10px;
+        margin-left: auto;
     }
 }
 
 @media (max-width: 480px) {
     h1 {
         font-size: 24px;
+        text-align: left;
+    }
+
+    .top-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-controls {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 10px;
     }
 
     .search-box, .add-box {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .search-box input {
-        width: 100%;
-    }
-
-    .add {
-        width: 100%;
-    }
-
-    table {
-        font-size: 12px;
-    }
-
-    th, td {
-        padding: 8px;
-    }
-
-    .pagination {
-        flex-direction: column;
+        flex-direction: row;
         gap: 5px;
-        padding: 5px;
-    }
-
-    .pagination button {
-        font-size: 12px;
-        padding: 5px;
+        width: auto;
     }
 }
