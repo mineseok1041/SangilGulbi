@@ -13,17 +13,17 @@
         <h3 class="info">사용자 정보</h3>
         <form id="updateForm" action="{{ url_for('users.update_user_info') }}" method="POST">
             <p class="num">학번</p>
-            <input class="num_input" name="num" value="{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
-                user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}">
+            <input class="num_input" name="num"
+                value="{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{ user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}">
 
             <p class="name">이름</p>
-            <input class="name_input" name="name" value="{{ user.name }}">
+            <input class="name_input" name="name" value="{{ user.name | trim }}">
 
             <p class="phone">전화번호</p>
-            <input class="phone_input" name="phone" value="{{ user.phone }}">
+            <input class="phone_input" name="phone" value="{{ user.phone | trim }}">
 
             <p class="e-mail">이메일</p>
-            <input class="e-mail_input" name="email" value="{{ user.email }}">
+            <input class="e-mail_input" name="email" value="{{ user.email | trim }}">
 
             <button type="submit" class="fin">완료</button>
         </form>

@@ -22,7 +22,7 @@ def upload_profile_pic():
         filename = secure_filename(file.filename)
         
         user_id = session['id']
-        filename = f"{user_id}_{filename}"
+        filename = f"{user_id}"
         
         upload_folder = os.path.join(current_app.root_path, 'static', 'uploads')
         if not os.path.exists(upload_folder):
