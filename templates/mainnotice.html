@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,17 +6,20 @@
     <title>공지사항</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mainotice.css') }}">
 </head>
+
 <body>
     <div class="container">
-        <h1>공지사항</h1>
-        
-        <div class="add-box">
-            <button class="add" onclick="location.href='/noticeadd'">추가하기</button>
-        </div>
-
-        <div class="search-box">
-            <input type="text" id="search" placeholder="검색하기">
-            <button id="searchBtn">검색</button>
+        <div class="top-controls">        
+            <h1>공지사항</h1>
+            <div class="right-controls">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="검색어 입력">
+                    <button id="searchBtn">검색</button>
+                </div>
+                <div class="add-box">
+                    <button class="add" onclick="location.href='/noticeadd'">공지 추가하기</button>
+                </div>
+            </div>
         </div>
 
         <table>
@@ -27,23 +29,21 @@
                     <th>제목</th>
                     <th>작성자</th>
                     <th>작성일</th>
-                    <th>조회수</th>
-                    <th>삭제</th>
+                    <th id="delete-column">삭제</th>  <!-- 삭제 열을 숨기기 위해 ID 추가 -->
                 </tr>
             </thead>
             <tbody class="notice-list">
                 <!-- 동적으로 공지 목록 추가 -->
             </tbody>
         </table>
-    </div>
-
 
         <div class="pagination">
-            <button onclick="prevPage()">&#8592;</button> <!-- 왼쪽 화살표 -->
+            <button onclick="prevPage()">&#8592;</button>
             <span id="page-info">1</span>
-            <button onclick="nextPage()">&#8594;</button> <!-- 오른쪽 화살표 -->
-        </div>        
+            <button onclick="nextPage()">&#8594;</button>
+        </div>
     </div>
-    <script type="text/javascript" src="{{ url_for('static', filename='/js/mainotice.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mainotice.js') }}"></script>
 </body>
 </html>

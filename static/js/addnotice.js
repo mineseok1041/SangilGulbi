@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("addNoticeBtn").addEventListener("click", addNotice);
 });
 
-function addNotice() {
+async function addNotice() {
     let title = document.getElementById("title").value.trim();
     let content = document.getElementById("content").value.trim();
 
@@ -11,20 +11,31 @@ function addNotice() {
         return;
     }
 
-    let notices = JSON.parse(localStorage.getItem("notices")) || [];
-
     let newNotice = {
-        id: new Date().getTime(), // 유니크한 ID
         title: title,
-        author: "사용자", // 현재 로그인된 사용자 (추후 서버에서 가져올 수도 있음)
+        author: "사용자", // 실제 로그인한 사용자 정보를 서버에서 처리 가능
         date: new Date().toISOString().split("T")[0], // YYYY-MM-DD 형식
         views: 0,
         content: content
     };
 
-    notices.unshift(newNotice); // 새로운 공지를 맨 위에 추가
-    localStorage.setItem("notices", JSON.stringify(notices));
+    try {
+        let response = await fetch("/api/notices", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newNotice)
+        });
 
-    alert("공지사항이 추가되었습니다.");
-    window.location.href = "/mainnotice"; // 공지 목록 페이지로 이동
+        if (!response.ok) {
+            throw new Error("공지사항 추가에 실패했습니다.");
+        }
+
+        alert("공지사항이 추가되었습니다.");
+        window.location.href = "/mainnotice"; // 공지 목록 페이지로 이동
+    } catch (error) {
+        console.error("Error:", error);
+        alert("오류가 발생했습니다. 다시 시도해주세요.");
+    }
 }

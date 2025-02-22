@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +15,7 @@
 
 body {
     background-color: #f9f9f9;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
 .container {
@@ -16,6 +23,45 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.id {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px; /* 최대 너비 설정 */
+}
+.input-group {
+    position: relative; /* 버튼을 입력창 내부에 고정 */
+    width: 100%;
+    max-width: 350px; /* 최대 너비 설정 */
+}
+
+.btn {
+    position: absolute;
+    margin-left: 205px; /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+    margin-top: 5px;
+    padding: 6px 9px;
+    background-color: white;
+    color: black;
+    font-family: 'MinSans-Regular';
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap; /* 버튼 줄 바꿈 방지 */
+    z-index: 1000000;
+}
+
+span {
+    position: relative;
+    font-family: 'MinSans-Regular';
+    font-size: 14px;
+    color: #777;
+    margin-right: 48%;
+    margin-top: 0%;
+    top: 37.5%;
+    z-index: 10;
 }
 
 .signup-form {
@@ -35,6 +81,7 @@ body {
 .signup-form p {
     margin-bottom: 20px;
     color: #777;
+    font-weight: bold;
 }
 
 .signup-form form {
@@ -42,54 +89,117 @@ body {
     flex-direction: column;
 }
 
+/* 설명 메시지 (span) */
 .input-group {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
+    flex-direction: column; /* 요소를 세로 정렬 */
+    position: relative;
+    width: 100%;
 }
 
-.input-group input {
-    width: 43%;
-    margin-right: 5px;
+/* span을 항상 아래쪽에 배치 */
+.input-group span {
+    display: block;
+    font-family: 'MinSans-Regular';
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px; /* 입력창과 간격 조정 */
+    text-align: left;
+    width: 100%;
+    position: relative; /* 입력창 위로 겹치지 않도록 */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"] {
+input[type="text"]{
+    padding: 10px; 
+    margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;    
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
+}
+
+input[type="email"]{
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5%;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
+}
+input[type="password"]{
+    padding: 10px;
+    margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
+}
+input[type="date"] {
+    padding: 10px;
+    margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
+}
+
+.name{
+    padding: 10px; 
+    margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;    
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
+}
+
+.password{
+    position: relative;
+    width: 100%;
+}
+
+
+.password-input {
+    width: 100%;
+    padding: 9px;
+    padding-right: 40px; /* 아이콘 공간 확보 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
 }
 
 .password-container {
     position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
 }
 
-.toggle-password {
-    position: relative;
-    left: 240px;
-    top: -33px;
-    transform: translateY(-50%); /* 중앙에 위치 */
-    background: none;
-    border: none;
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    object-fit: contain;
+    z-index: 1; /* 너무 높게 하면 다른 요소들과 충돌할 수 있으니 1 정도로 조정 */
+    pointer-events: auto; /* 클릭 가능하도록 설정 */
 }
 
-.toggle-password img {
-    height: 20px; /* 높이 설정 (수정 가능) */
-    width: 40px; /* 너비는 자동으로 설정되어 비율 유지 */
-}
-
-button[type="submit"] {
-    background-color: #FCD363;
+.join {
+    background-color: #838383;
     color: white;
     padding: 10px;
     border: none;
@@ -97,32 +207,12 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 20px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.social-buttons button {
-    width: 32%;
-    padding: 10px;
-    border: 1px solid #9CA3AF;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #9CA3AF;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Jua", sans-serif;
-}
 
 .signup-form a {
-    color: #9CA3AF;
+    color: #888888;
     text-decoration: none;
 }
 

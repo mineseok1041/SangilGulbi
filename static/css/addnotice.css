@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 body {
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
     margin: 0;
     display: flex;
     justify-content: center;
@@ -16,10 +23,10 @@ h1 {
     width: 70%;
     background-color: white;
     text-align: left;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     padding: 15px 20px;
-    border-bottom: 3px solid #FFD000;
+    border-bottom: 3px solid #000000;
     z-index: 1000;
     margin: 0;
 }
@@ -33,15 +40,7 @@ h1 {
     background-color: #ffffff;
     text-align: center;
     margin-bottom: 70px;
-    margin-top: 80px;  /* ✅ 기존 140px에서 줄임 */
-}
-
-/* 🟠 제목 & 작성자 입력 칸 */
-.add-notice {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px; /* ✅ 기존 40px에서 줄임 */
-    margin-top: 80px;    /* ✅ 기존 120px에서 줄임 */
+    margin-top: 70px;  /* ✅ 기존 140px에서 줄임 */
 }
 
 .add-notice .title,
@@ -54,7 +53,7 @@ h1 {
 .add-notice .title:focus,
 .add-notice .author:focus,
 .notice-content:focus {
-    background-color: #fff9c4; /* 연한 노란색 */
+    background-color: #e2e2e2; 
     color: #000; /* 검은색 글씨 */
 }
 
@@ -63,13 +62,20 @@ h1 {
 .add-notice .author:not(:placeholder-shown),
 .notice-content:not(:placeholder-shown) {
     background-color: #f2f2f2;
-    color: #333; /* 진한 회색 */
+}
+.add-notice {
+    display: flex;
+    width: 100%;
+    margin-bottom: 25px; /* ✅ 기존 40px에서 줄임 */
+    margin-top: 10px;    /* ✅ 기존 120px에서 줄임 */
+    max-width: 100%;  /* ✅ 전체 크기 제한 */
 }
 
-
+/* 제목 입력칸 */
 .add-notice .title {
-    width: 110%;
-    padding: 12px;
+    width: calc(100% - 20px);  /* ✅ 본문과 동일한 너비 */
+    padding: 10px;  /* ✅ 본문과 동일한 padding */
+    margin: 0 auto;  /* ✅ 여백 초기화 */
     border: none;
     text-align: left;
     border-radius: 20px;
@@ -78,36 +84,33 @@ h1 {
     color: #a0a0a0;
     font-weight: bold;
     outline: none;
-    font-family: "Jua", sans-serif;
-    margin-bottom: 1.3%;
+    font-family: 'MinSans-Regular';
 }
 
-
-/* 🟣 공지 내용 입력 칸 */
+/* 본문 입력칸 */
 .notice-content {
-    font-family: "Jua", sans-serif;
-    border: none;
-    width: 100%;
-    height: 500px;
-    padding: 20px;
+    width: 97%;  /* ✅ 제목과 동일한 width */
+    height: 450px;
+    padding: 10px;  /* ✅ 제목과 동일한 padding */
     border-radius: 20px;
     background-color: #f2f2f2;
-    font-size: 30px;
+    font-size: 20px;
     color: #a0a0a0;
     font-weight: bold;
-    margin-bottom: 30px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    outline: none;
 }
-
 
 .btn {
     padding: 12px 20px;
-    background-color: #FFD000;
+    background-color: rgb(149, 149, 149);
     border: none;
     border-radius: 20px;
     color: black;
     font-size: 20px;
     font-weight: bold;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
     cursor: pointer;
     width: 20%;
     margin-top: 10px;
@@ -115,38 +118,108 @@ h1 {
 }
 
 .btn:hover {
-    background-color: #E6B800;
+    background-color: #6b6b6b;
 }
 
 /* 📱 모바일 화면 대응 */
+@media screen and (max-width: 1024px) {
+    h1 {
+        left: 0%;
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+    }
+    
+    .notice-header {
+        align-items: flex-start;
+    }
+    
+    .add-notice .title{
+        width: 70%;
+        outline: none;
+    }
+    
+    .notice-content{
+        width: 70%;
+        height: 300px;
+        outline: none;
+    }
+    
+    .btn {
+        width: 30%;
+    }
+    }
+    
+
+/* 📱 모바일 화면 대응 */
 @media screen and (max-width: 768px) {
-h1 {
-    left: 0%;
-    font-size: 30px;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-}
-
-.container {
-    width: 100%;
-}
-
-.notice-header {
-    align-items: flex-start;
-}
-
-.notice-notice .title{
-    width: 100%;
-    margin-bottom: 10%;
-}
-
-.notice-content{
-    width: 80%;
-    height: 300px;
-}
-
-.btn {
-    width: 70%;
-}
-}
+    h1 {
+        left: 0%;
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+    }
+    
+    .notice-header {
+        align-items: flex-start;
+    }
+    
+    .add-notice .title{
+        width: 70%;
+        outline: none;
+    }
+    
+    .notice-content{
+        width: 70%;
+        height: 300px;
+        outline: none;
+    }
+    
+    .btn {
+        width: 40%;
+    }
+    }
+    
+/* 📱 모바일 화면 대응 */
+@media screen and (max-width: 480px) {
+    h1 {
+        left: 0%;
+        font-size: 30px;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+    }
+    
+    .notice-header {
+        align-items: flex-start;
+    }
+    
+    .add-notice .title{
+        width: 70%;
+        outline: none;
+    }
+    
+    .notice-content{
+        width: 70%;
+        height: 300px;
+    }
+    
+    .btn {
+        width: 40%;
+    }
+    }
+    

@@ -1,298 +1,236 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 body {
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
-
+    align-items: flex-start; /* 상단 정렬로 변경 */
+    min-height: 100vh;
+    background-color: #fffefe;
 }
+
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px;
     padding: 20px;
-    min-height: 100px;
-    height: 100vh;
+    min-height: auto; /* 기존 height: 100vh 제거 */
     border-radius: 10px;
 }
-.header {
+/* 🔹 검색 및 추가 버튼 */
+
+.top-controls {
+    font-family: 'MinSans-Regular';
     display: flex;
-    justify-content: flex-end; /* h1을 오른쪽으로 정렬 */
-    align-items: center;
-    border-bottom: 3px solid orange;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    position: relative;
+    justify-content: space-between; /* 🔥 h1 왼쪽, 검색창 오른쪽 */
+    align-items: center; /* 🔥 수직 가운데 정렬 */
+    width: 100%;
+    margin-top: 5%;
 }
 
 h1 {
-    font-family: "Jua", sans-serif;
-    margin-left: 12%;
     font-size: 40px;
-    position: relative; /* 가상 요소를 추가하기 위해 position 지정 */
+    margin: 0;
 }
 
-h1::after {
-    content: "";
-    display: block;
-    width: 90%;
-    height: 5px; /* 선의 두께 */
-    background-color: #FFD000; /* 🔥 노란색 */
-    margin-top: 7px; /* h1과의 간격 */
-}
-
-
-.add-notice {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-family: "Jua", sans-serif;
-}
-
-
-.add-notice input {
-    font-family: "Jua", sans-serif;
-    padding: 8px;
-    width: 150px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.add-notice button {
-    font-family: "Jua", sans-serif;
-    padding: 8px;
-    background-color: lightseagreen;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-.add-box {
-    font-family: "Jua", sans-serif;
-    position: absolute;
+.right-controls {
     display: flex;
     align-items: center;
-    margin-left: 51%;
+    gap: 10px;
 }
 
-.add{
-    font-family: "Jua", sans-serif;
-    padding: 8px;
-    background-color: rgb(255, 208, 0);
-    border: none;
-    border-radius: 5px;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    margin-top: auto;
+
+
+.add-box {
+    font-family: 'MinSans-Regular';
+    display: flex;
+    align-items: center;
 }
 
 .search-box {
-    font-family: "Jua", sans-serif;
+    display: flex;
     align-items: center;
-    margin-left: 70%;
-    gap: 10px;
+    gap: 5px;
+}
+
+.add {
+    font-family: 'MinSans-Regular';
+    padding: 10px 15px;
+    background-color: rgb(94, 94, 94);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add:hover {
+    background-color: #434343;
 }
 
 .search-box input {
-    padding: 8px;
-    font-family: "Jua", sans-serif;
-    width: 200px;
+    padding: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 200px;
 }
 
 .search-box button {
-    font-family: "Jua", sans-serif;
-    padding: 8px;
-    background-color: rgb(255, 208, 0);
+    font-family: 'MinSans-Regular';
+    padding: 10px;
+    background-color: rgb(94, 94, 94);
     border: none;
     border-radius: 5px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    margin-left: 0;
-    font-size: 15px;
+    font-size: 16px;
 }
+
+.search-box button:hover {
+    background-color: #434343;
+}
+
+/* 🔹 공지 목록 테이블 */
 table {
-    width: 75%; /* 70~80%로 조절 가능 */
+    width: 100%;
     border-collapse: collapse;
-    margin: 10px auto;
+    margin-top: 20px;
 }
+
 th, td {
     border-bottom: 2px solid #ddd;
     padding: 15px;
     text-align: center;
 }
+
 th {
-    border-top: 3px solid orange;
-    border-bottom: 3px solid orange;
-    background: none;
+    border-top: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
     font-weight: bold;
 }
 
+/* 🔹 삭제 버튼 */
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 🔹 페이지네이션 */
 .pagination {
     display: flex;
-    justify-content: center; /* 가운데 정렬 */
+    justify-content: center; /* 🔥 하단 중앙 정렬 */
     align-items: center;
-    position: fixed; /* 화면 하단에 고정 */
-    bottom: 20px; /* 하단 여백 */
-    left: 50%; /* 화면 중앙 정렬 */
-    transform: translateX(-50%); /* 정확한 중앙 위치 조정 */
-    gap: 10px; /* 버튼 간격 */
-    background-color: white; /* 배경색 추가 (필요시) */
-    padding: 10px; /* 내부 여백 */
-    border-radius: 10px; /* 둥근 모서리 */
+    position: fixed;
+    bottom: 20px; /* 화면 하단에서 20px 위 */
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .pagination button {
     color: black;
-    background-color: orange;
+    background-color: rgb(128, 128, 128);
     border-radius: 20px;
     font-size: 15px;
     font-weight: bold;
     padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 }
 
-/* 삭제 버튼 스타일 */
-.delete-btn {
-    background-color: #ff4d4d; /* 빨간색 */
-    color: white; /* 글자 색상 */
-    border: none; /* 테두리 제거 */
-    padding: 5px 10px; /* 내부 여백 */
-    font-size: 14px; /* 글자 크기 */
-    cursor: pointer; /* 클릭 가능하도록 변경 */
-    border-radius: 15px; /* 둥근 모서리 */
-    transition: background-color 0.3s ease; /* 부드러운 색상 변경 효과 */
+.pagination button:hover {
+    background-color: rgb(104, 104, 104);
 }
-
-/* 마우스를 올렸을 때 효과 */
-.delete-btn:hover {
-    background-color: #cc0000; /* 더 진한 빨간색 */
-}
-
-/* 버튼 크기 조정 */
-td .delete-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 35%;
-}
-
-
-/* 반응형 스타일 */
 @media (max-width: 768px) {
     .container {
-        width: 85%;
+        width: 95%;
         padding: 10px;
-        left: 0px;
-    }
-
-    h1::after {
-        content: "";
-        display: block;
-        width: 80%;
-        height: 5px; /* 선의 두께 */
-        background-color: #FFD000; /* 🔥 노란색 */
-        margin-top: 7px; /* h1과의 간격 */
-        left: 0px;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap; /* 화면이 좁아지면 자동 줄 바꿈 */
-        gap: 10px; /* 요소 간 간격 */
-        width: 100%;
-        padding: 10px 0;
-        text-align: center;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 🔥 검색창과 버튼이 한 줄로 유지되도록 수정 */
+    .right-controls {
         width: 100%;
-        left: 0px;
-    }
-
-    .add-box{
         display: flex;
-        align-items: center;
-        gap: 5px; /* 버튼과 입력창 사이 간격 */
-        margin-left: 10%;
-        margin-top: 1%;
+        justify-content: center; /* 🔥 중앙 정렬 유지 */
+        flex-wrap: wrap;
+        gap: 10px;
     }
-    
-    .search-box {
+
+    .search-box, .add-box {
         display: flex;
+        flex-direction: row; /* 🔥 버튼과 검색창이 한 줄 유지 */
+        justify-content: center;
         align-items: center;
-        gap: 10px; /* 버튼과 입력창 사이 간격 */
-        margin-left: 49%;
+        gap: 10px;
+        width: auto;
     }
 
-    .search-box input {
-        width: 10%; /* 기본 크기 */
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-        margin-left: -30%;
-    }
-
-    .add{
-        font-family: "Jua", sans-serif;
-        padding: 4px 10px;
-        background-color: rgb(255, 208, 0);
-        border: none;
-        border-radius: 5px;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-        font-size: 14px;
-        left: 0%;
-    }
-    
-    .search-btn {
-        font-family: "Jua", sans-serif;
-        padding: 8px 12px;
-        background-color: rgb(255, 208, 0);
-        border: none;
-        border-radius: 5px;
-        color: rgb(0, 0, 0);
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    /* ✅ 화면이 좁아지면 세로 정렬 */
-    @media (max-width: 480px) {
-        .header {
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .search-box input {
-            width: 90%; /* 작은 화면에서는 너비 90% */
-        }
-
-        .add, .search-btn {
-            width: 100%; /* 버튼들도 화면 꽉 채우기 */
-            text-align: center;
-        }
-    }
-
-    .table-container {
+    table {
+        width: 100%;
         overflow-x: auto;
     }
 
     th, td {
-        font-size: 12px;
-        padding: 8px;
+        font-size: 14px;
+        padding: 10px;
     }
 }
 
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .right-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box, .add-box {
+        flex-direction: column; /* 🔥 작은 화면에서는 세로 정렬 */
+        gap: 5px;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .add {
+        width: 100%;
+        text-align: center;
+    }
+}
