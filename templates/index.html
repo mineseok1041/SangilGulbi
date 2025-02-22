@@ -14,146 +14,61 @@
     <section class="container">
       <article class="one_section">
         <header class="header">
-          <a class="header_logo" href="/">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GB">
-          </a>
-          <article class="game">
-            <a href="#">
-              <h6 class="text">game</h6>
-            </a>
-            <article class="menubar">
-              <button class="game1" href="#">
-                <p>사다리타기</p>
-              </button>
-              <button class="game2" href="#">
-                <p>룰렛 돌리기</p>
-              </button>
-            </article>
-          </article>
-          <article class="awards">
-            <a href="/awards">
-              <h6 class="text">awards</h6>
-            </a>
-          </article>
-          <article class="save">
-            <a href="#">
-              <h6 class="text">save</h6>
-            </a>
-            </article>
-          </article>
-          <article class="cal">
-            <a href="#">
-              <h6 class="text">calendar</h6>
-            </a>
-            <article class="menubar">
-              <button class="cal1" href="#">
-                <p>공지사항</p>
-              </button>
-              <button class="cal2" href="#">
-                <p>캘린더보기</p>
-              </button>
-            </article>
-          </article>
-          <button class="login-button" onClick="location.href='login'">LOGIN</button>
+          <a class="logo">GB</a>
+
+          <div class="main_menu">
+            <a class="text" href="#">Calender</a>
+            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Game</a>
+            <a class="text" href="/awards">Awards</a>
+            <a class="text" href="#">Login</a>
+          </div>
+
+          <div class="sub_menu">
+            <button class="cal1" href="#">공지사항</button>
+            <button class="cal2" href="#">캘린더보기</button>
+            <button class="game1" href="#">사다리타기</button>
+            <button class="game2" href="#">룰렛돌리기</button>
+            <button class="login1" href="/login">로그인</button>
+            <button class="login2" href="/signup">회원가입</button>
+          </div>
         </header>
 
-        <main>
-          <section class="welcome">
-            <div class="new-label">NEW</div>
-            <div class="new-label2"></div>
-            <p class="welcome-text">
-              안녕하세요!
-              <br>꿀비에 오신것을 환영합니다!
-              <br> 앞으로 많은 활동을 함께 해보아요
-          </section>
-          <h1 class="main-title">상일미디어고등학교</h1>
-          <h2 class="subtitle">인공지능소프트웨어과</h2>
-          <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
-        </main>
+        <div class="welcome">
+          <p class="title">인공지능소프트웨어과
+            <br><strong>IT 전공동아리 꿀비</strong>
+          </p>
+        </div>
+      </article>
     </section>
 
     <section class="container">
       <article class="two_section">
-        <main class="main-container">
-          <section class="intro-section">
-            <h1 class="introduce">Introduce</h1>
-            <div class="activity-box">
-              <div class="side-circle">
-                <span>01</span>
-              </div>
-              <img class="icon" src="{{ url_for('static', filename='img/introduce1.png') }}" alt="소개">
-              <hr class="line_first">
-              <div class="intro-text">
-                저희 동아리는 다양한 언어와 툴을 배워요<br> 파이썬, 자바, 등등
-              </div>
+        <section class="category-section">
+          <h2 class="two_title">동아리 소개</h2>
+          <div class="intro_card-container">
+            <div class="intro_card">
+              <h3>대회</h3>
+              <p>google, 현대오토에버 등<br>여러 대회 활동</p>
+              <img class="icon_1" src="{{ url_for('static', filename='img/index/icon_1.png') }}">
             </div>
-          </section>
-        </main>
-      </article>
-    </section>
-
-    <section class="container">
-      <article class="three_section">
-        <main class="main-container">
-          <section class="activity-section">
-            <!-- Section 02 -->
-            <div class="activity-box2">
-              <div class="side-circle">
-                <span>02</span>
-              </div>
-              <img class="icon" src="{{ url_for('static', filename='img/introduce2.png') }}" alt="소개">
-              <hr class="line_first">
-              <div class="intro-text">
-                여러 기업에서 개최하는 다양한 대회 활동도 하구요
-                <br> 현대 오토에버, 마이크로소프트 등등
-              </div>
+            <div class="intro_card2">
+              <h3>내신</h3>
+              <p>내신을 챙기기 위한<br>시험 대비 공부</p>
+              <img class="icon_2" src="{{ url_for('static', filename='img/index/icon_2.png') }}">
             </div>
-            <!-- Section 03 -->
-            <div class="activity-box3">
-              <div class="side-circle">
-                <span>03</span>
-              </div>
-              <img class="icon" src="{{ url_for('static', filename='img/introduce3.png') }}" alt="소개">
-              <hr class="line_first">
-              <div class="intro-text">
-                내신을 챙기기 위해
-                <br>시험기간 대비 공부도 해요!!
-              </div>
+            <div class="intro_card">
+              <h3>상담</h3>
+              <p>미래의 진로에 대한<br>진로상담</p>
+              <img class="icon_3" src="{{ url_for('static', filename='img/index/icon_3.png') }}">
             </div>
-          </section>
-        </main>
-      </article>
-    </section>
-
-    <section class="container">
-      <article class="four_section">
-        <main class="main-container">
-          <section class="activity-section">
-            <!-- Section 04 -->
-            <div class="activity-box4">
-              <div class="side-circle">
-                <span>04</span>
-              </div>
-              <img class="icon" src="{{ url_for('static', filename='img/introduce4.png') }}" alt="소개">
-              <hr class="line_first">
-              <div class="intro-text">
-                여러분의 진로를 위한 진로상담도 하고 있어요
-              </div>
+            <div class="intro_card2">
+              <h3>다양한 활동</h3>
+              <p>물총싸움, 캠핑 등<br>다양한 활동도 합니다</p>
+              <img class="icon_4" src="{{ url_for('static', filename='img/index/icon_4.png') }}">
             </div>
-            <!-- Section 05 -->
-            <div class="activity-box5">
-              <div class="side-circle">
-                <span>05</span>
-              </div>
-              <img class="icon" src="{{ url_for('static', filename='img/introduce5.png') }}" alt="소개">
-              <hr class="line_first">
-              <div class="intro-text">
-                공부에 지친 여러분들을 위한 재미있는 활동들도 많이 하고 있답니다
-                <br> 물총싸움, 당일치기 캠핑 등등
-              </div>
-            </div>
-          </section>
-        </main>
+          </div>
+        </section>
       </article>
     </section>
 
@@ -165,53 +80,53 @@
             <div class="card">
               <div class="author">STAC 최우수상, 우수상</div>
               <div class="date">2016, 2017</div>
-              <img class="content" src="{{ url_for('static', filename='img/stac_2016.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/stac_2016.png') }}">
             </div>
             <div class="card">
               <div class="author">넷마블 아카데미 수료</div>
               <div class="date">2018, 2019</div>
-              <img class="content" src="{{ url_for('static', filename='img/netmarble_2018.png') }}">
-              <img class="content" src="{{ url_for('static', filename='img/netmarble_2019.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2018.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2019.png') }}">
             </div>
             <div class="card">
               <div class="author">GIGDC 동상</div>
               <div class="date">2020</div>
-              <img class="content" src="{{ url_for('static', filename='img/GIGDC_2020.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/GIGDC_2020.png') }}">
             </div>
             <div class="card">
               <div class="author">STAC 장려상</div>
               <div class="date">2023</div>
-              <img class="content" src="{{ url_for('static', filename='img/stac_2021.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/stac_2021.png') }}">
             </div>
             <div class="card">
               <div class="author">구글 AI 프렌즈 스쿨 최우수상</div>
               <div class="date">2023</div>
-              <img class="content" src="{{ url_for('static', filename='img/AI Friends School_2023.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/AI Friends School_2023.png') }}">
             </div>
             <div class="card">
               <div class="author">현대오토에버 화이트해커 경진대회 최우수상, 우수상</div>
               <div class="date">2023</div>
-              <img class="content" src="{{ url_for('static', filename='img/현대오토에버_2023.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/현대오토에버_2023.png') }}">
             </div>
             <div class="card">
               <div class="author">한국과학창의재단 SW 동행 데모데이 특별상, 장려상</div>
               <div class="date">2024</div>
-              <img class="content" src="{{ url_for('static', filename='img/SW동행 데모데이_2024.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/SW동행 데모데이_2024.png') }}">
             </div>
             <div class="card">
               <div class="author">넷마블 아카데미 수료</div>
               <div class="date">2025</div>
-              <img class="content" src="{{ url_for('static', filename='img/netmarble_2024.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2024.png') }}">
             </div>
             <div class="card">
               <div class="author">제 12기 IP - Meister Program 입상</div>
               <div class="date">-</div>
-              <img class="content" src="{{ url_for('static', filename='img/IP Meister Program.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/IP Meister Program.png') }}">
             </div>
             <div class="card">
               <div class="author">지식재산권(특허 등) 출원 및 등록</div>
               <div class="date">-</div>
-              <img class="content" src="{{ url_for('static', filename='img/지식재산권.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/지식재산권.png') }}">
             </div>
           </div>
           <div class="show-more">
@@ -228,32 +143,68 @@
           <div class="card2">
             <div class="shape">★</div>
             <h2>Calendar</h2>
-            <p>일정을 확인해보세요!</p>
+            <p>일정을 확인해보세요</p>
             <a href="#" class="see-more">SEE MORE →</a>
-            <div class="image" style="background-image: url('calendar.png');"></div>
           </div>
           <div class="card2">
-            <div class="icon">●</div>
+            <div class="shape">●</div>
             <h2>Game</h2>
-            <p>많이 사용하는 게임도 보러오세요!</p>
+            <p>많이 사용하는 게임도 보러오세요</p>
             <a href="#" class="see-more">SEE MORE →</a>
-            <div class="image" style="background-image: url('game.png');"></div>
           </div>
           <div class="card2">
-            <div class="icon">✦</div>
+            <div class="shape">✦</div>
             <h2>mypage</h2>
-            <p>자신의 정보를 확인해보세요!</p>
+            <p>자신의 정보를 확인해보세요</p>
             <a href="/mypage" class="see-more">SEE MORE →</a>
-            <div class="image" style="background-image: url('members.png');"></div>
           </div>
         </div>
       </article>
     </section>
 
     <footer>
-    </footer>
+      <nav>
+        <div id="first">
+          <p>calendar</p>
+          <a href="#">공지사항</a>
+          <a href="#">캘린더보기</a>
+        </div>
 
-    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+        <div id="second">
+          <a href="#">save</a>
+        </div>
+        
+
+        <div id="third">
+          <p>game</p>
+          <a href="#">사다리타기</a>
+          <a href="#">룰렛돌리기</a>
+        </div>
+
+        <div id="fourd">
+          <p>login</p>
+          <a href="/login">로그인</a>
+          <a href="/signup">회원가입</a>
+        </div>
+      </nav>
+
+      <p id="p1">
+        꿀비<br><br>
+        상일미디어고등학교 인공지능소프트웨어과<br>
+        주소 : 서울특별시 강동구 천호대로219길 61<br>
+        2층 앱센터 안쪽 앱제작1실
+      </p>
+
+      <hr>
+
+      <p id="p2">
+        꿀비 @2025
+      </p>
+
+    </footer>
+  </div>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>
