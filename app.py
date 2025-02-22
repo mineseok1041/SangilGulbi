@@ -1,4 +1,5 @@
-from flask import Flask, redirect, render_template, session, url_for
+from flask import Flask, redirect, render_template, session, url_for, request, Response
+import requests
 from flask_cors import CORS
 import student_app
 import upload
@@ -18,7 +19,20 @@ app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
 # 메인페이지
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'id' in session:
+        return render_template('index.html')
+    elif 'SangilGulbiUserID' in request.cookies and 'SangilGulbiUserPWD' in request.cookies:
+        resp = requests.post(url_for('student.dologin', _external=True))
+        return Response(resp.content, status=resp.status_code, headers=dict(resp.headers))
+    else:
+        return render_template('index.html')
+    
+@app.route('/check')
+def check():
+    id = request.cookies.get('SangilGulbiUserID')
+    password = request.cookies.get('SangilGulbiUserPWD')
+    print(id, password)
+    return redirect(url_for('index'))
 
 # 로그인
 @app.route('/login')
