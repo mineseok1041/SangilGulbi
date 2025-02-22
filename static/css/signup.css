@@ -42,9 +42,9 @@ body {
 
 .btn {
     position: absolute;
-    margin-left: 205px;
+    margin-left: 210px;
     /* 입력 박스 내부에서 오른쪽 끝 정렬 */
-    margin-top: 5px;
+    margin-top: 3px;
     padding: 6px 9px;
     background-color: white;
     color: black;
@@ -52,7 +52,7 @@ body {
     cursor: pointer;
     border: none;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 50px;
     white-space: nowrap;
     /* 버튼 줄 바꿈 방지 */
     z-index: 1000000;
@@ -242,7 +242,6 @@ input[type="date"] {
     cursor: pointer;
     object-fit: contain;
     z-index: 1;
-    /* 너무 높게 하면 다른 요소들과 충돌할 수 있으니 1 정도로 조정 */
     pointer-events: auto;
     /* 클릭 가능하도록 설정 */
 }
@@ -266,4 +265,67 @@ input[type="date"] {
 
 .signup-form a:hover {
     text-decoration: underline;
+}
+
+
+/* 반응형 디자인 개선 */
+
+@media (max-width: 1024px) {
+    .login-container {
+        width: 80%;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .btn {
+        font-size: 16px;
+        margin-left: 205px;
+        /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+        border-radius: 50px;
+        margin-top: 1px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+    .btn {
+        font-size: 14px;
+        margin-left: 205px;
+        /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+        margin-top: 1px;
+        border-radius: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 18px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 7px;
+    }
+    .btn {
+        font-size: 14px;
+        border-radius: 50px;
+        margin-left: 205px;
+        /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+        margin-top: 1px;
+    }
 }

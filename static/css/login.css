@@ -23,7 +23,6 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 500px;
-    /* 너비를 500px로 확장 */
     height: 600px;
     text-align: center;
     position: relative;
@@ -137,7 +136,6 @@ small {
 
 .remember-me label {
     position: static;
-    /* 기존 absolute 제거 */
     font-size: 16px;
     color: #666;
     font-family: 'MinSans-Regular';
@@ -195,6 +193,7 @@ small {
 }
 
 .eye-icon {
+    /* 비밀번호 표시해주는 아이콘 */
     position: absolute;
     right: 10px;
     top: 40%;
@@ -204,20 +203,8 @@ small {
     cursor: pointer;
     object-fit: contain;
     z-index: 1;
-    /* 너무 높게 하면 다른 요소들과 충돌할 수 있으니 1 정도로 조정 */
     pointer-events: auto;
     /* 클릭 가능하도록 설정 */
-}
-
-.icons {
-    display: flex;
-    justify-content: center;
-    /* 가로 중앙 정렬 */
-    align-items: center;
-    /* 세로 중앙 정렬 */
-    gap: 20px;
-    height: 50px;
-    /* 아이콘 높이에 맞게 설정 */
 }
 
 .icons a {
@@ -259,6 +246,26 @@ small {
 
 
 /* 기존 스타일 유지 */
+
+@media (max-width: 1024px) {
+    .login-container {
+        width: 90%;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .login-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
 
 
 /* 반응형 디자인 */
