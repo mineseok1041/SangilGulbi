@@ -82,8 +82,8 @@ header {
 .text > img {
     position: absolute;
     top: 8%;
-    width: 6%;
-    height: auto;
+    width: auto;
+    height: 85%;
 }
 
 
