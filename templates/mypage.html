@@ -11,55 +11,32 @@
 
 <body>
     <header class="header">
-        <a class="header_logo" href="/">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GB">
-        </a>
-        <<<<<<< HEAD <h1 id="mypage">MyPage</h1>
-            =======
-            <h1 id="mypage">My Page</h1>
-            >>>>>>> 556fbd4 (인덱스, 마이페이지)
-            <article class="game">
-                <a href="#">
-                    <h6 class="text">game</h6>
-                </a>
-                <article class="menubar">
-                    <button class="game1" href="#">
-                        <p>사다리타기</p>
-                    </button>
-                    <button class="game2" href="#">
-                        <p>룰렛 돌리기</p>
-                    </button>
-                </article>
-            </article>
-            <article class="awards">
-                <a href="/awards">
-                    <h6 class="text">awards</h6>
-                </a>
-            </article>
-            <article class="save">
-                <a href="#">
-                    <h6 class="text">save</h6>
-                </a>
-            </article>
-            <<<<<<< HEAD=======< /article>
-                >>>>>>> 556fbd4 (인덱스, 마이페이지)
-                <article class="cal">
-                    <a href="#">
-                        <h6 class="text">calendar</h6>
-                    </a>
-                    <article class="menubar">
-                        <button class="cal1" href="#">
-                            <p>공지사항</p>
-                        </button>
-                        <button class="cal2" href="#">
-                            <p>캘린더보기</p>
-                        </button>
-                    </article>
-                </article>
-                {% if session['id'] %}
-                <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button> {% else %}
-                <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
-    </header>
+          <a class="logo">GB</a>
+
+          <div class="main_menu">
+            <a class="text" href="#">Calender</a>
+            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Game</a>
+            <a class="text" href="#">Awards</a>
+            {% if session['id'] %}
+            <button class="text" onClick="location.href='/users/logout.do'">LOGOUT</button>
+            <a class="text" href="/mypage">
+              <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                alt="Profile" class="profile-pic">
+            </a>
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+          </div>
+
+          <div class="sub_menu">
+            <button class="cal1" href="#">공지사항</button>
+            <button class="cal2" href="#">캘린더보기</button>
+            <button class="game1" href="#">사다리타기</button>
+            <button class="game2" href="#">룰렛돌리기</button>
+            <button class="login1" href="#">회원가입</button>
+            </button>
+          </div>
+        </header>
 
     <div id="photo">
         <img id="basic"
@@ -75,18 +52,16 @@
     <hr id="line">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-        <<<<<<< HEAD <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade ==
-            2 %} {{ user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+       <p id="num">학번: 
             </p>
-            <p id="name">이름: {{ user.name }}</p>
-            <p id="phone">전화번호: {{ user.phone }}</p>
-            <p id="e-mail">이메일: {{ user.email }}</p>
-            =======
+            <p id="name">이름: </p>
+            <p id="phone">전화번호: </p>
+            <p id="e-mail">이메일: </p>
+        
             <p id="num">학번</p>
             <p id="name">이름</p>
             <p id="phone">전화번호</p>
             <p id="e-mail">이메일</p>
-            >>>>>>> dd3942df286e299b7db8b7c670adf615f9bb7633
             <button class="add" onclick="openPopup()">수정</button>
     </article>
     <article class="score_box">
@@ -95,13 +70,13 @@
     <article class="awards_box">
         <h3 id="awards">수상내역</h3>
     </article>
-    <<<<<<< HEAD <script>
+    <script>
         function previewImage(event) { const reader = new FileReader(); reader.onload = function () { const output =
         document.getElementById('basic'); output.src = reader.result; }; reader.readAsDataURL(event.target.files[0]);
         document.getElementById('uploadForm').submit();
         }
         </script>
-        ======= >>>>>>> dd3942df286e299b7db8b7c670adf615f9bb7633
+        
         <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 </body>
 

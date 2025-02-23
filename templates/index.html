@@ -14,71 +14,39 @@
     <section class="container">
       <article class="one_section">
         <header class="header">
-          <a class="header_logo" href="/">
-            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="GB">
-          </a>
-          <article class="game">
-            <a href="#">
-              <h6 class="text">game</h6>
+          <a class="logo">GB</a>
+
+          <div class="main_menu">
+            <a class="text" href="#">Calender</a>
+            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Game</a>
+            <a class="text" href="#">Awards</a>
+            {% if session['id'] %}
+            <button class="text" onClick="location.href='/users/logout.do'">LOGOUT</button>
+            <a class="text" href="/mypage">
+              <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                alt="Profile" class="profile-pic">
             </a>
-            <article class="menubar">
-              <button class="game1">
-                <p>사다리타기</p>
-              </button>
-              <button class="game2">
-                <p>룰렛 돌리기</p>
-              </button>
-              <button class="game3" href="#">
-                <p>리듬 게임</p>
-              </button>
-            </article>
-          </article>
-          <article class="awards">
-            <a href="/awards">
-              <h6 class="text">awards</h6>
-            </a>
-          </article>
-          <article class="save">
-            <a href="#">
-              <h6 class="text">save</h6>
-            </a>
-          </article>
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+          </div>
+
+          <div class="sub_menu">
+            <button class="cal1" href="#">공지사항</button>
+            <button class="cal2" href="#">캘린더보기</button>
+            <button class="game1" href="#">사다리타기</button>
+            <button class="game2" href="#">룰렛돌리기</button>
+            <button class="login1" href="#">회원가입</button>
+            </button>
+          </div>
+        </header>
+
+        <div class="welcome">
+          <p class="title">인공지능소프트웨어과
+            <br><strong>IT 전공동아리 꿀비</strong>
+          </p>
+        </div>
       </article>
-      <article class="cal">
-        <a href="#">
-          <h6 class="text">calendar</h6>
-        </a>
-        <article class="menubar">
-          <button class="cal1" href="#">
-            <p>공지사항</p>
-          </button>
-          <button class="cal2" href="#">
-            <p>캘린더보기</p>
-          </button>
-        </article>
-      </article>
-      {% if session['id'] %}
-      <button class="logout" onClick="location.href='/users/logout.do'">LOGOUT</button>
-      <a class="mypage" href="/mypage">
-        <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
-          alt="Profile" class="profile-pic">
-      </a>
-      {% else %}
-      <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
-      </header>
-      <main>
-        <section class="welcome">
-          <div class="new-label">NEW</div>
-          <div class="new-label2"></div>
-          <p class="welcome-text">
-            안녕하세요!
-            <br>꿀비에 오신것을 환영합니다!
-            <br> 앞으로 많은 활동을 함께 해보아요
-        </section>
-        <h1 class="main-title">상일미디어고등학교</h1>
-        <h2 class="subtitle">인공지능소프트웨어과</h2>
-        <img class="logo" src="{{ url_for('static', filename='img/logo.png') }}">
-      </main>
     </section>
 
     <section class="container">
@@ -124,7 +92,7 @@
             <div class="card">
               <div class="author">넷마블 아카데미 수료</div>
               <div class="date">2018, 2019</div>
-              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2018.png') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2018') }}">
               <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2019.png') }}">
             </div>
             <div class="card">
@@ -195,7 +163,7 @@
             <div class="shape">✦</div>
             <h2>mypage</h2>
             <p>자신의 정보를 확인해보세요</p>
-            <a href="/mypage" class="see-more">SEE MORE →</a>
+            <a href="#" class="see-more">SEE MORE →</a>
           </div>
         </div>
       </article>
@@ -212,25 +180,26 @@
         <div id="second">
           <a href="#">save</a>
         </div>
-        <<<<<<< HEAD=======>>>>>>> dd3942df286e299b7db8b7c670adf615f9bb7633
 
-          <div id="third">
-            <p>game</p>
-            <a href="#">사다리타기</a>
-            <a href="#">룰렛돌리기</a>
-          </div>
 
-          <div id="fourd">
-            <p>login</p>
-            <a href="/login">로그인</a>
-            <a href="/signup">회원가입</a>
-          </div>
+        <div id="third">
+          <p>game</p>
+          <a href="#">사다리타기</a>
+          <a href="#">룰렛돌리기</a>
+        </div>
+
+        <div id="fourd">
+          <p>login</p>
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+        </div>
       </nav>
 
       <p id="p1">
-        <<<<<<< HEAD 꿀비<br><br> 상일미디어고등학교 인공지능소프트웨어과<br> 주소 : 서울특별시 강동구 천호대로219길 61<br> 2층 앱센터 안쪽 앱제작1실 ======= 꿀비
-          <br><br> 상일미디어고등학교 인공지능소프트웨어과<br> 주소 : 서울특별시 강동구 천호대로219길 61<br> 2층 앱센터 안쪽 앱제작1실 >>>>>>>
-          dd3942df286e299b7db8b7c670adf615f9bb7633
+        꿀비<br><br>
+        상일미디어고등학교 인공지능소프트웨어과<br>
+        주소 : 서울특별시 강동구 천호대로219길 61<br>
+        2층 앱센터 안쪽 앱제작1실
       </p>
 
       <hr>

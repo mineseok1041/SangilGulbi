@@ -62,6 +62,30 @@ header {
     z-index: 4;
 }
 
+.main_menu > button {
+    color: rgb(0, 0, 0);
+    display: flex;
+    text-align: center;
+    width: 8.5%;
+    height: 12%;
+    font-family: 'MinSans-Regular';
+    font-size: 25px;
+    margin: 1% 2% 1% 2%;
+    float: left;
+    text-decoration-line: none;
+    justify-content: center;
+    z-index: 4;
+    border:none;
+    background-color: gainsboro;
+}
+
+.text > img {
+    position: absolute;
+    top: 8%;
+    width: 6%;
+    height: auto;
+}
+
 
 /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 + 로그인 + 회원가입 */
 
