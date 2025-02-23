@@ -1,12 +1,15 @@
+/* ✅ Google Font 'Jua' 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
+/* ✅ 사용자 정의 폰트 'MinSans-Regular' 적용 */
 @font-face {
     font-family: 'MinSans-Regular';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
+/* ✅ 전체 페이지 스타일 설정 */
 body {
     font-family: 'MinSans-Regular';
     margin: 0;
@@ -15,7 +18,8 @@ body {
     align-items: flex-start;
     background-color: #ffffff;
 }
-/* 🟡 공지 추가 헤더 (h1) */
+
+/* 🟡 공지사항 제목 스타일 */
 h1 {
     position: fixed;
     top: 0;
@@ -31,7 +35,7 @@ h1 {
     margin: 0;
 }
 
-/* 🟢 공지 입력 폼 */
+/* 🟢 공지 입력 폼 컨테이너 */
 .container {
     width: 50%;
     padding: 20px;
@@ -43,39 +47,42 @@ h1 {
     margin-top: 70px;  /* ✅ 기존 140px에서 줄임 */
 }
 
+/* ✅ 입력 필드 포커스 및 내용 입력 시 스타일 변경 */
 .add-notice .title,
 .add-notice .author,
 .notice-content {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* 포커스(클릭했을 때) 상태 */
+/* ✅ 포커스(클릭했을 때) 스타일 */
 .add-notice .title:focus,
 .add-notice .author:focus,
 .notice-content:focus {
     background-color: #e2e2e2; 
-    color: #000; /* 검은색 글씨 */
+    color: #000;
 }
 
-/* 텍스트가 입력되었을 때 */
+/* ✅ 입력된 텍스트가 있을 때 스타일 */
 .add-notice .title:not(:placeholder-shown),
 .add-notice .author:not(:placeholder-shown),
 .notice-content:not(:placeholder-shown) {
     background-color: #f2f2f2;
 }
+
+/* ✅ 공지사항 입력 박스 스타일 */
 .add-notice {
     display: flex;
     width: 100%;
     margin-bottom: 25px; /* ✅ 기존 40px에서 줄임 */
     margin-top: 10px;    /* ✅ 기존 120px에서 줄임 */
-    max-width: 100%;  /* ✅ 전체 크기 제한 */
+    max-width: 100%;
 }
 
-/* 제목 입력칸 */
+/* ✅ 제목 입력칸 스타일 */
 .add-notice .title {
-    width: calc(100% - 20px);  /* ✅ 본문과 동일한 너비 */
-    padding: 10px;  /* ✅ 본문과 동일한 padding */
-    margin: 0 auto;  /* ✅ 여백 초기화 */
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0 auto;
     border: none;
     text-align: left;
     border-radius: 20px;
@@ -87,11 +94,11 @@ h1 {
     font-family: 'MinSans-Regular';
 }
 
-/* 본문 입력칸 */
+/* ✅ 본문 입력칸 스타일 */
 .notice-content {
-    width: 97%;  /* ✅ 제목과 동일한 width */
+    width: 97%;
     height: 450px;
-    padding: 10px;  /* ✅ 제목과 동일한 padding */
+    padding: 10px;
     border-radius: 20px;
     background-color: #f2f2f2;
     font-size: 20px;
@@ -102,6 +109,7 @@ h1 {
     outline: none;
 }
 
+/* ✅ 버튼 스타일 */
 .btn {
     padding: 12px 20px;
     background-color: rgb(149, 149, 149);
@@ -117,11 +125,12 @@ h1 {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ✅ 버튼 호버 효과 */
 .btn:hover {
     background-color: #6b6b6b;
 }
 
-/* 📱 모바일 화면 대응 */
+/* 📱 ✅ 태블릿 및 모바일 화면 대응 (1024px 이하) */
 @media screen and (max-width: 1024px) {
     h1 {
         left: 0%;
@@ -130,33 +139,32 @@ h1 {
         text-align: center;
         width: 100%;
     }
-    
+
     .container {
         width: 100%;
     }
-    
+
     .notice-header {
         align-items: flex-start;
     }
-    
-    .add-notice .title{
+
+    .add-notice .title {
         width: 70%;
         outline: none;
     }
-    
-    .notice-content{
+
+    .notice-content {
         width: 70%;
         height: 300px;
         outline: none;
     }
-    
+
     .btn {
         width: 30%;
     }
-    }
-    
+}
 
-/* 📱 모바일 화면 대응 */
+/* 📱 ✅ 모바일 화면 대응 (768px 이하) */
 @media screen and (max-width: 768px) {
     h1 {
         left: 0%;
@@ -165,32 +173,32 @@ h1 {
         text-align: center;
         width: 100%;
     }
-    
+
     .container {
         width: 100%;
     }
-    
+
     .notice-header {
         align-items: flex-start;
     }
-    
-    .add-notice .title{
+
+    .add-notice .title {
         width: 70%;
         outline: none;
     }
-    
-    .notice-content{
+
+    .notice-content {
         width: 70%;
         height: 300px;
         outline: none;
     }
-    
+
     .btn {
         width: 40%;
     }
-    }
-    
-/* 📱 모바일 화면 대응 */
+}
+
+/* 📱 ✅ 작은 모바일 화면 대응 (480px 이하) */
 @media screen and (max-width: 480px) {
     h1 {
         left: 0%;
@@ -199,27 +207,26 @@ h1 {
         text-align: center;
         width: 100%;
     }
-    
+
     .container {
         width: 100%;
     }
-    
+
     .notice-header {
         align-items: flex-start;
     }
-    
-    .add-notice .title{
+
+    .add-notice .title {
         width: 70%;
         outline: none;
     }
-    
-    .notice-content{
+
+    .notice-content {
         width: 70%;
         height: 300px;
     }
-    
+
     .btn {
         width: 40%;
     }
-    }
-    
+}

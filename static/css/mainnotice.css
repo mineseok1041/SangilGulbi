@@ -1,3 +1,4 @@
+/* Google 폰트 및 사용자 지정 폰트 적용 */
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 @font-face {
@@ -5,8 +6,9 @@
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
+/* 기본 스타일 설정 */
 body {
     font-family: 'MinSans-Regular';
     margin: 0;
@@ -18,6 +20,7 @@ body {
     background-color: #fffefe;
 }
 
+/* 컨테이너 스타일 설정 */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -26,40 +29,46 @@ body {
     border-radius: 10px;
 }
 
-.top-controls {
+/* 상단 컨트롤 영역 */
+.top-controls { 
     font-family: 'MinSans-Regular';
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 
+/* 공지사항 제목 스타일 */
 h1 {
     font-size: 40px;
     margin: 0;
-    text-align: left; /* 공지사항 제목 왼쪽 정렬 */
+    text-align: left;
 }
 
+/* 오른쪽 컨트롤 버튼들 스타일 */
 .right-controls {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: auto; /* 검색창과 버튼들을 오른쪽으로 이동 */
+    margin-left: auto;
 }
 
+/* 공지 추가 버튼 박스 */
 .add-box {
     font-family: 'MinSans-Regular';
     display: flex;
     align-items: center;
 }
 
+/* 검색 박스 스타일 */
 .search-box {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
+/* 공지 추가 버튼 스타일 */
 .add {
     font-family: 'MinSans-Regular';
     padding: 10px 15px;
@@ -71,10 +80,12 @@ h1 {
     font-size: 16px;
 }
 
+/* 버튼 hover 효과 */
 .add:hover {
     background-color: #434343;
 }
 
+/* 검색 입력 필드 스타일 */
 .search-box input {
     padding: 10px;
     font-size: 16px;
@@ -83,6 +94,7 @@ h1 {
     width: 200px;
 }
 
+/* 검색 버튼 스타일 */
 .search-box button {
     font-family: 'MinSans-Regular';
     padding: 10px;
@@ -94,11 +106,12 @@ h1 {
     font-size: 16px;
 }
 
+/* 검색 버튼 hover 효과 */
 .search-box button:hover {
     background-color: #434343;
 }
 
-/* 공지 목록 테이블 */
+/* 공지 목록 테이블 스타일 */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -117,7 +130,7 @@ th {
     font-weight: bold;
 }
 
-/* 삭제 버튼 */
+/* 삭제 버튼 스타일 */
 .delete-btn {
     background-color: #ff4d4d;
     color: white;
@@ -129,11 +142,12 @@ th {
     transition: background-color 0.3s ease;
 }
 
+/* 삭제 버튼 hover 효과 */
 .delete-btn:hover {
     background-color: #cc0000;
 }
 
-/* 페이지네이션 */
+/* 페이지네이션 스타일 */
 .pagination {
     display: flex;
     justify-content: center;
@@ -159,11 +173,12 @@ th {
     cursor: pointer;
 }
 
+/* 페이지네이션 버튼 hover 효과 */
 .pagination button:hover {
     background-color: rgb(104, 104, 104);
 }
 
-/* 반응형 스타일 수정 */
+/* 반응형 스타일: 태블릿 화면 */
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -186,6 +201,7 @@ th {
     }
 }
 
+/* 반응형 스타일: 모바일 화면 */
 @media (max-width: 480px) {
     h1 {
         font-size: 24px;
