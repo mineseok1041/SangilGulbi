@@ -10,20 +10,25 @@ body {
 }
 
 .header {
+  position: absolute;
+  right: 0%;
   height: 10%;
+  top: 0%;
   padding: 0px 10px;
-  border-bottom: 1px solid #ddd;
+  width: 100%;
+  background-color: rgb(185, 185, 185) 0.5;
 }
 
 /* GB */
 .logo {
   position: absolute;
-  top: 1%;
-  left: 2%;
+  top: 10%;
+  left: 3%;
   margin: 0%;
   cursor: pointer;
   font-size: 30px;
-  color: white;
+  color: rgb(255, 255, 255);
+  z-index: 3;
 }
 
 /* Calender + Save + Game + Awards + Logout + Mypage */
@@ -31,22 +36,24 @@ body {
   position: absolute;
   top: 0%;
   right: 0%;
-  width: 85%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
+  background-color: gainsboro;
+  opacity: 0.8;
 }
 
 /* Calender Save Game Awards Logout Mypage */
 .text {
-  color: white;
+  color: rgb(0, 0, 0);
   display: flex;
   text-align: center;
-  width: 9%;
-  height: 35px;
+  width: 6.2%;
+  height: 12%;
   font-family: 'MinSans-Regular';
   font-size: 25px;
-  margin: 2%;
+  margin: 1% 2% 1% 3%;
   float: left;
   text-decoration-line: none;
   justify-content: center;
@@ -55,10 +62,10 @@ body {
 /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 */
 .sub_menu {
   position: absolute;
-  top: 8%;
+  top: 81%;
   right: 0%;
   width: 100%;
-  height: 10%;
+  height: 80%;
   background-color: white;
   opacity: 0.8;
 }
@@ -144,47 +151,47 @@ body {
   /* GB */
   .logo {
     position: absolute;
-    top: 1%;
-    left: 2%;
+    top: 8%;
+    left: 6%;
     margin: 0%;
     cursor: pointer;
-    font-size: 20px;
-    color: white;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
   }
 
-    /* Calender + Save + Game + Awards + Logout + Mypage */
+  /* Calender + Save + Game + Awards + Logout + Mypage */
   .main_menu {
     position: absolute;
     top: 0%;
     right: 0%;
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
   }
 
-    /* Calender Save Game Awards Logout Mypage */
+  /* Calender Save Game Awards Logout Mypage */
   .text {
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
-    width: 20%;
+    width: 12.5%;
     height: 35px;
     font-family: 'MinSans-Regular';
-    font-size: 18px;
-    margin: 2%;
+    font-size: 15px;
+    margin: 2.5% 1% 1% 1%;
     float: left;
     text-decoration-line: none;
     justify-content: center;
   }
 
-    /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 */
+  /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 */
   .sub_menu {
     position: absolute;
-    top: 5%;
+    top: 68%;
     right: 0%;
     width: 100%;
-    height: 8%;
+    height: 60%;
     background-color: white;
     opacity: 0.8;
   }
@@ -268,12 +275,23 @@ body {
 /* 태블릿 */
 @media (min-width: 769px) and (max-width: 1222px) {
 
-    /* Calender + Save + Game + Awards + Logout + Mypage */
+  /* GB */
+  .logo {
+    position: absolute;
+    top: 12%;
+    left: 4%;
+    margin: 0%;
+    cursor: pointer;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+  }
+
+  /* Calender + Save + Game + Awards + Logout + Mypage */
   .main_menu {
     position: absolute;
     top: 0%;
-    right: 1%;
-    width: 90%;
+    right: 0%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
@@ -281,26 +299,26 @@ body {
 
   /* Calender Save Game Awards Logout Mypage */
   .text {
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
-    width: 12%;
+    width: 12.5%;
     height: 35px;
     font-family: 'MinSans-Regular';
-    font-size: 25px;
-    margin: 2%;
+    font-size: 20px;
+    margin: 1.5% 1% 1% 1%;
     float: left;
     text-decoration-line: none;
     justify-content: center;
   }
 
-    /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기*/
+  /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기*/
   .sub_menu {
     position: absolute;
-    top: 8%;
+    top: 74%;
     right: 0%;
     width: 100%;
-    height: 10%;
+    height: 75%;
     background-color: white;
     opacity: 0.8;
   }
@@ -365,17 +383,17 @@ body {
     cursor: pointer;
   }
 
-    /* 메인메뉴에 커서를 대면 서브메뉴가 보이기 */
+  /* 메인메뉴에 커서를 대면 서브메뉴가 보이기 */
   .main_menu:hover~.sub_menu {
     display: block;
   }
 
-    /* 서브메뉴에 커서가 있으면 보이기 */
+  /* 서브메뉴에 커서가 있으면 보이기 */
   .sub_menu:hover {
     display: block;
   }
 
-    /* 서브메뉴 기본값 : 숨기기 */
+  /* 서브메뉴 기본값 : 숨기기 */
   .sub_menu {
     display: none;
   }
