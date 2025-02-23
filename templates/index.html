@@ -21,14 +21,13 @@
             <a class="text" href="#">Save</a>
             <a class="text" href="#">Game</a>
             <a class="text" href="#">Awards</a>
-            {% if session['id'] %}
-            <button class="text" onClick="location.href='/users/logout.do'">LOGOUT</button>
+            
             <a class="text" href="/mypage">
               <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
                 alt="Profile" class="profile-pic">
             </a>
-            {% else %}
-            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+            
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> 
           </div>
 
           <div class="sub_menu">
