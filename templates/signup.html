@@ -26,9 +26,10 @@
                 <!-- 비밀번호 입력 및 토글 버튼 추가 -->
                 <div class="password-container">
                     <input type="password" id="passwordInput" placeholder="비밀번호">
-                    <img src="/static/img/eye_off_icon.png" alt="비밀번호 보기" class="eye-icon"
-                        onclick="togglePasswordVisibility('passwordInput', this)" data-show="/static/img/eye_icon.png"
-                        data-hide="/static/img/eye_off_icon.png">
+                    <img src="{{ url_for('static', filename='img/eye_off_icon.png') }}" alt="비밀번호 보기" class="eye-icon"
+                        onclick="togglePasswordVisibility('passwordInput', this)"
+                        data-show="{{ url_for('static', filename='img/eye_icon.png') }}"
+                        data-hide="{{ url_for('static', filename='img/eye_off_icon.png') }}">
                 </div>
 
                 <div class="dateinput">
