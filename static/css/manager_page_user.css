@@ -25,9 +25,10 @@ html, body {
     min-width: 700px;
 }
 
-.nav_logo img {
-    width: 110px;
-    height: auto;
+.nav_logo {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
 }
 
 .nav_menu {

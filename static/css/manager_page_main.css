@@ -28,9 +28,10 @@ html, body {
 }
 
 /* 로고 이미지 크기 설정 (2025-02-23 22:12) */
-.nav_logo img {
-    width: 110px;
-    height: auto;
+.nav_logo {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
 }
 
 /* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
