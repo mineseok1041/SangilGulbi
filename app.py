@@ -76,7 +76,8 @@ def mypage_Popup():
 def manager_page():
     return render_template('manager_page_main.html')
 
-# 관리페이지 학생 관리
+
+# 관리페이지 유저 관리
 @app.route('/mgmt_user')
 def manager_page_user():
     return render_template('manager_page_user.html')
