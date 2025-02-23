@@ -1,8 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-
+/* ✅ 사용자 정의 폰트 적용 */
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+/* ✅ 전체 페이지 스타일 설정 */
 body {
     background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
+    font-family: 'MinSans-Regular';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,32 +16,35 @@ body {
     margin: 0;
     position: relative;
 }
-
+/* ✅ 전체 페이지 스타일 설정 */
 .login-container {
     background-color: #fff;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 500px; /* 너비를 500px로 확장 */
+    width: 500px; 
     height: 600px;
     text-align: center;
     position: relative; /* 원 위에 표시되도록 설정 */
     z-index: 1; /* 로그인 컨테이너를 전면으로 설정 */
 }
 
+/* ✅ 제목 스타일 */
 h1 {
     color: #000000;
     font-size: 24px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    font-weight: bold;
 }
 
+/* ✅ 설명 텍스트 스타일 */
 p {
     color: #000000;
     font-size: 16px;
     font-weight: bold;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
-
+/* ✅ 폼 요소 스타일 */
 form {
     text-align: left;
 }
@@ -48,80 +57,98 @@ label {
     font-weight: bold;
 }
 
-input[type="email"],
-input[type="password"] {
+input[type="email"]{
     width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
+    padding: 9px;
+    margin-bottom: 15%;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
 }
 
-.password-container {
-    position: relative;
+input[type="text"]{
     width: 100%;
+    padding: 9px;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
 }
 
-.toggle-password {
-    position: absolute;
-    right: -10px;
-    top: 40%;
-    transform: translateY(-50%); /* 중앙에 위치 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+input[type="password"] {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+    z-index: 1;
 }
 
-.toggle-password img {
-    height: 20px; /* 높이 설정 (수정 가능) */
-    width: 40px; /* 너비는 자동으로 설정되어 비율 유지 */
+/*✅ 이메일 입력칸 스타일 */
+.email-container {
+    position: relative; /* 내부 요소를 상대적으로 배치할 수 있도록 설정 */
+    width: 100%;
+    display: flex; /* 내부 요소를 가로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
 small {
     display: block;
-    margin-bottom: 25px;
     color: #999;
     font-size: 14px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    margin-bottom: 0.5%;
 }
-
+/*자동 로그인 스타일*/
 .remember-me {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 8px; /* 체크박스와 라벨 간격 조정 */
+    margin-bottom: 18%;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #838383; /* 체크박스 색상 변경 (선택) */
 }
 
 .remember-me label {
-    position: absolute;
-    top: 51%;
-    left: 10%;
-    margin-left: 5px;
+    position: static;
     font-size: 16px;
     color: #666;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    margin: 0; /* 기본 마진 제거 */
 }
 
+/* ✅ 로그인 버튼 스타일 */
 .login-btn {
     width: 100%;
     padding: 12px;
-    background-color: #FCD363;
+    background-color: #838383;
     border: none;
+    position: relative;
     border-radius: 5px;
     color: #fff;
     font-size: 18px;
+    bottom: 1%;
     cursor: pointer;
     margin-bottom: 5px;
     transition: background-color 0.3s;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
 .login-btn:hover {
-    background-color: #9CA3AF;
+    background-color: #767676;
 }
 
 .forgot-password {
@@ -129,47 +156,43 @@ small {
     text-align: right;
     color: #9CA3AF;
     font-size: 14px;
-    margin-bottom: 25px;
-    font-family: "Jua", sans-serif;
+    margin-bottom: 29px;
+    font-family: 'MinSans-Regular';
 }
 
-.social-login {
-    margin-top: 25px;
-}
-
-.social-login p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-family: "Jua", sans-serif;
-}
-
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.social-buttons button {
-    width: 32%;
-    padding: 10px;
-    border: 1px solid #9CA3AF;
+.password-input {
+    width: 100%;
+    padding: 9px;
+    padding-right: 40px; /* 아이콘 공간 확보 */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
-    color: #9CA3AF;
-    background-color: #fff;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box; /* 크기 유지 */
+}
+/* ✅ 비밀번호 입력칸 스타일 */
+.password-container {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: "Jua", sans-serif;
+    width: 100%;
 }
 
-.social-buttons button img {
-    height: 20px; /* 아이콘의 높이만 설정 */
-    margin-right: 8px;
+/* ✅ 비밀번호 표시 아이콘 */
+.eye-icon { /* 비밀번호 표시해주는 아이콘 */
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    object-fit: contain;
+    z-index: 1; 
+    pointer-events: auto; /* 클릭 가능하도록 설정 */
 }
 
+/* ✅ 회원가입 유도 문구 */
 .signup-prompt {
     margin-top: 25px;
     font-size: 16px;
@@ -178,21 +201,88 @@ small {
 .signup-prompt a {
     color: #9CA3AF;
     text-decoration: none;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
-#email{
-    font-family: "Jua", sans-serif;
+.email{
+    font-family: 'MinSans-Regular';
 }
 
-#password{
-    font-family: "Jua", sans-serif;
+.password{
+    font-family: 'MinSans-Regular';
 }
 
-#exit{
-    width: 100px;
-    height: auto;
-    position: absolute;
-    top: 30px;
-    left: 30px;
+.e-mail{
+    font-family: 'MinSans-Regular';
+}
+
+/* 기존 스타일 유지 */
+@media (max-width: 1024px) {
+    .login-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

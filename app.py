@@ -42,5 +42,17 @@ def awards():
 def rhythm():
     return render_template('rhythm.html')
 
+@app.route('/mainnotice')
+def mainnotice():
+    return render_template('mainnotice.html')
+
+@app.route('/noticeadd')
+def noticeadd():
+    return render_template('noticeadd.html')
+
+@app.route('/noticepage')
+def noticepage():
+    return render_template('noticepage.html')
+
 if __name__ == '__main__':
     app.run()

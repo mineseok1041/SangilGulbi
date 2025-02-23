@@ -1,0 +1,229 @@
+/* Google 폰트 및 사용자 지정 폰트 적용 */
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기본 스타일 설정 */
+body {
+    font-family: 'MinSans-Regular';
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #fffefe;
+}
+
+/* 컨테이너 스타일 설정 */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    min-height: auto;
+    border-radius: 10px;
+}
+
+/* 상단 컨트롤 영역 */
+.top-controls { 
+    font-family: 'MinSans-Regular';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 7%;
+}
+
+/* 공지사항 제목 스타일 */
+h1 {
+    font-size: 40px;
+    margin: 0;
+    text-align: left;
+}
+
+/* 오른쪽 컨트롤 버튼들 스타일 */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+/* 공지 추가 버튼 박스 */
+.add-box {
+    font-family: 'MinSans-Regular';
+    display: flex;
+    align-items: center;
+}
+
+/* 검색 박스 스타일 */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 공지 추가 버튼 스타일 */
+.add {
+    font-family: 'MinSans-Regular';
+    padding: 10px 15px;
+    background-color: rgb(94, 94, 94);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 버튼 hover 효과 */
+.add:hover {
+    background-color: #434343;
+}
+
+/* 검색 입력 필드 스타일 */
+.search-box input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+/* 검색 버튼 스타일 */
+.search-box button {
+    font-family: 'MinSans-Regular';
+    padding: 10px;
+    background-color: rgb(94, 94, 94);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 검색 버튼 hover 효과 */
+.search-box button:hover {
+    background-color: #434343;
+}
+
+/* 공지 목록 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 2px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    border-top: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+/* 삭제 버튼 스타일 */
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* 삭제 버튼 hover 효과 */
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.pagination button {
+    color: black;
+    background-color: rgb(128, 128, 128);
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 페이지네이션 버튼 hover 효과 */
+.pagination button:hover {
+    background-color: rgb(104, 104, 104);
+}
+
+/* 반응형 스타일: 태블릿 화면 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: left;
+    }
+
+    .top-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .right-controls {
+        margin-left: auto;
+    }
+}
+
+/* 반응형 스타일: 모바일 화면 */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .top-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .right-controls {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .search-box, .add-box {
+        flex-direction: row;
+        gap: 5px;
+        width: auto;
+    }
+}
