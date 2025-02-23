@@ -76,6 +76,7 @@ def mypage_Popup():
 def manager_page():
     return render_template('manager_page_main.html')
 
+
 # 관리페이지 유저 관리
 @app.route('/mgmt_user')
 def manager_page_user():
@@ -91,29 +92,20 @@ def manager_page_add():
 def awards():
     return render_template('awards.html')
 
+# 리듬게임
 @app.route('/rhythm')
 def rhythm():
     return render_template('rhythm.html')
 
+# 룰렛
 @app.route('/roulette')
 def roulette():
     return render_template('roulette.html')
 
+# 사다리
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
-
-@app.route('/mainnotice')
-def mainnotice():
-    return render_template('mainnotice.html')
-
-@app.route('/noticeadd')
-def noticeadd():
-    return render_template('noticeadd.html')
-
-@app.route('/noticepage')
-def noticepage():
-    return render_template('noticepage.html')
 
 if __name__ == '__main__':
     app.run()

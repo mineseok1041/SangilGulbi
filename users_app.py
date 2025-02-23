@@ -81,17 +81,21 @@ def IDcheck():
         print(e)
         return False
 
+# 사용자 정보 업데이트 라우트
 @blue_users.route('/update_user_info', methods=['POST'])
 def update_user_info():
+    # 로그인 여부 확인
     if 'id' not in session:
         return redirect(url_for('login'))
     
+    # 사용자 서비스 인스턴스 생성
     users_service = usersSVC.usersSVC()
     num = str(request.form['num']).strip()  # 공백 제거
     currentgrade = int(num[0])
     currentclass = int(num[1]) * 10 + int(num[2])
     currentnum = int(num[3]) * 10 + int(num[4])
     
+    # 사용자 DTO 생성
     user = usersDTO(
         id=session['id'],
         currentgrade=currentgrade,
@@ -101,6 +105,8 @@ def update_user_info():
         phone=request.form['phone'],
         email=request.form['email']
     )
+    # 사용자 정보 업데이트 서비스 호출
     users_service.updateUserInfo(user)
     
+    # 마이페이지로 리다이렉션
     return redirect(url_for('mypage'))

@@ -10,6 +10,7 @@
 
 <body>
     <article class="information_box">
+        <!-- 사용자 정보 수정 폼 -->
         <h3 class="info">사용자 정보</h3>
         <form id="updateForm" action="{{ url_for('users.update_user_info') }}" method="POST">
             <p class="num">학번</p>
@@ -28,8 +29,10 @@
             <button type="submit" class="fin">완료</button>
         </form>
     </article>
+    <!-- 외부 JavaScript 파일 불러옴 -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
     <script>
+        // 폼 제출 시 사용자 정보를 업데이트하는 함수
         document.getElementById('updateForm').addEventListener('submit', function (event) {
             event.preventDefault(); // 기본 폼 제출 동작 방지
 

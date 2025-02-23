@@ -41,14 +41,18 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"isIDExist Error: {e}")
 
+    # 프로필 사진 업데이트 함수
     def updateProfilePic(self, reqDTO:usersDTO):
         try:
+            # 프로필 사진 업데이트
             self.DAO.updateProfilePic(reqDTO)
         except Exception as e:
             raise Exception(f"updateProfilePic Error: {e}")
 
+    # 사용자 정보 업데이트 함수
     def updateUserInfo(self, reqDTO:usersDTO):
         try:
+            # 사용자 정보 업데이트
             self.DAO.updateUserInfo(reqDTO)
         except Exception as e:
             raise Exception(f"updateUserInfo Error: {e}")
