@@ -1,194 +1,511 @@
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
-.header {
+header {
+    position: absolute;
+    right: 0%;
     height: 10%;
+    top: 0%;
     padding: 0px 10px;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .header_logo > img{
-    width: 4%;
-    height: auto;
+    width: 100%;
+    background-color: rgb(185, 185, 185) 0.5;
+}
+
+
+/* GB */
+
+.logo {
+    position: absolute;
+    top: 10%;
+    left: 3%;
+    margin: 0%;
     cursor: pointer;
-  }
-  
-  .cal > a{
-    color: black;
-    background: white;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+}
+
+
+/* Calender + Save + Game + Awards + Login */
+
+.main_menu {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    background-color: gainsboro;
+    opacity: 0.8;
+}
+
+
+/* Calender Save Game Awards Login */
+
+.text {
+    color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 45%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
+    width: 8.5%;
+    height: 12%;
+    font-family: 'MinSans-Regular';
+    font-size: 25px;
+    margin: 1% 2% 1% 2%;
+    float: left;
+    text-decoration-line: none;
     justify-content: center;
-  }
-  
-  .cal1{
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 46%;
-    top: 45px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-  }
-  
-  .cal2{
-    width: 100px;
-    height: 30px;
-    position: absolute;
-    right: 46%;
-    top: 75px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-  }
-  
-  .cal>a:hover ~ .menubar { display: block; } 
-  .menubar:hover {display: block;}
-  .menubar { display: none; }
-  
-  .save > a{
-    color: black;
-    background: white;
+    z-index: 4;
+}
+
+.main_menu > button {
+    color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 35%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
+    width: 8.5%;
+    height: 12%;
+    font-family: 'MinSans-Regular';
+    font-size: 25px;
+    margin: 1% 2% 1% 2%;
+    float: left;
+    text-decoration-line: none;
     justify-content: center;
-  }
-  
-  .game > a{
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
+    z-index: 4;
+    border:none;
+    background-color: gainsboro;
+}
+
+.text > img {
     position: absolute;
-    right: 25%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .game1{
-    width: 100px;
-    height: 30px;
+    top: 7%;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 + 로그인 + 회원가입 */
+
+.sub_menu {
     position: absolute;
-    right: 26%;
-    top: 45px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-  }
-  
-  .game2{
-    width: 100px;
-    height: 30px;
+    top: 80%;
+    right: 0%;
+    width: 100%;
+    height: 80%;
+    background-color: rgb(189, 189, 189);
+    opacity: 0.8;
+    z-index: 3;
+}
+
+
+/* 공지사항 */
+
+.cal1 {
     position: absolute;
-    right: 26%;
-    top: 75px;
-    color: gray;
-    background: white;
-    border: 1px solid gray;
-    border-radius: 10px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-  }
-  
-  .game>a:hover ~ .menubar { display: block; } 
-  .menubar:hover {display: block;}
-  .menubar { display: none; }
-  
-  .awards > a{
-    color: black;
-    background: white;
-    display: flex;
-    text-align: center;
-    width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    position: absolute;
-    right: 15%;
-    top: 1%;
-    border: 1.5px solid black;
-    z-index: 2;
-    font-family: 'S-CoreDream-3Light';
-    font-size: 30px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-  
-  }
-  
-  .login-button {
+    top: 9%;
+    right: 51%;
     width: 10%;
-    position: absolute;
-    top: 1%;
-    right: 3%;
-    background-color: #ffd700;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
-    border-radius: 15px;
-    font-family: 'S-CoreDream-3Light';
-  }
+}
+
+
+/* 캘린더보기 */
+
+.cal2 {
+    position: absolute;
+    top: 50%;
+    right: 51%;
+    width: 10%;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 사다리타기 */
+
+.game1 {
+    position: absolute;
+    top: 10%;
+    right: 26%;
+    width: 10%;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 룰렛돌리기 */
+
+.game2 {
+    position: absolute;
+    top: 50%;
+    right: 26%;
+    width: 10%;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 로그인 */
+
+.login1 {
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    width: 10%;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 회원가입 */
+
+.login2 {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    width: 10%;
+    height: 40%;
+    color: white;
+    background-color: rgb(189, 189, 189);
+    font-size: 15px;
+    font-family: 'MinSans-Regular';
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 메인메뉴에 커서를 대면 서브메뉴가 보이기 */
+
+.main_menu:hover~.sub_menu {
+    display: block;
+}
+
+
+/* 서브메뉴에 커서가 있으면 보이기 */
+
+.sub_menu:hover {
+    display: block;
+}
+
+
+/* 서브메뉴 기본값 : 숨기기 */
+
+.sub_menu {
+    display: none;
+}
+
+
+/* 모바일에서 가능 */
+
+@media (max-width: 768px) {
+    /* GB */
+    .logo {
+        position: absolute;
+        top: 0%;
+        left: 6%;
+        margin: 0%;
+        cursor: pointer;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+    }
+    /* Calender + Save + Game + Awards + Login */
+    .main_menu {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+    /* Calender Save Game Awards Login */
+    .text {
+        color: rgb(0, 0, 0);
+        display: flex;
+        text-align: center;
+        width: 12.5%;
+        height: 12%;
+        font-family: 'MinSans-Regular';
+        font-size: 20px;
+        margin: 1% 2% 1% 2%;
+        float: left;
+        text-decoration-line: none;
+        justify-content: center;
+    }
+    /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 + 로그인 + 회원가입 */
+    .sub_menu {
+        position: absolute;
+        top: 46%;
+        right: 0%;
+        width: 100%;
+        height: 80%;
+        background-color: rgb(189, 189, 189);
+        opacity: 0.8;
+    }
+    /* 공지사항 */
+    .cal1 {
+        position: absolute;
+        top: 9%;
+        right: 65%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 캘린더보기 */
+    .cal2 {
+        position: absolute;
+        top: 50%;
+        right: 65%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 사다리타기 */
+    .game1 {
+        position: absolute;
+        top: 10%;
+        right: 30%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 룰렛돌리기 */
+    .game2 {
+        position: absolute;
+        top: 50%;
+        right: 30%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 로그인 */
+    .login1 {
+        position: absolute;
+        top: 10%;
+        right: 0%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 회원가입 */
+    .login2 {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 13px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 메인메뉴에 커서를 대면 서브메뉴가 보이기 */
+    .main_menu:hover~.sub_menu {
+        display: block;
+    }
+    /* 서브메뉴에 커서가 있으면 보이기 */
+    .sub_menu:hover {
+        display: block;
+    }
+    /* 서브메뉴 기본값 : 숨기기 */
+    .sub_menu {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1222px) {
+    /* GB */
+    .logo {
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        margin: 0%;
+        cursor: pointer;
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+        z-index: 3;
+    }
+    /* Calender + Save + Game + Awards + Login */
+    .main_menu {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+    }
+    /* Calender Save Game Awards Login */
+    .text {
+        color: rgb(0, 0, 0);
+        display: flex;
+        text-align: center;
+        width: 8.5%;
+        height: 12;
+        font-family: 'MinSans-Regular';
+        font-size: 25px;
+        margin: 1% 2% 1% 2%;
+        float: left;
+        text-decoration-line: none;
+        justify-content: center;
+    }
+    /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 + 로그인 + 회원가입 */
+    .sub_menu {
+        position: absolute;
+        top: 70%;
+        right: 0%;
+        width: 100%;
+        height: 80%;
+        background-color: rgb(189, 189, 189);
+        opacity: 0.8;
+    }
+    /* 공지사항 */
+    .cal1 {
+        position: absolute;
+        top: 9%;
+        right: 46%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    .cal2 {
+        position: absolute;
+        top: 50%;
+        right: 46%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    .game1 {
+        position: absolute;
+        top: 10%;
+        right: 21%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    .game2 {
+        position: absolute;
+        top: 50%;
+        right: 21%;
+        width: 20%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    .login1 {
+        position: absolute;
+        top: 10%;
+        right: 1%;
+        width: 10%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    .login2 {
+        position: absolute;
+        top: 50%;
+        right: 1%;
+        width: 10%;
+        height: 40%;
+        color: white;
+        background-color: rgb(189, 189, 189);
+        font-size: 15px;
+        font-family: 'MinSans-Regular';
+        border: none;
+        cursor: pointer;
+    }
+    /* 메인메뉴에 커서를 대면 서브메뉴가 보이기 */
+    .main_menu:hover~.sub_menu {
+        display: block;
+    }
+    /* 서브메뉴에 커서가 있으면 보이기 */
+    .sub_menu:hover {
+        display: block;
+    }
+    /* 서브메뉴 기본값 : 숨기기 */
+    .sub_menu {
+        display: none;
+    }
+}

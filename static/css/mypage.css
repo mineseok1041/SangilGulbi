@@ -1,35 +1,33 @@
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
-
-#mypage{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 1%;
-    left: 2%;
-    font-size: 25px;
-    font-weight: 10px;
-    font-family: 'S-CoreDream-3Light';
 }
 
-#line {
-    position: absolute;
-    top: 10%;
-    width: 98%;
-    border: solid 0.5px rgb(173, 173, 173);
+body {
+    background-color: white;
 }
+
+
+/* 기본프사 */
 
 #basic {
     position: absolute;
-    top: 14%;
+    top: 12%;
     left: 3%;
-    width: 8%;
-    height: auto;
+    width: 150px;
+    /* 최대 너비를 150px로 제한 */
+    height: 150px;
+    /* 최대 높이를 150px로 제한 */
+    object-fit: cover;
+    /* 이미지가 영역을 벗어나지 않도록 조정 */
+    border-radius: 50%;
+    /* 원형으로 만들기 */
 }
+
+
+/* 사진업로드 버튼 */
 
 #upload {
     width: 10%;
@@ -42,8 +40,11 @@
     background-color: white;
     color: black;
     border-radius: 10px;
-    font-family: 'S-CoreDream-3Light';
+    font-family: 'MinSans-Regular';
 }
+
+
+/* 파일 넣어주세요 문구 */
 
 #text {
     position: absolute;
@@ -52,63 +53,94 @@
     color: gray;
 }
 
-#line2 {
+
+/* 선 */
+
+#line {
     position: absolute;
     top: 30%;
     width: 98%;
     border: solid 0.5px rgb(173, 173, 173);
 }
 
-.information_box{
+
+/* 사용자 정보 박스 */
+
+.information_box {
     background-color: white;
-    width: 35%;
-    height: 59%;
+    width: 60%;
+    height: 58%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
+    bottom: 5%;
     left: 3%;
 }
 
-#info{
+
+/* 사용자 정보 텍스트 */
+
+#info {
     position: absolute;
     top: 1%;
     left: 3%;
-    font-family: 'S-CoreDream-3Light';
+    font-family: 'MinSans-Regular';
 }
 
-#name{
+
+/* 학번 */
+
+#num {
     position: absolute;
     top: 15%;
     left: 3%;
-    font-family: 'S-CoreDream-3Light';
+    font-family: 'MinSans-Regular';
 }
 
-#e-mail{
+
+/* 이름 */
+
+#name {
     position: absolute;
-    top: 40%;
-    left: 3%;
-    font-family: 'S-CoreDream-3Light';
+    top: 15%;
+    left: 50%;
+    font-family: 'MinSans-Regular';
 }
 
-#phone{
+
+/* 전화번호 */
+
+#phone {
     position: absolute;
-    top: 65%;
+    top: 50%;
     left: 3%;
-    font-family: 'S-CoreDream-3Light';
+    font-family: 'MinSans-Regular';
 }
 
-.add{
+
+/* 이메일 */
+
+#e-mail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'MinSans-Regular';
+}
+
+
+/* 수정 */
+
+.add {
     width: 20%;
     height: 8%;
     position: absolute;
     top: 90%;
     right: 3%;
-    font-family: 'S-CoreDream-3Light';
+    font-family: 'MinSans-Regular';
     background: #ffd700;
-    color: white;
+    color: black;
     border: none;
     font-size: 20px;
     border-radius: 10px;
@@ -116,39 +148,156 @@
     transition: background 0.3s;
 }
 
+
+/* 수정버튼에 닿으면 색바뀜 */
+
 .add button:hover {
     background: #ffbb00;
-  }
+}
 
-.score_box{
+
+/* 상벌점 박스 */
+
+.score_box {
     background-color: white;
-    width: 32%;
-    height: 59%;
+    width: 31%;
+    height: 10%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 40%;
+    bottom: 53%;
+    right: 3%;
 }
 
-#score{
-    position: absolute;
-    top: 1%;
-    left: 3%;
-    font-family: 'S-CoreDream-3Light';
+
+/* 상벌점 텍스트 */
+
+#score {
+    height: 50%;
+    font-family: 'MinSans-Regular';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
 }
 
-.etc_box{
+
+/* 수상내역 박스 */
+
+.awards_box {
     background-color: white;
-    width: 22%;
-    height: 59%;
+    width: 31%;
+    height: 43%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
     position: absolute;
-    top: 36%;
-    left: 75%;
+    bottom: 5%;
+    right: 3%;
+}
+
+
+/* 수상내역 택스트 */
+
+#awards {
+    font-family: 'MinSans-Regular';
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+
+/* 모바일 */
+
+@media (max-width: 768px) {
+    /* 기본프사 */
+    #basic {
+        position: absolute;
+        top: 16%;
+        left: 3%;
+        width: 15%;
+        height: auto;
+    }
+    /* 사진업로드 버튼 */
+    #upload {
+        width: 20%;
+        height: 4%;
+        position: absolute;
+        top: 16%;
+        left: 20%;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        font-family: 'MinSans-Regular';
+    }
+    /* 파일 넣어주세요 문구 */
+    #text {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        color: gray;
+        font-size: 15px;
+    }
+    /* 수상내역박스 */
+    .awards_box {
+        background-color: white;
+        width: 31%;
+        height: 46.5%;
+        border-color: #000000;
+        border-style: solid;
+        border-width: 2px;
+        border-radius: 10px;
+        position: absolute;
+        bottom: 5%;
+        right: 3%;
+    }
+    /* 수상내역 텍스트 */
+    #awards {
+        font-family: 'MinSans-Regular';
+        display: flex;
+        align-items: center;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+}
+
+
+/* 태블릿 */
+
+@media (min-width: 769px) and (max-width: 1222px) {
+    /* 기본프사 */
+    #basic {
+        position: absolute;
+        top: 14%;
+        left: 3%;
+        width: 15%;
+        height: auto;
+    }
+    /* 사진 업로드 버튼 */
+    #upload {
+        width: 20%;
+        height: 4%;
+        position: absolute;
+        top: 16%;
+        left: 25%;
+        cursor: pointer;
+        border: 1px solid black;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        font-family: 'MinSans-Regular';
+    }
+    /* 파일을 넣어주세요 문구 */
+    #text {
+        position: absolute;
+        top: 20%;
+        left: 25%;
+        color: gray;
+        font-size: 15px;
+    }
 }
