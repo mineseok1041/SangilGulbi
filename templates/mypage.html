@@ -29,10 +29,10 @@
         <div class="sub_menu">
             <button class="cal1" href="#">공지사항</button>
             <button class="cal2" href="#">캘린더보기</button>
-            <button class="game1" href="#">사다리타기</button>
-            <button class="game2" href="#">룰렛돌리기</button> {% if session['id'] %}
+            <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
+            <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
             <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
-            <button class="login1" href="/signup">회원가입</button> {% endif %}
+            <button class="login1" onClick="location.href='/signup'">회원가입</button> {% endif %}
             </button>
         </div>
     </header>

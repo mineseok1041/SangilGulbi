@@ -96,5 +96,13 @@ def awards():
 def rhythm():
     return render_template('rhythm.html')
 
+@app.route('/roulette')
+def roulette():
+    return render_template('roulette.html')
+
+@app.route('/sadari')
+def sadari():
+    return render_template('sadari.html')
+
 if __name__ == '__main__':
     app.run()

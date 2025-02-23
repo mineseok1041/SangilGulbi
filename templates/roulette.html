@@ -1,0 +1,28 @@
+<!-- 2025-02-23 오후 11시 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>꿀비 룰렛 게임</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/roulette.css') }}">
+    <!-- 룰렛 css(디자인) -->
+</head>
+
+<body>
+    <h2>꿀비 룰렛 게임</h2>
+    <div id="inputSection">
+        <input type="text" id="participantInput" placeholder="이름이나 항목을 쉼표로 구분">
+        <button id="addParticipantsButton">참가자 추가</button>
+    </div>
+    <!-- 돌림판 -->
+    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+    <!-- 돌리기 버튼 -->
+    <button id="spinButton">SPIN</button>
+    <!-- 결과 표시 -->
+    <div id="resultDisplay"></div>
+    <script src="{{ url_for('static', filename='js/roulette.js') }}"></script>
+    <!-- 룰렛 js(기능) -->
+</body>
+
+</html>

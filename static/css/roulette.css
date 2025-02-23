@@ -1,0 +1,55 @@
+/* 2025-02-23 오후 11시 */
+/* 전체 페이지 중앙 정렬 */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* 제목 스타일 */
+h2 {
+    font-size: 32px; /* 제목 폰트 크기 */
+    margin-bottom: 20px;
+}
+
+/* 입력 섹션 스타일 */
+#inputSection {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#participantInput {
+    width: 300px;
+    padding: 10px;
+    font-size: 20px; /* 입력 폰트 크기 */
+}
+
+#addParticipantsButton, #spinButton {
+    padding: 10px 20px;
+    font-size: 20px; /* 버튼 폰트 크기 */
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* 캔버스 스타일 */
+#wheelCanvas {
+    border: 5px solid #333;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* 결과 표시 섹션 스타일 */
+#resultDisplay {
+    margin-top: 20px;
+    font-size: 28px; /* 결과 표시 폰트 크기 */
+    font-weight: bold;
+}
