@@ -1,17 +1,19 @@
-from studentDTO import studentDTO
+from usersDTO import usersDTO
 import cx_Oracle
 
-class studentDAO:
+class usersDAO:
+    # 데이터베이스 연결 정보 설정
     def __init__(self):
         self.dsn = cx_Oracle.makedsn('localhost', 1521, service_name='xe')
         self.db_user = 'sangil'
         self.db_password = '1234'
 
+    # 데이터베이스 연결 생성
     def get_connection(self):
         return cx_Oracle.connect(self.db_user, self.db_password, self.dsn)
 
-    def getStudentInfo(self, reqDTO: studentDTO) -> studentDTO:
-        query = "SELECT * FROM student WHERE id = :1"
+    def getUsersInfo(self, reqDTO: usersDTO) -> usersDTO:
+        query = "SELECT * FROM users WHERE id = :1"
         
         conn = None
         cursor = None
@@ -23,9 +25,10 @@ class studentDAO:
             row = cursor.fetchone()
             
             if row:
-                return studentDTO(*row)
+                return usersDTO(*row)
             else:
                 raise ValueError(f"ID {reqDTO.id} not found")
+        # 데이터베이스 오류 발생 시 예외 처리    
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
         finally:
@@ -34,8 +37,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def getStudentList(self) -> list[studentDTO]:
-        query = "SELECT * FROM student"
+    def getUsersList(self) -> list[usersDTO]:
+        query = "SELECT * FROM users"
         
         conn = None
         cursor = None
@@ -48,7 +51,7 @@ class studentDAO:
             
             result = []
             for row in rows:
-                result.append(studentDTO(*row))
+                result.append(usersDTO(*row))
             
             return result
         except cx_Oracle.DatabaseError as e:
@@ -59,8 +62,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def isIDExist(self, reqDTO: studentDTO) -> bool:
-        query = "SELECT COUNT(*) FROM student WHERE id = :1"
+    def isIDExist(self, reqDTO: usersDTO) -> bool:
+        query = "SELECT COUNT(*) FROM users WHERE id = :1"
         
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -73,8 +76,8 @@ class studentDAO:
         
         return count > 0
 
-    def isPWDCorrect(self, reqDTO: studentDTO) -> bool:
-        query = "SELECT COUNT(*) FROM student WHERE id = :1 AND password = :2"
+    def isPWDCorrect(self, reqDTO: usersDTO) -> bool:
+        query = "SELECT COUNT(*) FROM users WHERE id = :1 AND password = :2"
 
         conn = self.get_connection()
         cursor = conn.cursor()
@@ -87,8 +90,8 @@ class studentDAO:
         
         return count > 0
 
-    def addStudent(self, reqDTO: studentDTO):
-        query = "INSERT INTO student(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
+    def addUsers(self, reqDTO: usersDTO):
+        query = "INSERT INTO users(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
         
         conn = None
         cursor = None
@@ -107,8 +110,8 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def delStudent(self, reqDTO: studentDTO):
-        query = "DELETE FROM student WHERE id = :1"
+    def delUsers(self, reqDTO: usersDTO):
+        query = "DELETE FROM users WHERE id = :1"
         
         conn = None
         cursor = None
@@ -127,11 +130,13 @@ class studentDAO:
             if conn:
                 conn.close()
 
-    def altStdNum(self, reqDTO: studentDTO):
+    # 학번 수정
+    def altStdNum(self, reqDTO: usersDTO):
+        # 학년이 1, 2, 3 중 하나인지 확인
         if reqDTO.currentgrade not in [1, 2, 3]:
             raise ValueError(f"Invalid grade: {reqDTO.currentgrade}. Must be 1, 2, or 3.")
-
-        query = "UPDATE student SET currentgrade = :1, currentclass = :2, currentnum = :3 WHERE id = :4"
+        # 학번 수정 쿼리
+        query = "UPDATE users SET currentgrade = :1, currentclass = :2, currentnum = :3 WHERE id = :4"
         
         conn = None
         cursor = None
@@ -139,6 +144,7 @@ class studentDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
+            # 학번 수정 쿼리 실행
             cursor.execute(query, [reqDTO.currentgrade, reqDTO.currentclass, reqDTO.currentnum, reqDTO.id])
             
             conn.commit()
@@ -149,9 +155,10 @@ class studentDAO:
                 cursor.close()
             if conn:
                 conn.close()
-
-    def addPoint(self, reqDTO: studentDTO, point: int):
-        query = "UPDATE student SET point = point + :1 WHERE id = :2"
+    # 포인트 추가
+    def addPoint(self, reqDTO: usersDTO, point: int):
+        # 포인트 추가 쿼리
+        query = "UPDATE users SET point = point + :1 WHERE id = :2"
         
         conn = None
         cursor = None
@@ -159,7 +166,54 @@ class studentDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
+            # 포인트 추가 쿼리 실행
             cursor.execute(query, [point, reqDTO.id])
+            
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    # 프로필 사진 업데이트
+    def updateProfilePic(self, reqDTO: usersDTO):
+        # 프로필 사진 업데이트 쿼리
+        query = "UPDATE users SET profile_pic = :1 WHERE id = :2"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            # 프로필 사진 업데이트 쿼리 실행
+            cursor.execute(query, [reqDTO.profile_pic, reqDTO.id])
+            
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    # 사용자 정보 업데이트
+    def updateUserInfo(self, reqDTO: usersDTO):
+        # 사용자 정보 업데이트 쿼리
+        query = "UPDATE users SET currentgrade = :1, currentclass = :2, currentnum = :3, name = :4, phone = :5, email = :6 WHERE id = :7"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            # 사용자 정보 업데이트 쿼리 실행
+            cursor.execute(query, [reqDTO.currentgrade, reqDTO.currentclass, reqDTO.currentnum, reqDTO.name, reqDTO.phone, reqDTO.email, reqDTO.id])
             
             conn.commit()
         except cx_Oracle.DatabaseError as e:

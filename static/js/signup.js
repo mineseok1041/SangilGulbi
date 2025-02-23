@@ -1,23 +1,15 @@
-alert("signup.js loaded");
+function togglePasswordVisibility(inputId, icon) {
+    var input = document.getElementById(inputId);
 
-function IDcheck() {
-    let id = $("#id").val();
-
-    $.ajax({
-        url: "http://127.0.0.1:5000/student/IDcheck.do",
-        type: "POST",
-        dataType: "text",
-        data: { id: id },
-        success: function(response) {
-            console.log(response);
-            if (response == "true") {
-                alert("사용 가능한 아이디입니다.");
-            } else {
-                alert("이미 사용중인 아이디입니다.");
-            }
-        },
-        error: function(err) {
-            console.error("Error occurred: ", err);
-        },
-    });
+    if (input.type === "password") {
+        input.type = "text";
+        setTimeout(() => {
+            icon.src = icon.getAttribute("data-show");
+        }, 10); // 지연을 줘서 밀림 방지
+    } else {
+        input.type = "password";
+        setTimeout(() => {
+            icon.src = icon.getAttribute("data-hide");
+        }, 10);
+    }
 }

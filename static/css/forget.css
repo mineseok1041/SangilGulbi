@@ -1,4 +1,8 @@
+/* Google 폰트 불러오기 */
+
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+/* 모든 요소의 기본 마진과 패딩 제거, 박스 크기 조정 */
 
 * {
     margin: 0;
@@ -6,41 +10,76 @@
     box-sizing: border-box;
 }
 
+
+/* 기본 배경색 및 폰트 설정 */
+
 body {
     background-color: #f9f9f9;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
+
+
+/* 중앙 정렬을 위한 컨테이너 */
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* 화면 전체 높이를 사용 */
 }
+
+
+/* 비밀번호 찾기 폼 스타일 */
 
 .forgot-password-form {
     background-color: white;
-    padding: 2rem;
+    /* 배경색 흰색 */
+    padding: 3rem;
+    /* 내부 여백 증가 */
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    /* 그림자 효과 */
+    width: 750px;
+    /* 기본 너비 설정 */
+    max-width: 95%;
+    /* 화면 크기에 맞게 조정 */
     text-align: center;
+    /* 내용 중앙 정렬 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.forgot-password-form h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
 
-.forgot-password-form p {
-    margin-bottom: 20px;
-    color: #777;
-}
+/* 폼 요소가 컨테이너 안에서 꽉 차도록 설정 */
 
 .forgot-password-form form {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
+
+
+/* 제목 스타일 */
+
+.forgot-password-form h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+/* 설명 문구 스타일 */
+
+.forgot-password-form p {
+    font-size: 18px;
+    margin-bottom: 6%;
+    color: #777;
+}
+
+
+/* 입력 필드 라벨 스타일 */
 
 label {
     text-align: left;
@@ -49,27 +88,64 @@ label {
     color: #555;
 }
 
+
+/* 텍스트 입력 필드 스타일 */
+
 input[type="text"] {
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 6%;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
+
+/* 제출 버튼 스타일 */
+
 button[type="submit"] {
-    background-color: #FCD363;
+    width: 55%;
+    background-color: #b1b0b0;
+    /* 버튼 배경색 */
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px;
-    font-family: "Jua", sans-serif;
+    margin: 10px auto 5%;
+    /* 중앙 정렬 및 하단 마진 */
+    font-family: 'MinSans-Regular';
+    display: block;
 }
 
+
+/* 버튼 호버 효과 */
+
 button[type="submit"]:hover {
-    background-color: #fcb900;
+    background-color: #999999;
+}
+
+
+/* 반응형 디자인: 태블릿 및 모바일 대응 */
+
+@media (max-width: 1024px) {
+    .forgot-password-form {
+        width: 80%;
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .forgot-password-form {
+        width: 85%;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .forgot-password-form {
+        width: 90%;
+        padding: 1.5rem;
+    }
 }

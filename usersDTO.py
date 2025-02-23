@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 @dataclass
-class studentDTO():
+class usersDTO:
     no: int = None
     id: str = None
     password: str = None
@@ -19,3 +19,5 @@ class studentDTO():
     parentphone: str = None
     email: str = None
     birth: str = None
+    identity: int = None
+    profile_pic: str = None

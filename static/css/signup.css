@@ -1,4 +1,25 @@
+/* Google Fonts 및 웹 폰트 추가 */
+
 @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 기본 스타일 초기화 */
+
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 기본 스타일 초기화 */
 
 * {
     margin: 0;
@@ -6,10 +27,16 @@
     box-sizing: border-box;
 }
 
+
+/* 전체 페이지 배경 및 폰트 설정 */
+
 body {
     background-color: #f9f9f9;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
+
+
+/* 컨테이너 중앙 정렬 */
 
 .container {
     display: flex;
@@ -17,6 +44,66 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+
+/* 입력 그룹 및 버튼 정렬 */
+
+.id {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    /* 최대 너비 설정 */
+}
+
+
+/* 입력 그룹 스타일 설정 */
+
+.input-group {
+    position: relative;
+    /* 버튼을 입력창 내부에 고정 */
+    width: 100%;
+    max-width: 350px;
+    /* 최대 너비 설정 */
+}
+
+
+/* 입력 버튼 스타일 설정 */
+
+.btn {
+    position: absolute;
+    margin-left: 210px;
+    /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+    margin-top: 3px;
+    padding: 6px 9px;
+    background-color: white;
+    color: black;
+    font-family: 'MinSans-Regular';
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    border-radius: 50px;
+    white-space: nowrap;
+    /* 버튼 줄 바꿈 방지 */
+    z-index: 1000000;
+}
+
+
+/* 설명 메시지 스타일 설정 */
+
+span {
+    position: relative;
+    font-family: 'MinSans-Regular';
+    font-size: 14px;
+    color: #777;
+    margin-right: 48%;
+    margin-top: 0%;
+    top: 37.5%;
+    z-index: 10;
+}
+
+
+/* 회원가입 폼 스타일 */
 
 .signup-form {
     background-color: white;
@@ -27,69 +114,119 @@ body {
     text-align: center;
 }
 
+
+/* 회원가입 제목 스타일 */
+
 .signup-form h1 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
+
+/* 회원가입 설명 문구 스타일 */
+
 .signup-form p {
     margin-bottom: 20px;
     color: #777;
+    font-weight: bold;
 }
+
+
+/* 입력 필드 정렬 */
 
 .signup-form form {
     display: flex;
     flex-direction: column;
 }
 
-.input-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
 
-.input-group input {
-    width: 43%;
-    margin-right: 5px;
-}
+/* 입력창 스타일 설정 */
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"] {
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5%;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box;
+    /* 크기 유지 */
+    z-index: 1;
 }
 
-.password-container {
+
+/* 이름 입력 필드 스타일 */
+
+.name {
+    padding: 10px;
+    margin-bottom: 5%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box;
+    /* 크기 유지 */
+    z-index: 1;
+}
+
+
+/* 비밀번호 필드 스타일 */
+
+.password {
     position: relative;
     width: 100%;
 }
 
-.toggle-password {
+
+/* 비밀번호 입력 필드 스타일 */
+
+.password-input {
+    width: 100%;
+    padding: 9px;
+    padding-right: 40px;
+    /* 아이콘 공간 확보 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'MinSans-Regular';
+    box-sizing: border-box;
+    /* 크기 유지 */
+}
+
+
+/* 비밀번호 컨테이너 스타일 */
+
+.password-container {
     position: relative;
-    left: 240px;
-    top: -33px;
-    transform: translateY(-50%); /* 중앙에 위치 */
-    background: none;
-    border: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    width: 100%;
 }
 
-.toggle-password img {
-    height: 20px; /* 높이 설정 (수정 가능) */
-    width: 40px; /* 너비는 자동으로 설정되어 비율 유지 */
+
+/* 비밀번호 표시 아이콘 스타일 */
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: auto;
+    /* 클릭 가능하도록 설정 */
 }
 
-button[type="submit"] {
-    background-color: #FCD363;
+
+/* 회원가입 버튼 스타일 */
+
+.join {
+    background-color: #838383;
     color: white;
     padding: 10px;
     border: none;
@@ -97,35 +234,54 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 20px;
-    font-family: "Jua", sans-serif;
+    font-family: 'MinSans-Regular';
 }
 
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
 
-.social-buttons button {
-    width: 32%;
-    padding: 10px;
-    border: 1px solid #9CA3AF;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #9CA3AF;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Jua", sans-serif;
-}
+/* 링크 스타일 설정 */
 
 .signup-form a {
-    color: #9CA3AF;
+    color: #888888;
     text-decoration: none;
 }
 
+
+/* 링크 호버 스타일 */
+
 .signup-form a:hover {
     text-decoration: underline;
+}
+
+
+/* 반응형 디자인 설정 */
+
+@media (max-width: 1024px) {
+    .login-container {
+        width: 80%;
+        padding: 30px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    .btn {
+        font-size: 16px;
+        margin-left: 205px;
+        /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+        border-radius: 50px;
+        margin-top: 1px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%;
+        padding: 20px;
+    }
 }

@@ -12,15 +12,16 @@ body {
     padding: 0;
 }
 
-
+/* 꿀비 수상 내역 */
 h1 {
     width: 100%;
     display: flex;
     font-size: 2.5em;
-    color: #ff8c00;
+    color: #313131;
     justify-content: center;
 }
 
+/* ⭐⭐⭐ */
 .awards-icon {
     width: 100%;
     display: flex;
@@ -30,6 +31,7 @@ h1 {
     font-size: 1.5em;
 }
 
+/* 인공지능 소프트웨어과 */
 h2 {
     width: 100%;
     display: flex;
@@ -38,13 +40,14 @@ h2 {
     top: 15%;
 }
 
+/* 2016~2020 */
 #sub1 {
     width: 80%;
     height: 5%;
     position: absolute;
     top: 25%;
     left: 10%;
-    background-color: #FCD363;
+    background-color: #adadad;
     color: white;
     border-radius: 15px;
     display: flex;
@@ -52,6 +55,7 @@ h2 {
     font-size: 25px;
 }
 
+/* 2016~2020 수상 내역 */
 #text1 {
     width: 80%;
     height: 5%;
@@ -61,13 +65,14 @@ h2 {
     font-size: 20px;
 }
 
+/* 2021 */
 #sub2 {
     width: 80%;
     height: 5%;
     position: absolute;
     top: 55%;
     left: 10%;
-    background-color: #FCD363;
+    background-color: #adadad;
     color: white;
     border-radius: 15px;
     display: flex;
@@ -75,6 +80,7 @@ h2 {
     font-size: 25px;
 }
 
+/* 2021 수상내역 */
 #text2 {
     width: 80%;
     height: 5%;
@@ -84,13 +90,14 @@ h2 {
     font-size: 20px;
 }
 
+/* 2023 */
 #sub3 {
     width: 80%;
     height: 5%;
     position: absolute;
     top: 75%;
     left: 10%;
-    background-color: #FCD363;
+    background-color: #adadad;
     color: white;
     border-radius: 15px;
     display: flex;
@@ -98,6 +105,7 @@ h2 {
     font-size: 25px;
 }
 
+/* 2023 수상내역 */
 #text3 {
     width: 80%;
     height: 5%;
@@ -107,13 +115,14 @@ h2 {
     font-size: 20px;
 }
 
+/* 2024 */
 #sub4 {
     width: 80%;
     height: 5%;
     position: absolute;
     top: 95%;
     left: 10%;
-    background-color: #FCD363;
+    background-color: #adadad;
     color: white;
     border-radius: 15px;
     display: flex;
@@ -121,6 +130,7 @@ h2 {
     font-size: 25px;
 }
 
+/* 2024 수상내역 */
 #text4 {
     width: 80%;
     height: 5%;
@@ -130,13 +140,14 @@ h2 {
     font-size: 20px;
 }
 
+/* 2025 */
 #sub5 {
     width: 80%;
     height: 5%;
     position: absolute;
     top: 120%;
     left: 10%;
-    background-color: #FCD363;
+    background-color: #adadad;
     color: white;
     border-radius: 15px;
     display: flex;
@@ -144,6 +155,7 @@ h2 {
     font-size: 25px;
 }
 
+/* 2025 수상내역 */
 #text5 {
     width: 80%;
     height: 5%;

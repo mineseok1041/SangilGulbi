@@ -5,30 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <title>mypage</title>
 </head>
 
 <body>
-    <h1 id="mypage">My Page</h1>
-    <hr id="line">
+    <header class="header">
+        <a class="logo" href="/">GB</a>
+
+        <div class="main_menu">
+            <a class="text" href="#">Calender</a>
+            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Game</a>
+            <a class="text" href="/awards">Awards</a>
+            <!-- 로그인 상태에 따라 다른 메뉴 항목 표시 -->
+            {% if session['id'] %}
+            <a class="text" href="/mypage">
+                <!-- 프로필 이미지 표시 -->
+                <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                    alt="Profile" class="profile-pic">
+            </a>
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+        </div>
+
+        <div class="sub_menu">
+            <button class="cal1" href="#">공지사항</button>
+            <button class="cal2" href="#">캘린더보기</button>
+            <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
+            <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button>
+            <!-- 로그인 상태에 따라 다른 서브 메뉴 항목 표시 -->
+            {% if session['id'] %}
+            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <button class="login1" onClick="location.href='/signup'">회원가입</button> {% endif %}
+            </button>
+        </div>
+    </header>
+
     <div id="photo">
-        <img id="basic" src="{{ url_for('static', filename='/img/인스타기본프사.jpg') }}">
-        <button id="upload">사진 업로드</button>
-        <p id="text">800x800 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
+        <img id="basic"
+            src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}">
+        <form id="uploadForm" action="{{ url_for('upload.upload_profile_pic') }}" method="POST"
+            enctype="multipart/form-data">
+            <input type="file" id="fileInput" name="file" accept="image/*" style="display: none;"
+                onchange="previewImage(event)">
+            <button type="button" id="upload" onclick="document.getElementById('fileInput').click();">사진 업로드</button>
+        </form>
+        <!-- 업로드 안내 문구 -->
+        <p id="text">400x400 크기의 JPG 또는 PNG 형식의 파일을 넣어주세요</p>
     </div>
-    <hr id="line2">
+    <hr id="line">
     <article class="information_box">
+        <!-- 사용자 정보 표시 -->
         <h3 id="info">사용자 정보</h3>
-        <p id="name">이름</p>
-        <p id="e-mail">이메일</p>
-        <p id="phone">전화번호</p>
-        <button class="add">수정</button>
+        <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
+            user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+        </p>
+        <p id="name">이름: {{ user.name }}</p>
+        <p id="phone">전화번호: {{ user.phone }}</p>
+        <p id="e-mail">이메일: {{ user.email }}</p>
+        <button class="add" onclick="openPopup()">수정</button>
     </article>
     <article class="score_box">
         <h3 id="score">상벌점</h3>
     </article>
-    <article class="etc_box">
+    <article class="awards_box">
+        <h3 id="awards">수상내역</h3>
     </article>
+    <script>
+        // 이미지 미리보기 및 업로드 함수
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output =
+                    document.getElementById('basic');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            document.getElementById('uploadForm').submit();
+        }
+    </script>
+    <!-- 외부 JavaScript 파일 불러옴 -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 </body>
 
 </html>
