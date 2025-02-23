@@ -11,6 +11,16 @@
 
 /* 기본 스타일 초기화 */
 
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 기본 스타일 초기화 */
+
 * {
     margin: 0;
     padding: 0;
