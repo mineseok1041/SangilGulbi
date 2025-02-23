@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-
+/* ✅ 사용자 정의 폰트 적용 */
 @font-face {
     font-family: 'MinSans-Regular';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
-
+/* ✅ 전체 페이지 스타일 설정 */
 body {
     background-color: #f9f9f9;
     font-family: 'MinSans-Regular';
@@ -17,7 +16,7 @@ body {
     margin: 0;
     position: relative;
 }
-
+/* ✅ 전체 페이지 스타일 설정 */
 .login-container {
     background-color: #fff;
     padding: 40px;
@@ -30,6 +29,7 @@ body {
     z-index: 1; /* 로그인 컨테이너를 전면으로 설정 */
 }
 
+/* ✅ 제목 스타일 */
 h1 {
     color: #000000;
     font-size: 24px;
@@ -37,13 +37,14 @@ h1 {
     font-weight: bold;
 }
 
+/* ✅ 설명 텍스트 스타일 */
 p {
     color: #000000;
     font-size: 16px;
     font-weight: bold;
     font-family: 'MinSans-Regular';
 }
-
+/* ✅ 폼 요소 스타일 */
 form {
     text-align: left;
 }
@@ -92,13 +93,10 @@ input[type="password"] {
     z-index: 1;
 }
 
-.e-mail-container {
-    position: relative;
-    width: 100%;
-}
-
+/*✅ 이메일 입력칸 스타일 */
 .email-container {
     position: relative; /* 내부 요소를 상대적으로 배치할 수 있도록 설정 */
+    width: 100%;
     display: flex; /* 내부 요소를 가로 정렬 */
     align-items: center; /* 세로 중앙 정렬 */
 }
@@ -110,7 +108,7 @@ small {
     font-family: 'MinSans-Regular';
     margin-bottom: 0.5%;
 }
-
+/*자동 로그인 스타일*/
 .remember-me {
     display: flex;
     align-items: center; /* 세로 중앙 정렬 */
@@ -132,6 +130,7 @@ small {
     margin: 0; /* 기본 마진 제거 */
 }
 
+/* ✅ 로그인 버튼 스타일 */
 .login-btn {
     width: 100%;
     padding: 12px;
@@ -171,7 +170,7 @@ small {
     font-family: 'MinSans-Regular';
     box-sizing: border-box; /* 크기 유지 */
 }
-
+/* ✅ 비밀번호 입력칸 스타일 */
 .password-container {
     position: relative;
     display: flex;
@@ -179,6 +178,7 @@ small {
     width: 100%;
 }
 
+/* ✅ 비밀번호 표시 아이콘 */
 .eye-icon { /* 비밀번호 표시해주는 아이콘 */
     position: absolute;
     right: 10px;
@@ -192,19 +192,7 @@ small {
     pointer-events: auto; /* 클릭 가능하도록 설정 */
 }
 
-.icons a {
-    display: block;
-    width: 50px;
-    height: 50px;
-}
-
-.icons img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    vertical-align: middle; /* 세로 중앙 정렬 */
-}
-
+/* ✅ 회원가입 유도 문구 */
 .signup-prompt {
     margin-top: 25px;
     font-size: 16px;
