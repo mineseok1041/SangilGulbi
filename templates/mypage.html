@@ -75,13 +75,19 @@
     <hr id="line">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-        <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
-            user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
-        </p>
-        <p id="name">이름: {{ user.name }}</p>
-        <p id="phone">전화번호: {{ user.phone }}</p>
-        <p id="e-mail">이메일: {{ user.email }}</p>
-        <button class="add" onclick="openPopup()">수정</button>
+        <<<<<<< HEAD <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade ==
+            2 %} {{ user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+            </p>
+            <p id="name">이름: {{ user.name }}</p>
+            <p id="phone">전화번호: {{ user.phone }}</p>
+            <p id="e-mail">이메일: {{ user.email }}</p>
+            =======
+            <p id="num">학번</p>
+            <p id="name">이름</p>
+            <p id="phone">전화번호</p>
+            <p id="e-mail">이메일</p>
+            >>>>>>> dd3942df286e299b7db8b7c670adf615f9bb7633
+            <button class="add" onclick="openPopup()">수정</button>
     </article>
     <article class="score_box">
         <h3 id="score">상벌점</h3>
@@ -89,19 +95,14 @@
     <article class="awards_box">
         <h3 id="awards">수상내역</h3>
     </article>
-
-    <script>
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function () {
-                const output = document.getElementById('basic');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-            document.getElementById('uploadForm').submit();
+    <<<<<<< HEAD <script>
+        function previewImage(event) { const reader = new FileReader(); reader.onload = function () { const output =
+        document.getElementById('basic'); output.src = reader.result; }; reader.readAsDataURL(event.target.files[0]);
+        document.getElementById('uploadForm').submit();
         }
-    </script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+        </script>
+        ======= >>>>>>> dd3942df286e299b7db8b7c670adf615f9bb7633
+        <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 </body>
 
 </html>

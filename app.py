@@ -106,6 +106,11 @@ def manager_page_add():
 def mypage_Popup():
     return render_template('mypage_Popup.html')
 
+# 마이페이지 수정
+@app.route('/mypage_Popup')
+def mypage_Popup():
+    return render_template('mypage_Popup.html')
+
 # 수상내역
 @app.route('/awards')
 def awards():
