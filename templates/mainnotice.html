@@ -11,23 +11,29 @@
 
 <body>
     <header class="header">
-        <a class="logo">GB</a>
+        <a class="logo" href="/">GB</a>
 
         <div class="main_menu">
             <a class="text" href="#">Calender</a>
             <a class="text" href="#">Save</a>
             <a class="text" href="#">Game</a>
-            <a class="text" href="/awards">Awards</a>
-            <a class="text" href="#">Login</a>
+            <a class="text" href="/awards">Awards</a> {% if session['id'] %}
+            <a class="text" href="/mypage">
+                <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                    alt="Profile" class="profile-pic">
+            </a>
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
         </div>
 
         <div class="sub_menu">
-            <button class="cal1" href="#">공지사항</button>
+            <button class="cal1" onClick="location.href='/notice'">공지사항</button>
             <button class="cal2" href="#">캘린더보기</button>
-            <button class="game1" href="#">사다리타기</button>
-            <button class="game2" href="#">룰렛돌리기</button>
-            <button class="login1" href="/login">로그인</button>
-            <button class="login2" href="/signup">회원가입</button>
+            <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
+            <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
+            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <button class="login1" onClick="location.href='/signup'">회원가입</button> {% endif %}
+            </button>
         </div>
     </header>
 
@@ -70,7 +76,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="{{ url_for('static', filename='js/mainnotice.js') }}"></script>
 </body>
 
 </html>

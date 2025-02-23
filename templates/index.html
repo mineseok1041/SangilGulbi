@@ -30,7 +30,7 @@
           </div>
 
           <div class="sub_menu">
-            <button class="cal1" href="#">공지사항</button>
+            <button class="cal1" onClick="location.href='/notice'">공지사항</button>
             <button class="cal2" href="#">캘린더보기</button>
             <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
             <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
@@ -172,7 +172,7 @@
       <nav>
         <div id="first">
           <p>calendar</p>
-          <a href="#">공지사항</a>
+          <a onClick="location.href='/notice'">공지사항</a>
           <a href="#">캘린더보기</a>
         </div>
 

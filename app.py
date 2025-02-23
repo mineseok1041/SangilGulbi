@@ -107,5 +107,17 @@ def roulette():
 def sadari():
     return render_template('sadari.html')
 
+@app.route('/notice')
+def notice():
+    return render_template('mainnotice.html')
+
+@app.route('/noticeadd')
+def noticeadd():
+    return render_template('noticeadd.html')
+
+@app.route('/noticepage')
+def noticepage():
+    return render_template('noticepage.html')
+
 if __name__ == '__main__':
     app.run()
