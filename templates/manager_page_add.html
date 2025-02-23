@@ -11,7 +11,7 @@
     <nav class="navbar">
         <div class="nav_logo">
             <a href="/" class="link_main">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+                <img src="{{ url_for('static', filename='img/mgmt/logo.png') }}" alt="Logo">
             </a>
         </div>
         <div class="nav_menu">
@@ -21,7 +21,7 @@
         </div>    
         <div class="nav_user">
             <a href="#" class="click_mypage">
-                <img src="{{ url_for('static', filename='img/user_profile.png') }}" alt="UserProfile">
+                <img src="{{ url_for('static', filename='img/mgmt/user_profile.png') }}" alt="UserProfile">
             </a>
         </div>
     </nav>
@@ -29,25 +29,33 @@
     <!-- 메인 콘텐츠 -->
     <main class="container">
         <h2>관리자 계정 추가</h2>
-        <div class="form-box">
-            <form id="adminForm" method="POST">
-                <div class="admin-id">
-                    <label for="adminId">아이디:</label>
-                    <input type="text" id="adminId" name="adminId" required>
-                </div>
-                <div class="admin-password">
-                    <label for="adminPassword">비밀번호:</label>
-                    <input type="password" id="adminPassword" name="adminPassword" required>
-                </div>
-                <div class="admin-password-check">
-                    <label for="adminPasswordCheck">비밀번호 확인:</label>
-                    <input type="password" id="adminPasswordCheck" name="adminPasswordCheck" required>
-                </div>
-                <div class="admin-add">
-                    <button type="submit">관리자 추가</button>
-                </div>
-            </form>
-        </div>
+        <form id="adminForm" method="POST">
+            <div class="password-input">
+                <input type="text" id="adminId" placeholder="아이디" required>
+            </div>
+        
+            <div class="password-input">
+                <input type="password" id="adminPassword" placeholder="비밀번호" required>
+                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
+                     alt="eye" 
+                     class="eye-icon" 
+                     data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}" 
+                     data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
+                     onclick="togglePasswordVisibility('adminPassword', this)" />
+            </div>
+        
+            <div class="password-input">
+                <input type="password" id="adminConfirmPassword" placeholder="비밀번호 확인" required>
+                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
+                     alt="eye" 
+                     class="eye-icon" 
+                     data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"  
+                     data-hide="{{ url_for('static', filename='img/eye_off_icon.png') }}" 
+                     onclick="togglePasswordVisibility('adminConfirmPassword', this)" />
+            </div>
+            <button type="submit">관리자 추가</button>
+        </form>
+        
     </main>
 
     <p id="resultMessage" style="display: none; color: green; font-weight: bold;"></p>
