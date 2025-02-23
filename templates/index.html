@@ -14,28 +14,28 @@
     <section class="container">
       <article class="one_section">
         <header class="header">
-          <a class="logo">GB</a>
+          <a class="logo" href="/">GB</a>
 
           <div class="main_menu">
             <a class="text" href="#">Calender</a>
             <a class="text" href="#">Save</a>
             <a class="text" href="#">Game</a>
-            <a class="text" href="#">Awards</a>
-            
+            <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
               <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
                 alt="Profile" class="profile-pic">
             </a>
-            
-            <button class="login-button" onClick="location.href='/login'">LOGIN</button> 
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
           </div>
 
           <div class="sub_menu">
             <button class="cal1" href="#">공지사항</button>
             <button class="cal2" href="#">캘린더보기</button>
             <button class="game1" href="#">사다리타기</button>
-            <button class="game2" href="#">룰렛돌리기</button>
-            <button class="login1" href="#">회원가입</button>
+            <button class="game2" href="#">룰렛돌리기</button> {% if session['id'] %}
+            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <button class="login1" href="/signup">회원가입</button> {% endif %}
             </button>
           </div>
         </header>
@@ -162,7 +162,7 @@
             <div class="shape">✦</div>
             <h2>mypage</h2>
             <p>자신의 정보를 확인해보세요</p>
-            <a href="#" class="see-more">SEE MORE →</a>
+            <a href="/mypage" class="see-more">SEE MORE →</a>
           </div>
         </div>
       </article>
@@ -189,16 +189,13 @@
 
         <div id="fourd">
           <p>login</p>
-          <a href="#">로그인</a>
-          <a href="#">회원가입</a>
+          <a href="/login">로그인</a>
+          <a href="/signup">회원가입</a>
         </div>
       </nav>
 
       <p id="p1">
-        꿀비<br><br>
-        상일미디어고등학교 인공지능소프트웨어과<br>
-        주소 : 서울특별시 강동구 천호대로219길 61<br>
-        2층 앱센터 안쪽 앱제작1실
+        꿀비<br><br> 상일미디어고등학교 인공지능소프트웨어과<br> 주소 : 서울특별시 강동구 천호대로219길 61<br> 2층 앱센터 안쪽 앱제작1실
       </p>
 
       <hr>

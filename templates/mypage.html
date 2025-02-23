@@ -11,32 +11,31 @@
 
 <body>
     <header class="header">
-          <a class="logo">GB</a>
+        <a class="logo" href="/">GB</a>
 
-          <div class="main_menu">
+        <div class="main_menu">
             <a class="text" href="#">Calender</a>
             <a class="text" href="#">Save</a>
             <a class="text" href="#">Game</a>
-            <a class="text" href="#">Awards</a>
-            {% if session['id'] %}
-            <button class="text" onClick="location.href='/users/logout.do'">LOGOUT</button>
+            <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
-              <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
-                alt="Profile" class="profile-pic">
+                <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                    alt="Profile" class="profile-pic">
             </a>
             {% else %}
             <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
-          </div>
+        </div>
 
-          <div class="sub_menu">
+        <div class="sub_menu">
             <button class="cal1" href="#">공지사항</button>
             <button class="cal2" href="#">캘린더보기</button>
             <button class="game1" href="#">사다리타기</button>
-            <button class="game2" href="#">룰렛돌리기</button>
-            <button class="login1" href="#">회원가입</button>
+            <button class="game2" href="#">룰렛돌리기</button> {% if session['id'] %}
+            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <button class="login1" href="/signup">회원가입</button> {% endif %}
             </button>
-          </div>
-        </header>
+        </div>
+    </header>
 
     <div id="photo">
         <img id="basic"
@@ -52,17 +51,13 @@
     <hr id="line">
     <article class="information_box">
         <h3 id="info">사용자 정보</h3>
-       <p id="num">학번: 
-            </p>
-            <p id="name">이름: </p>
-            <p id="phone">전화번호: </p>
-            <p id="e-mail">이메일: </p>
-        
-            <p id="num">학번</p>
-            <p id="name">이름</p>
-            <p id="phone">전화번호</p>
-            <p id="e-mail">이메일</p>
-            <button class="add" onclick="openPopup()">수정</button>
+        <p id="num">학번: {% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
+            user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+        </p>
+        <p id="name">이름: {{ user.name }}</p>
+        <p id="phone">전화번호: {{ user.phone }}</p>
+        <p id="e-mail">이메일: {{ user.email }}</p>
+        <button class="add" onclick="openPopup()">수정</button>
     </article>
     <article class="score_box">
         <h3 id="score">상벌점</h3>
@@ -71,13 +66,19 @@
         <h3 id="awards">수상내역</h3>
     </article>
     <script>
-        function previewImage(event) { const reader = new FileReader(); reader.onload = function () { const output =
-        document.getElementById('basic'); output.src = reader.result; }; reader.readAsDataURL(event.target.files[0]);
-        document.getElementById('uploadForm').submit();
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output =
+                    document.getElementById('basic');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            document.getElementById('uploadForm').submit();
         }
-        </script>
-        
-        <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+    </script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
 </body>
 
 </html>
