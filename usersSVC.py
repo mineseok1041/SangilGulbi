@@ -1,0 +1,54 @@
+import usersDAO
+import usersDTO
+
+class usersSVC:
+    def __init__(self):
+        self.DAO = usersDAO.usersDAO()
+        
+    def getUsersInfo(self, reqDTO:usersDTO) -> usersDTO:
+        try:
+            return self.DAO.getUsersInfo(reqDTO)
+        except Exception as e:
+            raise Exception(f"getUsersInfo Error: {e}")
+    
+    def signup(self, reqDTO:usersDTO):
+        if not self.DAO.isIDExist(reqDTO):
+            try:
+                self.DAO.addUsers(reqDTO)
+            except Exception as e:
+                raise Exception(e)
+        else:
+            raise Exception("ID already exists")
+        
+    def login(self, reqDTO:usersDTO) -> bool:
+        try:
+            if self.DAO.isIDExist(reqDTO):
+                if self.DAO.isPWDCorrect(reqDTO):
+                    return True
+                else:
+                    raise Exception("비밀번호가 일치하지 않습니다.")
+            else:
+                raise Exception("존재하지 않는 ID입니다.")
+        except Exception as e:
+            raise Exception(f"Login Error: {e}")
+        
+    def isIDExist(self, reqDTO:usersDTO) -> bool:
+        try:
+            if self.DAO.isIDExist(reqDTO):
+                return True
+            else:
+                return False
+        except Exception as e:
+            raise Exception(f"isIDExist Error: {e}")
+
+    def updateProfilePic(self, reqDTO:usersDTO):
+        try:
+            self.DAO.updateProfilePic(reqDTO)
+        except Exception as e:
+            raise Exception(f"updateProfilePic Error: {e}")
+
+    def updateUserInfo(self, reqDTO:usersDTO):
+        try:
+            self.DAO.updateUserInfo(reqDTO)
+        except Exception as e:
+            raise Exception(f"updateUserInfo Error: {e}")

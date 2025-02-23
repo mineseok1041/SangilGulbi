@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    font-family: 'MinSans-Regular';
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 상단 정렬로 변경 */
+    min-height: 100vh;
+    background-color: #fffefe;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+    min-height: auto; /* 기존 height: 100vh 제거 */
+    border-radius: 10px;
+}
+/* 🔹 검색 및 추가 버튼 */
+
+.top-controls {
+    font-family: 'MinSans-Regular';
+    display: flex;
+    justify-content: space-between; /* 🔥 h1 왼쪽, 검색창 오른쪽 */
+    align-items: center; /* 🔥 수직 가운데 정렬 */
+    width: 100%;
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.add-box {
+    font-family: 'MinSans-Regular';
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add {
+    font-family: 'MinSans-Regular';
+    padding: 10px 15px;
+    background-color: rgb(94, 94, 94);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add:hover {
+    background-color: #434343;
+}
+
+.search-box input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-box button {
+    font-family: 'MinSans-Regular';
+    padding: 10px;
+    background-color: rgb(94, 94, 94);
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-box button:hover {
+    background-color: #434343;
+}
+
+/* 🔹 공지 목록 테이블 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border-bottom: 2px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    border-top: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+/* 🔹 삭제 버튼 */
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 🔹 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center; /* 🔥 하단 중앙 정렬 */
+    align-items: center;
+    position: fixed;
+    bottom: 20px; /* 화면 하단에서 20px 위 */
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.pagination button {
+    color: black;
+    background-color: rgb(128, 128, 128);
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: rgb(104, 104, 104);
+}
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* 🔥 검색창과 버튼이 한 줄로 유지되도록 수정 */
+    .right-controls {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* 🔥 중앙 정렬 유지 */
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-box, .add-box {
+        display: flex;
+        flex-direction: row; /* 🔥 버튼과 검색창이 한 줄 유지 */
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: auto;
+    }
+
+    table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .right-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box, .add-box {
+        flex-direction: column; /* 🔥 작은 화면에서는 세로 정렬 */
+        gap: 5px;
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .add {
+        width: 100%;
+        text-align: center;
+    }
+}

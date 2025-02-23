@@ -18,6 +18,58 @@ body {
     height: 100vh;
 }
 
+.id {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px; /* 최대 너비 설정 */
+}
+.input-group {
+    position: relative; /* 버튼을 입력창 내부에 고정 */
+    width: 100%;
+    max-width: 350px; /* 최대 너비 설정 */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    padding-right: 80px; /* 버튼 공간 확보 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Jua", sans-serif;
+    box-sizing: border-box;
+}
+
+.btn {
+    position: absolute;
+    margin-left: 215px; /* 입력 박스 내부에서 오른쪽 끝 정렬 */
+    margin-top: 5px;
+    padding: 6px 9px;
+    background-color: white;
+    color: black;
+    font-family: "Jua", sans-serif;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap; /* 버튼 줄 바꿈 방지 */
+    z-index: 1000000;
+}
+
+
+
+
+
+span {
+    font-family: "Jua", sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin-right: 50%;
+    margin-top: 0; /* 입력창 아래에 배치 */
+}
+
+
+
 .signup-form {
     background-color: white;
     padding: 2rem;
@@ -44,51 +96,55 @@ body {
 
 .input-group {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 5px;
+    width: 100%;
+    position: relative;
 }
 
-.input-group input {
-    width: 43%;
-    margin-right: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"] {
+input[type="text"]{
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 4%;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
     font-family: "Jua", sans-serif;
 }
 
-.password-container {
+
+input[type="email"]{
+    padding: 10px;
+    margin-bottom: 6%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: "Jua", sans-serif;
+
+}
+input[type="password"]{
+    padding: 10px;
+    margin-bottom: 6%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: "Jua", sans-serif;
+}
+input[type="date"] {
+    padding: 10px;
+    margin-bottom: 6%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-family: "Jua", sans-serif;
+}
+
+.password{
     position: relative;
     width: 100%;
 }
 
-.toggle-password {
-    position: relative;
-    left: 240px;
-    top: -33px;
-    transform: translateY(-50%); /* 중앙에 위치 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.toggle-password img {
-    height: 20px; /* 높이 설정 (수정 가능) */
-    width: 40px; /* 너비는 자동으로 설정되어 비율 유지 */
-}
-
-button[type="submit"] {
+.join {
     background-color: #FCD363;
     color: white;
     padding: 10px;
@@ -100,26 +156,6 @@ button[type="submit"] {
     font-family: "Jua", sans-serif;
 }
 
-.social-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.social-buttons button {
-    width: 32%;
-    padding: 10px;
-    border: 1px solid #9CA3AF;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #9CA3AF;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Jua", sans-serif;
-}
 
 .signup-form a {
     color: #9CA3AF;

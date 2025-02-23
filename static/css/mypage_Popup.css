@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.information_box {
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+}
+
+.info {
+    position: absolute;
+    top: 1%;
+    left: 3%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+.num {
+    position: absolute;
+    top: 15%;
+    left: 3%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+.name {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+.phone {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+.e-mail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: 'S-CoreDream-3Light';
+}
+
+input {
+    width: 40%;
+    margin-top: 20%;
+    margin-left: 3%;
+}
+
+.fin {
+    width: 20%;
+    height: 8%;
+    position: absolute;
+    top: 90%;
+    right: 3%;
+    font-family: 'S-CoreDream-3Light';
+    background: #ffd700;
+    color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.fin button:hover {
+    background: #ffbb00;
+}

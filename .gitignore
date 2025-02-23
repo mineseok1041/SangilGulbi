@@ -1,2 +1,3 @@
 /.venv
 database/SANGILDB.DBF
+__pycache__/

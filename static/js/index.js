@@ -1,7 +1,7 @@
 const wrap = document.getElementsByClassName('wrap')[0]; // 보일 영역
 const container = document.getElementsByClassName('container');
 let page = 0; // 영역 포지션 초기값
-const lastPage = container.length - 1; // 마지막 페이지
+const lastPage = container.length - 2; // 마지막 페이지
 
 window.addEventListener('wheel',(e)=>{
     e.preventDefault();

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/noticepage.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>공지사항</h1>
+        
+        <div class="notice-header">
+            <span class="notice-title" id="title"></span>
+            <span class="notice-author" id="author"></span>
+        </div>
+        
+        <span class="notice-meta" id="date"></span>
+        
+        <div class="notice-content" id="content"></div>
+
+        <button class="btn" onclick="location.href='/mainnotice'">목록으로</button>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/noticepage.js') }}"></script>
+</body>
+</html>
