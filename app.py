@@ -76,7 +76,6 @@ def mypage_Popup():
 def manager_page():
     return render_template('manager_page_main.html')
 
-
 # 관리페이지 유저 관리
 @app.route('/mgmt_user')
 def manager_page_user():
@@ -103,6 +102,18 @@ def roulette():
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
+
+@app.route('/mainnotice')
+def mainnotice():
+    return render_template('mainnotice.html')
+
+@app.route('/noticeadd')
+def noticeadd():
+    return render_template('noticeadd.html')
+
+@app.route('/noticepage')
+def noticepage():
+    return render_template('noticepage.html')
 
 if __name__ == '__main__':
     app.run()

@@ -62,7 +62,7 @@ header {
     z-index: 4;
 }
 
-.main_menu > button {
+.main_menu>button {
     color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
@@ -75,11 +75,11 @@ header {
     text-decoration-line: none;
     justify-content: center;
     z-index: 4;
-    border:none;
+    border: none;
     background-color: gainsboro;
 }
 
-.text > img {
+.text>img {
     position: absolute;
     top: 7%;
     width: 55px;

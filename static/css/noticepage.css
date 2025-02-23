@@ -40,6 +40,7 @@ h1 {
 
 /* 🟢 제목 & 작성자 박스 */
 .notice-header {
+    width: 100%;
     font-family: 'MinSans-Regular';
     display: flex;
     justify-content: space-between;
@@ -49,13 +50,13 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: #333;
-    gap: 10px;
+    gap: 5%;
 }
 
 /* 🟢 제목 */
 .notice-title {
     font-family: 'MinSans-Regular';
-    flex: 1; /* 📌 너비 자동 조정 */
+    flex: 4; /* 📌 너비 자동 조정 */
     text-align: left;
     font-size: 20px;
     font-weight: bold;
@@ -69,7 +70,7 @@ h1 {
 /* 🟢 작성자 */
 .notice-author {
     font-family: 'MinSans-Regular';
-    flex: 0.3;
+    flex: 1;
     min-width: 120px;
     text-align: left;
     font-size: 20px;
