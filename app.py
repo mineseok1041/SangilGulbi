@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, session, url_for, request, Response
 from flask_cors import CORS
+import requests
 import upload
 from usersDTO import usersDTO
 from noticeSVC import NoticeSVC
