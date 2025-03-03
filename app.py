@@ -5,6 +5,7 @@ from usersDTO import usersDTO
 from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 import users_app
+import os
 
 app = Flask(__name__)
 CORS(app)
