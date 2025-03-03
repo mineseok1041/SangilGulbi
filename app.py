@@ -1,11 +1,8 @@
 from flask import Flask, redirect, render_template, session, url_for, request, Response
-import requests
 from flask_cors import CORS
-import users_app
-import upload
-import os
-import usersSVC
 from usersDTO import usersDTO
+from noticeSVC import NoticeSVC
+from noticeDTO import NoticeDTO
 
 app = Flask(__name__)
 CORS(app)
@@ -26,7 +23,8 @@ def index():
         return Response(resp.content, status=resp.status_code, headers=dict(resp.headers))
     else:
         return render_template('index.html')
-    
+
+# 쿠키 확인
 @app.route('/check')
 def check():
     id = request.cookies.get('SangilGulbiUserID')
@@ -34,17 +32,17 @@ def check():
     print(id, password)
     return redirect(url_for('index'))
 
-# 로그인
+# 로그인 페이지
 @app.route('/login')
 def login():
     return render_template('login.html')
 
-# 비밀번호 찾기
+# 비밀번호 찾기 페이지
 @app.route('/forget')
 def forget():
     return render_template('forget.html')
 
-# 회원가입
+# 회원가입 페이지
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
@@ -60,7 +58,7 @@ def mypage():
     
     return render_template('mypage.html', user=user)
 
-# 마이페이지 수정
+# 마이페이지 수정 팝업
 @app.route('/mypage_Popup')
 def mypage_Popup():
     if 'id' not in session:
@@ -76,7 +74,6 @@ def mypage_Popup():
 def manager_page():
     return render_template('manager_page_main.html')
 
-
 # 관리페이지 유저 관리
 @app.route('/mgmt_user')
 def manager_page_user():
@@ -87,37 +84,73 @@ def manager_page_user():
 def manager_page_add():
     return render_template('manager_page_add.html')
 
-# 수상내역
+# 수상내역 페이지
 @app.route('/awards')
 def awards():
     return render_template('awards.html')
 
-# 리듬게임
+# 리듬게임 페이지
 @app.route('/rhythm')
 def rhythm():
     return render_template('rhythm.html')
 
-# 룰렛
+# 룰렛 페이지
 @app.route('/roulette')
 def roulette():
     return render_template('roulette.html')
 
-# 사다리
+# 사다리 페이지
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
 
+# 공지사항 목록
 @app.route('/notice')
-def notice():
-    return render_template('mainnotice.html')
+def notice_list():
+    SVC = NoticeSVC()
+    notices = SVC.get_all_notices()
+    return render_template('mainnotice.html', notices=notices)
 
-@app.route('/noticeadd')
-def noticeadd():
+# 공지사항 상세
+@app.route('/notice/<int:notice_id>')
+def notice_detail(notice_id):
+    SVC = NoticeSVC()
+    notice = SVC.get_notice_by_id(notice_id)
+    return render_template('noticepage.html', notice=notice)
+
+# 공지사항 추가
+@app.route('/notice/add', methods=['GET', 'POST'])
+def add_notice():
+    if 'id' not in session:
+        return redirect(url_for('login'))  # 로그인하지 않은 경우 로그인 페이지로 리디렉션
+    SVC = NoticeSVC()
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        author = session['id']
+        notice = NoticeDTO(title=title, content=content, author=author)
+        SVC.add_notice(notice)
+        return redirect(url_for('notice_list'))
     return render_template('noticeadd.html')
 
-@app.route('/noticepage')
-def noticepage():
-    return render_template('noticepage.html')
+# 공지사항 수정
+@app.route('/notice/edit/<int:notice_id>', methods=['GET', 'POST'])
+def edit_notice(notice_id):
+    SVC = NoticeSVC()
+    notice = SVC.get_notice_by_id(notice_id)
+    if request.method == 'POST':
+        notice.title = request.form['title']
+        notice.content = request.form['content']
+        SVC.update_notice(notice)
+        return redirect(url_for('notice_detail', notice_id=notice_id))
+    return render_template('noticeedit.html', notice=notice)
+
+# 공지사항 삭제
+@app.route('/notice/delete/<int:notice_id>', methods=['POST'])
+def delete_notice(notice_id):
+    SVC = NoticeSVC()
+    SVC.delete_notice(notice_id)
+    return redirect(url_for('notice_list'))
 
 if __name__ == '__main__':
     app.run()

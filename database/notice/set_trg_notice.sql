@@ -1,4 +1,3 @@
--- filepath: /c:/Users/Ace/Desktop/개발/workspace/공지사항/database/notice/set_trg_notice.sql
 CREATE OR REPLACE TRIGGER trg_notice_set_dates
 BEFORE INSERT OR UPDATE ON notice
 FOR EACH ROW

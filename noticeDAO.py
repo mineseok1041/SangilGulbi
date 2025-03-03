@@ -7,9 +7,11 @@ class NoticeDAO:
         self.db_user = 'sangil'
         self.db_password = '1234'
 
+    # 데이터베이스 연결 생성
     def get_connection(self):
         return cx_Oracle.connect(self.db_user, self.db_password, self.dsn)
 
+    # 모든 공지사항 가져오기
     def get_all_notices(self) -> list[NoticeDTO]:
         query = "SELECT * FROM notice ORDER BY created_date DESC"
         conn = self.get_connection()
@@ -21,6 +23,7 @@ class NoticeDAO:
         conn.close()
         return notices
 
+    # 공지사항 ID로 공지사항 가져오기
     def get_notice_by_id(self, notice_id: int) -> NoticeDTO:
         query = "SELECT * FROM notice WHERE id = :1"
         conn = self.get_connection()
@@ -37,6 +40,7 @@ class NoticeDAO:
         conn.close()
         return notice
 
+    # 공지사항 추가
     def add_notice(self, notice: NoticeDTO):
         query = "INSERT INTO notice (id, title, content, author) VALUES (seq_notice_id.NEXTVAL, :1, :2, :3)"
         conn = self.get_connection()
@@ -46,6 +50,7 @@ class NoticeDAO:
         cursor.close()
         conn.close()
 
+    # 공지사항 수정
     def update_notice(self, notice: NoticeDTO):
         query = "UPDATE notice SET title = :1, content = :2, updated_date = TO_CHAR(SYSDATE, 'YYYYMMDD HH24:MI:SS') WHERE id = :3"
         conn = self.get_connection()
@@ -55,6 +60,7 @@ class NoticeDAO:
         cursor.close()
         conn.close()
 
+    # 공지사항 삭제
     def delete_notice(self, notice_id: int):
         query = "DELETE FROM notice WHERE id = :1"
         conn = self.get_connection()
