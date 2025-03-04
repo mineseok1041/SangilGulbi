@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+<!-- HTML 기초 설정 시작 (2025-02-23 22:12) -->
 
 <head>
     <meta charset="UTF-8">
@@ -15,8 +16,13 @@
 <body>
     <!-- 네비게이션 바 시작 (2025-02-23 22:12) -->
     <nav class="navbar">
-        <a class="nav_logo" href="/">GB</a>
-        <div class="nav_menu">
+        <div class="navbarLogo">
+            <a href="/" class="linkMain">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+                <!-- 로고 이미지 (2025-02-23 22:12) -->
+            </a>
+        </div>
+        <div class="navbarMenu">
             <span class="title">
                 <a href="/management" class="link_mgmt">Manager Page</a> <!-- 메인 관리자 페이지 링크 (2025-02-23 22:12) -->
             </span>
@@ -35,25 +41,25 @@
     <!-- 네비게이션 바 종료 (2025-02-23 22:12) -->
 
     <!-- 학생, 일정, 공지사항 박스를 담은 컨테이너 시작 (2025-02-23 22:12) -->
-    <div class="box_container">
+    <div class="boxContainer">
         <!-- 학생 박스 시작 (2025-02-23 22:12) -->
-        <div class="box user_box">
-            <div class="user_box_header">
-                <img src="{{ url_for('static', filename='img/mgmt/user.png') }}" alt="User">
+        <div class="box userBox">
+            <div class="userBoxHeader">
+                <img src="{{ url_for('static', filename='img/user.png') }}" alt="User">
                 <!-- 학생 아이콘 (2025-02-23 22:12) -->
                 <h1>학생</h1>
                 <!-- 학생 섹션 제목 (2025-02-23 22:12) -->
             </div>
-            <div id="userCount">11</div>
+            <div class="userCount">11</div>
             <!-- 학생 수 표시 (2025-02-23 22:12) -->
-            <div class="expand_arrow" onclick="toggleUserBox()">&#9660;</div>
+            <div class="expandArrow" onclick="toggleUserBox()">&#9660;</div>
             <!-- 학생 목록 확장 화살표 (2025-02-23 22:12) -->
         </div>
         <!-- 학생 박스 종료 (2025-02-23 22:12) -->
 
         <!-- 일정 박스 시작 (2025-02-23 22:12) -->
-        <div class="box calendar_box">
-            <img src="{{ url_for('static', filename='img/mgmt/calendar.png') }}" alt="Calendar">
+        <div class="box calendarBox">
+            <img src="{{ url_for('static', filename='img/calendar.png') }}" alt="Calendar">
             <!-- 일정 아이콘 (2025-02-23 22:12) -->
             <h1>일정</h1>
             <!-- 일정 섹션 제목 (2025-02-23 22:12) -->
@@ -61,8 +67,8 @@
         <!-- 일정 박스 종료 (2025-02-23 22:12) -->
 
         <!-- 공지사항 박스 시작 (2025-02-23 22:12) -->
-        <div class="box notification_box">
-            <img src="{{ url_for('static', filename='img/mgmt/notification.png') }}" alt="Notification">
+        <div class="box notificationBox">
+            <img src="{{ url_for('static', filename='img/notification.png') }}" alt="Notification">
             <!-- 공지사항 아이콘 (2025-02-23 22:12) -->
             <h1>공지사항</h1>
             <!-- 공지사항 섹션 제목 (2025-02-23 22:12) -->
