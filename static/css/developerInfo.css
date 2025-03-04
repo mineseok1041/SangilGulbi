@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #eee;
+    text-align: center;
+}
+
+.section-header {
+    position: relative;
+    margin-top: 5%;
+    margin-left: 14%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c4c4c4;
+    padding: 10px 20px;
+    width: 69%;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
+}
+
+.member {
+    background: white;
+    padding: 0;
+    border-radius: 5px;
+    width: 220px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.member img {
+    width: 100%;
+    height: 230px;
+    display: block;
+    object-fit: contain; /* 이미지가 잘리지 않음 */
+    background-color: #eee; /* 여백이 생길 경우 배경색 지정 */
+    object-fit: cover;
+    object-position: top; /* 이미지의 상단을 기준으로 정렬 */
+}
+
+.info {
+    background: #222;
+    color: white;
+    padding: 10px;
+    height: 60px; /* 흰색 여백을 없애기 위해 높이 고정 */
+}
+
+.info h2, .info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
