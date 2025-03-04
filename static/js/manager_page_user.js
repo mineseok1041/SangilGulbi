@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const selectAll = document.getElementById("selectAll");
+    const selectAll = document.querySelector(".selectAll");
     const checkboxes = document.querySelectorAll(".userCheckbox");
-    const searchInput = document.getElementById("searchInput");
+    const searchInput = document.querySelector(".searchInput");
     const rows = document.querySelectorAll("tbody tr");
-    const selectedUsers = document.getElementById("selectedUsers");
-    const selectedList = document.getElementById("selectedList");
+    const selectedUsers = document.querySelector(".selectedUsers");
+    const selectedList = document.querySelector(".selectedList");
 
     function updateSelectedUsers() {
         selectedList.innerHTML = "";
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const userName = rows[index].cells[1].textContent;
 
                 const userBox = document.createElement("div");
-                userBox.classList.add("selected-user-box");
+                userBox.classList.add("selectedUserBox");
 
                 const icon = document.createElement("img");
                 icon.src = "../img/user_profile.png";
@@ -48,14 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 모달 열기
-function openModal(modalId) {
-    var modal = document.getElementById(modalId);
+function openModal(modalClass) {
+    var modal = document.querySelector("." + modalClass);
     modal.style.display = "flex"; // 모달을 flex로 보이게 함
 }
 
 // 모달 닫기
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
+function closeModal(modalClass) {
+    var modal = document.querySelector("." + modalClass);
     modal.style.display = "none"; // 모달을 숨김
 }
 
@@ -70,8 +70,8 @@ window.onclick = function(event) {
 }
 
 // 비밀번호 보기/숨기기 토글 함수
-function togglePasswordVisibility(inputId, icon) {
-    var input = document.getElementById(inputId);
+function togglePasswordVisibility(inputClass, icon) {
+    var input = document.querySelector("." + inputClass);
 
     if (input.type === "password") {
         input.type = "text"; // 비밀번호 보이게 설정
@@ -84,8 +84,8 @@ function togglePasswordVisibility(inputId, icon) {
 
 // 비밀번호 변경 함수
 function changePassword() {
-    var newPassword = document.getElementById('newPassword').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    var newPassword = document.querySelector('.newPassword').value;
+    var confirmPassword = document.querySelector('.confirmPassword').value;
 
     // 비밀번호가 일치하는지 확인
     if (newPassword === "" || confirmPassword === "") {
@@ -110,18 +110,18 @@ function changePassword() {
     // 여기에 서버로 변경된 비밀번호를 전송하는 코드가 필요함.
 }
 
-function updatePointValue(selectId, inputId) {
-    const select = document.getElementById(selectId);
-    const input = document.getElementById(inputId);
+function updatePointValue(selectClass, inputClass) {
+    const select = document.querySelector("." + selectClass);
+    const input = document.querySelector("." + inputClass);
 
     // 선택된 옵션의 값(점수)을 입력란에 자동으로 반영
     input.value = select.value;
 }
 
-function updatePoints(inputId) {
-    const user = document.getElementById("userSelect").value;
-    const reason = document.getElementById("reasonSelect").options[document.getElementById("reasonSelect").selectedIndex].text;
-    const points = document.getElementById(inputId).value;
+function updatePoints(inputClass) {
+    const user = document.querySelector(".userSelect").value;
+    const reason = document.querySelector(".reasonSelect").options[document.querySelector(".reasonSelect").selectedIndex].text;
+    const points = document.querySelector("." + inputClass).value;
 
     if (!user || !points) {
         alert("사용자와 사유를 선택해주세요.");
@@ -155,8 +155,8 @@ function updatePoints(inputId) {
 
 // 수상 내역 저장 함수
 function saveAward() {
-    const awardTitle = document.getElementById("awardTitle").value;
-    const awardDescription = document.getElementById("awardDescription").value;
+    const awardTitle = document.querySelector(".awardTitle").value;
+    const awardDescription = document.querySelector(".awardDescription").value;
 
     if (!awardTitle || !awardDescription) {
         alert("수상 제목과 설명을 입력해주세요.");

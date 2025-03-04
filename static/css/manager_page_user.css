@@ -15,50 +15,54 @@ html, body {
     overflow-y: hidden; /* 세로 스크롤 활성화 */
 }
 
-/* 네비게이션 바 */
+/* 네비게이션 바 스타일 (2025-02-23 22:12) */
 .navbar {
     display: flex;
     align-items: center;
     background-color: #3d3d3d;
     padding: 10px 20px;
     height: 60px;
-    min-width: 700px;
+    min-width: 700px; /* 최소 너비 설정 (2025-02-23 22:12) */
 }
 
-.nav_logo {
-    font-size: 30px;
-    color: white;
-    text-decoration: none;
+/* 로고 이미지 크기 설정 (2025-02-23 22:12) */
+.navbarLogo img {
+    width: 110px;
+    height: auto;
 }
 
-.nav_menu {
+/* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
+.navbarMenu {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.nav_menu span {
+/* 네비게이션 제목 스타일 (2025-02-23 22:12) */
+.navbarMenu span {
     color: white;
     font-size: 30px;
     font-weight: bold;
 }
 
-.nav_menu a {
+/* 네비게이션 링크 스타일 (2025-02-23 22:12) */
+.navbarMenu a {
     color: white;
     text-decoration: none;
     font-size: 28px;
     margin-left: 30px;
 }
 
-.nav_menu a:hover {
-    color: #ffcc00;
+.navbarMenu a:hover {
+    color: #ffcc00; /* 호버 효과 (2025-02-23 22:12) */
 }
 
-.nav_user {
+/* 사용자 아이콘 스타일 (2025-02-23 22:12) */
+.navbarUser {
     margin-left: auto;
 }
 
-.nav_user img {
+.navbarUser img {
     width: 50px;
     height: auto;
 }
@@ -73,7 +77,7 @@ html, body {
     padding: 20px;
 }
 
-.icon_box {
+.iconBox {
     display: flex;
     justify-content: center;  /* 가운데 정렬 */
     align-items: center;
@@ -109,11 +113,11 @@ html, body {
     align-items: center;
 }
 
-.search_bar {
+.searchBar {
     margin-right: 15%;
 }
 
-.search_bar input {
+.searchBar input {
     padding: 20px 15px; /* 안쪽 여백 */
     border: 2px solid #ccc; /* 테두리 색상 */
     border-radius: 25px; /* 둥근 모서리 */
@@ -123,7 +127,7 @@ html, body {
     font-size: 16px;
 }
 
-.search_bar input:focus {
+.searchBar input:focus {
     border-color: #ffd06b; /* 포커스 시 테두리 색상 변경 */
     box-shadow: 0 0 8px #ffd06d; /* 포커스 효과 */
 }
@@ -174,58 +178,48 @@ tbody tr:hover {
     align-items: center; /* 세로 중앙 정렬 */
 }
 
-/* 공통 모달 내용 스타일 */
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 20px; /* 둥글둥글하게 */
-    text-align: center;
-    width: 80%; /* 모달의 너비를 화면 비율로 설정 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
-}
-
-.modal-content h2 {
-    font-size: 30px;
-}
-
 /* pwModal 스타일 */
-#pwModal .modal-content {
-    background-color: #ffd380fa; /* pwModal 배경색 */
+.pwModal .modalContent {
+    background-color: #ffd380fa; /* 배경색 */
     width: 600px;
-    height: 270px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
 }
 
-#pwModal h2 {
+
+.pwModal h2 {
     font-size: 40px;
 }
 
-#pwModal .modal-content input {
+.pwModal .modalContent input {
     font-size: 20px;
 }
 
-.password-container {
+.passwordContainer {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.password-container label {
+.passwordContainer label {
     font-size: 30px;
 }
 
-.password-container h2 {
+.passwordContainer h2 {
     font-size: 15px !important;
     color:#fc5234fa
 }
 
-.password-input {
+.passwordInput {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-.password-input input {
+.passwordInput input {
     width: 100%;
     padding: 10px;
     padding-right: 35px; /* 눈 아이콘 공간 확보 */
@@ -235,7 +229,7 @@ tbody tr:hover {
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.eye-icon {
+.eyeIcon {
     position: absolute;
     right: 10px; /* 오른쪽 끝에 배치 */
     cursor: pointer;
@@ -262,8 +256,8 @@ button:hover {
 }
 
 /* 상벌점 모달 스타일 */
-#rewardModal .modal-content,
-#penaltyModal .modal-content {
+.rewardModal .modalContent,
+.penaltyModal .modalContent {
     background-color: #ffd380fa; /* 배경색 */
     width: 500px;
     height: 400px;
@@ -273,7 +267,7 @@ button:hover {
 }
 
 /* 상벌점 입력 폼 스타일 */
-.point-container {
+.pointContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -283,8 +277,8 @@ button:hover {
 }
 
 /* 드롭다운 및 입력창 스타일 */
-.point-container select,
-.point-container input {
+.pointContainer select,
+.pointContainer input {
     width: 80%;
     padding: 10px;
     border-radius: 5px;
@@ -294,22 +288,22 @@ button:hover {
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.select-options {
+.selectOptions {
     display: flex;
     align-items: center;
     width: 90%;
     gap: 5%;
 }
 
-.select-options select {
+.selectOptions select {
     width: 100%;
 }
 
-.select-options button:hover {
+.selectOptions button:hover {
     background-color: #45a049;
 }
 
-.point-input-container {
+.pointInputContainer {
     display: flex;
     font-family: 'S-CoreDream-3Light', sans-serif;
     justify-content: center;
@@ -317,21 +311,21 @@ button:hover {
     align-items: center;
 }
 
-.point-input-container label {
+.pointInputContainer label {
     font-size: 20px;
     flex-direction: column;
     margin-top: 3%;
 }
 
-.point-input-container input {
-    width: 80%;
+.pointInputContainer input {
+    width: 20%;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
-.point-input-container button {
+.pointInputContainer button {
     width: 15%;
     padding: 7px 20px;
     background-color: #4CAF50;
@@ -343,22 +337,22 @@ button:hover {
     margin-left: 42.5%;
 }
 
-#rewardInput,
-#penaltyInput {
-    font-size: 20px;
+.rewardInput,
+.penaltyInput {
+    font-size: 30px;
     width: 10%;
     text-align: center;
     margin-top: 3.75%;
 }
 
-.point-buttons {
+.pointButtons {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 25%;
 }
 
-.point-buttons button {
+.pointButtons button {
     width: 30%;
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -371,40 +365,26 @@ button:hover {
 }
 
 /* 버튼 스타일 */
-#rewardButton {
+.rewardButton {
     background-color: #4CAF50;
 }
 
-#rewardModalButton:hover {
+.rewardModalButton:hover {
     background-color: #45a049;
 }
 
-#penaltyButton {
-    background-color: #fc5234fa;
+.penaltyButton {
+    background-color: #fc5234fa !important;
 
 }
 
-#penaltyButton:hover {
+.penaltyButton:hover {
     background-color: #db4b31fa;
 }
 
 
-/* 공통 모달 내용 스타일 */
-.modal-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 20px; /* 둥글둥글하게 */
-    text-align: center;
-    width: 80%; /* 모달의 너비를 화면 비율로 설정 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
-}
-
-.modal-content h2 {
-    font-size: 30px;
-}
-
 /* awardModal 스타일 */
-#awardModal .modal-content {
+.awardModal .modalContent {
     background-color: #ffd380fa; /* awardModal 배경색 */
     width: 40%;
     height: auto;
@@ -413,7 +393,7 @@ button:hover {
     text-align: center;
 }
 
-.award-container {
+.awardContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -422,20 +402,20 @@ button:hover {
     margin: 10px 0;
 }
 
-.award-input {
+.awardInput {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 5px;
 }
 
-.award-input label {
+.awardInput label {
     font-size: 18px;
     text-align: left;
 }
 
-.award-input input,
-.award-input textarea {
+.awardInput input,
+.awardInput textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -444,12 +424,12 @@ button:hover {
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.award-input textarea {
+.awardInput textarea {
     resize: vertical; /* 수직 크기 조절 가능 */
     height: 100px; /* 기본 높이 */
 }
 
-.award-container button {
+.awardContainer button {
     width: 20%;
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -461,11 +441,16 @@ button:hover {
     margin-bottom: 3%;
 }
 
-.award-container button:hover {
+.awardContainer button:hover {
     background-color: #45a049;
 }
 
 /* deleteModal 스타일 */
-#deleteModal .modal-content {
-    background-color: #ffd380fa; /* deleteModal 배경색 */
+.deleteModal .modalContent {
+    background-color: #ffd380fa; /* awardModal 배경색 */
+    width: 40%;
+    height: auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
 }
