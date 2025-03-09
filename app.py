@@ -3,6 +3,7 @@ from flask_cors import CORS
 import requests
 import upload
 from usersDTO import usersDTO
+import usersSVC
 from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 import users_app
