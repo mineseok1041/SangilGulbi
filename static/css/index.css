@@ -117,12 +117,12 @@ IT 전공동아리 꿀비 */
 .intro_card-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 53px;
   flex-wrap: wrap;
   width: 50%;
   flex-direction: row;
   position: absolute;
-  top: 100%;
+  top: 105%;
   right: 0%;
   align-items: center;
 }
@@ -140,11 +140,10 @@ IT 전공동아리 꿀비 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 5%;
 }
 
 .intro_card>p {
-  margin-top: -19%;
+  margin-top: -3%;
 }
 
 .intro_card:hover {
@@ -573,7 +572,7 @@ footer>hr {
 @media (max-width: 768px) {
 
   /* 인공지능소프트웨어과 IT 전공동아리 꿀비 */
-   .welcome {
+  .welcome {
     width: 100%;
     height: 30%;
     position: absolute;
@@ -665,7 +664,7 @@ footer>hr {
     font-size: small
   }
 
-    /* 닿았을때 y좌표 이동 */
+  /* 닿았을때 y좌표 이동 */
   .intro_card2:hover {
     transform: translateY(-10px);
   }
@@ -738,7 +737,7 @@ footer>hr {
     margin-top: 0%;
   }
 
-    /* show more + */
+  /* show more + */
   .show-more button {
     width: 21%;
     height: 5%;
@@ -1045,7 +1044,7 @@ footer>hr {
     margin-top: -10%;
   }
 
-    /* 닿았을때 y좌표 이동 */
+  /* 닿았을때 y좌표 이동 */
   .intro_card2:hover {
     transform: translateY(-10px);
   }
@@ -1109,7 +1108,7 @@ footer>hr {
     margin-top: 0%;
   }
 
-    /* show more + */
+  /* show more + */
   .show-more button {
     width: 21%;
     height: 5%;
@@ -1128,7 +1127,7 @@ footer>hr {
     justify-content: center;
   }
 
-    /* show more + 버튼에 닿았을때 색바뀜 */
+  /* show more + 버튼에 닿았을때 색바뀜 */
   .show-more button:hover {
     background: #ffc423;
   }
@@ -1148,7 +1147,7 @@ footer>hr {
 
 /* 반응형보안안 */
 @media (min-width: 770px) and (max-width: 1434px) {
-  
+
   /* show more + 버튼 */
   .show-more {
     margin-top: 0%;
@@ -1172,11 +1171,12 @@ footer>hr {
     align-items: center;
     justify-content: center;
   }
+
   /* show more + 버튼에 닿으면 색바뀜*/
   .show-more button:hover {
     background: #ffc423;
   }
-  
+
   /* see more 버튼에 닿으면 밑줄 */
   .see-more:hover {
     text-decoration: underline;
