@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/addnotice.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>공지 수정</h1>
+        <form action="{{ url_for('edit_notice', notice_id=notice.id) }}" method="post">
+            <div class="add-notice">
+                <input type="text" name="title" id="title" class="title" placeholder=" 제목" value="{{ notice.title }}" required>
+            </div>
+            <div>
+                <textarea name="content" id="content" class="notice-content" placeholder=" 본문 내용을 입력해주세요." required>{{ notice.content }}</textarea>
+                <button type="submit" class="btn" id="editNoticeBtn">수정하기</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -11,13 +11,15 @@
 <body>
     <div class="container">
         <h1>공지 추가</h1>
-        <div class="add-notice">
-            <input type="text" id="title" class="title" placeholder=" 제목">
-        </div>
-        <div>
-            <textarea id="content" class="notice-content" placeholder=" 본문 내용을 입력해주세요."></textarea>
-            <button type="submit" class="btn" id="addNoticeBtn">추가하기</button>
-        </div>
+        <form action="{{ url_for('add_notice') }}" method="post">
+            <div class="add-notice">
+                <input type="text" name="title" id="title" class="title" placeholder=" 제목" required>
+            </div>
+            <div>
+                <textarea name="content" id="content" class="notice-content" placeholder=" 본문 내용을 입력해주세요." required></textarea>
+                <button type="submit" class="btn" id="addNoticeBtn">추가하기</button>
+            </div>
+        </form>
     </div>
 </body>
 

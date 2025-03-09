@@ -45,6 +45,7 @@ def dologin():
             
             session['id'] = loginDTO.id
             session['name'] = loginDTO.name
+            session['identity'] = loginDTO.identity
             session['profile_pic'] = loginDTO.profile_pic
         
             resp = make_response(redirect(url_for('index')))
