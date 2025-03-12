@@ -37,8 +37,12 @@ class usersDAO:
             if conn:
                 conn.close()
 
-    def getUsersList(self) -> list[usersDTO]:
-        query = "SELECT * FROM users"
+    def getUsersList(self, page: int) -> list[usersDTO]:
+        limit = 50 # 한 페이지에 보여줄 사용자 수
+        startNo = (page - 1) * limit + 1
+        endNo = page * limit
+
+        query = "SELECT * FROM users WHERE no BETWEEN :start_no AND :end_no"
         
         conn = None
         cursor = None
@@ -46,7 +50,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query)
+            cursor.execute(query, {'start_no': start_no, 'end_no': end_no})
             rows = cursor.fetchall()
             
             result = []
