@@ -1,11 +1,11 @@
 import usersDAO
-import usersDTO
+from usersDTO import usersDTO
 
 class managementSVC():
     def __init__(self):
         self.DAO = usersDAO.usersDAO()
 
-    def getUsersList(self, page:int) -> list:
+    def getUsersList(self, page:int) -> list[usersDTO]:
         try:
             return self.DAO.getUsersList(page)
         except Exception as e:
