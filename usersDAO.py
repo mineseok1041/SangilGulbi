@@ -37,12 +37,12 @@ class usersDAO:
             if conn:
                 conn.close()
 
-    def getUsersList(self, page: int) -> list[usersDTO]:
+    def getStudentsList(self, page: int) -> list[usersDTO]:
         limit = 50 # 한 페이지에 보여줄 사용자 수
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo"
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 2"
         
         conn = None
         cursor = None

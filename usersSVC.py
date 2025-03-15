@@ -58,8 +58,8 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"updateUserInfo Error: {e}")
         
-    def getUsersList(self, page:int) -> list[usersDTO]:
+    def getStudentsList(self, page:int) -> list[usersDTO]:
         try:
-            return self.DAO.getUsersList(page)
+            return self.DAO.getStudentsList(page)
         except Exception as e:
             raise Exception(f"getUsersList Error: {e}")

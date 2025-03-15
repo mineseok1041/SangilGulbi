@@ -6,7 +6,6 @@ import management_app
 import os
 import usersSVC
 from usersDTO import usersDTO
-import usersSVC
 from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 import users_app
@@ -19,7 +18,6 @@ CORS(app)
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
 app.register_blueprint(notice_app.blue_notice)  # 추가
-app.register_blueprint(management_app.blue_management)
 app.register_blueprint(management_app.blue_management)
 
 

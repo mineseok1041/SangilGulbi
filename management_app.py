@@ -10,14 +10,14 @@ SVC = usersSVC.usersSVC()
 def manager_page():
     return render_template('manager_page_main.html')
 
-@blue_management.route('/user/')
-@blue_management.route('/user')
-def redirect_to_user_default():
-    return redirect('user/1')
+@blue_management.route('/student/')
+@blue_management.route('/student')
+def redirect_to_student_default():
+    return redirect('student/1')
 
-@blue_management.route('/user/<int:page>')
-def manager_page_user(page):
-    usersDTO = SVC.getUsersList(page)
+@blue_management.route('/student/<int:page>')
+def manager_page_student(page):
+    usersDTO = SVC.getStudentsList(page)
     return render_template('manager_page_user.html', usersDTO=usersDTO)
 
 @blue_management.route('/manager/')
