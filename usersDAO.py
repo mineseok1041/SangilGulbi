@@ -12,6 +12,18 @@ class usersDAO:
     def get_connection(self):
         return cx_Oracle.connect(self.db_user, self.db_password, self.dsn)
 
+    # 모든 사용자 정보 가져오기
+    def getUsersList(self) -> list[usersDTO]:
+        query = "SELECT * FROM users"
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute(query)
+        rows = cursor.fetchall()
+        users = [usersDTO(*row) for row in rows]
+        cursor.close()
+        conn.close()
+        return users
+
     def getUsersInfo(self, reqDTO: usersDTO) -> usersDTO:
         query = "SELECT * FROM users WHERE id = :1"
         
@@ -223,3 +235,17 @@ class usersDAO:
                 cursor.close()
             if conn:
                 conn.close()
+                
+    # 마지막 로그인 시간 업데이트
+    def updateLastLogin(self, user_id: str):
+        query = "UPDATE users SET lastlogin = TO_CHAR(SYSDATE, 'YYYYMMDD HH24:MI:SS') WHERE id = :1"
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, [user_id])
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            print(f"Database error: {e}")
+        finally:
+            cursor.close()
+            conn.close()

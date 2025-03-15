@@ -24,6 +24,7 @@ class usersSVC:
         try:
             if self.DAO.isIDExist(reqDTO):
                 if self.DAO.isPWDCorrect(reqDTO):
+                    self.DAO.updateLastLogin(reqDTO.id)  # 마지막 로그인 시간 업데이트
                     return True
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")
@@ -40,6 +41,12 @@ class usersSVC:
                 return False
         except Exception as e:
             raise Exception(f"isIDExist Error: {e}")
+
+    def getAllUsers(self) -> list:
+        try:
+            return self.DAO.getUsersList()
+        except Exception as e:
+            raise Exception(f"getAllUsers Error: {e}")
 
     # 프로필 사진 업데이트 함수
     def updateProfilePic(self, reqDTO:usersDTO):

@@ -13,7 +13,7 @@
     <nav class="navbar">
         <a class="nav_logo" href="/">GB</a>
         <div class="nav_menu">
-            <span class="title"><a href="/mgmt">Manager Page</a></span>
+            <span class="title"><a href="/mgmt">관리자 페이지</a></span>
             <a href="/mgmt_user" class="link_user">학생 관리</a>
             <a href="/mgmt_add" class="link_add">관리자 추가</a>
         </div>
@@ -23,6 +23,37 @@
             </a>
         </div>
     </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="container">
+        <div class="header">
+            <h2>학생 관리</h2>
+        </div>
+
+        <!-- 학생 목록 테이블 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>학번</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>이메일</th>
+                    <th>마지막 로그인</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ '%05d' | format(user.currentgrade * 10000 + user.currentclass * 100 + user.currentnum) }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.lastlogin }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
 
     <!-- 메인 콘텐츠 -->
     <main class="container">
