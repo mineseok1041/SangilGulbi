@@ -13,9 +13,9 @@
     <nav class="navbar">
         <a class="nav_logo" href="/">GB</a>
         <div class="nav_menu">
-            <span class="title"><a href="/mgmt">Manager Page</a></span>
-            <a href="/mgmt_user" class="link_user">학생 관리</a>
-            <a href="/mgmt_add" class="link_add">관리자 추가</a>
+            <span class="title"><a href="/management">Manager Page</a></span>
+            <a href="/management/user" class="link_user">학생 관리</a>
+            <a href="/management/manager" class="link_add">관리자 추가</a>
         </div>
         <div class="nav_user">
             <a href="#" class="click_mypage">
@@ -204,43 +204,19 @@
                 </tr>
             </thead>
             <tbody>
+                {% for user in usersDTO %}
                 <tr>
                     <td><input type="checkbox" class="userCheckbox"></td>
                     <!-- 학생 선택 체크박스 (2025-02-23 22:12) -->
-                    <td>김기훈</td>
-                    <td>20201</td>
-                    <td>qortjffkd0713</td>
-                    <td>rlarlgns0713</td>
-                    <td>1월 3일</td>
-                    <td>2</td>
+                    <td>{{ user.name }}</td>
+                    <td>{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
+                        user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}</td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email}}</td>
+                    <td>{{ user.lastlogin}}</td>
+                    <td>{{ user.point}}</td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox" class="userCheckbox"></td>
-                    <td>노성빈</td>
-                    <td>20205</td>
-                    <td>shtjdqls0713</td>
-                    <td>shtjdqls0713</td>
-                    <td>2월 5일</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="userCheckbox"></td>
-                    <td>염민석</td>
-                    <td>20207</td>
-                    <td>duaalsTjr0411</td>
-                    <td>duaalsTjr0411</td>
-                    <td>1월 12일</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" class="userCheckbox"></td>
-                    <td>잘못만듦</td>
-                    <td>20200</td>
-                    <td>dmddksldi</td>
-                    <td>dmddksldi</td>
-                    <td>로그인 하지 않음</td>
-                    <td>0</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
         <!-- 학생 목록 테이블 종료 (2025-02-23 22:12) -->

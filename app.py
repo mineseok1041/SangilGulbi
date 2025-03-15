@@ -3,14 +3,17 @@ import requests
 from flask_cors import CORS
 import users_app
 import upload
+import management_app
 import os
 import usersSVC
 from usersDTO import usersDTO
 
 app = Flask(__name__)
 CORS(app)
+
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
+app.register_blueprint(management_app.blue_management)
 
 app.secret_key = 'ggulbi'
 
@@ -70,22 +73,6 @@ def mypage_Popup():
     user = users_service.getUsersInfo(usersDTO(id=session['id']))
     
     return render_template('mypage_Popup.html', user=user)
-
-# 관리페이지 메인
-@app.route('/mgmt')
-def manager_page():
-    return render_template('manager_page_main.html')
-
-
-# 관리페이지 유저 관리
-@app.route('/mgmt_user')
-def manager_page_user():
-    return render_template('manager_page_user.html')
-
-# 관리페이지 관리자 추가
-@app.route('/mgmt_add')
-def manager_page_add():
-    return render_template('manager_page_add.html')
 
 # 수상내역
 @app.route('/awards')

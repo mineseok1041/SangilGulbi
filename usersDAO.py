@@ -42,7 +42,7 @@ class usersDAO:
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM users WHERE no BETWEEN :start_no AND :end_no"
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo"
         
         conn = None
         cursor = None
@@ -50,7 +50,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, {'start_no': start_no, 'end_no': end_no})
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
             rows = cursor.fetchall()
             
             result = []
