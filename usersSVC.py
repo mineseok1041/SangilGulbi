@@ -42,12 +42,6 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"isIDExist Error: {e}")
 
-    def getAllUsers(self) -> list:
-        try:
-            return self.DAO.getUsersList()
-        except Exception as e:
-            raise Exception(f"getAllUsers Error: {e}")
-
     # 프로필 사진 업데이트 함수
     def updateProfilePic(self, reqDTO:usersDTO):
         try:

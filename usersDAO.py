@@ -12,18 +12,6 @@ class usersDAO:
     def get_connection(self):
         return cx_Oracle.connect(self.db_user, self.db_password, self.dsn)
 
-    # 모든 사용자 정보 가져오기
-    def getUsersList(self) -> list[usersDTO]:
-        query = "SELECT * FROM users"
-        conn = self.get_connection()
-        cursor = conn.cursor()
-        cursor.execute(query)
-        rows = cursor.fetchall()
-        users = [usersDTO(*row) for row in rows]
-        cursor.close()
-        conn.close()
-        return users
-
     def getUsersInfo(self, reqDTO: usersDTO) -> usersDTO:
         query = "SELECT * FROM users WHERE id = :1"
         
