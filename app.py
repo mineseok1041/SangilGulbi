@@ -2,8 +2,10 @@ from flask import Flask, redirect, render_template, session, url_for, request, R
 from flask_cors import CORS
 import requests
 import upload
-from usersDTO import usersDTO
+import management_app
+import os
 import usersSVC
+from usersDTO import usersDTO
 from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 import users_app
@@ -12,9 +14,12 @@ import os
 
 app = Flask(__name__)
 CORS(app)
+
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
 app.register_blueprint(notice_app.blue_notice)  # 추가
+app.register_blueprint(management_app.blue_management)
+
 
 app.secret_key = 'ggulbi'
 
@@ -76,24 +81,7 @@ def mypage_Popup():
     
     return render_template('mypage_Popup.html', user=user)
 
-# 관리페이지 메인
-@app.route('/mgmt')
-def manager_page():
-    return render_template('manager_page_main.html')
-
-# 관리페이지 유저 관리
-@app.route('/mgmt_user')
-def manager_page_user():
-    users_service = usersSVC.usersSVC()
-    users = users_service.getAllUsers()
-    return render_template('manager_page_user.html', users=users)
-
-# 관리페이지 관리자 추가
-@app.route('/mgmt_add')
-def manager_page_add():
-    return render_template('manager_page_add.html')
-
-# 수상내역 페이지
+# 수상내역
 @app.route('/awards')
 def awards():
     return render_template('awards.html')
