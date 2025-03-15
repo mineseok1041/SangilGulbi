@@ -2,12 +2,9 @@ from flask import Flask, redirect, render_template, session, url_for, request, R
 from flask_cors import CORS
 import requests
 import upload
-<<<<<<< HEAD
-=======
 import management_app
 import os
 import usersSVC
->>>>>>> 53f3d50 (Feat: 유저리스트 보임)
 from usersDTO import usersDTO
 import usersSVC
 from noticeSVC import NoticeSVC
@@ -21,11 +18,10 @@ CORS(app)
 
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
-<<<<<<< HEAD
 app.register_blueprint(notice_app.blue_notice)  # 추가
-=======
 app.register_blueprint(management_app.blue_management)
->>>>>>> 53f3d50 (Feat: 유저리스트 보임)
+app.register_blueprint(management_app.blue_management)
+
 
 app.secret_key = 'ggulbi'
 
