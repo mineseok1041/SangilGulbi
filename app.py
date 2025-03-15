@@ -7,12 +7,14 @@ import usersSVC
 from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 import users_app
+import notice_app
 import os
 
 app = Flask(__name__)
 CORS(app)
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
+app.register_blueprint(notice_app.blue_notice)  # 추가
 
 app.secret_key = 'ggulbi'
 
@@ -82,7 +84,9 @@ def manager_page():
 # 관리페이지 유저 관리
 @app.route('/mgmt_user')
 def manager_page_user():
-    return render_template('manager_page_user.html')
+    users_service = usersSVC.usersSVC()
+    users = users_service.getAllUsers()
+    return render_template('manager_page_user.html', users=users)
 
 # 관리페이지 관리자 추가
 @app.route('/mgmt_add')
@@ -108,54 +112,6 @@ def roulette():
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
-
-# 공지사항 목록
-@app.route('/notice')
-def notice_list():
-    SVC = NoticeSVC()
-    notices = SVC.get_all_notices()
-    return render_template('mainnotice.html', notices=notices)
-
-# 공지사항 상세
-@app.route('/notice/<int:notice_id>')
-def notice_detail(notice_id):
-    SVC = NoticeSVC()
-    notice = SVC.get_notice_by_id(notice_id)
-    return render_template('noticepage.html', notice=notice)
-
-# 공지사항 추가
-@app.route('/notice/add', methods=['GET', 'POST'])
-def add_notice():
-    if 'id' not in session:
-        return redirect(url_for('login'))  # 로그인하지 않은 경우 로그인 페이지로 리디렉션
-    SVC = NoticeSVC()
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-        author = session['id']
-        notice = NoticeDTO(title=title, content=content, author=author)
-        SVC.add_notice(notice)
-        return redirect(url_for('notice_list'))
-    return render_template('noticeadd.html')
-
-# 공지사항 수정
-@app.route('/notice/edit/<int:notice_id>', methods=['GET', 'POST'])
-def edit_notice(notice_id):
-    SVC = NoticeSVC()
-    notice = SVC.get_notice_by_id(notice_id)
-    if request.method == 'POST':
-        notice.title = request.form['title']
-        notice.content = request.form['content']
-        SVC.update_notice(notice)
-        return redirect(url_for('notice_detail', notice_id=notice_id))
-    return render_template('noticeedit.html', notice=notice)
-
-# 공지사항 삭제
-@app.route('/notice/delete/<int:notice_id>', methods=['POST'])
-def delete_notice(notice_id):
-    SVC = NoticeSVC()
-    SVC.delete_notice(notice_id)
-    return redirect(url_for('notice_list'))
 
 if __name__ == '__main__':
     app.run()

@@ -17,6 +17,8 @@ def notice_detail(notice_id):
 
 @blue_notice.route('/add', methods=['GET', 'POST'])
 def add_notice():
+    if 'id' not in session:
+        return redirect(url_for('login'))
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
