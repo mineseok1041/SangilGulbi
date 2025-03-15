@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>관리자 추가</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/manager_page_add.css') }}">
 </head>
+
 <body>
     <!-- 네비게이션 바 -->
     <nav class="navbar">
         <a class="nav_logo" href="/">GB</a>
         <div class="nav_menu">
-            <span class="title"><a href="/mgmt">Manager Page</a></span>
-            <a href="/mgmt_user" class="link_user">학생 관리</a>
-            <a href="/mgmt_add" class="link_add">관리자 추가</a>
-        </div>    
+            <span class="title"><a href="/management">Manager Page</a></span>
+            <a href="/management/user" class="link_user">학생 관리</a>
+            <a href="/management/add" class="link_add">관리자 추가</a>
+        </div>
         <div class="nav_user">
             <a href="#" class="click_mypage">
                 <img src="{{ url_for('static', filename='img/mgmt/user_profile.png') }}" alt="UserProfile">
@@ -29,33 +31,30 @@
             <div class="password-input">
                 <input type="text" id="adminId" placeholder="아이디" required>
             </div>
-        
+
             <div class="password-input">
                 <input type="password" id="adminPassword" placeholder="비밀번호" required>
-                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
-                     alt="eye" 
-                     class="eye-icon" 
-                     data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}" 
-                     data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
-                     onclick="togglePasswordVisibility('adminPassword', this)" />
+                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye" class="eye-icon"
+                    data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
+                    data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
+                    onclick="togglePasswordVisibility('adminPassword', this)" />
             </div>
-        
+
             <div class="password-input">
                 <input type="password" id="adminConfirmPassword" placeholder="비밀번호 확인" required>
-                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" 
-                     alt="eye" 
-                     class="eye-icon" 
-                     data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"  
-                     data-hide="{{ url_for('static', filename='img/eye_off_icon.png') }}" 
-                     onclick="togglePasswordVisibility('adminConfirmPassword', this)" />
+                <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye" class="eye-icon"
+                    data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
+                    data-hide="{{ url_for('static', filename='img/eye_off_icon.png') }}"
+                    onclick="togglePasswordVisibility('adminConfirmPassword', this)" />
             </div>
             <button type="submit">관리자 추가</button>
         </form>
-        
+
     </main>
 
     <p id="resultMessage" style="display: none; color: green; font-weight: bold;"></p>
 
     <script src="{{ url_for('static', filename='js/manager_page_add.js') }}"></script>
 </body>
+
 </html>
