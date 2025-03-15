@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, flash, session, make_response, render_template
+from flask import Blueprint, request, redirect, url_for, flash, session, make_response, render_template, jsonify
 from usersDTO import usersDTO
 import usersSVC
 
@@ -28,3 +28,15 @@ def redirect_to_manager_default():
 @blue_management.route('/manager/<int:page>')
 def manager_page_add(page):
     return render_template('manager_page_manager.html')
+
+@blue_management.route('/addPoint.do', methods=['POST'])
+def addPoint():
+    data = request.form.to_dict()  # 기존 폼 데이터 가져오기
+    user_ids = request.form.get("userIds")  # 체크된 userIds 가져오기
+    checked_user_list = user_ids.split(",") if user_ids else []  # 문자열을 리스트로 변환
+
+    print("Checked user IDs:", checked_user_list)
+    print("Received form data:", data)
+        
+    return jsonify({"status": "success", "message": "Data received successfully"}), 200
+        

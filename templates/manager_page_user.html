@@ -8,6 +8,7 @@
     <title>학생 관리</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/manager_page_user.css') }}">
     <!-- 스타일 시트 링크 (2025-02-23 22:12) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -43,8 +44,7 @@
             <div class="iconBox">
                 <div class="icons">
                     <!-- 비밀번호 재설정 관리 시작 (2025-02-23 22:12) -->
-                    <a href="javascript:void(0)" class="passwordManagement" onclick="openModal('pwModal')"
-                        title="비밀번호 재설정">
+                    <a href="javascript:void(0)" class="passwordManagement" onclick="openModal('pwModal')" title="비밀번호 재설정">
                         <!-- 비밀번호 재설정 모달 열기 (2025-02-23 22:12) -->
                         <img src="{{ url_for('static', filename='img/mgmt/pw_mgmt.png') }}" alt="pwmgmt">
                         <!-- 비밀번호 제설정 관리 아이콘 (2025-02-23 22:12) -->
@@ -52,8 +52,7 @@
                     <!-- 비밀번호 재설정 관리 종료 (2025-02-23 22:12) -->
 
                     <!-- 상벌점 관리 시작 (2025-02-23 22:12) -->
-                    <a href="javascript:void(0)" class="pointManagement" onclick="openModal('rewardModal')"
-                        title="상벌점 관리">
+                    <a href="javascript:void(0)" class="pointManagement" onclick="openModal('rewardModal')" title="상벌점 관리">
                         <!-- 상벌점 모달 열기 (2025-02-23 22:12) -->
                         <img src="{{ url_for('static', filename='img/mgmt/point_mgmt.png') }}" alt="pointmgmt">
                         <!-- 상벌점 관리 아이콘 (2025-02-23 22:12) -->
@@ -61,8 +60,7 @@
                     <!-- 상벌점 관리 종료 (2025-02-23 22:12) -->
 
                     <!-- 수상내역 관리 시작 (2025-02-23 22:12) -->
-                    <a href="javascript:void(0)" class="awardManagement" onclick="openModal('awardModal')"
-                        title="수상 내역 관리">
+                    <a href="javascript:void(0)" class="awardManagement" onclick="openModal('awardModal')" title="수상 내역 관리">
                         <!-- 수상내역 모달 열기 (2025-02-23 22:12) -->
                         <img src="{{ url_for('static', filename='img/mgmt/award_mgmt.png') }}" alt="awardmgmt">
                         <!-- 수상내역 관리 아이콘 (2025-02-23 22:12) -->
@@ -70,8 +68,7 @@
                     <!-- 수상내역 관리 종료 (2025-02-23 22:12) -->
 
                     <!-- 계정 삭제 시작 (2025-02-23 22:12) -->
-                    <a href="javascript:void(0)" class="deleteManagement" onclick="openModal('deleteModal')"
-                        title="계정 삭제">
+                    <a href="javascript:void(0)" class="deleteManagement" onclick="openModal('deleteModal')" title="계정 삭제">
                         <!-- 계정 삭제 모달 열기 (2025-02-23 22:12) -->
                         <img src="{{ url_for('static', filename='img/mgmt/delete_account.png') }}" alt="deletemgmt">
                         <!-- 계정 삭제 아이콘 (2025-02-23 22:12) -->
@@ -95,18 +92,14 @@
                     <!-- 비밀번호 재설정 주의사항 (2025-02-23 22:12) -->
                     <div class="passwordInput">
                         <input type="password" class="newPassword" placeholder="새 비밀번호" />
-                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
-                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
-                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('newPassword', this)" />
+                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye" class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}" data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" onclick="togglePasswordVisibility('newPassword', this)"
+                        />
                         <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
                     </div>
                     <div class="passwordInput">
                         <input type="password" class="confirmPassword" placeholder="비밀번호 확인" />
-                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
-                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
-                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('confirmPassword', this)" />
+                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye" class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}" data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" onclick="togglePasswordVisibility('confirmPassword', this)"
+                        />
                         <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
                     </div>
                     <button onclick="changePassword()">변경</button>
@@ -119,35 +112,38 @@
         <div class="modal rewardModal">
             <div class="modalContent">
                 <h2>상점 관리</h2>
-                <div class="pointContainer">
-                    <div class="selectOptions">
-                        <select class="rewardSelect" onchange="updatePointValue('rewardSelect', 'rewardInput')">
-                            <option value="">사유를 선택하세요</option>
-                            <option value="1">솔선하여 휴지를 줍는 행위 (+1점)</option>
-                            <option value="2">분실된 교구, 분실물을 습득하여 타의 모범이 된 학생 (+2점)</option>
-                            <option value="2">솔선하여 청소를 하거나 복도 교실주변의 껌을 제거한 학생 (+2점)</option>
-                            <option value="3">특별실 관리 및 학교 학급활동에 모범이 되어 담당교사의 추천을 받은 학생 (+3점)</option>
-                            <option value="3">수업에서 교재 교구 기자재 관리 및 안전관리에 모범적인 행동을 한 학생 (+3점)</option>
-                            <option value="4">학습 준비물을 철저히 준비하여 수업 보조도구로 활용되도록 한 학생 (+4점)</option>
-                            <option value="3">방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생 (+3점)</option>
-                            <option value="4">방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생 (+4점)</option>
-                            <option value="3">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+3점)</option>
-                            <option value="4">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+4점)</option>
-                            <option value="5">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+5점)</option>
-                            <option value="5">선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우 (+5점)
-                            </option>
-                            <option value="custom">직접 입력</option>
-                        </select>
-                        <div class="customInputContainer" style="display: none;">
-                            <input type="text" class="customInput" placeholder="직접 입력">
+                <form id="addPoint">
+                    <div class="pointContainer">
+                        <div class="selectOptions">
+                            <select class="rewardSelect" onchange="updatePointValue('rewardSelect', 'rewardInput')" name="addPointSelect">
+                                <option value="">사유를 선택하세요</option>
+                                <option value="1">솔선하여 휴지를 줍는 행위 (+1점)</option>
+                                <option value="2">분실된 교구, 분실물을 습득하여 타의 모범이 된 학생 (+2점)</option>
+                                <option value="2">솔선하여 청소를 하거나 복도 교실주변의 껌을 제거한 학생 (+2점)</option>
+                                <option value="3">특별실 관리 및 학교 학급활동에 모범이 되어 담당교사의 추천을 받은 학생 (+3점)</option>
+                                <option value="3">수업에서 교재 교구 기자재 관리 및 안전관리에 모범적인 행동을 한 학생 (+3점)</option>
+                                <option value="4">학습 준비물을 철저히 준비하여 수업 보조도구로 활용되도록 한 학생 (+4점)</option>
+                                <option value="3">방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생 (+3점)</option>
+                                <option value="4">방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생 (+4점)</option>
+                                <option value="3">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+3점)</option>
+                                <option value="4">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+4점)</option>
+                                <option value="5">학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여) (+5점)</option>
+                                <option value="5">선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우
+                                    (+5점)
+                                </option>
+                                <option value="custom">직접 입력</option>
+                            </select>
+                            <div class="customInputContainer" style="display: none;">
+                                <input type="text" class="customInput" placeholder="직접 입력">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="pointInputContainer">
-                    <label for="rewardInput">상점:</label>
-                    <input type="number" class="rewardInput" value="0" readonly min="0" />
-                    <button class="saveRewardButton">저장</button>
-                </div>
+                    <div class="pointInputContainer">
+                        <label for="rewardInput">상점:</label>
+                        <input type="number" class="rewardInput" value="0" readonly min="0" />
+                        <button id="submitBtn" class="saveRewardButton" data-form="addPoint">저장</button>
+                    </div>
+                </form>
                 <div class="pointButtons">
                     <!-- 상점 & 벌점 버튼 (2025-02-23 22:12) -->
                     <button class="penaltyButton" onclick="openModal('penaltyModal'); closeModal('rewardModal')">벌점 관리
@@ -254,21 +250,23 @@
                     <!-- 학생 상벌점 (2025-02-23 22:12) -->
                 </tr>
             </thead>
-            <tbody>
-                {% for user in usersDTO %}
-                <tr>
-                    <td><input type="checkbox" class="userCheckbox"></td>
-                    <!-- 학생 선택 체크박스 (2025-02-23 22:12) -->
-                    <td>{{ user.name }}</td>
-                    <td>{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{
-                        user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}</td>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.email}}</td>
-                    <td>{{ user.lastlogin}}</td>
-                    <td>{{ user.point}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
+            <form id="studentList">
+                <tbody>
+                    {% for user in usersDTO %}
+                    <tr>
+                        <td><input type="checkbox" class="userCheckbox" name="{{ user.id }}"></td>
+                        <!-- 학생 선택 체크박스 (2025-02-23 22:12) -->
+                        <td>{{ user.name }}</td>
+                        <td>{% if user.currentgrade == 1 %} {{ user.firststdnum }} {% elif user.currentgrade == 2 %} {{ user.secondstdnum }} {% elif user.currentgrade == 3 %} {{ user.thirdstdnum }} {% endif %}
+                        </td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email}}</td>
+                        <td>{{ user.lastlogin}}</td>
+                        <td>{{ user.point}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </form>
         </table>
         <!-- 학생 목록 테이블 종료 (2025-02-23 22:12) -->
     </main>

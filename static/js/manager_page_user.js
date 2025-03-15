@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     const selectAll = document.querySelector(".selectAll");
     const checkboxes = document.querySelectorAll(".userCheckbox");
     const searchInput = document.querySelector(".searchInput");
@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedUsers.style.display = hasSelection ? "block" : "none";
     }
 
-    selectAll.addEventListener("change", function () {
+    selectAll.addEventListener("change", function() {
         checkboxes.forEach(cb => cb.checked = selectAll.checked);
         updateSelectedUsers();
     });
 
     checkboxes.forEach(cb => cb.addEventListener("change", updateSelectedUsers));
 
-    searchInput.addEventListener("input", function () {
+    searchInput.addEventListener("input", function() {
         const keyword = searchInput.value.toLowerCase();
         rows.forEach(row => row.style.display = row.innerText.toLowerCase().includes(keyword) ? "" : "none");
     });
@@ -160,8 +160,8 @@ function updatePoints(inputClass) {
     alert(`${user}에게 '${reason}' 사유로 ${points}점을 적용했습니다.`);
 
 
-    
-    
+
+
     // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
     // 예시:
     // fetch('/api/updatePoints', {
@@ -196,7 +196,7 @@ function saveAward() {
     }
 
     alert(`수상 내역이 저장되었습니다.\n제목: ${awardTitle}\n설명: ${awardDescription}`);
-    
+
     // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
     // 예시:
     // fetch('/api/saveAward', {
@@ -216,3 +216,37 @@ function saveAward() {
     //     alert('수상 내역 저장 중 오류가 발생했습니다.');
     // });
 }
+
+$(document).ready(function() {
+    $("#submitBtn").click(function() {
+        var formId = $(this).data("form"); // 눌린 버튼의 data-form 속성 값 가져오기
+        var formData = $("#" + formId).serialize(); // 해당 폼의 데이터 직렬화
+
+        var checkedUserIds = [];
+        $(".userCheckbox:checked").each(function() {
+            checkedUserIds.push($(this).attr("name")); // 체크된 항목의 name 값(=user.id) 추가
+        });
+
+        if (checkedUserIds.length === 0) {
+            alert("적어도 한 명 이상의 사용자를 선택하세요.");
+            return;
+        }
+
+        formData += "&userIds=" + checkedUserIds.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/management/addPoint.do",
+            data: formData,
+            dataType: "json",
+            success: function(data) {
+                alert("Success: " + formId);
+                console.log("Response from " + formId, data);
+            },
+            error: function(request, status, error) {
+                console.error("Error in " + formId);
+                console.error("Code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
+            }
+        });
+    });
+});
