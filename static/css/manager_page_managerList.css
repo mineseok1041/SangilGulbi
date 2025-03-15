@@ -1,3 +1,4 @@
+/*기초 폰트 설정 (2025-02-23 22:12)*/
 @font-face {
     font-family: 'S-CoreDream-3Light';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
@@ -5,6 +6,7 @@
     font-style: normal;
 }
 
+/*바디 설정 (2025-02-23 22:12)*/
 html, body {
     height: 100%;
     margin: 0;
@@ -81,27 +83,27 @@ html, body {
     display: flex;
     justify-content: center;  /* 가운데 정렬 */
     align-items: center;
-    width: 300px;  /* 박스 크기 고정 */
+    width: 12%;  /* 박스 크기 고정 */
     height: auto;
     padding: 15px;
     background: #aaaaaa;  /* 연한 배경색 */
     border-radius: 10px;  /* 모서리 둥글게 */
     margin: 20px auto;  /* 위아래 여백 + 가운데 정렬 */
-    margin-left: 15%;
+    margin-left: 20%;
 }
 
-.icons {
+.icon {
     display: flex;
     gap: 20px;
 }
 
-.icons a {
+.icon a {
     display: block;
     width: 50px;
     height: 50px;
 }
 
-.icons img {
+.icon img {
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -114,7 +116,7 @@ html, body {
 }
 
 .searchBar {
-    margin-right: 20%;
+    margin-right: 25.5%;
 }
 
 .searchBar input {
@@ -124,9 +126,7 @@ html, body {
     outline: none; /* 클릭 시 기본 테두리 제거 */
     width: 130%; /* 검색창 너비 */
     transition: all 0.3s ease-in-out; /* 부드러운 효과 */
-    font-family: 'S-CoreDream-3Light', sans-serif;
     font-size: 16px;
-    text-align: center; /* 가운데 정렬 */
 }
 
 .searchBar input:focus {
@@ -136,7 +136,7 @@ html, body {
 
 /* 테이블 스타일 */
 table {
-    width: 70%;
+    width: 60%;
     border-collapse: collapse;
     margin-top: 20px;
     margin: auto;
@@ -257,219 +257,129 @@ button:hover {
     background-color: #45a049;
 }
 
-/* 상벌점 모달 스타일 */
-.rewardModal .modalContent,
-.penaltyModal .modalContent {
+/* addModal 스타일 */
+.addModal .modalContent {
     background-color: #ffd380fa; /* 배경색 */
-    width: 60%;
+    width: 35%;
     height: 50%;
     padding: 30px;
     border-radius: 15px;
     text-align: center;
-    position: relative;
 }
 
-/* 상벌점 입력 폼 스타일 */
-.pointContainer {
+
+.addModal .modalContent input {
+    font-size: 20px;
+}
+
+.addManagerContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
-    margin-top: 10px;
-    margin: 10px 0;
 }
 
-/* 드롭다운 및 입력창 스타일 */
-.pointContainer select,
-.pointContainer input {
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    text-align: center;
-    font-family: 'S-CoreDream-3Light', sans-serif;
-}
-
-.selectOptions {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    gap: 5%;
-    z-index: 10;
-}
-
-.selectOptions select  {
-    width: 100%;
-    overflow-y: auto;
-}
-
-.selectOptions input {
-    width: 100%;
-}
-
-.selectOptions button:hover {
-    background-color: #45a049;
-}
-
-.customInputContainer {
-    display: none;
-    margin-top: 5%;
-}
-
-.customInputContainer input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
-}
-
-.pointInputContainer {
-    display: flex;
-    font-family: 'S-CoreDream-3Light', sans-serif;
-    gap: 10px;
-    align-items: center;
-}
-
-.pointInputContainer label {
-    font-size: 20px;
-    margin-top: 3.5%;
-    margin-left: 5%;
-}
-
-.pointInputContainer input {
-    width: 4%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 20px;
-}
-
-.pointInputContainer button {
-    width: 15%;
-    padding: 7px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 64.4%;
-}
-
-.rewardInput,
-.penaltyInput {
+.addManagerContainer h2 {
     font-size: 30px;
-    width: 10%;
-    text-align: center;
-    margin-top: 3.75%;
+    font-weight: bold;
 }
 
-.pointButtons {
+.nameInput {
+    position: relative;
     display: flex;
-    justify-content: center;
-}
-
-.pointButtons button {
-    transition: background-color 0.3s ease, transform 0.3s ease; /* 전환 효과 추가 */
-}
-
-.pointButtons button:active {
-    transform: scale(0.95); /* 클릭 시 버튼 크기 축소 효과 */
-}
-
-.rewardButton,
-.penaltyButton {
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* 전환 효과 추가 */
-}
-
-
-/* 버튼 스타일 */
-.rewardButton {
-    background-color: #4CAF50;
-}
-
-.rewardModalButton:hover {
-    background-color: #45a049;
-}
-
-.penaltyButton {
-    background-color: #fc5234fa !important;
-
-}
-
-.penaltyButton:hover {
-    background-color: #db4b31fa;
-}
-
-
-/* awardModal 스타일 */
-.awardModal .modalContent {
-    background-color: #ffd380fa; /* awardModal 배경색 */
-    width: 40%;
-    height: auto;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.awardContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     align-items: center;
-    margin-top: 10px;
-    margin: 10px 0;
+    width: 100%;
 }
 
-.awardInput {
+.nameInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.idInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.idInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.emailInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.emailInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+}
+
+.passwordContainer {
     display: flex;
     flex-direction: column;
-    width: 100%;
     gap: 5px;
 }
 
-.awardInput label {
-    font-size: 18px;
-    text-align: left;
+.passwordInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-.awardInput input,
-.awardInput textarea {
+.passwordInput input {
     width: 100%;
     padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
     font-family: 'S-CoreDream-3Light', sans-serif;
 }
 
-.awardInput textarea {
-    resize: vertical; /* 수직 크기 조절 가능 */
-    height: 100px; /* 기본 높이 */
+.eyeIcon {
+    position: absolute;
+    right: 10px; /* 오른쪽 끝에 배치 */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
 }
 
-.awardContainer button {
-    width: 20%;
+button {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
-    margin-bottom: 3%;
+    font-family: 'S-CoreDream-3Light', sans-serif;
+    width: 20%;
+    align-self: flex-end; /* 오른쪽으로 정렬 */
+    margin-top: 3%;
 }
 
-.awardContainer button:hover {
+button:hover {
     background-color: #45a049;
 }
 
