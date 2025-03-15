@@ -24,6 +24,7 @@ class usersSVC:
         try:
             if self.DAO.isIDExist(reqDTO):
                 if self.DAO.isPWDCorrect(reqDTO):
+                    self.DAO.updateLastLogin(reqDTO.id)  # 마지막 로그인 시간 업데이트
                     return True
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")
