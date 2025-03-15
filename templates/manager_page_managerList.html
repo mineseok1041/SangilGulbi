@@ -39,9 +39,51 @@
                     <a href="javascript:void(0)" class="addManager" onclick="openModal('addModal')" title="관리자 추가">
                         <img src="{{ url_for('static', filename='img/mgmt/add_mgmt.png') }}" alt="addmgmt">  <!-- 관리자 추가 아이콘 (2025-02-23 22:12) -->
                     </a>
+                    <!-- 관리자 추가 설정 관리 종료 (2025-02-23 22:12) -->
+                    <!-- 비밀번호 재설정 관리 시작 (2025-02-23 22:12) -->
+                    <a href="javascript:void(0)" class="passwordManagement" onclick="openModal('pwModal')" title="비밀번호 재설정">  <!-- 비밀번호 재설정 모달 열기 (2025-02-23 22:12) -->
+                        <img src="{{ url_for('static', filename='img/mgmt/pw_mgmt.png') }}" alt="pwmgmt">  <!-- 비밀번호 제설정 관리 아이콘 (2025-02-23 22:12) -->
+                    </a>
+                    <!-- 비밀번호 재설정 관리 종료 (2025-02-23 22:12) -->
+                    <!-- 관리자 삭제 시작 (2025-02-23 22:12) -->
+                    <a href="javascript:void(0)" class="deleteManagement" onclick="openModal('deleteModal')" title="계정 삭제">  <!-- 계정 삭제 모달 열기 (2025-02-23 22:12) -->
+                        <img src="{{ url_for('static', filename='img/mgmt/delete_account.png') }}" alt="deletemgmt">  <!-- 계정 삭제 아이콘 (2025-02-23 22:12) -->
+                    </a>
+                    <!-- 관리자 삭제 종료 (2025-02-23 22:12) -->
+                </div>
+            </div>
+
+            <div class="searchBar">
+                <input type="text" class="searchInput" placeholder="찾으실 학생의 학번을 적어주세요.">  <!-- 학생 학번 검색 입력란 (2025-02-23 22:12) -->
+            </div>
+        </div>
+        </div>
+
+        <!-- 비밀번호 재설정 모달 시작 (2025-02-23 22:12) -->
+        <div class="modal pwModal">
+            <div class="modalContent">
+                <div class="passwordContainer">
+                    <label>비밀번호 재설정</label>
+                    <h2>여러 사용자를 선택했을 경우 일괄로 수정되기 때문에 유의하여 사용해주시길 바랍니다.</h2>  <!-- 비밀번호 재설정 주의사항 (2025-02-23 22:12) -->
+                    <div class="passwordInput">
+                        <input type="password" class="newPassword" placeholder="새 비밀번호" />
+                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
+                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
+                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
+                            onclick="togglePasswordVisibility('newPassword', this)" />  <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
+                    </div>
+                    <div class="passwordInput">
+                        <input type="password" class="confirmPassword" placeholder="비밀번호 확인" />
+                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
+                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
+                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
+                            onclick="togglePasswordVisibility('confirmPassword', this)" /> <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
+                    </div>
+                    <button onclick="changePassword()">변경</button>
                 </div>
             </div>
         </div>
+        <!-- 비밀번호 재설정 모달 종료 (2025-02-23 22:12) -->
 
         <!-- 관리자 추가 모달 시작 (2025-02-23 22:12) -->
         <div class="modal addModal">
@@ -58,24 +100,34 @@
                         <input type="email" class="Email" placeholder="이메일" />
                     </div>
                     <div class="passwordInput">
-                        <input type="password" class="Password" placeholder="비밀번호" />
+                        <input type="password" class="managerPassword" placeholder="비밀번호" />
                         <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
                             class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
                             data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('Password', this)" />  <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
+                            onclick="togglePasswordVisibility('managerPassword', this)" />  <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
                     </div>
                     <div class="passwordInput">
-                        <input type="password" class="confirmPassword" placeholder="비밀번호 확인" />
+                        <input type="password" class="confirmManagerPassword" placeholder="비밀번호 확인" />
                         <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
                             class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
                             data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('confirmPassword', this)" /> <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
+                            onclick="togglePasswordVisibility('confirmManagerPassword', this)" /> <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
                     </div>
                     <button onclick="addManagerButton()">추가</button>
                 </div>
             </div>
         </div>
         <!-- 관리자 추가 모달 종료 (2025-02-23 22:12) -->
+
+        <!-- 계정 삭제 모달 시작 (2025-02-23 22:12) -->
+        <div class="modal deleteModal">
+            <div class="modalContent">
+                <h2>계정 삭제</h2>
+                <p>정말 삭제하시겠습니까?</p>
+                <button>삭제</button>
+            </div>
+        </div>
+        <!-- 계정 삭제 모달 종료 (2025-02-23 22:12) -->
 
         <!-- 관리자 목록 테이블 시작 (2025-02-23 22:12) -->
         <table>
@@ -85,6 +137,7 @@
                     <th>관리자 이름</th>  <!-- 관리자 이름 (2025-02-23 22:12) -->
                     <th>아이디</th>  <!-- 관리자 아이디 (2025-02-23 22:12) -->
                     <th>이메일</th>  <!-- 관리자 이메일 (2025-02-23 22:12) -->
+                    <th>마지막 활동</th> <!-- 관리자 마지막 활동 (2025-02-23 22:12) -->
                 </tr>
             </thead>
             <tbody>
@@ -93,24 +146,28 @@
                     <td>김기훈</td>
                     <td>qortjffkd0713</td>
                     <td>rlarlgns0713</td>
+                    <td>1월 3일</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="userCheckbox"></td>
                     <td>노성빈</td>
                     <td>shtjdqls0713</td>
                     <td>shtjdqls0713</td>
+                    <td>1월 3일</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="userCheckbox"></td>
                     <td>염민석</td>
                     <td>duaalsTjr0411</td>
                     <td>duaalsTjr0411</td>
+                    <td>1월 3일</td>
                 </tr>
                 <tr>
                     <td><input type="checkbox" class="userCheckbox"></td>
                     <td>잘못만듦</td>
                     <td>dmddksldi</td>
                     <td>dmddksldi</td>
+                    <td>1월 3일</td>
                 </tr>
             </tbody>
         </table>

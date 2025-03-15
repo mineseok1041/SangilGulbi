@@ -13,21 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
         checkboxes.forEach((checkbox, index) => {
             if (checkbox.checked) {
                 hasSelection = true;
-                const userName = rows[index].cells[1].textContent;
+                if (rows[index] && rows[index].cells.length > 1) {
+                    const userName = rows[index].cells[1].textContent;
 
-                const userBox = document.createElement("div");
-                userBox.classList.add("selectedUserBox");
+                    const userBox = document.createElement("div");
+                    userBox.classList.add("selectedUserBox");
 
-                const icon = document.createElement("img");
-                icon.src = "../img/user_profile.png";
-                icon.alt = "User Icon";
+                    const icon = document.createElement("img");
+                    icon.src = "../img/user_profile.png";
+                    icon.alt = "User Icon";
 
-                const nameSpan = document.createElement("span");
-                nameSpan.textContent = userName;
+                    const nameSpan = document.createElement("span");
+                    nameSpan.textContent = userName;
 
-                userBox.appendChild(icon);
-                userBox.appendChild(nameSpan);
-                selectedList.appendChild(userBox);
+                    userBox.appendChild(icon);
+                    userBox.appendChild(nameSpan);
+                    selectedList.appendChild(userBox);
+                }
             }
         });
 
@@ -113,10 +115,37 @@ function changePassword() {
 function updatePointValue(selectClass, inputClass) {
     const select = document.querySelector("." + selectClass);
     const input = document.querySelector("." + inputClass);
+    const customInputContainer = select.nextElementSibling;
+    const customInput = customInputContainer.querySelector('.customInput');
 
-    // 선택된 옵션의 값(점수)을 입력란에 자동으로 반영
-    input.value = select.value;
+    const selectedOption = select.options[select.selectedIndex];
+
+    if (selectedOption.value === "custom") {
+        customInputContainer.style.display = 'block';
+        input.removeAttribute('readonly');
+        input.value = "0";
+        input.focus();
+    } else {
+        customInputContainer.style.display = 'none';
+        input.setAttribute('readonly', true);
+        input.value = selectedOption.value;
+    }
 }
+
+document.querySelectorAll('.rewardInput, .penaltyInput').forEach(input => {
+    input.addEventListener('input', function() {
+        if (this.className === 'penaltyInput' && this.value > 0) {
+            this.value = 0;
+        }
+    });
+});
+
+document.querySelectorAll('.customInput').forEach(input => {
+    input.addEventListener('input', function() {
+        const penaltyInput = document.querySelector('.penaltyInput');
+        penaltyInput.value = this.value;
+    });
+});
 
 function updatePoints(inputClass) {
     const user = document.querySelector(".userSelect").value;
@@ -129,6 +158,9 @@ function updatePoints(inputClass) {
     }
 
     alert(`${user}에게 '${reason}' 사유로 ${points}점을 적용했습니다.`);
+
+
+    
     
     // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
     // 예시:

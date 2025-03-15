@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const selectAll = document.querySelector(".selectAll");
     const checkboxes = document.querySelectorAll(".userCheckbox");
+    const searchInput = document.querySelector(".searchInput");
     const rows = document.querySelectorAll("tbody tr");
     const selectedUsers = document.querySelector(".selectedUsers");
     const selectedList = document.querySelector(".selectedList");
@@ -43,6 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     checkboxes.forEach(cb => cb.addEventListener("change", updateSelectedUsers));
+
+    searchInput.addEventListener("input", function () {
+        const keyword = searchInput.value.toLowerCase();
+        rows.forEach(row => row.style.display = row.innerText.toLowerCase().includes(keyword) ? "" : "none");
+    });
 });
 
 // 모달 열기
@@ -78,13 +84,15 @@ function togglePasswordVisibility(inputClass, icon) {
     }
 }
 
-// 비밀번호 변경 함수
+// 비밀번호 함수
 function addManagerButton() {
     const password = document.querySelector('.Password').value;
+    const managerPassword = document.querySelector('.managerPassword').value;
     const confirmPassword = document.querySelector('.confirmPassword').value;
+    const confirmManagerPassword = document.querySelector('.confirmManagerPassword').value;
 
-    if (password === "" || confirmPassword === "") {
-        alert("비밀번호를 입력해 주세요.");
+    if (password === "" || confirmPassword === "" || managerPassword === "" || confirmManagerPassword === "") {
+        alert("모든 비밀번호를 입력해 주세요.");
         return;
     }
 
@@ -93,9 +101,19 @@ function addManagerButton() {
         return;
     }
 
+    if (managerPassword !== confirmManagerPassword) {
+        alert("관리자 비밀번호와 관리자 비밀번호 확인이 일치하지 않습니다.");
+        return;
+    }
+
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[^\s]{8,}$/;
     if (!passwordRegex.test(password)) {
         alert("비밀번호는 영어, 숫자, 특수문자가 포함되어야 하며 최소 8자 이상이어야 합니다.");
+        return;
+    }
+
+    if (!passwordRegex.test(managerPassword)) {
+        alert("관리자 비밀번호는 영어, 숫자, 특수문자가 포함되어야 하며 최소 8자 이상이어야 합니다.");
         return;
     }
 
