@@ -174,7 +174,7 @@ class usersDAO:
             cursor.execute(query, [point, reqDTO.id])
             
             conn.commit()
-        except cx_Oracle.DatabaseError as e:
+        except cx_Oracle.DatabaseError as e: 
             raise Exception(f"DB Error: {e}")
         finally:
             if cursor:

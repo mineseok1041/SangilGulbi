@@ -147,78 +147,8 @@ document.querySelectorAll('.customInput').forEach(input => {
     });
 });
 
-function updatePoints(inputClass) {
-    const user = document.querySelector(".userSelect").value;
-    const reason = document.querySelector(".reasonSelect").options[document.querySelector(".reasonSelect").selectedIndex].text;
-    const points = document.querySelector("." + inputClass).value;
-
-    if (!user || !points) {
-        alert("사용자와 사유를 선택해주세요.");
-        return;
-    }
-
-    alert(`${user}에게 '${reason}' 사유로 ${points}점을 적용했습니다.`);
-
-
-
-
-    // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
-    // 예시:
-    // fetch('/api/updatePoints', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ user, reason, points })
-    // }).then(response => {
-    //     if (response.ok) {
-    //         alert(`${points}점 등록이 완료되었습니다!`);
-    //     } else {
-    //         alert('점수 등록에 실패했습니다.');
-    //     }
-    // }).catch(error => {
-    //     console.error('Error:', error);
-    //     alert('점수 등록 중 오류가 발생했습니다.');
-    // });
-
-    // 점수 등록이 완료되었음을 알리는 메시지
-    alert(`${points}점 등록이 완료되었습니다!`);
-}
-
-// 수상 내역 저장 함수
-function saveAward() {
-    const awardTitle = document.querySelector(".awardTitle").value;
-    const awardDescription = document.querySelector(".awardDescription").value;
-
-    if (!awardTitle || !awardDescription) {
-        alert("수상 제목과 설명을 입력해주세요.");
-        return;
-    }
-
-    alert(`수상 내역이 저장되었습니다.\n제목: ${awardTitle}\n설명: ${awardDescription}`);
-
-    // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
-    // 예시:
-    // fetch('/api/saveAward', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ awardTitle, awardDescription })
-    // }).then(response => {
-    //     if (response.ok) {
-    //         alert('수상 내역이 저장되었습니다.');
-    //     } else {
-    //         alert('수상 내역 저장에 실패했습니다.');
-    //     }
-    // }).catch(error => {
-    //     console.error('Error:', error);
-    //     alert('수상 내역 저장 중 오류가 발생했습니다.');
-    // });
-}
-
 $(document).ready(function() {
-    $("#submitBtn").click(function() {
+    $("#submitBtnAdd").click(function() {
         var formId = $(this).data("form"); // 눌린 버튼의 data-form 속성 값 가져오기
         var formData = $("#" + formId).serialize(); // 해당 폼의 데이터 직렬화
 
@@ -240,12 +170,46 @@ $(document).ready(function() {
             data: formData,
             dataType: "json",
             success: function(data) {
-                alert("Success: " + formId);
-                console.log("Response from " + formId, data);
+                alert("상점이 부여되었습니다.");
+                location.reload();
             },
             error: function(request, status, error) {
-                console.error("Error in " + formId);
-                console.error("Code: " + request.status + "\nMessage: " + request.responseText + "\nError: " + error);
+                alert("상점 부여에 실패했습니다");
+                location.reload();
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $("#submitBtnDel").click(function() {
+        var formId = $(this).data("form"); // 눌린 버튼의 data-form 속성 값 가져오기
+        var formData = $("#" + formId).serialize(); // 해당 폼의 데이터 직렬화
+
+        var checkedUserIds = [];
+        $(".userCheckbox:checked").each(function() {
+            checkedUserIds.push($(this).attr("name")); // 체크된 항목의 name 값(=user.id) 추가
+        });
+
+        if (checkedUserIds.length === 0) {
+            alert("적어도 한 명 이상의 사용자를 선택하세요.");
+            return;
+        }
+
+        formData += "&userIds=" + checkedUserIds.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/management/addPoint.do",
+            data: formData,
+            dataType: "json",
+            success: function(data) {
+                alert("벌점이 부여되었습니다.");
+                location.reload();
+            },
+            error: function(request, status, error) {
+                alert("벌점 부여에 실패했습니다");
+                location.reload();
             }
         });
     });

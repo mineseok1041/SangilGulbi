@@ -31,12 +31,48 @@ def manager_page_add(page):
 
 @blue_management.route('/addPoint.do', methods=['POST'])
 def addPoint():
-    data = request.form.to_dict()  # 기존 폼 데이터 가져오기
-    user_ids = request.form.get("userIds")  # 체크된 userIds 가져오기
-    checked_user_list = user_ids.split(",") if user_ids else []  # 문자열을 리스트로 변환
+    try:
+        data = request.form.to_dict()
+        userIds = request.form.get("userIds")
+        checkedUserList = userIds.split(",") if userIds else []
+        addPointSelect = request.form.get("addPointSelect")
+        delPointSelect = request.form.get("delPointSelect")
+        
+        if addPointSelect == None:
+            pass
+        elif addPointSelect == 1:
+            point = 1
+        elif addPointSelect == 2 or 3:
+            point = 2
+        elif addPointSelect == 4 or 5 or 7 or 9:
+            point = 3
+        elif addPointSelect == 6 or 8 or 10:
+            point = 4
+        elif addPointSelect == 11 or 12: 
+            point = 5
+        
+        if delPointSelect == None:
+            pass
+        elif delPointSelect == 1 or 2 or 5 or 6 or 7:
+            point = -1
+        elif delPointSelect == 4 or 8 or 9 or 14:
+            point = -2
+        elif delPointSelect == 3 or 12 or 13 or 15:
+            point = -3
+        elif delPointSelect == 16 or 17 or  18 or 24:
+            point = -4
+        elif delPointSelect == 10 or 11 or 19 or 20 or 23: 
+            point = -5
+        elif delPointSelect == 21:
+            point = -7
+        elif delPointSelect == 22:
+            point = -10
+        
+        for user in checkedUserList:
+            reqDTO = usersDTO(id=user)
+            SVC.addPoint(reqDTO, point)
 
-    print("Checked user IDs:", checked_user_list)
-    print("Received form data:", data)
-        
-    return jsonify({"status": "success", "message": "Data received successfully"}), 200
-        
+        return jsonify({"status": "success", "message": "Data received successfully"}), 200
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({"status": "error", "message": f"Error: {e}"}), 500
