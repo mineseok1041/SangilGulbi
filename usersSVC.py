@@ -62,10 +62,11 @@ class usersSVC:
         try:
             return self.DAO.getStudentsList(page)
         except Exception as e:
-            raise Exception(f"getStudentsList Error: {e}")
-
-    def getManagersList(self, page:int) -> list[usersDTO]:
+            raise Exception(f"getUsersList Error: {e}")
+        
+    def addPoint(self, reqDTO:usersDTO, point:int):
         try:
-            return self.DAO.getManagersList(page)
+            self.DAO.addPoint(reqDTO, point)
         except Exception as e:
-            raise Exception(f"getManagersList Error: {e}")
+            raise Exception(f"addPoint Error: {e}")
+
