@@ -66,6 +66,31 @@ class usersDAO:
             if conn:
                 conn.close()
 
+    def getManagersList(self, page: int) -> list[usersDTO]:
+        limit = 50 # 한 페이지에 보여줄 관리자 수
+        startNo = (page - 1) * limit + 1
+        endNo = page * limit
+
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity IN (0, 1)"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            cursor.execute(query, [startNo, endNo])
+            rows = cursor.fetchall()
+            
+            return [usersDTO(*row) for row in rows]
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+    
     def isIDExist(self, reqDTO: usersDTO) -> bool:
         query = "SELECT COUNT(*) FROM users WHERE id = :1"
         

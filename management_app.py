@@ -27,7 +27,8 @@ def redirect_to_manager_default():
 
 @blue_management.route('/manager/<int:page>')
 def manager_page_add(page):
-    return render_template('manager_page_manager.html')
+    managers = SVC.getManagersList(page)
+    return render_template('manager_page_manager.html', managers=managers)
 
 @blue_management.route('/addPoint.do', methods=['POST'])
 def addPoint():

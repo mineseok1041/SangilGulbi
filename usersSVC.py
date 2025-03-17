@@ -69,3 +69,4 @@ class usersSVC:
             self.DAO.addPoint(reqDTO, point)
         except Exception as e:
             raise Exception(f"addPoint Error: {e}")
+
