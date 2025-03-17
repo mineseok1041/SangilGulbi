@@ -18,6 +18,10 @@
           <a class="logo" href="/">GB</a>
 
           <div class="main_menu">
+            <!-- 관리자 페이지 버튼 추가 -->
+            {% if session['identity'] in [0, 1] %}
+            <button class="login2" onClick="location.href='/management'">관리자페이지</button>
+            {% endif %}
             <a class="text" href="#">Calender</a>
             <a class="text" href="#">Save</a>
             <a class="text" href="#">Game</a>
