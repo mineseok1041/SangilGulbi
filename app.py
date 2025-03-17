@@ -17,7 +17,7 @@ CORS(app)
 
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
-app.register_blueprint(notice_app.blue_notice)  # 추가
+app.register_blueprint(notice_app.blue_notice)
 app.register_blueprint(management_app.blue_management)
 
 

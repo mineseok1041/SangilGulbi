@@ -28,13 +28,14 @@
             </span>
             <a href="/management/student" class="linkManagerPageUser">학생 관리</a>
             <!-- 학생 관리 페이지 이동 (2025-02-23 22:12) -->
+            {% if session['identity'] == 0 %}
             <a href="/management/manager" class="linkManagerPageList">관리자 목록</a>
             <!-- 관리자 목록 페이지 이동 (2025-02-23 22:12) -->
+            {% endif %}
         </div>
         <div class="navbarUser">
             <a href="" class="clickMypage">
                 <img src="{{ url_for('static', filename='img/user_profile.png') }}" alt="UserProfile">
-                <!-- 사용자 프로필 이미지 (2025-02-23 22:12) -->
             </a>
         </div>
     </nav>
@@ -48,7 +49,6 @@
                 <img src="{{ url_for('static', filename='img/mgmt/user.png') }}" alt="User">
                 <!-- 학생 아이콘 (2025-02-23 22:12) -->
                 <h1>학생</h1>
-                <!-- 학생 섹션 제목 (2025-02-23 22:12) -->
             </div>
             <div class="userCount">11</div>
             <!-- 학생 수 표시 (2025-02-23 22:12) -->
