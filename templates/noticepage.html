@@ -11,13 +11,27 @@
 
 <body>
     <div class="container">
-        <h1>{{ notice.title }}</h1>
-        <p>{{ notice.content }}</p>
-        <p>작성자: {{ notice.author }}</p>
-        <p>작성일: {{ notice.created_date }}</p>
+        <h1>공지사항</h1>
+
+        <!-- 공지사항 제목 및 작성자 정보 -->
+        <div class="notice-header">
+            <span class="notice-title" id="title">제목: {{ notice.title }}</span>
+            <!-- 공지 제목 표시 -->
+            <span class="notice-author" id="author">작성자: {{ notice.author }}</span>
+            <!-- 작성자 정보 표시 -->
+        </div>
+
+        <!-- 공지사항 작성일 표시 -->
+        <span class="notice-meta" id="date">작성일: {{ notice.created_date }}</span>
         {% if notice.updated_date %}
-        <p>수정일: {{ notice.updated_date }}</p>
+        <span class="notice-meta" id="updated_date">수정일: {{ notice.updated_date }}</span>
         {% endif %}
+
+        <!-- 공지사항 내용 표시 -->
+        <div class="notice-content" id="content">{{ notice.content }}</div>
+
+        <!-- 공지 목록으로 돌아가는 버튼 -->
+        <button class="btn" onclick="location.href='/notice'">목록으로</button>
     </div>
 </body>
 
