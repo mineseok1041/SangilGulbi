@@ -160,35 +160,8 @@ body {
 
 .score_box {
     background-color: white;
-    width: 31%;
-    height: 10%;
-    border-color: #000000;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 53%;
-    right: 3%;
-}
-
-
-/* 상벌점 텍스트 */
-
-#score {
-    height: 50%;
-    font-family: 'MinSans-Regular';
-    display: flex;
-    align-items: center;
-    margin-left: 3%;
-}
-
-
-/* 수상내역 박스 */
-
-.awards_box {
-    background-color: white;
-    width: 31%;
-    height: 43%;
+    width: 32%;
+    height: 58%;
     border-color: #000000;
     border-style: solid;
     border-width: 2px;
@@ -198,15 +171,19 @@ body {
     right: 3%;
 }
 
-
-/* 수상내역 택스트 */
-
-#awards {
+.score {
+    height: 10%;
     font-family: 'MinSans-Regular';
     display: flex;
     align-items: center;
-    margin-left: 3%;
-    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.score_p {
+    font-family: 'MinSans-Regular';
+    align-items: center;
+    margin-left: 5%;
+
 }
 
 
@@ -243,27 +220,7 @@ body {
         color: gray;
         font-size: 15px;
     }
-    /* 수상내역박스 */
-    .awards_box {
-        background-color: white;
-        width: 31%;
-        height: 46.5%;
-        border-color: #000000;
-        border-style: solid;
-        border-width: 2px;
-        border-radius: 10px;
-        position: absolute;
-        bottom: 5%;
-        right: 3%;
-    }
-    /* 수상내역 텍스트 */
-    #awards {
-        font-family: 'MinSans-Regular';
-        display: flex;
-        align-items: center;
-        margin-left: 5%;
-        margin-top: 5%;
-    }
+
 }
 
 
