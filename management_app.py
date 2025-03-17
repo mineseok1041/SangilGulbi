@@ -37,42 +37,53 @@ def addPoint():
         checkedUserList = userIds.split(",") if userIds else []
         addPointSelect = request.form.get("addPointSelect")
         delPointSelect = request.form.get("delPointSelect")
+
+        addPointSelect = int(addPointSelect) if addPointSelect else None
+        delPointSelect = int(delPointSelect) if delPointSelect else None
         
-        if addPointSelect == None:
+        point = 0
+        if addPointSelect is None:
             pass
         elif addPointSelect == 1:
             point = 1
-        elif addPointSelect == 2 or 3:
+        elif addPointSelect in [2, 3]:
             point = 2
-        elif addPointSelect == 4 or 5 or 7 or 9:
+        elif addPointSelect in [4, 5, 7, 9]:
             point = 3
-        elif addPointSelect == 6 or 8 or 10:
+        elif addPointSelect in [6, 8, 10]:
             point = 4
-        elif addPointSelect == 11 or 12: 
+        elif addPointSelect in [11, 12]:
             point = 5
         
-        if delPointSelect == None:
+        if delPointSelect is None:
             pass
-        elif delPointSelect == 1 or 2 or 5 or 6 or 7:
+        elif delPointSelect in [1, 2, 5, 6, 7]:
             point = -1
-        elif delPointSelect == 4 or 8 or 9 or 14:
+        elif delPointSelect in [4, 8, 9, 14]:
             point = -2
-        elif delPointSelect == 3 or 12 or 13 or 15:
+        elif delPointSelect in [3, 12, 13, 15]:
             point = -3
-        elif delPointSelect == 16 or 17 or  18 or 24:
+        elif delPointSelect in [16, 17, 18, 24]:
             point = -4
-        elif delPointSelect == 10 or 11 or 19 or 20 or 23: 
+        elif delPointSelect in [10, 11, 19, 20, 23]: 
             point = -5
         elif delPointSelect == 21:
             point = -7
         elif delPointSelect == 22:
             point = -10
+
+        print(point)
         
         for user in checkedUserList:
             reqDTO = usersDTO(id=user)
             SVC.addPoint(reqDTO, point)
+            
+        if point > 0:
+            return jsonify({"status": "success", "message": f"상점 {point}점이 부여되었습니다."}), 200
+        elif point < 0:
+            return jsonify({"status": "success", "message": f"벌점 {point}점이 부여되었습니다."}), 200
+        else:
+            return jsonify({"status": "error", "message": f"Error: {e}"}), 500
 
-        return jsonify({"status": "success", "message": "Data received successfully"}), 200
     except Exception as e:
-        print(f"Error: {e}")
         return jsonify({"status": "error", "message": f"Error: {e}"}), 500

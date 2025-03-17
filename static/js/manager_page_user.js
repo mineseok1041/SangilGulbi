@@ -170,7 +170,7 @@ $(document).ready(function() {
             data: formData,
             dataType: "json",
             success: function(data) {
-                alert("상점이 부여되었습니다.");
+                alert(data.message);
                 location.reload();
             },
             error: function(request, status, error) {
@@ -204,7 +204,7 @@ $(document).ready(function() {
             data: formData,
             dataType: "json",
             success: function(data) {
-                alert("벌점이 부여되었습니다.");
+                alert(data.message);
                 location.reload();
             },
             error: function(request, status, error) {
