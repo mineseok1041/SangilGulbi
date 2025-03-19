@@ -1,20 +1,20 @@
-/*기초 폰트 설정 (2025-02-23 22:12)*/
+/* font-face 설정 (2025-02-23 22:12) */
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
-/*바디 설정 (2025-02-23 22:12)*/
+/* 전체 페이지 스타일 (2025-02-23 22:12) */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
     background-color: #ffffff;
-    overflow-x: hidden; /* 가로 스크롤 제거 */
-    overflow-y: hidden; /* 세로 스크롤 활성화 */
+    overflow-x: hidden; /* 가로 스크롤 제거 (2025-02-23 22:12) */
+    overflow-y: hidden; /* 세로 스크롤 활성화 (2025-02-23 22:12) */
 }
 
 /* 네비게이션 바 스타일 (2025-02-23 22:12) */
@@ -27,10 +27,11 @@ html, body {
     min-width: 700px; /* 최소 너비 설정 (2025-02-23 22:12) */
 }
 
-/* 로고 이미지 크기 설정 (2025-02-23 22:12) */
-.navbarLogo img {
-    width: 110px;
-    height: auto;
+/* 메인 GB 로고 설정 (2025-02-23 22:12) */
+.navbarLogo {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
 }
 
 /* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
@@ -126,14 +127,15 @@ html, body {
     outline: none; /* 클릭 시 기본 테두리 제거 */
     width: 130%; /* 검색창 너비 */
     transition: all 0.3s ease-in-out; /* 부드러운 효과 */
+    font-family: 'MinSans-Regular', sans-serif;
     font-size: 16px;
+    text-align: center; /* 가운데 정렬 */
 }
 
 .searchBar input:focus {
     border-color: #ffd06b; /* 포커스 시 테두리 색상 변경 */
     box-shadow: 0 0 8px #ffd06d; /* 포커스 효과 */
 }
-
 /* 테이블 스타일 */
 table {
     width: 60%;
@@ -228,7 +230,7 @@ tbody tr:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
 }
 
 .eyeIcon {
@@ -247,7 +249,7 @@ button {
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
     width: 20%;
     align-self: flex-end; /* 오른쪽으로 정렬 */
     margin-top: 3%;
@@ -261,7 +263,7 @@ button:hover {
 .addModal .modalContent {
     background-color: #ffd380fa; /* 배경색 */
     width: 35%;
-    height: 50%;
+    height: 60%;
     padding: 30px;
     border-radius: 15px;
     text-align: center;
@@ -297,7 +299,7 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
 }
 
 .idInput {
@@ -314,7 +316,7 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
 }
 
 .emailInput {
@@ -331,7 +333,7 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
 }
 
 .passwordContainer {
@@ -354,7 +356,7 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
 }
 
 .eyeIcon {
@@ -373,7 +375,7 @@ button {
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
     width: 20%;
     align-self: flex-end; /* 오른쪽으로 정렬 */
     margin-top: 3%;
