@@ -44,8 +44,22 @@ document.addEventListener("DOMContentLoaded", function() {
     checkboxes.forEach(cb => cb.addEventListener("change", updateSelectedUsers));
 
     searchInput.addEventListener("input", function() {
-        const keyword = searchInput.value.toLowerCase();
-        rows.forEach(row => row.style.display = row.innerText.toLowerCase().includes(keyword) ? "" : "none");
+        const keyword = searchInput.value.trim().toLowerCase();
+
+        rows.forEach(row => {
+            const name = row.cells[1]?.textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
+
+            if (!keyword) {
+                // 검색창이 비어 있으면 모든 행 표시
+                row.style.display = "";
+            } else if (name && name.includes(keyword)) {
+                // 검색어와 일치하면 표시
+                row.style.display = "";
+            } else {
+                // 일치하지 않으면 숨김
+                row.style.display = "none";
+            }
+        });
     });
 });
 
