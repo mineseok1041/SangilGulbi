@@ -92,35 +92,29 @@
             <!-- 비밀번호 재설정 모달 종료 (2025-02-23 22:12) -->
 
         <!-- 관리자 추가 모달 시작 (2025-02-23 22:12) -->
+        <!-- 관리자 추가 모달 업데이트 시작 (2025-03-17 22:30) -->
         <div class="modal addModal">
             <div class="modalContent">
-                <div class="addManagerContainer">
-                    <h2>관리자 추가</h2>
-                    <div class="nameInput">
-                        <input type="text" class="Name" placeholder="이름" />
+                <h2>관리자 추가</h2>
+                <form id="addManagerForm" action="{{ url_for('management.add_manager') }}" method="POST">
+                    <div class="form-group">
+                        <label for="name">이름</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="idInput">
-                        <input type="text" class="Id" placeholder="아이디" />
+                    <div class="form-group">
+                        <label for="id">아이디</label>
+                        <input type="text" id="id" name="id" required>
                     </div>
-                    <div class="passwordInput">
-                        <input type="password" class="managerPassword" placeholder="비밀번호" />
-                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
-                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
-                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('managerPassword', this)" />  <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
+                    <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" name="password" required>
                     </div>
-                    <div class="passwordInput">
-                        <input type="password" class="confirmManagerPassword" placeholder="비밀번호 확인" />
-                        <img src="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}" alt="eye"
-                            class="eyeIcon" data-show="{{ url_for('static', filename='img/mgmt/eye_icon.png') }}"
-                            data-hide="{{ url_for('static', filename='img/mgmt/eye_off_icon.png') }}"
-                            onclick="togglePasswordVisibility('confirmManagerPassword', this)" /> <!-- 비밀번호 표시/숨기기 아이콘 (2025-02-23 22:12) -->
-                    </div>
-                    <button onclick="addManagerButton()">추가</button>
-                </div>
+                    <button type="submit">추가</button>
+                </form>
             </div>
         </div>
         <!-- 관리자 추가 모달 종료 (2025-02-23 22:12) -->
+        <!-- 관리자 추가 모달 업데이트 종료 (2025-03-17 22:54) -->
 
         <!-- 계정 삭제 모달 시작 (2025-02-23 22:12) -->
         <div class="modal deleteModal">

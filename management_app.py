@@ -8,30 +8,53 @@ SVC = usersSVC.usersSVC()
 
 @blue_management.route('/')
 def manager_page():
+    if 'identity' not in session or session['identity'] not in [0, 1]:
+        return redirect(url_for('index'))
     return render_template('manager_page_main.html')
 
 @blue_management.route('/student/')
 @blue_management.route('/student')
 def redirect_to_student_default():
+    if 'identity' not in session or session['identity'] not in [0, 1]:
+        return redirect(url_for('index'))
     return redirect('student/1')
 
 @blue_management.route('/student/<int:page>')
 def manager_page_student(page):
+    if 'identity' not in session or session['identity'] not in [0, 1]:
+        return redirect(url_for('index'))
     usersDTO = SVC.getStudentsList(page)
     return render_template('manager_page_user.html', usersDTO=usersDTO)
 
 @blue_management.route('/manager/')
 @blue_management.route('/manager')
 def redirect_to_manager_default():
+    if 'identity' not in session or session['identity'] != 0:
+        return redirect(url_for('index'))
     return redirect('manager/1')
 
 @blue_management.route('/manager/<int:page>')
 def manager_page_add(page):
+    if 'identity' not in session or session['identity'] != 0:
+        return redirect(url_for('index'))
     managers = SVC.getManagersList(page)
     return render_template('manager_page_manager.html', managers=managers)
 
+@blue_management.route('/add_manager', methods=['POST'])
+def add_manager():
+    if 'identity' not in session or session['identity'] != 0:
+        return redirect(url_for('index'))
+    name = request.form['name']
+    id = request.form['id']
+    password = request.form['password']
+    new_manager = usersDTO(name=name, id=id, password=password, identity=1)
+    SVC.signup(new_manager)
+    return redirect(url_for('management.manager_page_add', page=1))
+
 @blue_management.route('/addPoint.do', methods=['POST'])
 def addPoint():
+    if 'identity' not in session or session['identity'] not in [0, 1]:
+        return redirect(url_for('index'))
     try:
         data = request.form.to_dict()
         userIds = request.form.get("userIds")
