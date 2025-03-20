@@ -15,10 +15,7 @@
     <!-- 네비게이션 바 시작 (2025-02-23 22:12) -->
     <nav class="navbar">
         <div class="navbarLogo">
-            <a href="/" class="linkMain">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
-                <!-- 로고 이미지 (2025-02-23 22:12) -->
-            </a>
+            <a class="nav_logo" href="/">GB</a>
         </div>
         <div class="navbarMenu">
             <span class="title">
@@ -79,7 +76,7 @@
             </div>
 
             <div class="searchBar">
-                <input type="text" class="searchInput" placeholder="찾으실 학생의 학번을 적어주세요.">
+                <input type="text" class="searchInput" placeholder="찾으실 학생의 이름을 적어주세요.">
                 <!-- 학생 학번 검색 입력란 (2025-02-23 22:12) -->
             </div>
         </div>
@@ -134,9 +131,11 @@
                                 </option>
                                 <option value="custom">직접 입력</option>
                             </select>
+                            <!-- 직접 입력 박스 임시 제거
                             <div class="customInputContainer" style="display: none;">
                                 <input type="text" class="customInput" placeholder="직접 입력">
                             </div>
+                            -->
                         </div>
                     </div>
                     <div class="pointInputContainer">
@@ -188,9 +187,11 @@
                                 <option value="24">규정위반으로 처벌 기간 중 미인정 결석 및 결과 한 경우 (횟수마다 -4점)</option>
                                 <option value="custom">직접 입력</option>
                             </select>
+                            <!-- 직접 입력 박스 임시 제거
                             <div class="customInputContainer" style="display: none;">
                                 <input type="text" class="customInput" placeholder="직접 입력" name="custom">
                             </div>
+                            -->
                         </div>
                     </div>
                     <div class="pointInputContainer">

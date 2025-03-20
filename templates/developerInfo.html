@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개발자 소개</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/developerInfo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+</head>
+<body>
+    <header class="header">
+        <a class="logo" href="/">GB</a>
+
+        <div class="main_menu">
+            <a class="text" href="#">Calender</a>
+            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Game</a>
+            <a class="text" href="/awards">Awards</a> {% if session['id'] %}
+            <a class="text" href="/mypage">
+                <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                    alt="Profile" class="profile-pic">
+            </a>
+            {% else %}
+            <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
+        </div>
+        <!--헤더 서브 메뉴-->
+        <div class="sub_menu">
+            <button class="cal1" onClick="location.href='/notice'">공지사항</button>
+            <button class="cal2" href="#">캘린더보기</button>
+            <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
+            <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
+            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <button class="login1" onClick="location.href='/signup'">회원가입</button> {% endif %}
+            </button>
+        </div>
+    </header>
+    <div class="container">
+       <h1>개발자 소개</h1> 
+       <main>
+            <div class="section-header">
+                <span>1대 개발자</span>
+            </div>
+            <section class="team">
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profileminseok.png') }}" alt="멤버 1">
+                    <div class="overlay">
+                        <p> - 웹사이트 개발 총괄<br>
+                            - 깃 관리<br>
+                            - 상벌점 시스템 개발<br>
+                            - 유저 관련 DB & 백엔드 개발<br>
+                            - 학생 관리 백엔드 개발</p>
+                    </div>
+                    <div class="info">
+                        <h2>염민석</h2>
+                        <p>백엔드 개발자</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profilekihoon.png') }}" alt="멤버 2">
+                    <div class="overlay">
+                        <p> - 사용자 마이페이지 백엔드 개발<br>
+                            - 공지사항 백엔드 개발<br>
+                            - 관리자 페이지 관리자 생성 및 <br>
+                            - 관리자 리스트 개발</p>
+                    </div>
+                    <div class="info">
+                        <h2>김기훈</h2>
+                        <p>백엔드 개발자</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profilesungbin.png') }}" alt="멤버 3">
+                    <div class="overlay">
+                        <p> - 웹 디자인 서브<br>
+                            - 게임 개발 서브<br>
+                            - 관리자 페이지 프론트 개발</p>
+                    </div>
+                    <div class="info">
+                        <h2>노성빈</h2>
+                        <p>프론트엔드 개발자</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profilekinam.png') }}" alt="멤버 4">
+                    <div class="overlay">
+                        <p> - 로그인 페이지 프론트 개발 <br>
+                            - 회원가입 페이지 프론트 개발 <br>
+                            - 공지사항 페이지 프론트 개발 <br> 
+                            - 개발자 소개 페이지 개발 </p>
+                    </div>
+                    <div class="info">
+                        <h2>이기남</h2>
+                        <p>프론트엔드 개발자</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profilesieun.png') }}" alt="멤버 5">
+                    <div class="overlay">
+                        <p> - 프론트 기획 및 총괄 <br>
+                            - 메인페이지 프론트 개발<br>
+                            - 마이페지이 프론트 개발</p>
+                    </div>
+                    <div class="info">
+                        <h2>이시은</h2>
+                        <p>프론트엔드 개발자</p>
+                    </div>
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='img/developerInfo/profileyoungtak.png') }}" alt="멤버 6">
+                    <div class="overlay">
+                        <p> - 게임 개발 총괄<br> 
+                            - 돌림판 게임 개발<br> 
+                            - 사다리 게임 개발</p>
+                    </div>
+                    <div class="info">
+                        <h2>최영탁</h2>
+                        <p>게임 개발자</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
