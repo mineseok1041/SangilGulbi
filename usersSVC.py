@@ -64,9 +64,11 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"getUsersList Error: {e}")
         
-    def addPoint(self, reqDTO:usersDTO, point:int):
+    def addPoint(self, stdDTO:usersDTO, managerDTO:usersDTO, point:int, reason: int):
         try:
-            self.DAO.addPoint(reqDTO, point)
+            self.DAO.addPoint(stdDTO, point)
+            self.DAO.addPointLog(stdDTO, managerDTO, point, reason)
+            print("SVC success")
         except Exception as e:
             raise Exception(f"addPoint Error: {e}")
         

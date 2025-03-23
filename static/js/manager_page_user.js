@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const keyword = searchInput.value.trim().toLowerCase();
 
         rows.forEach(row => {
-            const name = row.cells[1]?.textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
+            const name = row.cells[1] ? .textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
 
             if (!keyword) {
                 // 검색창이 비어 있으면 모든 행 표시
@@ -184,10 +184,12 @@ $(document).ready(function() {
             data: formData,
             dataType: "json",
             success: function(data) {
+                console.log("Server response:", data); // 서버 응답 확인
                 alert(data.message);
                 location.reload();
             },
             error: function(request, status, error) {
+                console.log("AJAX error:", request.responseText); // 에러 메시지 확인
                 alert("상점 부여에 실패했습니다");
                 location.reload();
             }
