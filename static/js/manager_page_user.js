@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const keyword = searchInput.value.trim().toLowerCase();
 
         rows.forEach(row => {
-            const name = row.cells[1] ? .textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
+            const name = row.cells[1]?.textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
 
             if (!keyword) {
                 // 검색창이 비어 있으면 모든 행 표시
