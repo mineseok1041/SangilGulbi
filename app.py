@@ -67,8 +67,9 @@ def mypage():
     
     users_service = usersSVC.usersSVC()
     user = users_service.getUsersInfo(usersDTO(id=session['id']))
+    pointLogs = users_service.getPointLogByStdID(usersDTO(id=session['id']))
     
-    return render_template('mypage.html', user=user)
+    return render_template('mypage.html', user=user, pointLogs=pointLogs)
 
 # 마이페이지 수정 팝업
 @app.route('/mypage_Popup')

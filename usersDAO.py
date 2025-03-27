@@ -1,4 +1,5 @@
 from usersDTO import usersDTO
+from pointLogDTO import pointLogDTO
 import cx_Oracle
 
 class usersDAO:
@@ -267,6 +268,43 @@ class usersDAO:
             conn.commit()
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+    
+    def getPointLogByStdID(self, usersDTO: usersDTO) -> list[pointLogDTO]:
+        stdID = usersDTO.id
+        query = "SELECT * FROM pointLog WHERE stdId = :1"
+        
+        conn = None
+        cursor = None
+
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            print(stdID)
+            cursor.execute(query, [stdID])
+            results = cursor.fetchall()
+
+            logs = []
+            for row in results:
+                log = pointLogDTO(
+                    stdID=row[0],
+                    managerID=row[1],
+                    point=row[2],
+                    reason=row[3],
+                    addDate=row[4]
+                )
+                logs.append(log)
+
+            return logs
+        
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        
         finally:
             if cursor:
                 cursor.close()
