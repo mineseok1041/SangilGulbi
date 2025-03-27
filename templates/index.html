@@ -18,8 +18,8 @@
           <a class="logo" href="/">GB</a>
 
           <div class="main_menu">
-            <a class="text" href="#">Calender</a>
-            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Community</a>
+            <a class="text" href="/developers">Developers</a>
             <a class="text" href="#">Game</a>
             <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
@@ -32,7 +32,6 @@
 
           <div class="sub_menu">
             <button class="cal1" onClick="location.href='/notice'">공지사항</button>
-            <button class="cal2" href="#">캘린더보기</button>
             <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
             <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
             <!-- 관리자 페이지 버튼 추가 -->
@@ -261,7 +260,7 @@
     </section>
 
     <footer>
-      <nav>
+      <!--<nav>
         <div id="first">
           <p>calendar</p>
           <a onClick="location.href='/notice'">공지사항</a>
@@ -285,6 +284,7 @@
           <a href="/signup">회원가입</a>
         </div>
       </nav>
+      -->
 
       <p id="p1">
         꿀비<br><br> 상일미디어고등학교 인공지능소프트웨어과<br> 주소 : 서울특별시 강동구 천호대로219길 61<br> 2층 앱센터 안쪽 앱제작1실

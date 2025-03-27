@@ -5,7 +5,7 @@ class NoticeDAO:
     def __init__(self):
         self.dsn = cx_Oracle.makedsn('localhost', 1521, service_name='xe')
         self.db_user = 'sangil'
-        self.db_password = '1234'
+        self.db_password = 'nobeesnohoney'
 
     # 데이터베이스 연결 생성
     def get_connection(self):

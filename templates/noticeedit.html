@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>공지 수정</h1>
-        <form action="{{ url_for('edit_notice', notice_id=notice.id) }}" method="post">
+        <form action="{{ url_for('notice.edit_notice', notice_id=notice.id) }}" method="post">
             <div class="add-notice">
                 <input type="text" name="title" id="title" class="title" placeholder=" 제목" value="{{ notice.title }}" required>
             </div>

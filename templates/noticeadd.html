@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>공지 추가</h1>
-        <form action="{{ url_for('add_notice') }}" method="post">
+        <form action="{{ url_for('notice.add_notice') }}" method="post">
             <div class="add-notice">
                 <input type="text" name="title" id="title" class="title" placeholder=" 제목" required>
             </div>

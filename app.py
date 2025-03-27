@@ -101,5 +101,9 @@ def roulette():
 def sadari():
     return render_template('sadari.html')
 
+@app.route('/developers')
+def developers():
+    return render_template('developerInfo.html')
+
 if __name__ == '__main__':
-    app.run()
+    app.run(host = '0.0.0.0', port=16369)
