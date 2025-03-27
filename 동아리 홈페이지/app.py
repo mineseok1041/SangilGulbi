@@ -1,25 +1,16 @@
 from flask import Flask, redirect, render_template, session, url_for, request, Response
-from flask_cors import CORS
 import requests
+from flask_cors import CORS
+import users_app
 import upload
-import management_app
 import os
 import usersSVC
 from usersDTO import usersDTO
-from noticeSVC import NoticeSVC
-from noticeDTO import NoticeDTO
-import users_app
-import notice_app
-import os
 
 app = Flask(__name__)
 CORS(app)
-
 app.register_blueprint(users_app.blue_users)
 app.register_blueprint(upload.upload_bp)
-app.register_blueprint(notice_app.blue_notice)
-app.register_blueprint(management_app.blue_management)
-
 
 app.secret_key = 'ggulbi'
 
@@ -35,8 +26,7 @@ def index():
         return Response(resp.content, status=resp.status_code, headers=dict(resp.headers))
     else:
         return render_template('index.html')
-
-# 쿠키 확인
+    
 @app.route('/check')
 def check():
     id = request.cookies.get('SangilGulbiUserID')
@@ -44,17 +34,17 @@ def check():
     print(id, password)
     return redirect(url_for('index'))
 
-# 로그인 페이지
+# 로그인
 @app.route('/login')
 def login():
     return render_template('login.html')
 
-# 비밀번호 찾기 페이지
+# 비밀번호 찾기
 @app.route('/forget')
 def forget():
     return render_template('forget.html')
 
-# 회원가입 페이지
+# 회원가입
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
@@ -71,7 +61,7 @@ def mypage():
     
     return render_template('mypage.html', user=user, pointLogs=pointLogs)
 
-# 마이페이지 수정 팝업
+# 마이페이지 수정
 @app.route('/mypage_Popup')
 def mypage_Popup():
     if 'id' not in session:
@@ -82,22 +72,38 @@ def mypage_Popup():
     
     return render_template('mypage_Popup.html', user=user)
 
+# 관리페이지 메인
+@app.route('/mgmt')
+def manager_page():
+    return render_template('manager_page_main.html')
+
+
+# 관리페이지 유저 관리
+@app.route('/mgmt_user')
+def manager_page_user():
+    return render_template('manager_page_user.html')
+
+# 관리페이지 관리자 추가
+@app.route('/mgmt_add')
+def manager_page_add():
+    return render_template('manager_page_add.html')
+
 # 수상내역
 @app.route('/awards')
 def awards():
     return render_template('awards.html')
 
-# 리듬게임 페이지
+# 리듬게임
 @app.route('/rhythm')
 def rhythm():
     return render_template('rhythm.html')
 
-# 룰렛 페이지
+# 룰렛
 @app.route('/roulette')
 def roulette():
     return render_template('roulette.html')
 
-# 사다리 페이지
+# 사다리
 @app.route('/sadari')
 def sadari():
     return render_template('sadari.html')
