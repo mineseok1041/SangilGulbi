@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, url_for, flash, session, make_response, render_template
+from flask import Blueprint, request, redirect, url_for, flash, session, make_response, render_template, jsonify
 import usersSVC
 from usersDTO import usersDTO
 
@@ -75,12 +75,12 @@ def IDcheck():
     try:
         reqDTO = usersDTO(id=request.form['id'])
         if SVC.isIDExist(reqDTO):
-            return "false"
+            return jsonify({"status": "error", "message": f"Error: {e}"}), 500
         else:
-            return "true"
+            return jsonify({"status": "success"}), 200
     except Exception as e:
         print(e)
-        return False
+        return jsonify({"status": "error", "message": f"Error: {e}"}), 500
 
 # 사용자 정보 업데이트 라우트
 @blue_users.route('/update_user_info', methods=['POST'])

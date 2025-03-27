@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -16,16 +17,16 @@
 
             <form action="/users/signup.do" method="post">
                 <div class="id">
-                    <input type="text" class="id-input" name="id" placeholder="아이디" required>
+                    <input type="text" class="id-input" id="id" name="id" placeholder="아이디" required>
 
-                    <button type="submit" class="btn">중복 확인</button>
-                    <span>사용가능한 아이디입니다.</span>
+                    <button type="button" class="btn" id="idCheck" onclick="checkIDValid()">중복 확인</button>
+                    <span id="isValidID"></span>
                 </div>
 
 
                 <!-- 비밀번호 입력 및 토글 버튼 추가 -->
                 <div class="password-container">
-                    <input type="password" id="passwordInput" placeholder="비밀번호" name="password">
+                    <input type="password" id="passwordInput" placeholder="비밀번호" name="password" required>
                     <img src="{{ url_for('static', filename='img/eye_off_icon.png') }}" alt="비밀번호 보기" class="eye-icon"
                         onclick="togglePasswordVisibility('passwordInput', this)"
                         data-show="{{ url_for('static', filename='img/eye_icon.png') }}"
