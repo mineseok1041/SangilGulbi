@@ -1,20 +1,17 @@
 <!-- 2025-02-23 오후 9시 -->
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>꿀비 사다리타기</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sadari.css') }}">
-    <!-- 사다리게임 css(디자인) -->
+    <link rel="stylesheet" href="sadari.css"> <!-- 사다리게임 css(디자인) --> 
 </head>
-
 <body>
-    <h2>꿀비 사다리게임</h2>
+    <h2>꿀비 사다리게임</h2> 
     <div>
         <!-- 인원수 설정 (현재 2~10인까지로 설정) -->
-        <label>참가자 수 (2~10명): </label>
+        <label>참가자 수 (2~10명): </label> 
         <input type="number" id="playerCount" min="2" max="10" value="4">
         <button onclick="generateLadder()">게임 생성</button>
     </div>
@@ -22,8 +19,6 @@
     <div id="results"></div>
     <button onclick="startGame()">게임 시작</button>
     <div id="ladder-container"></div>
-    <script src="{{ url_for('static', filename='js/sadari.js') }}"></script>
-    <!-- 사다리게임 js (기능) -->
+    <script src="sadari.js"></script> <!-- 사다리게임 js (기능) -->
 </body>
-
 </html>

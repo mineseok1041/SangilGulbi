@@ -1,28 +1,24 @@
-<!-- 2025-02-23 오후 11시 -->
 <!DOCTYPE html>
-<html>
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>꿀비 룰렛 게임</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/roulette.css') }}">
-    <!-- 룰렛 css(디자인) -->
+    <title>룰렛 게임</title>
+    <link rel="stylesheet" type="text/css" href="roulette.css">
 </head>
-
 <body>
-    <h2>꿀비 룰렛 게임</h2>
+    <h2>룰렛 게임</h2>
     <div id="inputSection">
-        <input type="text" id="participantInput" placeholder="이름이나 항목을 쉼표로 구분">
-        <button id="addParticipantsButton">참가자 추가</button>
+        <input type="number" id="participantCount" placeholder="참가자 수" min="1">
+        <button id="createFieldsButton">입력 필드 생성</button>
     </div>
+    <div id="participantsFields"></div>
+    <button id="addParticipantsButton" style="display:none;">참가자 추가</button>
     <!-- 돌림판 -->
-    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+    <canvas id="wheelCanvas" width="500" height="500" style="display:none;"></canvas>
     <!-- 돌리기 버튼 -->
-    <button id="spinButton">SPIN</button>
+    <button id="spinButton" style="display:none;">SPIN</button>
     <!-- 결과 표시 -->
     <div id="resultDisplay"></div>
-    <script src="{{ url_for('static', filename='js/roulette.js') }}"></script>
-    <!-- 룰렛 js(기능) -->
+    <script src="roulette.js"></script>
 </body>
-
 </html>
