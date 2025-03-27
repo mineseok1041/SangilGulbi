@@ -17,7 +17,7 @@
             <a class="text" href="#">Game</a>
             <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
-            <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+            <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default')) }}"
                 alt="Profile" class="profile-pic">
             </a>
             {% else %}
