@@ -126,25 +126,25 @@ function changePassword() {
     // 여기에 서버로 변경된 비밀번호를 전송하는 코드가 필요함.
 }
 
-function updatePointValue(selectClass, inputClass) {
-    const select = document.querySelector("." + selectClass);
-    const input = document.querySelector("." + inputClass);
-    const customInputContainer = select.nextElementSibling;
-    const customInput = customInputContainer.querySelector('.customInput');
+// function updatePointValue(selectClass, inputClass) {
+//     const select = document.querySelector("." + selectClass);
+//     const input = document.querySelector("." + inputClass);
+//     const customInputContainer = select.nextElementSibling;
+//     const customInput = customInputContainer.querySelector('.customInput');
 
-    const selectedOption = select.options[select.selectedIndex];
+//     const selectedOption = select.options[select.selectedIndex];
 
-    if (selectedOption.value === "custom") {
-        customInputContainer.style.display = 'block';
-        input.removeAttribute('readonly');
-        input.value = "0";
-        input.focus();
-    } else {
-        customInputContainer.style.display = 'none';
-        input.setAttribute('readonly', true);
-        input.value = selectedOption.value;
-    }
-}
+//     if (selectedOption.value === "custom") {
+//         customInputContainer.style.display = 'block';
+//         input.removeAttribute('readonly');
+//         input.value = "0";
+//         input.focus();
+//     } else {
+//         customInputContainer.style.display = 'none';
+//         input.setAttribute('readonly', true);
+//         input.value = selectedOption.value;
+//     }
+// }
 
 document.querySelectorAll('.rewardInput, .penaltyInput').forEach(input => {
     input.addEventListener('input', function() {
@@ -172,7 +172,7 @@ $(document).ready(function() {
         });
 
         if (checkedUserIds.length === 0) {
-            alert("적어도 한 명 이상의 사용자를 선택하세요.");
+            alert("최소 한 명 이상의 사용자를 선택하세요.");
             return;
         }
 
@@ -183,13 +183,16 @@ $(document).ready(function() {
             url: "/management/addPoint.do",
             data: formData,
             dataType: "json",
-            success: function(data) {
+            success: function(data, xhr) {
+                console.log("AJAX 성공 응답:", data);
+                console.log("HTTP 응답 코드:", xhr.status);
                 alert(data.message);
-                location.reload();
+                // location.reload();
             },
-            error: function(request, status, error) {
+            error: function(request, data) {
+                console.log("AJAX error:", data); // 에러 메시지 확인
                 alert("상점 부여에 실패했습니다");
-                location.reload();
+                // location.reload();
             }
         });
     });
@@ -206,7 +209,7 @@ $(document).ready(function() {
         });
 
         if (checkedUserIds.length === 0) {
-            alert("적어도 한 명 이상의 사용자를 선택하세요.");
+            alert("최소 한 명 이상의 사용자를 선택하세요.");
             return;
         }
 
@@ -218,6 +221,7 @@ $(document).ready(function() {
             data: formData,
             dataType: "json",
             success: function(data) {
+                console.log("Server response:", data); // 서버 응답 확인
                 alert(data.message);
                 location.reload();
             },

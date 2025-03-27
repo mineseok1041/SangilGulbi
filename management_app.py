@@ -99,10 +99,15 @@ def addPoint():
         print(point)
         
         for user in checkedUserList:
-            reqDTO = usersDTO(id=user)
-            SVC.addPoint(reqDTO, point)
+            stdDTO = usersDTO(id=user)
+            managerDTO = usersDTO(id=session['id'])
+            if point > 0:
+                SVC.addPoint(stdDTO, managerDTO, point, addPointSelect)
+            if point < 0:
+                SVC.addPoint(stdDTO, managerDTO, point, delPointSelect)
+        print("app success")
             
-        if point > 0:
+        if point >= 0:
             return jsonify({"status": "success", "message": f"상점 {point}점이 부여되었습니다."}), 200
         elif point < 0:
             return jsonify({"status": "success", "message": f"벌점 {point}점이 부여되었습니다."}), 200
