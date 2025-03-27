@@ -120,7 +120,7 @@ class usersDAO:
         return count > 0
 
     def addUsers(self, reqDTO: usersDTO):
-        query = "INSERT INTO users(id, password, name, email, birth) VALUES(:1, :2, :3, :4, :5)"
+        query = "INSERT INTO users(id, password, name, email, birth, identity) VALUES(:1, :2, :3, :4, :5, :6)"
         
         conn = None
         cursor = None
@@ -128,7 +128,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.email, reqDTO.birth])
+            cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.email, reqDTO.birth, reqDTO.identity])
             
             conn.commit()
         except cx_Oracle.DatabaseError as e:
