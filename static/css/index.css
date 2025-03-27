@@ -1100,8 +1100,75 @@ footer>hr {
   }
 }
 
+@media (min-width: 769px) and (max-width: 806px) {
+
+  /* 동아리소개 */
+  .two_title {
+    color: #333;
+    font-size: 3em;
+    margin: 2%;
+  }
+
+  .introduce {
+    margin: 3%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 18px;
+  }
+  
+    /* 동아리 소개 카드 컨테이너 */
+    .intro_card-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      width: 100%;
+      position: absolute;
+      top: 150%;
+    }
+  
+  
+    .intro_card {
+      background-color: #000;
+      color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 16%;
+      height: 200px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 1%;
+    }
+  
+    /* 글씨 */
+    .intro_card>p {
+      margin-top: 0%;
+      font-size: small;
+    }
+  
+    /* 닿았을때 y좌표 이동 */
+    .intro_card:hover {
+      transform: translateY(-10px);
+    }
+  
+    /* 그림 */
+    .icon {
+      height: 50px;
+      margin: 20px 0;
+    }
+  
+    .intro_card>h3 {
+      font-size: 20px;
+      margin: 0%;
+    }
+}
+
 /* 태블릿 */
-@media (min-width: 769px) and (max-width: 1222px) {
+@media (min-width: 807px) and (max-width: 1222px) {
 
   /* 인공지능소프트웨어과 IT 전공동아리 꿀비 */
   .welcome {

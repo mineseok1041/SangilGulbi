@@ -298,7 +298,7 @@ header {
     .cal1 {
         position: absolute;
         top: 9%;
-        right: 65%;
+        right: 60.5%;
         width: 20%;
         height: 40%;
         color: white;
@@ -312,7 +312,7 @@ header {
     .cal2 {
         position: absolute;
         top: 50%;
-        right: 65%;
+        right: 60.5%;
         width: 20%;
         height: 40%;
         color: white;
@@ -326,7 +326,7 @@ header {
     .game1 {
         position: absolute;
         top: 10%;
-        right: 30%;
+        right: 27%;
         width: 20%;
         height: 40%;
         color: white;
@@ -340,7 +340,7 @@ header {
     .game2 {
         position: absolute;
         top: 50%;
-        right: 30%;
+        right: 27%;
         width: 20%;
         height: 40%;
         color: white;
@@ -354,7 +354,7 @@ header {
     .login1 {
         position: absolute;
         top: 10%;
-        right: 0%;
+        right: -4%;
         width: 20%;
         height: 40%;
         color: white;
