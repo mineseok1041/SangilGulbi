@@ -12,24 +12,27 @@
         <a class="logo" href="/">GB</a>
 
         <div class="main_menu">
-            <a class="text" href="#">Calender</a>
-            <a class="text" href="#">Save</a>
+            <a class="text" href="#">Community</a>
+            <a class="text" href="/developers">Developers</a>
             <a class="text" href="#">Game</a>
             <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
-                <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
-                    alt="Profile" class="profile-pic">
+            <img src="{{ url_for('static', filename='uploads/' + (session.get('profile_pic') or 'default.jpg')) }}"
+                alt="Profile" class="profile-pic">
             </a>
             {% else %}
             <button class="login-button" onClick="location.href='/login'">LOGIN</button> {% endif %}
         </div>
-        <!--헤더 서브 메뉴-->
+
         <div class="sub_menu">
             <button class="cal1" onClick="location.href='/notice'">공지사항</button>
-            <button class="cal2" href="#">캘린더보기</button>
             <button class="game1" onClick="location.href='/sadari'">사다리타기</button>
             <button class="game2" onClick="location.href='/roulette'">룰렛돌리기</button> {% if session['id'] %}
-            <button class="login1" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
+            <!-- 관리자 페이지 버튼 추가 -->
+            {% if session['identity'] in [0, 1] %}
+            <button class="login1" onClick="location.href='/management'">관리자페이지</button>
+            {% endif %}
+            <button class="login2" onClick="location.href='/users/logout.do'">로그아웃</button> {% else %}
             <button class="login1" onClick="location.href='/signup'">회원가입</button> {% endif %}
             </button>
         </div>
