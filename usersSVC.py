@@ -77,3 +77,9 @@ class usersSVC:
             return self.DAO.getManagersList(page)
         except Exception as e:
             raise Exception(f"getManagersList Error: {e}")
+        
+    def delUsers(self, reqDTO: usersDTO):
+        try:
+            self.DAO.delUsers(reqDTO)
+        except Exception as e:
+            raise Exception(f"delUsers Error: {e}")

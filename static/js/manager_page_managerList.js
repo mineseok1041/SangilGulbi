@@ -134,3 +134,32 @@ function addManagerButton() {
     alert("비밀번호가 변경되었습니다.");
     // 여기서 서버로 변경된 비밀번호 전송 코드 추가 가능
 }
+
+// 선택된 관리자 삭제 확인
+function confirmDeleteManagers() {
+    const selectedIds = Array.from(document.querySelectorAll(".userCheckbox:checked"))
+        .map(cb => cb.closest("tr").querySelector("td:nth-child(3)").textContent.trim());
+
+    if (selectedIds.length === 0) {
+        alert("삭제할 관리자를 선택하세요.");
+        return;
+    }
+
+    if (confirm("선택한 관리자를 삭제하시겠습니까?")) {
+        fetch("/management/delete_manager", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ids: selectedIds }),
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("삭제가 완료되었습니다.");
+                location.reload();
+            } else {
+                alert("삭제 중 오류가 발생했습니다.");
+            }
+        });
+    }
+}

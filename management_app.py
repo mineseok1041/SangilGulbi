@@ -37,7 +37,7 @@ def redirect_to_manager_default():
 def manager_page_add(page):
     if 'identity' not in session or session['identity'] != 0:
         return redirect(url_for('index'))
-    managers = SVC.getManagersList(page)
+    managers = [manager for manager in SVC.getManagersList(page) if manager.identity == 1]  # identity가 1인 관리자만 필터링
     return render_template('manager_page_manager.html', managers=managers)
 
 @blue_management.route('/add_manager', methods=['POST'])
@@ -48,8 +48,28 @@ def add_manager():
     id = request.form['id']
     password = request.form['password']
     new_manager = usersDTO(name=name, id=id, password=password, identity=1)
-    SVC.signup(new_manager)
+    try:
+        SVC.DAO.addUsers(new_manager)
+        flash("관리자가 성공적으로 추가되었습니다.", "success")
+    except Exception as e:
+        flash(f"관리자 추가 중 오류가 발생했습니다: {e}", "error")
     return redirect(url_for('management.manager_page_add', page=1))
+
+@blue_management.route('/delete_manager', methods=['POST'])
+def delete_manager():
+    if 'identity' not in session or session['identity'] != 0:
+        return jsonify({"error": "권한이 없습니다."}), 403
+    data = request.get_json()
+    ids = data.get("ids", [])
+    if not ids:
+        return jsonify({"error": "삭제할 관리자를 선택하세요."}), 400
+    try:
+        for manager_id in ids:
+            reqDTO = usersDTO(id=manager_id)
+            SVC.delUsers(reqDTO)
+        return jsonify({"success": True}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @blue_management.route('/addPoint.do', methods=['POST'])
 def addPoint():

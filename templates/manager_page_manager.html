@@ -96,7 +96,7 @@
         <div class="modal addModal">
             <div class="modalContent">
                 <h2>관리자 추가</h2>
-                <form id="addManagerForm" action="{{ url_for('management.add_manager') }}" method="POST">
+                <form action="{{ url_for('management.add_manager') }}" method="POST">
                     <div class="form-group">
                         <label for="name">이름</label>
                         <input type="text" id="name" name="name" required>
@@ -113,15 +113,15 @@
                 </form>
             </div>
         </div>
-        <!-- 관리자 추가 모달 종료 (2025-02-23 22:12) -->
-        <!-- 관리자 추가 모달 업데이트 종료 (2025-03-17 22:54) -->
-
-        <!-- 계정 삭제 모달 시작 (2025-02-23 22:12) -->
+        
         <div class="modal deleteModal">
             <div class="modalContent">
-                <h2>계정 삭제</h2>
-                <p>정말 삭제하시겠습니까?</p>
-                <button>삭제</button>
+                <h2>관리자 삭제</h2>
+                <p>선택한 관리자를 삭제하시겠습니까?</p>
+                <div class="modal-buttons">
+                    <button onclick="confirmDeleteManagers()">예</button>
+                    <button onclick="closeModal('deleteModal')">아니오</button>
+                </div>
             </div>
         </div>
         <!-- 계정 삭제 모달 종료 (2025-02-23 22:12) -->
