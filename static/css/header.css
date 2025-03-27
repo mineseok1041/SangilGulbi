@@ -27,7 +27,6 @@ header {
     font-size: 30px;
     color: rgb(255, 255, 255);
     z-index: 3;
-    text-decoration-line:none;
 }
 
 
@@ -63,7 +62,7 @@ header {
     z-index: 4;
 }
 
-.main_menu > button {
+.main_menu>button {
     color: rgb(0, 0, 0);
     display: flex;
     text-align: center;
@@ -76,11 +75,11 @@ header {
     text-decoration-line: none;
     justify-content: center;
     z-index: 4;
-    border:none;
+    border: none;
     background-color: gainsboro;
 }
 
-.text > img {
+.text>img {
     position: absolute;
     top: 7%;
     width: 55px;
@@ -237,11 +236,9 @@ header {
         left: 6%;
         margin: 0%;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 25px;
         color: rgb(255, 255, 255);
-        text-decoration-line:none;
     }
-    
     /* Calender + Save + Game + Awards + Login */
     .main_menu {
         position: absolute;
@@ -260,30 +257,12 @@ header {
         width: 12.5%;
         height: 12%;
         font-family: 'MinSans-Regular';
-        font-size: 15px;
+        font-size: 20px;
         margin: 1% 2% 1% 2%;
         float: left;
         text-decoration-line: none;
         justify-content: center;
     }
-
-    .main_menu > button {
-        color: rgb(0, 0, 0);
-        display: flex;
-        text-align: center;
-        width: 8.5%;
-        height: 12%;
-        font-family: 'MinSans-Regular';
-        font-size: 15px;
-        margin: 1% 2% 1% 2%;
-        float: left;
-        text-decoration-line: none;
-        justify-content: center;
-        z-index: 4;
-        border:none;
-        background-color: gainsboro;
-    }
-
     /* 공지사항 + 캘린더보기 + 사다리타기 + 룰렛돌리기 + 로그인 + 회원가입 */
     .sub_menu {
         position: absolute;
