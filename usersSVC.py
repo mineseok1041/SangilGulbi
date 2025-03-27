@@ -1,5 +1,6 @@
 import usersDAO
 import usersDTO
+import pointLogDTO
 
 class usersSVC:
     def __init__(self):
@@ -72,7 +73,7 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"addPoint Error: {e}")
         
-    def getManagersList(self, page:int) -> list[usersDTO]:
+    def getManagersList(self, page:int):
         try:
             return self.DAO.getManagersList(page)
         except Exception as e:
@@ -83,3 +84,9 @@ class usersSVC:
             self.DAO.delUsers(reqDTO)
         except Exception as e:
             raise Exception(f"delUsers Error: {e}")
+        
+    def getPointLogByStdID(self, reqDTO: usersDTO):
+        try:
+            return self.DAO.getPointLogByStdID(reqDTO)
+        except Exception as e:
+            raise Exception(f"getPointLogByStdID Error: {e}")
