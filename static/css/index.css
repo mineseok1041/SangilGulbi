@@ -16,7 +16,7 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   background-color: rgb(0, 0, 0);
 }
 
@@ -60,17 +60,19 @@ body {
 }
 
 /* 첫번째 페이지 */
-.one_section::before {
-  content: "";
-  background: url("{{ url_for('static', filename='img/index/index.png') }}");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+.one_section {
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
+  overflow: hidden;
+}
+
+.index {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .welcome {
@@ -81,99 +83,201 @@ body {
   left: 0%;
 }
 
+/* 인공지능소프트웨어과
+IT 전공동아리 꿀비 */
 .welcome>p {
   text-align: center;
   font-family: 'MinSans-Regular';
   color: #ffffff;
-}
-
-/* 인공지능소프트웨어과
-IT 전공동아리 꿀비 */
-.title {
-  color: #333;
   font-size: 4em;
   margin: 3%;
 }
 
-/* 두번째 페이지 */
-.two_section {
-  border-radius: 15px;
-}
 
-/* 동아리 소개 */
+
 .two_title {
   color: #333;
-  font-size: 2.5em;
-  margin: 3%;
+  font-size: 3em;
+  margin: 10% 3% 3% 3%;
+  width: 50%;
+  font-family: 'MinSans-Regular';
 }
 
-/* 대회 + 내신 + 상담 + 다양한 활동 */
+.introduce {
+  margin: 3%;
+  width: 50%;
+  font-family: 'MinSans-Regular';
+  font-size: 18px;
+}
+
 .intro_card-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 3%;
   flex-wrap: wrap;
-  width: 100%;
+  width: 50%;
+  flex-direction: row;
+  position: absolute;
+  top: 105%;
+  right: 0%;
+  align-items: center;
 }
 
-/* 대회 상담 */
 .intro_card {
   background-color: #000;
   color: #fff;
   border-radius: 10px;
   padding: 20px;
-  width: 250px;
-  height: 300px;
+  width: 40%;
+  height: 280px;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
-/* 글자 */
 .intro_card>p {
-  margin-top: -30%;
+  margin-top: -3%;
 }
 
-/* 카드에 닿았을때 y좌표 움직이기 */
 .intro_card:hover {
   transform: translateY(-10px);
 }
 
-/* 내신 다양한 활동 */
-.intro_card2 {
-  background-color: #000;
-  color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 250px;
-  height: 300px;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 15%;
-}
-
-/* 글자 */
-.intro_card2>p {
-  margin-top: -30%;
-}
-
-/* 카드에 닿았을때 y좌표 움직이기 */
-.intro_card2:hover {
-  transform: translateY(-10px);
-}
-
-/* 그림 */
 .icon {
   height: 50px;
   margin: 20px 0;
+}
+
+.three_title {
+  color: #333;
+  font-size: 3em;
+  margin: 3% 3% 0% 3%;
+  width: 50%;
+  font-family: 'MinSans-Regular';
+}
+
+.teacher_card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 0%;
+  align-items: center;
+}
+
+.teacher_card {
+  width: 8%;
+  height: 28%;
+}
+
+.teacher_card>img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.teacher_card>p {
+  margin: 0%;
+  width: 100%;
+  font-family: 'MinSans-Regular';
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.grade3_card-container {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 1.5%;
+  align-items: center;
+}
+
+.grade3_card {
+  width: 8%;
+  height: 28%;
+}
+
+.grade3_card>img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.grade3_card>p {
+  margin: 0%;
+  width: 100%;
+  font-family: 'MinSans-Regular';
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.grade2_card-container {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 1.5%;
+  align-items: center;
+}
+
+.grade2_card {
+  width: 8%;
+  height: 28%;
+}
+
+.grade2_card>img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.grade2_card>p {
+  margin: 0%;
+  width: 100%;
+  font-family: 'MinSans-Regular';
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.grade1_card-container {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 1.5%;
+  align-items: center;
+}
+
+.grade1_card {
+  width: 8%;
+  height: 28%;
+}
+
+.grade1_card>img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.grade1_card>p {
+  margin: 0%;
+  width: 100%;
+  font-family: 'MinSans-Regular';
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Awards */
@@ -187,7 +291,7 @@ IT 전공동아리 꿀비 */
   font-family: 'S-CoreDream-3Light';
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* 수상카드 컨테이너*/
@@ -195,8 +299,8 @@ IT 전공동아리 꿀비 */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 32px;
-  padding: 2%;
-  background-color: white;
+  padding: 1%;
+  background-color: #F4F4F4;
 }
 
 /* 수상카드 */
@@ -237,8 +341,8 @@ IT 전공동아리 꿀비 */
 
 /* show more + */
 .show-more {
-  margin-top: 0%;
-  background-color: white;
+  margin-top: 1.5%;
+  background-color: #F4F4F4;
 }
 
 /* show more + */
@@ -423,7 +527,7 @@ footer {
 
 /* 꿀비 ~ 2층 앱센터 안쪽 앱제작1실 */
 #p1 {
-  width: 100%;
+  width: 50%;
   height: 40%;
   position: absolute;
   top: 5%;
@@ -448,10 +552,10 @@ footer>hr {
 
 /* 꿀비 @2025 */
 #p2 {
-  width: 100%;
-  height: 40%;
+  width: 50%;
+  height: 20%;
   position: absolute;
-  top: 70%;
+  top: 65%;
   left: 2%;
   color: gray;
   display: flex;
@@ -462,10 +566,10 @@ footer>hr {
 }
 
 /* 모바일 */
-@media (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 768px) {
 
   /* 인공지능소프트웨어과 IT 전공동아리 꿀비 */
-   .welcome {
+  .welcome {
     width: 100%;
     height: 30%;
     position: absolute;
@@ -477,11 +581,7 @@ footer>hr {
     text-align: center;
     font-family: 'MinSans-Regular';
     color: #ffffff;
-  }
-
-  .title {
-    color: #333;
-    font-size: 0.8em;
+    font-size: 2em;
     margin: 3%;
   }
 
@@ -495,70 +595,58 @@ footer>hr {
     color: #333;
     font-size: 2.5em;
     margin: 4%;
+    width: 100%;
+  }
+
+  .introduce {
+    margin: 3%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 10px;
   }
 
   /* 동아리 소개 카드 컨테이너 */
   .intro_card-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 3%;
     flex-wrap: wrap;
     width: 100%;
+    position: absolute;
+    top: 138%;
   }
 
-  /* 대회 상담 */
+
   .intro_card {
     background-color: #000;
     color: #fff;
     border-radius: 10px;
     padding: 20px;
-    width: 150px;
-    height: 200px;
+    width: 35%;
+    height: auto;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 5% 1% 1% 1%;
+    margin: 1%;
   }
 
   /* 글씨 */
   .intro_card>p {
-    margin-top: -20%;
+    margin-top: 0%;
     font-size: small;
+  }
+
+  .intro_card>img {
+    height: auto;
+    width: 73%;
+    margin: auto;
   }
 
   /* 닿았을때 y좌표 이동 */
   .intro_card:hover {
-    transform: translateY(-10px);
-  }
-
-  /* 내신 다양환활동 */
-  .intro_card2 {
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 150px;
-    height: 200px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 5% 1% 1% 1%;
-  }
-
-  /* 글씨 */
-  .intro_card2>p {
-    margin-top: -20%;
-    font-size: small
-  }
-
-    /* 닿았을때 y좌표 이동 */
-  .intro_card2:hover {
     transform: translateY(-10px);
   }
 
@@ -567,6 +655,141 @@ footer>hr {
     height: 50px;
     margin: 20px 0;
   }
+
+  .intro_card>h3 {
+    font-size: 20px;
+    margin: 0%;
+  }
+
+  .three_title {
+    color: #333;
+    font-size: 3em;
+    margin: 4% 3% 0% 3%;
+    width: 90%;
+    font-family: 'MinSans-Regular';
+  }
+
+  .teacher_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 3%;
+    align-items: center;
+  }
+
+  .teacher_card {
+    width: 15%;
+    height: 28%;
+  }
+
+  .teacher_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .teacher_card>p {
+    margin: 0%;
+    width: 150%;
+    font-family: 'MinSans-Regular';
+    font-size: 14px;
+    display: flex;
+    justify-content: left;
+  }
+
+  .grade3_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 105%;
+    flex-direction: row;
+    margin-top: 4%;
+    align-items: center;
+  }
+
+  .grade3_card {
+    width: 10%;
+    height: 28%;
+  }
+
+  .grade3_card>img {
+    border-radius: 50%;
+    width: 100%;
+
+  }
+
+  .grade3_card>p {
+    margin: 0%;
+    width: 110%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grade2_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 4%;
+    align-items: center;
+  }
+
+  .grade2_card {
+    width: 12%;
+    height: 28%;
+  }
+
+  .grade2_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .grade2_card>p {
+    margin: 0%;
+    width: 110%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grade1_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 1.5%;
+    align-items: center;
+  }
+
+  .grade1_card {
+    width: 8%;
+    height: 28%;
+  }
+
+  .grade1_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .grade1_card>p {
+    margin: 0%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
 
   /* Awards */
   .Awards {
@@ -592,7 +815,7 @@ footer>hr {
   /* 수상카드 */
   .card {
     height: 30%;
-    width: 40%;
+    width: 35%;
     margin-top: 0%;
     background: white;
     border-radius: 10px;
@@ -630,12 +853,12 @@ footer>hr {
     margin-top: 0%;
   }
 
-    /* show more + */
+  /* show more + */
   .show-more button {
     width: 21%;
     height: 5%;
     position: absolute;
-    top: 205%;
+    top: 305%;
     right: 3%;
     background: #FCD363;
     color: white;
@@ -673,6 +896,533 @@ footer>hr {
   .cards2 {
     width: 100%;
     margin: 4% 0%;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 카드 개별 */
+  .card2 {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 300px;
+    height: 80px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+    margin: 3% 2% 1% 2%;
+    display: flex;
+  }
+
+  /* 작은 글씨 */
+  .card2>p {
+    width: 100%;
+    font-size: 15px;
+    position: absolute;
+    top: 54%;
+    left: 10%;
+  }
+
+  /* ⭐⚪🌟 */
+  .shape2 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+  }
+
+  /* 굵은 글씨 */
+  .big {
+    font-size: 2rem;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+  }
+
+  /* see more ➡️ */
+  .see-more {
+    width: 100%;
+    color: #FCD363;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    left: 65%;
+    top: 5%;
+  }
+
+  /* 닿으면 믿줄 */
+  .see-more:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    background-color: rgb(54, 54, 54);
+    height: 20%;
+    position: relative;
+    transform: translateY(-100%);
+  }
+
+  /* calendar + 공지사항 + 캘린더보기 */
+  #first {
+    width: 15%;
+    position: absolute;
+    top: 1%;
+    right: 40%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* calender */
+  #first>p {
+    font-size: 15px;
+  }
+
+  /* 공지사항 캘린더보기 */
+  #first>a {
+    font-size: 10px;
+    color: white;
+    margin: 4% 0%;
+    text-decoration-line: none
+  }
+
+  /* save */
+  #second {
+    width: 15%;
+    position: absolute;
+    top: 8%;
+    right: 25%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* save */
+  #second>a {
+    font-size: 15px;
+    color: white;
+    margin: 4% 0%;
+    text-decoration-line: none
+  }
+
+  /* game + 사다리타기 + 룰렛돌리기 */
+  #third {
+    width: 15%;
+    position: absolute;
+    top: 1%;
+    right: 15%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* game */
+  #third>p {
+    font-size: 15px;
+  }
+
+  /* 사다리타기 룰렛돌리기 */
+  #third>a {
+    font-size: 10px;
+    color: white;
+    margin: 4% 0%;
+    text-decoration-line: none
+  }
+
+  /* login + 로그인 + 회원가입 */
+  #fourd {
+    width: 15%;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* login */
+  #fourd>p {
+    font-size: 15px;
+  }
+
+  /* 로그인 회원가입 */
+  #fourd>a {
+    font-size: 10px;
+    color: white;
+    margin: 4% 0%;
+    text-decoration-line: none
+  }
+
+  /* 꿀비 ~ 앱제작1실 */
+  #p1 {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    color: rgb(186, 186, 186);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 9px;
+  }
+
+  /* 선 */
+  footer>hr {
+    width: 40%;
+    position: absolute;
+    top: 60%;
+    left: 2%;
+    color: rgb(56, 56, 56);
+    border-width: 1px 0 0 0;
+  }
+
+  /* 꿀비 @2025 */
+  #p2 {
+    width: 50%;
+    height: 20%;
+    position: absolute;
+    top: 70%;
+    left: 2%;
+    color: gray;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 10px;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 769px) and (max-width: 1222px) {
+
+  /* 인공지능소프트웨어과 IT 전공동아리 꿀비 */
+  .welcome {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 40%;
+    left: 0%;
+  }
+
+  .welcome>p {
+    text-align: center;
+    font-family: 'MinSans-Regular';
+    color: #ffffff;
+    font-size: 3em;
+    margin: 3%;
+  }
+
+  /* 두번째 페이지 */
+  .two_section {
+    border-radius: 15px;
+  }
+
+  /* 동아리소개 */
+  .two_title {
+    color: #333;
+    font-size: 3em;
+    margin: 2%;
+  }
+
+  .introduce {
+    margin: 3%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 18px;
+  }
+
+  /* 동아리 소개 카드 컨테이너 */
+  .intro_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: 150%;
+  }
+
+
+  .intro_card {
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 17%;
+    height: 200px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1%;
+  }
+
+  /* 글씨 */
+  .intro_card>p {
+    margin-top: 0%;
+    font-size: small;
+  }
+
+  /* 닿았을때 y좌표 이동 */
+  .intro_card:hover {
+    transform: translateY(-10px);
+  }
+
+  /* 그림 */
+  .icon {
+    height: 50px;
+    margin: 20px 0;
+  }
+
+  .intro_card>h3 {
+    font-size: 20px;
+    margin: 0%;
+  }
+
+  .three_title {
+    color: #333;
+    font-size: 3em;
+    margin: 4% 3% 0% 3%;
+    width: 60%;
+    font-family: 'MinSans-Regular';
+  }
+
+  .teacher_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 3%;
+    align-items: center;
+  }
+
+  .teacher_card {
+    width: 10%;
+    height: 28%;
+  }
+
+  .teacher_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .teacher_card>p {
+    margin: 0%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grade3_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 3%;
+    align-items: center;
+  }
+
+  .grade3_card {
+    width: 10%;
+    height: 28%;
+  }
+
+  .grade3_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .grade3_card>p {
+    margin: 0%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grade2_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 3%;
+    align-items: center;
+  }
+
+  .grade2_card {
+    width: 10%;
+    height: 28%;
+  }
+
+  .grade2_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .grade2_card>p {
+    margin: 0%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .grade1_card-container {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 1.5%;
+    align-items: center;
+  }
+
+  .grade1_card {
+    width: 8%;
+    height: 28%;
+  }
+
+  .grade1_card>img {
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  .grade1_card>p {
+    margin: 0%;
+    width: 100%;
+    font-family: 'MinSans-Regular';
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  /* Awards */
+  .Awards {
+    width: 100%;
+    height: 11%;
+    font-size: 2.5rem;
+    font-family: 'S-CoreDream-3Light';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 수상카드 컨테이너*/
+  .cards {
+    display: flex;
+    gap: 15px;
+    padding: 1%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+
+  /* 수상카드 */
+  .card {
+    height: 30%;
+    width: 20%;
+    margin-top: 0%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.2s;
+  }
+
+  /* 카드에 닿았을때 y좌표 움직이기 */
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* 제목 굵게 */
+  .card .author {
+    font-weight: bold;
+  }
+
+  /* 날짜 */
+  .card .date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  /* 카드 사진 */
+  .card .content {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+  }
+
+  /* show more + */
+  .show-more {
+    margin-top: 0%;
+  }
+
+  /* show more + */
+  .show-more button {
+    width: 21%;
+    height: 5%;
+    position: absolute;
+    top: 305%;
+    right: 3%;
+    background: #FCD363;
+    color: white;
+    border: none;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 버튼에 닿으면 색 바뀌기 */
+  .show-more button:hover {
+    background: #ffc423;
+  }
+
+  /* Join our club */
+  .Join {
+    width: 100%;
+    height: 11%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 2.5rem;
+    text-align: center;
+    font-family: 'S-CoreDream-3Light';
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: #666;
+  }
+
+  /* 카드들 */
+  .cards2 {
+    width: 100%;
+    margin: 1% 0%;
     display: flex;
     justify-content: center;
     gap: 0px;
@@ -837,7 +1587,7 @@ footer>hr {
 
   /* 꿀비 ~ 앱제작1실 */
   #p1 {
-    width: 100%;
+    width: 40%;
     height: 40%;
     position: absolute;
     top: 5%;
@@ -862,349 +1612,8 @@ footer>hr {
 
   /* 꿀비 @2025 */
   #p2 {
-    width: 100%;
-    height: 40%;
-    position: absolute;
-    top: 70%;
-    left: 2%;
-    color: gray;
-    display: flex;
-    justify-content: left;
-    align-items: flex-start;
-    text-align: left;
-    font-size: 10px;
-  }
-}
-
-/* 태블릿 */
-@media (min-width: 769px) and (max-width: 1222px) {
-
-  /* 동아리 소개 카드 컨테이너 */
-  .intro_card-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  /* 대회카드 상담카드 */
-  .intro_card {
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 5% 1% 1% 1%;
-  }
-
-  /* 작은글씨 */
-  .intro_card>p {
-    margin-top: -10%;
-  }
-
-  /* 닿았을때 y좌표 이동 */
-  .intro_card:hover {
-    transform: translateY(-10px);
-  }
-
-  /* 내신카드 다양한 활동카드 */
-  .intro_card2 {
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 5% 1% 1% 1%;
-  }
-
-  /* 작은글씨 */
-  .intro_card2>p {
-    margin-top: -10%;
-  }
-
-    /* 닿았을때 y좌표 이동 */
-  .intro_card2:hover {
-    transform: translateY(-10px);
-  }
-
-  /* 그림 */
-  .icon {
-    height: 50px;
-    margin: 20px 0;
-  }
-
-  /* Join our club */
-  .Join {
-    width: 100%;
-    height: 11%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    font-size: 2.5rem;
-    text-align: center;
-    font-family: 'S-CoreDream-3Light';
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    color: #666;
-  }
-
-  /* 카드 컨테이너 */
-  .cards2 {
-    margin-top: 8%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  /* 카드 */
-  .card2 {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    width: 25%;
-    height: 50%;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    text-align: left;
-  }
-
-  /* ⭐⚪🌟 */
-  .shape2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-
-  /* 굵은 글씨 */
-  h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  /* show more + */
-  .show-more {
-    margin-top: 0%;
-  }
-
-    /* show more + */
-  .show-more button {
-    width: 21%;
-    height: 5%;
-    position: absolute;
-    top: 205%;
-    right: 3%;
-    background: #FCD363;
-    color: white;
-    border: none;
-    font-size: 13px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-    /* show more + 버튼에 닿았을때 색바뀜 */
-  .show-more button:hover {
-    background: #ffc423;
-  }
-
-  /* see more 버튼에 닿으면 밑줄 */
-  .see-more:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    background-color: black;
+    width: 40%;
     height: 20%;
-    position: relative;
-    transform: translateY(-100%);
-  }
-}
-
-/* 반응형보안안 */
-@media (min-width: 770px) and (max-width: 1434px) {
-  
-  /* show more + 버튼 */
-  .show-more {
-    margin-top: 0%;
-  }
-
-  /* show more + 버튼 */
-  .show-more button {
-    width: 21%;
-    height: 5%;
-    position: absolute;
-    top: 205%;
-    right: 3%;
-    background: #FCD363;
-    color: white;
-    border: none;
-    font-size: 13px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* show more + 버튼에 닿으면 색바뀜*/
-  .show-more button:hover {
-    background: #ffc423;
-  }
-  
-  /* see more 버튼에 닿으면 밑줄 */
-  .see-more:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    background-color: rgb(54, 54, 54);
-    height: 25%;
-    position: relative;
-    transform: translateY(-100%);
-  }
-
-  /* calendar + 공지사항 + 캘린더보기 */
-  #first {
-    width: 10%;
-    position: absolute;
-    top: 1%;
-    right: 30%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* calendar  */
-  #first>p {
-    font-size: 18px;
-  }
-
-  /* 공지사항 캘린더보기 */
-  #first>a {
-    font-size: 13px;
-    color: white;
-    margin: 4% 0%;
-    text-decoration-line: none
-  }
-
-  /* save */
-  #second {
-    width: 10%;
-    position: absolute;
-    top: 8%;
-    right: 18%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* save */
-  #second>a {
-    font-size: 18px;
-    color: white;
-    margin: 4% 0%;
-    text-decoration-line: none
-  }
-
-  /* game + 사다리타기 + 룰렛돌리기 */
-  #third {
-    width: 10%;
-    position: absolute;
-    top: 1%;
-    right: 10%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* game */
-  #third>p {
-    font-size: 18px;
-  }
-
-  /* 사다리타기 룰렛돌리기 */
-  #third>a {
-    font-size: 13px;
-    color: white;
-    margin: 4% 0%;
-    text-decoration-line: none
-  }
-
-  /* login + 로그인 + 회원가입 */
-  #fourd {
-    width: 10%;
-    position: absolute;
-    top: 1%;
-    right: 0%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* login */
-  #fourd>p {
-    font-size: 18px;
-  }
-
-  /* 로그인 회원가입 */
-  #fourd>a {
-    font-size: 13px;
-    color: white;
-    margin: 4% 0%;
-    text-decoration-line: none
-  }
-
-  /* 꿀비 ~ 앱제작1실 */
-  #p1 {
-    width: 100%;
-    height: 40%;
-    position: absolute;
-    top: 5%;
-    left: 2%;
-    color: rgb(186, 186, 186);
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-    font-size: 12px;
-  }
-
-  /* 선 */
-  footer>hr {
-    width: 40%;
-    position: absolute;
-    top: 60%;
-    left: 2%;
-    color: rgb(56, 56, 56);
-    border-width: 1px 0 0 0;
-  }
-
-  /* 꿀비 @2025 */
-  #p2 {
-    width: 100%;
-    height: 40%;
     position: absolute;
     top: 70%;
     left: 2%;
@@ -1213,6 +1622,6 @@ footer>hr {
     justify-content: left;
     align-items: flex-start;
     text-align: left;
-    font-size: 12px;
+    font-size: 10px;
   }
 }

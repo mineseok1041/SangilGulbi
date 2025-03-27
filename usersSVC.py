@@ -24,6 +24,7 @@ class usersSVC:
         try:
             if self.DAO.isIDExist(reqDTO):
                 if self.DAO.isPWDCorrect(reqDTO):
+                    self.DAO.updateLastLogin(reqDTO.id)  # 마지막 로그인 시간 업데이트
                     return True
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")
@@ -56,3 +57,23 @@ class usersSVC:
             self.DAO.updateUserInfo(reqDTO)
         except Exception as e:
             raise Exception(f"updateUserInfo Error: {e}")
+        
+    def getStudentsList(self, page:int) -> list[usersDTO]:
+        try:
+            return self.DAO.getStudentsList(page)
+        except Exception as e:
+            raise Exception(f"getUsersList Error: {e}")
+        
+    def addPoint(self, stdDTO:usersDTO, managerDTO:usersDTO, point:int, reason: int):
+        try:
+            self.DAO.addPoint(stdDTO, point)
+            self.DAO.addPointLog(stdDTO, managerDTO, point, reason)
+            print("SVC success")
+        except Exception as e:
+            raise Exception(f"addPoint Error: {e}")
+        
+    def getManagersList(self, page:int) -> list[usersDTO]:
+        try:
+            return self.DAO.getManagersList(page)
+        except Exception as e:
+            raise Exception(f"getManagersList Error: {e}")
