@@ -66,7 +66,9 @@
     </article>
     <article class="score_box">
         <h3 class="score">상벌점</h3>
-        <p class="score_p">{% for log in pointLogs %}누가:{{ log.managerID }} 몇점:{{ log.point }} 왜: {{ log.reason }} 언제: {{log.addDate}}<br>{% endfor %}</p>
+        <p class="score_p"><strong>몇점 : </strong>12점 <br> <strong>사유 : </strong>선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우 </p>
+        <p class="all_score"><strong>현재 상벌점 : </strong> 52점</p>
+        <button class="More" onclick="score_openPopup()">More</button>
     </article>
 
     <script>

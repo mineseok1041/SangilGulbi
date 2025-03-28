@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage_ScorePopup.css') }}">
+    <title>상벌점</title>
+</head>
+
+<body>
+    <article class="score_box">
+        <h3 class="title">상벌점</h3>
+        <h3 class="score">점수 : 52점</h3>
+        <h3 class="why">사유 : 선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우</h3>
+        <h3 class="cal">날짜 : 2025.03.28</h3>
+        <h3 class="who">사람 : 이시은</h3>
+        
+
+        <button class="fin" onclick="closePopup()">완료</button>
+    </article>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mypage.js') }}"></script>
+</body>
+
+</html>
