@@ -19,6 +19,7 @@ h1 {
     font-size: 2.5em;
     color: #313131;
     justify-content: center;
+    margin-top: 4%;
 }
 
 /* ⭐⭐⭐ */
@@ -27,7 +28,7 @@ h1 {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 12%;
+    top: 13.5%;
     font-size: 1.5em;
 }
 
