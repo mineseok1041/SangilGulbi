@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- HTML 기초 설정 시작 (2025-02-23 22:12) -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 한글 인코딩 설정 (2025-02-23 22:12) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 반응형 웹을 위한 뷰포트 설정 (2025-02-23 22:12) -->
+    <title>Manager Page</title>
+    <!-- 페이지 제목 설정 (2025-02-23 22:12) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manager_page_main.css') }}">
+    <!-- 외부 CSS 파일 연결 (2025-02-23 22:12) -->
+</head>
+
+<body>
+    <!-- 네비게이션 바 시작 (2025-02-23 22:12) -->
+    <nav class="navbar">
+        <div class="navbarLogo">
+            <a class="navbarLogo" href="/">GB</a>
+        </div>
+        <div class="navbarMenu">
+            <span class="title">
+                <a href="/management" class="linkManagerPage">Manager Page</a> <!-- 메인 관리자 페이지 이동 (2025-02-23 22:12) -->
+            </span>
+            <a href="/management/student" class="linkManagerPageUser">학생 관리</a>
+            <!-- 학생 관리 페이지 이동 (2025-02-23 22:12) -->
+            {% if session['identity'] == 0 %}
+            <a href="/management/manager" class="linkManagerPageList">관리자 목록</a>
+            <!-- 관리자 목록 페이지 이동 (2025-02-23 22:12) -->
+            {% endif %}
+        </div>
+        <div class="navbarUser">
+            <a href="" class="clickMypage">
+                <img src="{{ url_for('static', filename='img/mgmt/user_profile.png') }}" alt="UserProfile">
+                <!-- 사용자 프로필 이미지 (2025-02-23 22:12) -->
+            </a>
+        </div>
+    </nav>
+    <!-- 네비게이션 바 종료 (2025-02-23 22:12) -->
+
+    <!-- 학생, 일정, 공지사항 박스를 담은 컨테이너 시작 (2025-02-23 22:12) -->
+    <div class="boxContainer">
+        <!-- 학생 박스 시작 (2025-02-23 22:12) -->
+        <div class="box userBox">
+            <div class="userBoxHeader">
+                <img src="{{ url_for('static', filename='img/mgmt/user.png') }}" alt="User">
+                <!-- 학생 아이콘 (2025-02-23 22:12) -->
+                <h1>학생</h1>
+            </div>
+            <div class="userCount">11</div>
+            <!-- 학생 수 표시 (2025-02-23 22:12) -->
+            <div class="expandArrow" onclick="toggleUserBox()">&#9660;</div>
+            <!-- 학생 목록 확장 화살표 (2025-02-23 22:12) -->
+        </div>
+        <!-- 학생 박스 종료 (2025-02-23 22:12) -->
+
+        <!-- 일정 박스 시작 (2025-02-23 22:12) -->
+        <div class="box calendarBox">
+            <img src="{{ url_for('static', filename='img/mgmt/calendar.png') }}" alt="Calendar">
+            <!-- 일정 아이콘 (2025-02-23 22:12) -->
+            <h1>일정</h1>
+            <!-- 일정 섹션 제목 (2025-02-23 22:12) -->
+        </div>
+        <!-- 일정 박스 종료 (2025-02-23 22:12) -->
+
+        <!-- 공지사항 박스 시작 (2025-02-23 22:12) -->
+        <div class="box notificationBox">
+            <img src="{{ url_for('static', filename='img/mgmt/notification.png') }}" alt="Notification">
+            <!-- 공지사항 아이콘 (2025-02-23 22:12) -->
+            <h1>공지사항</h1>
+            <!-- 공지사항 섹션 제목 (2025-02-23 22:12) -->
+        </div>
+        <!-- 공지사항 박스 종료 (2025-02-23 22:12) -->
+    </div>
+    <!-- 학생, 일정, 공지사항 박스를 담은 컨테이너 종료 (2025-02-23 22:12) -->
+
+    <script src="{{ url_for('static', filename='js/manager_page_main.js') }}"></script>
+    <!-- 외부 JavaScript 파일 연결 (2025-02-23 22:12) -->
+</body>
+
+</html>

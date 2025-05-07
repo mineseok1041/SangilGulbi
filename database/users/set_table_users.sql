@@ -6,16 +6,10 @@ create table users (
     currentgrade number,
     currentclass number,
     currentnum number,
-    firststdnum number(10),
-    secondstdnum number(10),
-    thirdstdnum number(10),
+    currentstdnum number(10),
     point number default 0,
     signeddate varchar2(17) default to_char(sysdate, 'YYYYMMDD HH24:MI:SS'),
     lastlogin varchar2(17),
-    phone varchar2(12),
-    parentphone varchar2(12),
-    email varchar2(50),
-    birth varchar2(8),
     identity number default 2,
     profile_pic varchar2(255)
 );

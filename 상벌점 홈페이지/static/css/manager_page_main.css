@@ -1,0 +1,193 @@
+/* font-face 설정 (2025-02-23 22:12) */
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* 전체 페이지 스타일 (2025-02-23 22:12) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'MinSans-Regular', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden; /* 가로 스크롤 제거 (2025-02-23 22:12) */
+    overflow-y: hidden; /* 세로 스크롤 활성화 (2025-02-23 22:12) */
+}
+
+/* 네비게이션 바 스타일 (2025-02-23 22:12) */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #3d3d3d;
+    padding: 10px 20px;
+    height: 60px;
+    min-width: 700px; /* 최소 너비 설정 (2025-02-23 22:12) */
+}
+
+/* 메인 GB 로고 설정 (2025-02-23 22:12) */
+.navbarLogo {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
+.navbarMenu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 네비게이션 제목 스타일 (2025-02-23 22:12) */
+.navbarMenu span {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 네비게이션 링크 스타일 (2025-02-23 22:12) */
+.navbarMenu a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    margin-left: 30px;
+}
+
+.navbarMenu a:hover {
+    color: #ffcc00; /* 호버 효과 (2025-02-23 22:12) */
+}
+
+/* 사용자 아이콘 스타일 (2025-02-23 22:12) */
+.navbarUser {
+    margin-left: auto;
+}
+
+.navbarUser img {
+    width: 50px;
+    height: auto;
+}
+
+/* 메인 컨텐츠 박스 스타일 (2025-02-23 22:12) */
+.boxContainer {
+    display: flex;  /* 박스들을 가로로 배치 (2025-02-23 22:12) */
+    flex-wrap: wrap;  /* 공간이 부족하면 줄 바꿈 (2025-02-23 22:12) */
+    justify-content: flex-start;  /* 왼쪽 정렬 (2025-02-23 22:12) */
+    gap: 10px;  /* 박스 간의 간격 (2025-02-23 22:12) */
+    margin-top: 20px;  /* 네비게이션 바와 간격 (2025-02-23 22:12) */
+    padding: 0 20px;  /* 양옆 여백 추가 (2025-02-23 22:12) */
+}
+
+/* 박스 기본 스타일 (2025-02-23 22:12) */
+.box {
+    display: flex;
+    gap: 5%;
+    color: white;
+    padding: 20px;
+    width: 25%; /* 5개 박스가 한 줄에 배치되도록 설정 (2025-02-23 22:12) */
+    border-radius: 10px;
+    box-sizing: border-box; /* padding과 border 포함한 너비 설정 (2025-02-23 22:12) */
+}
+
+/* 학생 박스 스타일 (2025-02-23 22:12) */
+.userBox {
+    background-color: #3a3a3a;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 25%;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* 화살표 위치 조정을 위한 상대적 위치 설정 (2025-02-23 22:12) */
+    flex-direction: column;
+}
+
+/* 학생 박스 내부 헤더 스타일 (2025-02-23 22:12) */
+.userBoxHeader {
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    width: 100%;
+}
+
+/* 학생 아이콘 스타일 (2025-02-23 22:12) */
+.userBox img {
+    width: 40px;
+    height: 40px;
+}
+
+/* 학생 박스 제목 스타일 (2025-02-23 22:12) */
+.userBox h1 {
+    color: white;
+    font-size: 32px;
+}
+
+/* 학생 수 스타일 (2025-02-23 22:12) */
+.userCount {
+    color: white;
+    font-size: 48px;
+    margin-top: 10px;
+    margin-left: 3%;
+}
+
+/* 학생 박스 확장 화살표 스타일 (2025-02-23 22:12) */
+.expandArrow {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    position: absolute;
+    bottom: 10px;  /* 박스 하단에 고정 (2025-02-23 22:12) */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease; /* 부드러운 애니메이션 효과 (2025-02-23 22:12) */
+}
+
+/* 화살표 회전 효과 (2025-02-23 22:12) */
+.userBox.open .expandArrow {
+    transform: rotate(180deg) translateX(50%);
+}
+
+/* 일정 박스 스타일 (2025-02-23 22:12) */
+.calendarBox {
+    background-color: #3a3a3a;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 25%;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 공지사항 박스 스타일 (2025-02-23 22:12) */
+.notificationBox {
+    background-color: #3a3a3a;
+    margin-top: 3%;
+    border-radius: 10px;
+    width: 37%;
+    height: 350px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 박스 내부 이미지 크기 설정 (2025-02-23 22:12) */
+.box img {
+    width: 90px;
+    height: 90px;
+}
+
+/* 일정 & 공지사항 제목 스타일 (2025-02-23 22:12) */
+.calendarBox h1, .notificationBox h1 {
+    color: white;
+    font-size: 32px;
+    text-align: center;
+}
+
+/* 박스 확장 시 스타일 (2025-02-23 22:12) */
+.userBox.open {
+    height: auto;
+    padding-bottom: 60px;
+}
