@@ -1,1 +1,17 @@
-메인페이지
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>상벌점 홈페이지</title>
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+</head>
+
+<body>
+	<h1 class="introduce">학생과 선생님을 위한 쉽고 빠른 <br> 상벌점 관리 플랫폼</h1>
+	<button class="next" onClick="location.href='/auth/login'">들어가기</button>
+	<img src="{{ url_for('static', filename='img/index.png') }}">
+</body>
+
+</html>

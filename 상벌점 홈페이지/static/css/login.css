@@ -1,327 +1,90 @@
-/* ✅ 사용자 정의 폰트 적용 */
-
-@font-face {
-    font-family: 'MinSans-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
 }
-
-
-/* ✅ 전체 페이지 스타일 설정 */
 
 body {
-    background-color: #f9f9f9;
-    font-family: 'MinSans-Regular';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    position: relative;
+    background-color: white;
 }
 
+.login {
+    width: 50%;
+    position: absolute;
+    top: 20%;
+}
 
-/* ✅ 전체 페이지 스타일 설정 */
-
-.login-container {
-    background-color: #fff;
-    padding: 40px;
+.login-wrapper{
+    width: 30%;
+    height: 38%;
+    margin: 1%;
+    background-color: #BCCCDC;
+    padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    height: 600px;
-    text-align: center;
-    position: relative;
-    /* 원 위에 표시되도록 설정 */
-    z-index: 1;
-    /* 로그인 컨테이너를 전면으로 설정 */
-}
-
-
-/* ✅ 제목 스타일 */
-
-h1 {
-    color: #000000;
-    font-size: 24px;
-    font-family: 'MinSans-Regular';
-    font-weight: bold;
-}
-
-
-/* ✅ 설명 텍스트 스타일 */
-
-p {
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'MinSans-Regular';
-}
-
-
-/* ✅ 폼 요소 스타일 */
-
-form {
-    text-align: left;
+    position: absolute;
+    top: 25%;
+    right: 10%;
 }
 
 label {
-    font-size: 16px;
-    color: #333;
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input[type="email"] {
-    width: 100%;
-    padding: 9px;
-    margin-bottom: 15%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-    z-index: 1;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 9px;
-    margin-bottom: 3%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-    z-index: 1;
-}
-
-input[type="password"] {
-    width: 100%;
-    padding: 9px;
-    margin-bottom: 3%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-    z-index: 1;
-}
-
-
-/*✅ 이메일 입력칸 스타일 */
-
-.email-container {
-    position: relative;
-    /* 내부 요소를 상대적으로 배치할 수 있도록 설정 */
-    width: 100%;
-    display: flex;
-    /* 내부 요소를 가로 정렬 */
+    display: inline-flex;
     align-items: center;
-    /* 세로 중앙 정렬 */
-}
-
-small {
-    display: block;
-    color: #999;
-    font-size: 14px;
-    font-family: 'MinSans-Regular';
-    margin-bottom: 0.5%;
-}
-
-
-/*자동 로그인 스타일*/
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    /* 세로 중앙 정렬 */
-    gap: 8px;
-    /* 체크박스와 라벨 간격 조정 */
-    margin-bottom: 18%;
-}
-
-.remember-me input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    accent-color: #838383;
-    /* 체크박스 색상 변경 (선택) */
-}
-
-.remember-me label {
-    position: static;
-    font-size: 16px;
-    color: #666;
-    font-family: 'MinSans-Regular';
-    margin: 0;
-    /* 기본 마진 제거 */
-}
-
-
-/* ✅ 로그인 버튼 스타일 */
-
-.login-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #838383;
-    border: none;
-    position: relative;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 18px;
-    bottom: 1%;
+    gap: 0.5rem;
     cursor: pointer;
-    margin-bottom: 5px;
-    transition: background-color 0.3s;
-    font-family: 'MinSans-Regular';
 }
 
-.login-btn:hover {
-    background-color: #767676;
+h2{
+    color: white;
 }
 
-.forgot-password {
-    display: block;
-    text-align: right;
-    color: #9CA3AF;
-    font-size: 14px;
-    margin-bottom: 29px;
-    font-family: 'MinSans-Regular';
-}
-
-.password-input {
-    width: 100%;
-    padding: 9px;
-    padding-right: 40px;
-    /* 아이콘 공간 확보 */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-}
-
-
-/* ✅ 비밀번호 입력칸 스타일 */
-
-.password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-
-/* ✅ 비밀번호 표시 아이콘 */
-
-.eye-icon {
-    /* 비밀번호 표시해주는 아이콘 */
-    position: absolute;
-    right: 10px;
-    top: 40%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    object-fit: contain;
-    z-index: 1;
-    pointer-events: auto;
-    /* 클릭 가능하도록 설정 */
-}
-
-
-/* ✅ 회원가입 유도 문구 */
-
-.signup-prompt {
-    margin-top: 25px;
-    font-size: 16px;
-}
-
-.signup-prompt a {
-    color: #9CA3AF;
-    text-decoration: none;
-    font-family: 'MinSans-Regular';
-}
-
-.email {
-    font-family: 'MinSans-Regular';
+.id {
+    width: 91%;
+    height: 48px;
+    margin-top: 5%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
 }
 
 .password {
-    font-family: 'MinSans-Regular';
+    width: 91%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
 }
 
-.e-mail {
-    font-family: 'MinSans-Regular';
+.remember-check{
+    margin-top: 1%;
+    border-radius: 10px;
+    padding-left: 2%;
+    font-size: 15px;
+    color: white;
 }
 
-
-/* 기존 스타일 유지 */
-
-@media (max-width: 1024px) {
-    .login-container {
-        width: 90%;
-        padding: 30px;
-    }
-    h1 {
-        font-size: 22px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-    .login-btn {
-        font-size: 16px;
-        padding: 10px;
-    }
+.sumit {
+    width: 97%;
+    height: 51px;
+    margin-top: 4%;
+    border-radius: 10px;
+    background-color: #d1e4fb;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
 }
 
-
-/* 반응형 디자인 */
-
-@media (max-width: 768px) {
-    .login-container {
-        width: 90%;
-        padding: 30px;
-    }
-    h1 {
-        font-size: 22px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-    .login-btn {
-        font-size: 16px;
-        padding: 10px;
-    }
+.signup {
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    margin-top: 1%;
 }
 
-@media (max-width: 480px) {
-    .login-container {
-        width: 95%;
-        padding: 25px;
-    }
-    h1 {
-        font-size: 20px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-    .login-btn {
-        font-size: 14px;
-        padding: 8px;
-    }
+img {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
 }

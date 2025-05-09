@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/mainpage_stu.css" rel="stylesheet">
+    <title>mainpage</title>
+</head>
+
+<header>
+    <h2 class="main">상벌점 홈페이지</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="/img/simple.png">
+    <p class="number">10313</p>
+    <p class="name">이시은</p>
+
+    <a class="mypage_nav" href="/template/mainpage_stu.html">마이페이지</a>
+    <hr class="first">
+    <a class="log_nav" href="/template/log_stu.html">상벌점 내역</a>
+    <hr class="two">
+    <a class="community_nav" href="/template/community_stu.html">게시판</a>
+
+    <hr class="three">
+    <button class="logout">logout</button>
+</nav>
+
+<body>
+
+    <div class="up_score">
+        <div class="box"></div>
+        <h1 class="up_all">총 상점 : 55점</h1>
+    </div>
+
+    <div class="down_score">
+        <div class="box"></div>
+        <h1 class="up_all">총 벌점 : -0점</h1>
+    </div>
+
+    <div class="log_box">
+        <div class="header">
+            <h1>상벌점 내역</h1>
+        </div>
+        <table class="log">
+            <tr>
+                <th scope="list">날짜</td>
+                <th scope="list">사유</td>
+                <th scope="list">해당 상벌점</td>
+                <th scope="list">총 상벌점</td>
+                    </td>
+            </tr>
+            <tr>
+                <td>2025.26.23</td>
+                <td>내가 넘ㅁ모 기특</td>
+                <td>12점</td>
+                <td>132315점</td>
+            </tr>
+        </table>
+        <button class="more" onClick="location.href='community_stu.html'">더보기</button>
+    </div>
+
+    <div class="community_box">
+        <div class="header">
+            <h1>게시판</h1>
+        </div>
+        <table class="community">
+            <tr>
+                <th scope="list">제목</td>
+                <th scope="list">날짜짜</td>
+                    </td>
+            </tr>
+            <tr>
+                <td>과사무실 청소</td>
+                <td>2025.25.15</td>
+            </tr>
+        </table>
+        <button class="more" onClick="location.href='community_stu.html'">더보기</button>
+    </div>
+</body>
+
+</html>

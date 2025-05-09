@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+<link href="/css/community_teacher.css" rel="stylesheet">
+</head>
+<header>
+    <h2 class="main">게시판</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="/img/simple.png">
+    <p class="number">아이디칸</p>
+    <p class="name">선생님 이름</p>
+
+    <a class="mypage_nav" href="/template/mainpage_stu.html">마이페이지</a>
+    <hr class="first">
+    <a class="award_nav" href="/template/log_stu.html">상점 부여</a>
+    <hr class="two">
+    <a class="penalty_nav" href="/template/log_stu.html">벌점 부여</a>
+    <hr class="three">
+    <a class="stu_manager_nav" href="/template/log_stu.html">학생 관리</a>
+    <hr class="four">
+    <a class="teacher_manager_nav" href="/template/log_stu.html">선생님 관리</a>
+    <hr class="five">
+    <a class="community_nav" href="/template/community_teacher.html">게시판</a>
+
+    <hr class="six">
+    <button class="logout">logout</button>
+</nav>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <th scope="list">번호</td>
+                <th scope="list" class="wide-column">제목</td>
+                <th scope="list" class="wide-column2">작성자</td>
+                <th scope="list" class="wide-column3">작성일</td>
+                <th scope="list"></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="wide-column"><a class= "nextpage" href="/template/community_teacher2.html">내가 넘모 기특</a></td>
+                <td>이영빈</td>
+                <td>2025.26.12</td>
+                <td><button class="agree-btn">수정</button>&emsp;<button class="decline-btn">삭제</button></td>
+            </tr>
+        </table>  
+    </div>
+              
+        <button class="write-btn"><a class = "write-tag" href="/template/community_teacher-add.html">글쓰기</a></button>
+    </div>
+</body>
+
+</html>

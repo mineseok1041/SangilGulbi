@@ -14,7 +14,7 @@ def dosignup():
         name = request.form['name']
         stdId = request.form['stdId']
 
-        reqDTO = usersDTO(id=id, password=password, name=name, email=email, birth=birth)
+        reqDTO = usersDTO(id=id, password=password, name=name, stdId=stdId)
 
         SVC.signup(reqDTO)
         print("signup success")

@@ -1,287 +1,121 @@
-/* Google Fonts 및 웹 폰트 추가 */
-
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-@font-face {
-    font-family: 'MinSans-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-/* 기본 스타일 초기화 */
-
-@font-face {
-    font-family: 'MinSans-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-/* 기본 스타일 초기화 */
-
 * {
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
+    border: none;
 }
-
-
-/* 전체 페이지 배경 및 폰트 설정 */
 
 body {
-    background-color: #f9f9f9;
-    font-family: 'MinSans-Regular';
-}
-
-
-/* 컨테이너 중앙 정렬 */
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-
-/* 입력 그룹 및 버튼 정렬 */
-
-.id {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 350px;
-    /* 최대 너비 설정 */
-}
-
-
-/* 입력 그룹 스타일 설정 */
-
-.input-group {
-    position: relative;
-    /* 버튼을 입력창 내부에 고정 */
-    width: 100%;
-    max-width: 350px;
-    /* 최대 너비 설정 */
-}
-
-
-/* 입력 버튼 스타일 설정 */
-
-.btn {
-    position: absolute;
-    margin-left: 210px;
-    /* 입력 박스 내부에서 오른쪽 끝 정렬 */
-    margin-top: 3px;
-    padding: 6px 9px;
     background-color: white;
-    color: black;
-    font-family: 'MinSans-Regular';
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
-    border-radius: 50px;
-    white-space: nowrap;
-    /* 버튼 줄 바꿈 방지 */
-    z-index: 1000000;
 }
 
 
-/* 설명 메시지 스타일 설정 */
 
-span {
-    position: relative;
-    font-family: 'MinSans-Regular';
-    font-size: 14px;
-    color: #777;
-    margin-right: 48%;
-    margin-top: 0%;
-    top: 37.5%;
-    z-index: 10;
-}
-
-
-/* 회원가입 폼 스타일 */
-
-.signup-form {
-    background-color: white;
-    padding: 2rem;
+.signup-wrapper{
+    width: 35%;
+    height: 55%;
+    margin: 1%;
+    background-color: #BCCCDC;
+    padding: 2% 0% 2% 2%;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    text-align: center;
+    position: absolute;
+    top: 15%;
+    right: 10%;
 }
 
-
-/* 회원가입 제목 스타일 */
-
-.signup-form h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
 
-
-/* 회원가입 설명 문구 스타일 */
-
-.signup-form p {
-    margin-bottom: 20px;
-    color: #777;
-    font-weight: bold;
+h2{
+    color: white;
+    font-size: 30px;
 }
-
-
-/* 입력 필드 정렬 */
-
-.signup-form form {
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* 입력창 스타일 설정 */
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"] {
-    padding: 10px;
-    margin-bottom: 5%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-    z-index: 1;
-}
-
-
-/* 이름 입력 필드 스타일 */
 
 .name {
-    padding: 10px;
-    margin-bottom: 5%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
-    z-index: 1;
+    width:45%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
+}
+
+.student_number {
+    width: 45%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
+}
+
+.check_code {
+    width: 85%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
 }
 
 
-/* 비밀번호 필드 스타일 */
+.id {
+    width: 85%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
+}
 
 .password {
-    position: relative;
-    width: 100%;
+    width: 85%;
+    height: 48px;
+    margin-top: 4%;
+    border-radius: 10px;
+    padding-left: 5%;
+    background-color: white;
 }
 
-
-/* 비밀번호 입력 필드 스타일 */
-
-.password-input {
-    width: 100%;
-    padding: 9px;
-    padding-right: 40px;
-    /* 아이콘 공간 확보 */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 'MinSans-Regular';
-    box-sizing: border-box;
-    /* 크기 유지 */
+.remember-check{
+    margin-top: 3%;
+    border-radius: 10px;
+    padding-left: 2%;
+    font-size: 15px;
 }
 
-
-/* 비밀번호 컨테이너 스타일 */
-
-.password-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-
-/* 비밀번호 표시 아이콘 스타일 */
-
-.eye-icon {
-    position: absolute;
-    right: 10px;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
+.sumit {
+    width: 90%;
+    height: 51px;
+    margin-top: 4%;
+    border-radius: 10px;
+    background-color: #d1e4fb;
+    font-size: 25px;
+    color: black;
     cursor: pointer;
-    object-fit: contain;
-    z-index: 1;
-    pointer-events: auto;
-    /* 클릭 가능하도록 설정 */
 }
 
-
-/* 회원가입 버튼 스타일 */
-
-.join {
-    background-color: #838383;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 20px;
-    font-family: 'MinSans-Regular';
-}
-
-
-/* 링크 스타일 설정 */
-
-.signup-form a {
-    color: #888888;
+.signup {
+    font-size: 10px;
     text-decoration: none;
+    color: #9EC6F3;
 }
 
-
-/* 링크 호버 스타일 */
-
-.signup-form a:hover {
-    text-decoration: underline;
+.login {
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+    margin-top: 2%;
+    width: 90%;
 }
 
-
-/* 반응형 디자인 설정 */
-
-@media (max-width: 1024px) {
-    .login-container {
-        width: 80%;
-        padding: 30px;
-    }
-    h1 {
-        font-size: 22px;
-    }
-    .btn {
-        font-size: 16px;
-        margin-left: 205px;
-        /* 입력 박스 내부에서 오른쪽 끝 정렬 */
-        border-radius: 50px;
-        margin-top: 1px;
-    }
-}
-
-@media (max-width: 768px) {
-    .login-container {
-        width: 90%;
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .login-container {
-        width: 95%;
-        padding: 20px;
-    }
+img {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
 }
