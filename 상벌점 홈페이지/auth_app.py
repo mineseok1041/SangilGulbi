@@ -97,11 +97,12 @@ def dologin():
             if request.form.get('remember'):
                 response.set_cookie('SangilGulbiUserID', loginDTO.id, max_age=60*60*24*365) # 1년
                 response.set_cookie('SangilGulbiUserPWD', loginDTO.password, max_age=60*60*24*365) # 1년
+        
 
         return response
     except Exception as e:
         print(e)
-        flash("로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.")
+        flash(str(e))
         return redirect(url_for('auth.login'))
     
 @authBlue.route('/logout.do')

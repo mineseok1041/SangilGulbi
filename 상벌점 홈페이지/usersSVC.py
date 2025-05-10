@@ -25,14 +25,17 @@ class usersSVC:
         try:
             if self.usersDAO.isIDExist(reqDTO):
                 if self.usersDAO.isPWDCorrect(reqDTO):
-                    self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
-                    return True
+                    if self.usersDAO.isVerified(reqDTO):
+                        self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
+                        return True
+                    else:
+                        raise Exception("관리자의 승인이 필요합니다.")
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")
             else:
                 raise Exception("존재하지 않는 ID입니다.")
         except Exception as e:
-            raise Exception(f"Login Error: {e}")
+            raise Exception(f"{e}")
         
     def isIDExist(self, reqDTO:usersDTO) -> bool:
         try:

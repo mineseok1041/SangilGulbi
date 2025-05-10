@@ -316,29 +316,6 @@ class usersDAO:
             if conn:
                 conn.close()
 
-    # 프로필 사진 업데이트
-    def updateProfilePic(self, reqDTO: usersDTO):
-        # 프로필 사진 업데이트 쿼리
-        query = "UPDATE users SET profile_pic = :1 WHERE id = :2"
-        
-        conn = None
-        cursor = None
-        try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
-            
-            # 프로필 사진 업데이트 쿼리 실행
-            cursor.execute(query, [reqDTO.profile_pic, reqDTO.id])
-            
-            conn.commit()
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"DB Error: {e}")
-        finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
-
     # 사용자 정보 업데이트
     def updateUserInfo(self, reqDTO: usersDTO):
         # 사용자 정보 업데이트 쿼리
@@ -375,3 +352,21 @@ class usersDAO:
         finally:
             cursor.close()
             conn.close()
+
+    def isVerified(self, reqDTO: usersDTO) -> bool:
+        query = "SELECT COUNT(*) FROM users WHERE id = :1 AND verified = 1"
+        
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        
+        print(reqDTO.id)
+
+        cursor.execute(query, [reqDTO.id])
+        count = cursor.fetchone()[0]
+        
+        cursor.close()
+        conn.close()
+
+        print(count)
+        
+        return count > 0

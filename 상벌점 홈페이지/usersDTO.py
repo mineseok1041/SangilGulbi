@@ -16,3 +16,4 @@ class usersDTO:
     signeddate: str = None
     lastlogin: str = None
     identity: int = None
+    verified: int = None
