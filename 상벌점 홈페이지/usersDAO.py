@@ -358,15 +358,11 @@ class usersDAO:
         
         conn = self.get_connection()
         cursor = conn.cursor()
-        
-        print(reqDTO.id)
 
         cursor.execute(query, [reqDTO.id])
         count = cursor.fetchone()[0]
         
         cursor.close()
         conn.close()
-
-        print(count)
         
         return count > 0
