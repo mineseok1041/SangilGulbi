@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', filename='css/who.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/auth/who.css') }}" rel="stylesheet">
     <title>who</title>
 </head>
 
@@ -20,6 +20,13 @@
             <p class="student_">학생</p>
     </div>
     </div>
+    {%with messages = get_flashed_messages()%}
+	{%if messages %}
+	<script type="text/javascript">
+		alert("{{messages[-1]}}");
+	</script>
+	{%endif%}
+	{%endwith%}
 </body>
 
 </html>

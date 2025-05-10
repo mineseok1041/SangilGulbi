@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
-    <link href="{{ url_for('static', filename='css/signup.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/auth/signup.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <img src="{{ url_for('static', filename='img/students.png') }}" alt="">
     <div class="signup-wrapper">
         <h2>signup</h2>
-        <form method="post" action="서버의url" id="login-form">
+        <form method="post" action="/auth/signup.do/student" id="login-form">
 
-            <input class="student_number" type="text" placeholder="학번을 작성해주세요">
+            <input class="student_number" type="text" name="stdNum" placeholder="학번을 작성해주세요">
 
-            <input class="name" type="text" placeholder="이름을 작성해주세요">
+            <input class="name" type="text" name="name" placeholder="이름을 작성해주세요">
 
-            <input class="id" type="text" placeholder="아이디를 작성해주세요" >
+            <input class="id" type="text" name="id" placeholder="아이디를 작성해주세요" >
 
-            <input class="password" type="password" placeholder="비밀번호를 작성해주세요">
+            <input class="password" type="password" name="password" placeholder="비밀번호를 작성해주세요">
 
             <button class="sumit" type="submit">Signup</button>
             <a class="login" href="/auth/login"> <br> 로그인으로 돌아가기</a>
         </form>
     </div>
+    {%with messages = get_flashed_messages()%}
+	{%if messages %}
+	<script type="text/javascript">
+		alert("{{messages[-1]}}");
+	</script>
+	{%endif%}
+	{%endwith%}
 </body>
 
 </html>

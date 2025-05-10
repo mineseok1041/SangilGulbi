@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
-    <link href="/css/community_stu2.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/teacher/communityInfoTeacher.css') }}" rel="stylesheet">
 </head>
 <header>
     <h2 class="main">게시판</h2>
@@ -13,16 +12,22 @@
 
 <nav>
     <img class="profiles" src="/img/simple.png">
-    <p class="number">10313</p>
-    <p class="name">이시은</p>
+    <p class="number">아이디칸</p>
+    <p class="name">선생님 이름</p>
 
     <a class="mypage_nav" href="/template/mainpage_stu.html">마이페이지</a>
     <hr class="first">
-    <a class="log_nav" href="/template/log_stu.html">상벌점 내역</a>
+    <a class="award_nav" href="/template/log_stu.html">상점 부여</a>
     <hr class="two">
-    <a class="community_nav" href="/template/community_stu.html">게시판</a>
-
+    <a class="penalty_nav" href="/template/log_stu.html">벌점 부여</a>
     <hr class="three">
+    <a class="stu_manager_nav" href="/template/log_stu.html">학생 관리</a>
+    <hr class="four">
+    <a class="teacher_manager_nav" href="/template/log_stu.html">선생님 관리</a>
+    <hr class="five">
+    <a class="community_nav" href="/template/community_teacher.html">게시판</a>
+
+    <hr class="six">
     <button class="logout">logout</button>
 </nav>
 
@@ -46,3 +51,5 @@
     <input type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
     <button class="sumit">전송</button>
 </body>
+
+</html>

@@ -121,7 +121,7 @@ class usersDAO:
         return count > 0
 
     def addUsers(self, reqDTO: usersDTO):
-        query = "INSERT INTO users(id, password, name, email, birth, identity) VALUES(:1, :2, :3, :4, :5, :6)"
+        query = "INSERT INTO users(id, password, name, stdNum, identity) VALUES(:1, :2, :3, :4, :5)"
         
         conn = None
         cursor = None
@@ -129,7 +129,12 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.email, reqDTO.birth, reqDTO.identity])
+            if reqDTO.identity == 2:
+                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.stdNum, reqDTO.identity])
+            elif reqDTO.identity == 1:
+                query = "INSERT INTO users(id, password, name, identity) VALUES(:1, :2, :3, :4)"
+                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.identity])
+
             
             conn.commit()
         except cx_Oracle.DatabaseError as e:
@@ -358,12 +363,12 @@ class usersDAO:
                 conn.close()
                 
     # 마지막 로그인 시간 업데이트
-    def updateLastLogin(self, user_id: str):
+    def updateLastLogin(self, reqDTO: usersDTO):
         query = "UPDATE users SET lastlogin = TO_CHAR(SYSDATE, 'YYYYMMDD HH24:MI:SS') WHERE id = :1"
         conn = self.get_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute(query, [user_id])
+            cursor.execute(query, [reqDTO.id])
             conn.commit()
         except cx_Oracle.DatabaseError as e:
             print(f"Database error: {e}")

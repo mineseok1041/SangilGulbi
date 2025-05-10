@@ -4,8 +4,11 @@ teacherBlue = Blueprint('teacher', __name__, url_prefix='/teacher')
 
 @teacherBlue.route('/')
 def index():
-    if 'id' not in session:
-        return '학생메인'
-        #return redirect(url_for('index'))
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
     
-    return render_template('teacher/indexStudent.html')
+        return render_template('teacher/indexStudent.html')
+    except Exception as e:
+        print(e)
+        return redirect(url_for('index'))

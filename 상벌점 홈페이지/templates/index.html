@@ -12,6 +12,13 @@
 	<h1 class="introduce">학생과 선생님을 위한 쉽고 빠른 <br> 상벌점 관리 플랫폼</h1>
 	<button class="next" onClick="location.href='/auth/login'">들어가기</button>
 	<img src="{{ url_for('static', filename='img/index.png') }}">
+	{%with messages = get_flashed_messages()%}
+	{%if messages %}
+	<script type="text/javascript">
+		alert("{{messages[-1]}}");
+	</script>
+	{%endif%}
+	{%endwith%}
 </body>
 
 </html>

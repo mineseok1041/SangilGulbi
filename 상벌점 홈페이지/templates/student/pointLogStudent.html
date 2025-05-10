@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상벌점 내역</title>
-    <link href="/css/loginStudent.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/student/pointLogStudent.css') }}" rel="stylesheet">
 </head>
 <header>
     <h2 class="main">상벌점 내역</h2>
 </header>
 
 <nav>
-    <img class="profiles" src="/img/simple.png">
+    <img class="profiles" src="{{ url_for('static', filename='/img/simple.png') }}">
     <p class="number">10313</p>
     <p class="name">이시은</p>
 
-    <a class="mypage_nav" href="/template/mainpage_stu.html">마이페이지</a>
+    <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">
-    <a class="log_nav" href="/template/log_stu.html">상벌점 내역</a>
+    <a class="log_nav" href="/student/pointLogStudent">상벌점 내역</a>
     <hr class="two">
-    <a class="community_nav" href="/template/community_stu.html">게시판</a>
+    <a class="community_nav" href="/student/community">게시판</a>
 
     <hr class="three">
-    <button class="logout">logout</button>
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>

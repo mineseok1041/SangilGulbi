@@ -1,0 +1,9 @@
+CREATE OR REPLACE TRIGGER trg_users_splitStdNum
+BEFORE INSERT OR UPDATE ON users
+FOR EACH ROW
+WHEN (NEW.stdNum IS NOT NULL)
+BEGIN
+    :NEW.grade := TO_NUMBER(SUBSTR(TO_CHAR(:NEW.stdNum), 1, 1));
+    :NEW.classNo := TO_NUMBER(SUBSTR(TO_CHAR(:NEW.stdNum), 2, 2));
+    :NEW.num := TO_NUMBER(SUBSTR(TO_CHAR(:NEW.stdNum), 4, 2));
+END;

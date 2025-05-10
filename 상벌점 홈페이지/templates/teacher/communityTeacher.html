@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
-<link href="/css/community_teacher.css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/teacher/communityTeacher.css') }}" rel="stylesheet">
 </head>
 <header>
     <h2 class="main">게시판</h2>
 </header>
 
 <nav>
-    <img class="profiles" src="/img/simple.png">
+    <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">아이디칸</p>
     <p class="name">선생님 이름</p>
 

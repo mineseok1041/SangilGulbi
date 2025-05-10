@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, session, url_for, request
+from flask import Flask, redirect, render_template, session, url_for, request, flash
 from flask_cors import CORS
 
 import requests
@@ -20,19 +20,18 @@ app.secret_key = 'ggulbi'
 
 app.register_blueprint(auth_app.authBlue)
 app.register_blueprint(student_app.studentBlue)
-app.register_blueprint(notice_app.blue_notice)
 app.register_blueprint(management_app.blue_management)
 
 # 메인페이지
 @app.route('/')
 def index():
     if session.get('identity') is not None:
-        if session.get('identity') == 'student':
+        if session.get('identity') == 2:
             return redirect(url_for('student.index'))
-        elif session.get('identity') == 'teacher':
+        elif session.get('identity') == 0 or session.get('identity') == 1:
             return redirect(url_for('usersSVC.teacher'))
         else:
-            return redirect(url_for('auth.who'))
+            return redirect(url_for('auth.dologout'))
         
     else:
         return render_template('index.html')

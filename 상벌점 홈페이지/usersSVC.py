@@ -4,28 +4,28 @@ import pointLogDTO
 
 class usersSVC:
     def __init__(self):
-        self.DAO = usersDAO.usersDAO()
+        self.usersDAO = usersDAO.usersDAO()
         
     def getUsersInfo(self, reqDTO:usersDTO) -> usersDTO:
         try:
-            return self.DAO.getUsersInfo(reqDTO)
+            return self.usersDAO.getUsersInfo(reqDTO)
         except Exception as e:
             raise Exception(f"getUsersInfo Error: {e}")
     
     def signup(self, reqDTO:usersDTO):
-        if not self.DAO.isIDExist(reqDTO):
-            try:
-                self.DAO.addUsers(reqDTO)
-            except Exception as e:
-                raise Exception(e)
-        else:
-            raise Exception("ID already exists")
+        try:
+            if self.usersDAO.isIDExist(reqDTO):
+                raise Exception("ID already exists")
+            else:
+                self.usersDAO.addUsers(reqDTO)
+        except Exception as e:
+            raise Exception(e)
         
     def login(self, reqDTO:usersDTO) -> bool:
         try:
-            if self.DAO.isIDExist(reqDTO):
-                if self.DAO.isPWDCorrect(reqDTO):
-                    self.DAO.updateLastLogin(reqDTO.id)  # 마지막 로그인 시간 업데이트
+            if self.usersDAO.isIDExist(reqDTO):
+                if self.usersDAO.isPWDCorrect(reqDTO):
+                    self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
                     return True
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/mainpage_stu.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/student/indexStudent.css') }}" rel="stylesheet">
     <title>mainpage</title>
 </head>
 
@@ -13,30 +13,30 @@
 </header>
 
 <nav>
-    <img class="profiles" src="/img/simple.png">
-    <p class="number">10313</p>
-    <p class="name">이시은</p>
+    <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
+    <p class="number">{{ usersDTO.stdNum }}</p>
+    <p class="name">{{ usersDTO.name }}</p>
 
-    <a class="mypage_nav" href="/template/mainpage_stu.html">마이페이지</a>
+    <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">
-    <a class="log_nav" href="/template/log_stu.html">상벌점 내역</a>
+    <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="community_nav" href="/template/community_stu.html">게시판</a>
+    <a class="community_nav" href="/student/community">게시판</a>
 
     <hr class="three">
-    <button class="logout">logout</button>
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
 
     <div class="up_score">
         <div class="box"></div>
-        <h1 class="up_all">총 상점 : 55점</h1>
+        <h1 class="up_all">총 상점 : {{ usersDTO.addPoint }}점</h1>
     </div>
 
     <div class="down_score">
         <div class="box"></div>
-        <h1 class="up_all">총 벌점 : -0점</h1>
+        <h1 class="up_all">총 벌점 : {{ usersDTO.delPoint }}점</h1>
     </div>
 
     <div class="log_box">
@@ -58,7 +58,7 @@
                 <td>132315점</td>
             </tr>
         </table>
-        <button class="more" onClick="location.href='community_stu.html'">더보기</button>
+        <button class="more" onClick="location.href='/student/pointLog'">더보기</button>
     </div>
 
     <div class="community_box">
@@ -76,7 +76,7 @@
                 <td>2025.25.15</td>
             </tr>
         </table>
-        <button class="more" onClick="location.href='community_stu.html'">더보기</button>
+        <button class="more" onClick="location.href='/student/community'">더보기</button>
     </div>
 </body>
 
