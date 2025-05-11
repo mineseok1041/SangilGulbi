@@ -13,8 +13,8 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
-    <p class="number">{studentNum}</p>
-    <p class="name">{name}</p>
+    <p class="number">인공지능 소프트웨어과</p>
+    <p class="name">{{ usersDTO.name }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
@@ -56,76 +56,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for student in studentList %}
                     <tr>
-                        <td>학생</td>
-                        <td>30200</td>
-                        <td>student123</td>
-                        <td>12</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.stdNum }}</td>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.point }}</td>
                     </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30201</td>
-                        <td>student124</td>
-                        <td>15</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30202</td>
-                        <td>student125</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30203</td>
-                        <td>student126</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30204</td>
-                        <td>student127</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30205</td>
-                        <td>student128</td>
-                        <td>35</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30206</td>
-                        <td>student129</td>
-                        <td>40</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30207</td>
-                        <td>student130</td>
-                        <td>45</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30208</td>
-                        <td>student131</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30209</td>
-                        <td>student132</td>
-                        <td>55</td>
-                    </tr>
-                    <tr>
-                        <td>학생</td>
-                        <td>30210</td>
-                        <td>student133</td>
-                        <td>60</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
-        <button class="more" onClick="location.href='studentManagement.html'">더보기</button>
+        <button class="more" onClick="location.href='/teacher/studentManagement'">더보기</button>
     </div>
 
     <div class="teacherManagement_box">
@@ -142,40 +84,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for teacher in teacherList %}
                     <tr>
-                        <td>선생님</td>
-                        <td>teacher123</td>
-                        <td>2025.12.26</td>
+                        <td>{{ teacher.name }}</td>
+                        <td>{{ teacher.id }}</td>
+                        <td>{{ teacher.lastlogin }}</td>
                     </tr>
-                    <tr>
-                        <td>선생님</td>
-                        <td>teacher124</td>
-                        <td>2025.12.26</td>
-                    </tr>
-                    <tr>
-                        <td>선생님</td>
-                        <td>teacher125</td>
-                        <td>2025.12.26</td> 
-                    </tr>
-                    <tr>
-                        <td>선생님</td>
-                        <td>teacher126</td>
-                        <td>2025.12.26</td>
-                    </tr>
-                    <tr>
-                        <td>선생님</td>
-                        <td>teacher127</td>
-                        <td>2025.12.26</td>
-                    </tr>
-                    <tr>
-                        <td>선생님</td>
-                        <td>teacher128</td>
-                        <td>2025.12.26</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
-        <button class="more" onClick="location.href='teacherManagement.html'">더보기</button>
+        <button class="more" onClick="location.href='/teacher/teacherManagement'">더보기</button>
     </div>
     <div class="community_box">
         <div class="header">
@@ -219,7 +138,7 @@
                 </tbody>
             </table>
         </div>
-        <button class="more" onClick="location.href='communityTeacher.html'">더보기</button>
+        <button class="more" onClick="location.href='/teacher/community'">더보기</button>
     </div>
 
 

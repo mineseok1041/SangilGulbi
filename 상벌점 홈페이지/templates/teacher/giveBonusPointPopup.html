@@ -98,6 +98,7 @@
                 <div class="infoRow">
                     <span class="infoLabel">이름:</span>
                     <span class="infoValue studentName"></span>
+                    <span class="infoValue studentId" style="display: none;"></span>
                 </div>
                 <div class="infoRow">
                     <span class="infoLabel">사유:</span>
@@ -109,11 +110,13 @@
                 </div>
                 <div class="infoRow">
                     <span class="infoLabel">작성자:</span>
-                    <span class="infoValue studentBonusPoint">선생님</span>
+                    <span class="infoValue writeTeacherName">{{ usersDTO.name }}</span>
+                    <span class="infoValue writeTeacherId" style="display: none;">{{ usersDTO.id }}</span>
                 </div>
                 <div class="infoRow">
                     <span class="infoLabel">부여자:</span> 
-                    <span class="infoValue giveTeacherName"></span>
+                    <span class="infoValue giveTeacherName">{{ usersDTO.name }}</span>
+                    <span class="infoValue giveTeacherId" style="display: none;">{{ usersDTO.id }}</span> <!-- 숨겨진 ID 저장용 -->
                     <img class="searchTeacherIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
                 </div>
                 <div class="infoRow">
@@ -142,70 +145,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for student in studentList %}
                                     <tr>
-                                        <td>30201</td>
-                                        <td>김철수</td>
+                                        <td>{{ student.stdNum }}</td>
+                                        <td>{{ student.name }}({{ student.id }})</td>
+                                        <td style="display: none;">{{ student.id }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>30202</td>
-                                        <td>이영희</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30203</td>
-                                        <td>박민수</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30204</td>
-                                        <td>최지은</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30205</td>
-                                        <td>정수빈</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30206</td>
-                                        <td>이서준</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30207</td>
-                                        <td>김하늘</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30208</td>
-                                        <td>박지민</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30209</td>
-                                        <td>이유진</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30210</td>
-                                        <td>김도현</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30211</td>
-                                        <td>이수민</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30212</td>
-                                        <td>박지우</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30213</td>
-                                        <td>정하은</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30214</td>
-                                        <td>최유리</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30215</td>
-                                        <td>김민재</td>
-                                    </tr>
-                                    <tr>
-                                        <td>30216</td>
-                                        <td>이하늘</td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -229,57 +175,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for teacher in teacherList %}
                                     <tr>
-                                        <td>teacher01</td>
-                                        <td>김선생</td>
+                                        <td>{{ teacher.id }}</td>
+                                        <td>{{ teacher.name }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>teacher02</td>
-                                        <td>이선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher03</td>
-                                        <td>박선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher04</td>
-                                        <td>최선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher05</td>
-                                        <td>정선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher06</td>
-                                        <td>이선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher07</td>
-                                        <td>김선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher08</td>
-                                        <td>박선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher09</td>
-                                        <td>최선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher10</td>
-                                        <td>정선생</td>
-                                    </tr>
-                                    <tr>
-                                        <td>teacher11</td>
-                                        <td>이선생</td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             
-            <button class="submitButton" type="submit">제출</button>
+            <button class="submitButton" onclick="submitBonus()">제출</button>
 
             <!-- <table class="studentInfoTable">
                 <tr>
@@ -300,6 +208,14 @@
                 </tr>
             </table> -->
         </div>
+        <form id="bonusForm" method="POST" action="/teacher/givePoint.do" style="display: none;">
+            <input type="hidden" name="stdId" id="formStudentId">
+            <input type="hidden" name="reason" id="formReason">
+            <input type="hidden" name="point" id="formPoint">
+            <input type="hidden" name="writeTeacherId" id="formWriteTeacherId">
+            <input type="hidden" name="giveTeacherId" id="formGiveTeacherId">
+            <input type="hidden" name="opinion" id="formOpinion">
+        </form>
     </main>
 
     <script src="{{ url_for('static', filename='js/teacher/giveBonusPointPopup.js') }}"></script>

@@ -39,7 +39,7 @@ class usersDAO:
                 conn.close()
 
     def getStudentsList(self, page: int) -> list[usersDTO]:
-        limit = 50 # 한 페이지에 보여줄 사용자 수
+        limit = 20 # 한 페이지에 보여줄 사용자 수
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
@@ -67,12 +67,12 @@ class usersDAO:
             if conn:
                 conn.close()
 
-    def getManagersList(self, page: int) -> list[usersDTO]:
-        limit = 50 # 한 페이지에 보여줄 관리자 수
+    def getTeachersList(self, page: int) -> list[usersDTO]:
+        limit = 20 # 한 페이지에 보여줄 관리자 수
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity IN (0, 1)"
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 1"
         
         conn = None
         cursor = None
@@ -193,7 +193,7 @@ class usersDAO:
     # 포인트 추가
     def addPoint(self, reqDTO: usersDTO, point: int):
         # 포인트 추가 쿼리
-        query = "UPDATE users SET point = point + :1 WHERE id = :2"
+        query = "UPDATE users SET addpoint = addpoint + :1 WHERE id = :2"
         
         conn = None
         cursor = None

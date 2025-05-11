@@ -13,21 +13,21 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
-    <p class="number">{studentNum}</p>
-    <p class="name">{name}</p>
+    <p class="number">인공지능 소프트웨어과</p>
+    <p class="name">{{ usersDTO.name }}선생님</p>
 
-    <a class="mypage_nav" href="mypage.html">마이페이지</a>
+    <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
-    <a class="givePoint_nav" href="givePointLog.html">상벌점 내역</a>
+    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="studentManagement_nav" href="studentManagement.html">학생 관리</a>
+    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="three">
-    <a class="teacherManagement_nav" href="teacherManagement.html">선생님 관리</a>
+    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="four">
-    <a class="community_nav" href="community_teacher.html">게시판</a>
+    <a class="community_nav" href="/teacher/community">게시판</a>
 
     <hr class="five">
-    <button class="logout">logout</button>
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
