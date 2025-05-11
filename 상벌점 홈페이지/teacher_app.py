@@ -5,8 +5,11 @@ from usersDTO import usersDTO
 from pointSVC import pointSVC
 from pointReasonDTO import pointReasonDTO
 from pointLogDTO import pointLogDTO
+from noticeDTO import NoticeDTO
+from noticeSVC import NoticeSVC
 
 teacherBlue = Blueprint('teacher', __name__, url_prefix='/teacher')
+SVC = NoticeSVC()
 
 usersSVC = usersSVC()
 pointSVC = pointSVC()
@@ -20,12 +23,13 @@ def index():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
+        notices = SVC.get_all_notices()  # 게시글 목록 가져오기
     
-        return render_template('teacher/indexTeacher.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList)
+        return render_template('teacher/indexTeacher.html', usersDTO=teacherDTO, notices=notices, studentList=studentList, teacherList=teacherList)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
-    
+
 @teacherBlue.route('/pointLog')
 def pointLog():
     try:
@@ -41,7 +45,7 @@ def pointLog():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
-    
+
 @teacherBlue.route('/studentManagement')
 def studentManagement():
     try:
@@ -55,7 +59,7 @@ def studentManagement():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
-    
+
 @teacherBlue.route('/teacherManagement')
 def teacherManagement():
     try:
@@ -69,16 +73,22 @@ def teacherManagement():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
-    
+
+# ------------------ community(게시판) 기능 ------------------
+
 @teacherBlue.route('/community')
-def community():
+def communityList():
     try:
         if 'id' not in session:
             return redirect(url_for('index'))
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
+        notices = SVC.get_all_notices()
+        return render_template('teacher/communityTeacher.html', usersDTO=teacherDTO, notices=notices)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('index'))
 
-        return render_template('teacher/communityTeacher.html', usersDTO=teacherDTO)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
@@ -160,3 +170,59 @@ def doGivePenaltyPoint():
         print(e)
         flash(str(e))
         return redirect(url_for('teacher.giveBonusPoint'))
+
+@teacherBlue.route('/community/<int:noticeId>')
+def communityDetail(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        notice = SVC.get_notice_by_id(noticeId)
+        return render_template('teacher/communityInfoTeacher.html', notice=notice)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/add', methods=['GET', 'POST'])
+def communityAdd():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        if request.method == 'POST':
+            title = request.form['title']
+            content = request.form['content']
+            author = session['id']
+            notice = NoticeDTO(title=title, content=content, author=author)
+            SVC.add_notice(notice)
+            return redirect(url_for('teacher.communityList'))
+        return render_template('teacher/communityAddTeacher.html')
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/edit/<int:noticeId>', methods=['GET', 'POST'])
+def communityEdit(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        notice = SVC.get_notice_by_id(noticeId)
+        if request.method == 'POST':
+            notice.title = request.form['title']
+            notice.content = request.form['content']
+            # notice.author = notice.author
+            SVC.update_notice(notice)
+            return redirect(url_for('teacher.communityDetail', noticeId=noticeId))
+        return render_template('teacher/communityEditTeacher.html', notice=notice)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/delete/<int:noticeId>', methods=['POST'])
+def communityDelete(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        SVC.delete_notice(noticeId)
+        return redirect(url_for('teacher.communityList'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판</title>
     <link href="{{ url_for('static', filename='css/student/communityStudent.css') }}" rel="stylesheet">
 </head>
+<body>
 <header>
     <h2 class="main">게시판</h2>
 </header>
@@ -20,34 +20,31 @@
     <hr class="first">
     <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="community_nav" href="/student/community">게시판</a>
-
+    <a class="community_nav" href="{{ url_for('student.communityList') }}">게시판</a>
     <hr class="three">
-    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
+    <button class="logout" onclick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
-<body>
-    <div class="container">
-        <table>
-            <tr>
-                <th scope="list">번호</td>
-                <th scope="list">제목</td>
-                <th scope="list">작성자</td>
-                <th scope="list">작성일</td>
-                <th scope="list">
-                    </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>내가 넘ㅁ모 기특</td>
-                <td>이영빈</td>
-                <td>2025.26.12</td>
-                <td><button onClick="location.href='community_stu2.html'">자세히보기</button></td>
-            </tr>
+<div class="container">
+    <table>
+        <tr>
+            <th scope="list">번호</th>
+            <th scope="list">제목</th>
+            <th scope="list">작성자</th>
+            <th scope="list">작성일</th>
+        </tr>
+        {% for notice in notices[::-1] %}
+        <tr>
+            <td>{{ notices|length - loop.index0 }}</td>
+            <td>
+                <a href="{{ url_for('student.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+            </td>
+            <td>{{ notice.author }}</td>
+            <td>{{ notice.created_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 
-
-        </table>
-    </div>
 </body>
-
 </html>
