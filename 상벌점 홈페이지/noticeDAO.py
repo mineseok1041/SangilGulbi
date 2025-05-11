@@ -13,7 +13,7 @@ class NoticeDAO:
 
     # 모든 공지사항 가져오기
     def get_all_notices(self) -> list[NoticeDTO]:
-        query = "SELECT * FROM notice ORDER BY created_date DESC"
+        query = "SELECT * FROM notice ORDER BY created_date ASC"
         conn = self.get_connection()
         cursor = conn.cursor()
         cursor.execute(query)

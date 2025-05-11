@@ -67,14 +67,18 @@
         </div>
         <table class="community">
             <tr>
-                <th scope="list">제목</td>
-                <th scope="list">날짜짜</td>
-                    </td>
+                <th scope="list">제목</th>
+                <th scope="list">작성일</th>
             </tr>
+            {% for notice in notices[::-1][:5] %}
             <tr>
-                <td>과사무실 청소</td>
-                <td>2025.25.15</td>
+                <td>{{ notices|length - loop.index0 }}</td>
+                <td>
+                    <a href="{{ url_for('student.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                </td>
+                <td>{{ notice.created_date }}</td>
             </tr>
+            {% endfor %}
         </table>
         <button class="more" onClick="location.href='/student/community'">더보기</button>
     </div>

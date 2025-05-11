@@ -25,11 +25,14 @@ class usersSVC:
         try:
             if self.usersDAO.isIDExist(reqDTO):
                 if self.usersDAO.isPWDCorrect(reqDTO):
-                    if self.usersDAO.isVerified(reqDTO):
-                        self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
-                        return True
-                    else:
-                        raise Exception("관리자의 승인이 필요합니다.")
+                    # if self.usersDAO.isVerified(reqDTO):
+                    #     self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
+                    #     return True
+                    # else:
+                    #     raise Exception("관리자의 승인이 필요합니다.")
+                    # ---- 관리자 승인 체크 임시 주석 처리 ----
+                    self.usersDAO.updateLastLogin(reqDTO)
+                    return True
                 else:
                     raise Exception("비밀번호가 일치하지 않습니다.")
             else:
