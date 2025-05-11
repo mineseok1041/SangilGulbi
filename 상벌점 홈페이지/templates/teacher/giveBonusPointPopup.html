@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상점 부여</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/giveBonusPointPopup.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="bonusPointReason">
+            <h2 class="boxHead">상점 사유 항목</h2>
+        <!-- 왼쪽 박스: 사유 -->
+            <div class="bonusPointReasonTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>상점 부여 사유</th>
+                            <th>부여 점수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>솔선하여 휴지를 줍는 행위</td>
+                            <td>+1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>분실된 교구, 분실물을 습득하여 타의 모범이 된 학생</td>
+                            <td>+2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>솔선하여 청소를 하거나 복도 교실주변의 껌을 제거한 학생</td>
+                            <td>+2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>특별실 관리 및 학교 학급활동에 모범이 되어 담당교사의 추천을 받은 학생</td>
+                            <td>+3</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>수업에서 교재 교구 기자재 관리 및 안전관리에 모범적인 행동을 한 학생</td>
+                            <td>+3</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>학습 준비물을 철저히 준비하여 수업 보조도구로 활용되도록 한 학생</td>
+                            <td>+4</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생</td>
+                            <td>+3</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>방과 후 업무 보조 및 환경정화 활동을 적극적으로 한 학생</td>
+                            <td>+4</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여)</td>
+                            <td>+3</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여)</td>
+                            <td>+4</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>학교의 명예를 높인 학생 (경중에 따라 상벌점 운영소위원회에서 심의 후 부여)</td>
+                            <td>+5</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우</td>
+                            <td>+5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 오른쪽 박스: 선택한 학생 정보 -->
+        <div class="studentInfoBox">
+            <h2 class="boxHead">부여 정보</h2>
+            <div class="studentInfo">
+                <div class="infoRow">
+                    <span class="infoLabel">학번:</span>
+                    <span class="infoValue studentNum"></span>
+                    <img class="searchStudentIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">이름:</span>
+                    <span class="infoValue studentName"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">사유:</span>
+                    <span class="infoValue reason"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">점수:</span>
+                    <span class="infoValue studentBonusPoint"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">작성자:</span>
+                    <span class="infoValue studentBonusPoint">선생님</span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">부여자:</span> 
+                    <span class="infoValue giveTeacherName"></span>
+                    <img class="searchTeacherIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">일시</span>
+                    <span class="infoValue date">2025-05-03</span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">의견:</span>
+                    <textarea class="infoValue opinion" type="text"></textarea>
+                </div>
+                <!-- 학생 검색 모달 -->
+                <div class="studentSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
+                            <button class="searchButton">
+                                <img src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="studentList">
+                            <table class="studentTable">
+                                <thead>
+                                    <tr>
+                                        <th>학번</th>
+                                        <th>이름</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>30201</td>
+                                        <td>김철수</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30202</td>
+                                        <td>이영희</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30203</td>
+                                        <td>박민수</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30204</td>
+                                        <td>최지은</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30205</td>
+                                        <td>정수빈</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30206</td>
+                                        <td>이서준</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30207</td>
+                                        <td>김하늘</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30208</td>
+                                        <td>박지민</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30209</td>
+                                        <td>이유진</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30210</td>
+                                        <td>김도현</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30211</td>
+                                        <td>이수민</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30212</td>
+                                        <td>박지우</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30213</td>
+                                        <td>정하은</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30214</td>
+                                        <td>최유리</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30215</td>
+                                        <td>김민재</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30216</td>
+                                        <td>이하늘</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 부여자 검색 모달 -->
+                <div class="teacherSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput" placeholder="찾으실 부여자의 정보를 적어주세요.">
+                            <button class="searchButton">
+                                <img src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="teacherList">
+                            <table class="teacherTable">
+                                <thead>
+                                    <tr>
+                                        <th>아이디</th>
+                                        <th>이름</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>teacher01</td>
+                                        <td>김선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher02</td>
+                                        <td>이선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher03</td>
+                                        <td>박선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher04</td>
+                                        <td>최선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher05</td>
+                                        <td>정선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher06</td>
+                                        <td>이선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher07</td>
+                                        <td>김선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher08</td>
+                                        <td>박선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher09</td>
+                                        <td>최선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher10</td>
+                                        <td>정선생</td>
+                                    </tr>
+                                    <tr>
+                                        <td>teacher11</td>
+                                        <td>이선생</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            
+            <button class="submitButton" type="submit">제출</button>
+
+            <!-- <table class="studentInfoTable">
+                <tr>
+                    <th>학번</th>
+                    <td class="studentNum">20230001</td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td class="studentName">홍길동</td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td class="studentId">hong123</td>
+                </tr>
+                <tr>
+                    <th>총 상벌점</th>
+                    <td class="studentAllPoint">15</td>
+                </tr>
+            </table> -->
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/teacher/giveBonusPointPopup.js') }}"></script>
+</body>
+</html>

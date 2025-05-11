@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/teacherManagement.css') }}">
+    <title>상벌점 관리 페이지</title>
+</head>
+
+<header>
+    <h2 class="main">선생님 관리</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
+    <p class="number">{studentNum}</p>
+    <p class="name">{name}</p>
+
+    <a class="mypage_nav" href="mypage.html">마이페이지</a>
+    <hr class="first">
+    <a class="givePoint_nav" href="givePointLog.html">상벌점 내역</a>
+    <hr class="two">
+    <a class="studentManagement_nav" href="studentManagement.html">학생 관리</a>
+    <hr class="three">
+    <a class="teacherManagement_nav" href="teacherManagement.html">선생님 관리</a>
+    <hr class="four">
+    <a class="community_nav" href="community_teacher.html">게시판</a>
+
+    <hr class="five">
+    <button class="logout">logout</button>
+</nav>
+
+<body>
+    <div class="teacherInfo">
+        <div class="buttonsContainer">
+            <div class="searchBar">
+                <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
+            </div>
+            <div class="actionButtons">
+                <button class="resetPasswd">비밀번호 재설정</button>
+                <button class="deleteAccount">계정 삭제</button>
+            </div>
+        </div>
+            <div class="teacherInfo_table">
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th><input type="checkbox" class="selectAll"></th> -->
+                        <th data-column="1" class="sortable">이름 <span class="arrow">▲</span></th>
+                        <th data-column="2" class="sortable">아이디 <span class="arrow">▲</span></th>
+                        <th data-column="3" class="sortable">마지막 활동 <span class="arrow">▲</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">홍길동</td>
+                        <td class="id">honggildong</td>
+                        <td class="lastActivity">2023-10-01 12:00</td>
+                    </tr>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">김철수</td>
+                        <td class="id">kimchulsoo</td>
+                        <td class="lastActivity">2023-10-02 14:30</td>
+                    </tr>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">이영희</td>
+                        <td class="id">leeyounghee</td>
+                        <td class="lastActivity">2023-10-03 09:15</td>
+                    </tr>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">박지민</td>
+                        <td class="id">parkjimin</td>
+                        <td class="lastActivity">2023-10-04 11:45</td>
+                    </tr>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">최유리</td>
+                        <td class="id">choiyuri</td>
+                        <td class="lastActivity">2023-10-05 16:20</td>
+                    </tr>
+                    <tr>
+                        <!-- <td><input type="checkbox" class="select"></td> -->
+                        <td class="name">정우성</td>
+                        <td class="id">jungwoosung</td>
+                        <td class="lastActivity">2023-10-06 08:30</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/teacher/teacherManagement.js') }}"></script>
+</body>
+
+</html>

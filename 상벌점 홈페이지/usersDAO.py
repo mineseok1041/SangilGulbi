@@ -121,7 +121,7 @@ class usersDAO:
         return count > 0
 
     def addUsers(self, reqDTO: usersDTO):
-        query = "INSERT INTO users(id, password, name, stdNum, identity) VALUES(:1, :2, :3, :4, :5)"
+        query = "INSERT INTO users(id, password, name, stdNum, identity, verified) VALUES(:1, :2, :3, :4, :5, 1)"
         
         conn = None
         cursor = None

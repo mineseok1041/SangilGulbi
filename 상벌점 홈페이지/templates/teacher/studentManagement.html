@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/studentManagement.css') }}">
+    <title>상벌점 관리 페이지</title>
+</head>
+
+<header>
+    <h2 class="main">학생 관리</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
+    <p class="number">{studentNum}</p>
+    <p class="name">{name}</p>
+
+    <a class="mypage_nav" href="mypage.html">마이페이지</a>
+    <hr class="first">
+    <a class="givePoint_nav" href="givePointLog.html">상벌점 내역</a>
+    <hr class="two">
+    <a class="studentManagement_nav" href="studentManagement.html">학생 관리</a>
+    <hr class="three">
+    <a class="teacherManagement_nav" href="teacherManagement.html">선생님 관리</a>
+    <hr class="four">
+    <a class="community_nav" href="community_teacher.html">게시판</a>
+
+    <hr class="five">
+    <button class="logout">logout</button>
+</nav>
+
+<body>
+    <div class="studentInfo">
+        <div class="buttonsContainer">
+            <div class="searchBar">
+                <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
+            </div>
+                <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon"></img> <!-- 필터 아이콘 이미지 -->
+            <div class="filterPopup hidden">
+                <h4>학년 구분</h4>
+                <label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
+                <label><input type="checkbox" name="grade" value="2학년"> 2학년</label>
+                <label><input type="checkbox" name="grade" value="3학년"> 3학년</label>
+                <h4>상벌점 구분</h4>
+                <label><input type="checkbox" name="point" value="상점"> 상점</label>
+                <label><input type="checkbox" name="point" value="벌점"> 벌점</label>
+                <button class="resetFilters">초기화</button>
+            </div>
+            <div class="actionButtons">
+                <button class="resetPasswd">비밀번호 재설정</button>
+                <button class="giveBonus">상점 부여</button>
+                <button class="givePenalty">벌점 부여</button>
+                <button class="deleteAccount">계정 삭제</button>
+            </div>
+        </div>
+        <div class="studentInfo_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-column="1" class="sortable">학번 <span class="arrow">▲</span></th>
+                        <th data-column="2" class="sortable">이름 <span class="arrow">▲</span></th>
+                        <th data-column="3" class="sortable">아이디 <span class="arrow">▲</span></th>
+                        <th data-column="4" class="sortable">마지막 활동 <span class="arrow">▲</span></th>
+                        <th data-column="5" class="sortable">총 상벌점<span class="arrow">▲</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>30200</td>
+                        <td>홍길동</td>
+                        <td>honggildong</td>
+                        <td>2023-10-01 12:00:00</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>30201</td>
+                        <td>김철수</td>
+                        <td>kimchulsoo</td>
+                        <td>2023-10-02 14:30:00</td>
+                        <td>-5</td>
+                    </tr>
+                    <tr>
+                        <td>30202</td>
+                        <td>이영희</td>
+                        <td>leeyounghee</td>
+                        <td>2023-10-03 09:15:00</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>30203</td>
+                        <td>박지민</td>
+                        <td>parkjimin</td>
+                        <td>2023-10-04 16:45:00</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>30204</td>
+                        <td>최민수</td>
+                        <td>choiminsu</td>
+                        <td>2023-10-05 11:30:00</td>
+                        <td>-10</td>
+                    </tr>
+                    <tr>
+                        <td>30205</td>
+                        <td>정수빈</td>
+                        <td>jeongsubin</td>
+                        <td>2023-10-06 08:00:00</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>30206</td>
+                        <td>이수정</td>
+                        <td>leesujeong</td>
+                        <td>2023-10-07 13:20:00</td>
+                        <td>-15</td>
+                    </tr>
+                    <tr>
+                        <td>30207</td>
+                        <td>김민재</td>
+                        <td>kimminjae</td>
+                        <td>2023-10-08 10:10:00</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>30208</td>
+                        <td>이하늘</td>
+                        <td>leehaneul</td>
+                        <td>2023-10-09 15:50:00</td>
+                        <td>-20</td>
+                    </tr>
+                    <tr>
+                        <td>30209</td>
+                        <td>박지후</td>
+                        <td>parkjihoo</td>
+                        <td>2023-10-10 17:00:00</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>30210</td>
+                        <td>정하늘</td>
+                        <td>jeonghaneul</td>
+                        <td>2023-10-11 12:30:00</td>
+                        <td>-5</td>
+                    </tr>
+                    <tr>
+                        <td>30211</td>
+                        <td>김하늘</td>
+                        <td>kimhaneul</td>
+                        <td>2023-10-12 14:00:00</td>
+                        <td>15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+<script src="{{ url_for('static', filename='js/teacher/studentManagement.js') }}"></script>
+
+</html>

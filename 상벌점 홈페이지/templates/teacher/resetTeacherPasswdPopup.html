@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 재설정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/resetTeacherPasswdPopup.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="teacherInfoBox">
+            <h2 class="boxHead">비밀번호 재설정</h2>
+            <div class="teacherInfo">
+                <div class="infoRow">
+                    <span class="infoLabel">이름:</span>
+                    <span class="infoValue teacherName"></span>
+                    <img class="searchTeacherIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="선생님 검색" />
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">아이디:</span>
+                    <span class="infoValue teacherId"></span> 
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">비밀번호 변경:</span>
+                    <div class="passwordBox">
+                        <input class="passwordInput" type="password" />
+                        <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                    </div>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">비밀번호 확인:</span>
+                    <div class="passwordBox">
+                        <input class="passwordInput" type="password" />
+                        <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                    </div>
+                </div>
+                <!-- 선생님 검색 모달 -->
+                <div class="teacherSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput" placeholder="찾으실 선생님의 정보을 적어주세요.">
+                            <button class="searchButton">
+                                <img src="../static/img/searchIcon.png" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="teacherList">
+                            <table class="teacherTable">
+                                <thead>
+                                    <tr>
+                                        <th>이름</th>
+                                        <th>아이디</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>김철수</td>
+                                        <td>kimcs01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이영희</td>
+                                        <td>leeyh02</td>
+                                    </tr>
+                                    <tr>
+                                        <td>박민수</td>
+                                        <td>parkms03</td>
+                                    </tr>
+                                    <tr>
+                                        <td>최지은</td>
+                                        <td>choije04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정수빈</td>
+                                        <td>jungsb05</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이서준</td>
+                                        <td>leeso06</td>
+                                    </tr>
+                                    <tr>
+                                        <td>김하늘</td>
+                                        <td>kimhn07</td>
+                                    </tr>
+                                    <tr>
+                                        <td>박지민</td>
+                                        <td>parkjm08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이유진</td>
+                                        <td>leeyj09</td>
+                                    </tr>
+                                    <tr>
+                                        <td>김도현</td>
+                                        <td>kimdh10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이수민</td>
+                                        <td>leesm11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>박지우</td>
+                                        <td>parkjw12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정하은</td>
+                                        <td>jungha13</td>
+                                    </tr>
+                                    <tr>
+                                        <td>최유리</td>
+                                        <td>choiyr14</td>
+                                    </tr>
+                                    <tr>
+                                        <td>김민재</td>
+                                        <td>kimmj15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이하늘</td>
+                                        <td>leehn16</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            <button class="submitButton" type="submit">제출</button>
+
+            <!-- <table class="teacherInfoTable">
+                <tr>
+                    <th>학번</th>
+                    <td class="teacherNum">20230001</td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td class="teacherName">홍길동</td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td class="teacherId">hong123</td>
+                </tr>
+                <tr>
+                    <th>총 상벌점</th>
+                    <td class="teacherAllPoint">15</td>
+                </tr>
+            </table> -->
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/teacher/resetTeacherPasswdPopup.js') }}"></script>
+</body>
+</html>

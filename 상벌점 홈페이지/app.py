@@ -10,7 +10,7 @@ from noticeSVC import NoticeSVC
 from noticeDTO import NoticeDTO
 
 import student_app
-import management_app
+import teacher_app
 import notice_app
 import auth_app
 
@@ -20,7 +20,7 @@ app.secret_key = 'ggulbi'
 
 app.register_blueprint(auth_app.authBlue)
 app.register_blueprint(student_app.studentBlue)
-app.register_blueprint(management_app.blue_management)
+app.register_blueprint(teacher_app.teacherBlue)
 
 # 메인페이지
 @app.route('/')
@@ -29,7 +29,7 @@ def index():
         if session.get('identity') == 2:
             return redirect(url_for('student.index'))
         elif session.get('identity') == 0 or session.get('identity') == 1:
-            return redirect(url_for('usersSVC.teacher'))
+            return redirect(url_for('teacher.index'))
         else:
             return redirect(url_for('auth.dologout'))
         
