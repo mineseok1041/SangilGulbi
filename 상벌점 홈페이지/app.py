@@ -11,7 +11,6 @@ from noticeDTO import NoticeDTO
 
 import student_app
 import teacher_app
-import notice_app
 import auth_app
 
 app = Flask(__name__)

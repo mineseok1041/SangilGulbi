@@ -110,31 +110,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for notice in notices[::-1][:5] %}
                     <tr>
-                        <td>게시글 제목 1</td>
-                        <td>학생123</td>
-                        <td>2025.12.26</td>
+                        <td>{{ notices|length - loop.index0 }}</td>
+                        <td>
+                            <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                        </td>
+                        <td>{{ notice.author }}</td>
+                        <td>{{ notice.created_date }}</td>
                     </tr>
-                    <tr>
-                        <td>게시글 제목 2</td>
-                        <td>학생124</td>
-                        <td>2025.12.26</td>
-                    </tr>
-                    <tr>
-                        <td>게시글 제목 3</td>
-                        <td>학생125</td>
-                        <td>2025.12.26</td> 
-                    </tr>
-                    <tr>
-                        <td>게시글 제목 4</td>
-                        <td>학생126</td>
-                        <td>2025.12.26</td>
-                    </tr>
-                    <tr>
-                        <td>게시글 제목 5</td>
-                        <td>학생127</td>
-                        <td>2025.12.26</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
