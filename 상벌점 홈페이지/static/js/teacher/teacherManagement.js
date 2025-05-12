@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector(".searchInput"); // 검색창
     const table = document.querySelector(".teacherInfo_table"); // 학생 정보 테이블
     const tableRows = Array.from(document.querySelectorAll(".teacherInfo_table tbody tr")); // 테이블의 모든 행 가져오기
-    const tableBody = table.querySelector("tbody");
+    const tableBody = table.querySelector(".teacherInfo_table tbody");
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const headers = document.querySelectorAll(".teacherInfo_table thead th.sortable");
 
@@ -31,41 +30,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // 페이지 로드 시 기본 정렬 (이름순)
+    const sortedRows = tableRows.sort((a, b) => {
+        const aName = a.querySelector("td:nth-child(1)").textContent.trim(); // 이름 열
+        const bName = b.querySelector("td:nth-child(1)").textContent.trim();
+        return aName.localeCompare(bName); // 이름순 정렬
+    });
+
+    // 정렬된 행을 테이블에 추가
+    tableBody.innerHTML = "";
+    sortedRows.forEach(row => tableBody.appendChild(row));
+
     // 테이블 외부 클릭 시 선택 해제
     document.addEventListener("click", function (event) {
         if (!table.contains(event.target)) {
             tableRows.forEach(row => row.classList.remove("selected-row"));
+            selectedTeacher = null; // 선택된 교사 정보 초기화
         }
-    });
-
-    // 검색창에 입력 이벤트 추가
-    searchInput.addEventListener("input", function () {
-        const filter = searchInput.value.toLowerCase(); // 입력값을 소문자로 변환
-
-        tableRows.forEach(row => {
-            const cells = row.querySelectorAll("td:nth-child(1), td:nth-child(2)"); // 각 행의 셀 가져오기
-            const rowText = Array.from(cells)
-                .map(cell => cell.textContent.toLowerCase()) // 셀의 텍스트를 소문자로 변환
-                .join(" "); // 셀의 텍스트를 합침
-
-            // 입력값이 행의 텍스트에 포함되면 표시, 아니면 숨김
-            if (rowText.includes(filter)) {
-                row.style.display = ""; // 행 표시
-            } else {
-                row.style.display = "none"; // 행 숨기기
-            }
-        });
     });
 
     resetButton.addEventListener("click", function () {
-        let teacherName = ""; // 기본값
-        let teacherId = ""; // 기본값
-
-        // 교사가 선택된 경우 해당 정보를 사용
-        if (selectedTeacher) {
-            teacherName = selectedTeacher.teacherName;
-            teacherId = selectedTeacher.teacherId;
-        }
+        const teacherName = selectedTeacher ? selectedTeacher.teacherName : ""; 
+        const teacherId = selectedTeacher ? selectedTeacher.teacherId : "";
 
         const popupWidth = 600;
         const popupHeight = 800;
