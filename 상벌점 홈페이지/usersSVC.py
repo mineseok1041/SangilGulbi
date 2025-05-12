@@ -61,16 +61,16 @@ class usersSVC:
         try:
             return self.usersDAO.getStudentsList(page)
         except Exception as e:
-            raise Exception(f"getUsersList Error: {e}")
-    
-    def getTeachersList(self, page:int) -> list[usersDTO]: # type: ignore
+            raise Exception(f"getStudentsList Error: {e}")
+
+    def getTeachersList(self, page: int) -> list[usersDTO]:
         try:
             return self.usersDAO.getTeachersList(page)
         except Exception as e:
-            raise Exception(f"getUsersList Error: {e}")
-    
+            raise Exception(f"getTeachersList Error: {e}")
+
     def delUsers(self, reqDTO: usersDTO):
         try:
-            self.DAO.delUsers(reqDTO)
+            self.usersDAO.delUsers(reqDTO)
         except Exception as e:
             raise Exception(f"delUsers Error: {e}")

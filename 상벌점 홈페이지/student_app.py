@@ -15,7 +15,7 @@ noticeSVC = NoticeSVC()
 def index():
     try:
         if 'id' not in session:
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.login'))
         respDTO = usersSVC.getUsersInfo(usersDTO(id=session['id']))
         pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']))
         pointLogStudent = [usersSVC.getUsersInfo(usersDTO(id=log.studentId)) for log in pointLogList]
@@ -25,13 +25,13 @@ def index():
         return render_template('student/indexStudent.html', usersDTO=respDTO, notices=notices, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
     except Exception as e:
         print(e)
-        return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
 
 @studentBlue.route('/pointLog')
 def pointLog():
     if 'id' not in session:
-        return redirect(url_for('index'))
-    
+        return redirect(url_for('auth.login'))
+
     respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
     pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']))
     pointLogStudent = [usersSVC.getUsersInfo(usersDTO(id=log.studentId)) for log in pointLogList]

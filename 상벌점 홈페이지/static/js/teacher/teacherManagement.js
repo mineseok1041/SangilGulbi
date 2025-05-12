@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableBody = table.querySelector(".teacherInfo_table tbody");
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const headers = document.querySelectorAll(".teacherInfo_table thead th.sortable");
+    const deleteButton = document.querySelector(".deleteAccount");
 
     let selectedTeacher = null; // 선택된 학생 정보 초기화
 
@@ -60,11 +61,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            `resetTeacherPasswdPopup.html?teacherName=${teacherName}&teacherId=${teacherId}`,
+            `/teacher/resetTeacherPasswordPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
             "비밀번호 재설정",
-            `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
+            `width=600,height=800,left=${left},top=${top}`
         );
     });
+
+    // 삭제 버튼 클릭 이벤트
+    if (deleteButton) {
+        deleteButton.addEventListener("click", function () {
+            if (!selectedTeacher) {
+                alert("삭제할 선생님을 선택하세요.");
+                return;
+            }
+            const confirmDelete = confirm(`정말로 ${selectedTeacher.teacherName}(${selectedTeacher.teacherId}) 선생님 계정을 삭제하시겠습니까?`);
+            if (!confirmDelete) return;
+
+            fetch("/teacher/deleteTeacherAccount", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ teacherId: selectedTeacher.teacherId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("계정이 삭제되었습니다.");
+                    location.reload();
+                } else {
+                    alert(data.error || "삭제 중 오류가 발생했습니다.");
+                }
+            })
+            .catch(() => alert("삭제 요청 중 오류가 발생했습니다."));
+        });
+    }
+
     // 정렬 기능 추가
     headers.forEach(header => {
         header.addEventListener("click", function () {

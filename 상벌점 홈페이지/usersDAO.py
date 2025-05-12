@@ -240,3 +240,31 @@ class usersDAO:
         conn.close()
         
         return count > 0
+    
+    def updatePassword(self, userId: str, newPassword: str):
+        query = "UPDATE users SET password = :1 WHERE id = :2"
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, [newPassword, userId])
+            conn.commit()
+        except Exception as e:
+            raise Exception(f"비밀번호 변경 실패: {e}")
+        finally:
+            cursor.close()
+            conn.close()
+            
+    def getTeachersList(self, page: int) -> list[usersDTO]:
+        limit = 20
+        startNo = (page - 1) * limit + 1
+        endNo = page * limit
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity IN (0, 1)"
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
+            rows = cursor.fetchall()
+            return [usersDTO(*row) for row in rows]
+        finally:
+            cursor.close()
+            conn.close()
