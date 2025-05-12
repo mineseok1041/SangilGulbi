@@ -96,16 +96,17 @@ def givePenaltyPoint():
         if 'id' not in session:
             return '로그인이 필요합니다'
 
+        teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
             
-        return render_template('teacher/givePenaltyPointPopup.html', studentList=studentList, teacherList=teacherList)
+        return render_template('teacher/givePenaltyPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
     
-@teacherBlue.route('/givePoint.do', methods=['POST'])
-def givePoint():
+@teacherBlue.route('/giveBonusPoint.do', methods=['POST'])
+def doGiveBonusPoint():
     try:
         stdId = request.form['stdId']
         reason = request.form['reason']
@@ -121,9 +122,34 @@ def givePoint():
 
         print(stdId, reason, point, writeTeacherId, giveTeacherId, opinion)
         
-        usersSVC.addPoint(stdDTO, writerDTO, giverDTO, point, reason)
+        usersSVC.givePoint(stdDTO, writerDTO, giverDTO, point, reason)
 
-        return "<script>alert('상점이 부과되었습니다.'); window.close();</script>"
+        return "<script>alert('상점이 부과되었습니다.'); opener.location.reload(); window.close();</script>"
+    except Exception as e:
+        print(e)
+        flash(str(e))
+        return redirect(url_for('giveBonusPoint'))
+    
+@teacherBlue.route('/givePenaltyPoint.do', methods=['POST'])
+def doGivePenaltyPoint():
+    try:
+        stdId = request.form['stdId']
+        reason = request.form['reason']
+        point = request.form['point']
+        writeTeacherId = request.form['writeTeacherId']
+        giveTeacherId = request.form['giveTeacherId']
+        opinion = request.form['opinion']
+
+        stdDTO = usersDTO(id=stdId)
+        writerDTO = usersDTO(id=writeTeacherId)
+        giverDTO = usersDTO(id=giveTeacherId)
+        point = int(point)*(-1)
+
+        print(stdId, reason, point, writeTeacherId, giveTeacherId, opinion)
+        
+        usersSVC.givePoint(stdDTO, writerDTO, giverDTO, point, reason)
+
+        return "<script>alert('벌점이 부과되었습니다.'); opener.location.reload(); window.close();</script>"
     except Exception as e:
         print(e)
         flash(str(e))

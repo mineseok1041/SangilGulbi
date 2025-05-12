@@ -212,6 +212,29 @@ class usersDAO:
                 cursor.close()
             if conn:
                 conn.close()
+
+    def delPoint(self, reqDTO: usersDTO, point: int):
+        # 포인트 추가 쿼리
+        query = "UPDATE users SET delpoint = delpoint + :1 WHERE id = :2"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            print(reqDTO.id, point)
+            # 포인트 추가 쿼리 실행
+            cursor.execute(query, [point, reqDTO.id])
+            
+            conn.commit()
+        except cx_Oracle.DatabaseError as e: 
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
                 
     def addPointLog(self, stdDTO: usersDTO, managerDTO: usersDTO, point: int, reasonNum: int):
         query = "INSERT INTO pointLog(stdId, managerId, point, reason) VALUES(:1, :2, :3, :4)"

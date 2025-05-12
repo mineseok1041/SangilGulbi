@@ -97,11 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
     penaltyButton.addEventListener("click", function () {
         let studentNum = ""; // 기본값
         let studentName = ""; // 기본값
+        let studentId = ""; // 기본값
 
         // 학생이 선택된 경우 해당 정보를 사용
         if (selectedStudent) {
             studentNum = selectedStudent.studentNum;
             studentName = selectedStudent.studentName;
+            studentId = selectedStudent.studentId;
         }
             const popupWidth = 1280;
             const popupHeight = 720;
@@ -110,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 팝업 열기
             window.open(
-                `/teacher/givePenaltyPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}`,
+                `/teacher/givePenaltyPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
                 "벌점 부여",
                 `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
             );
