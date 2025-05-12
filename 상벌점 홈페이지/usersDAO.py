@@ -131,7 +131,7 @@ class usersDAO:
             if reqDTO.identity == 2:
                 cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.stdNum, reqDTO.identity])
             elif reqDTO.identity == 1:
-                query = "INSERT INTO users(id, password, name, identity) VALUES(:1, :2, :3, :4)"
+                query = "INSERT INTO users(id, password, name, identity, verified) VALUES(:1, :2, :3, :4, 0)"
                 cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.identity])
 
             
