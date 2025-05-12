@@ -13,8 +13,8 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
-    <p class="number">10313</p>
-    <p class="name">이시은</p>
+    <p class="number">{{ usersDTO.stdNum }}</p>
+    <p class="name">{{ usersDTO.name }}</p>
 
     <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">

@@ -49,14 +49,15 @@
                 <th scope="list">사유</td>
                 <th scope="list">해당 상벌점</td>
                 <th scope="list">총 상벌점</td>
-                    </td>
             </tr>
+            {% for i in range( pointLogList | length) %}
             <tr>
-                <td>2025.26.23</td>
-                <td>내가 넘ㅁ모 기특</td>
-                <td>12점</td>
-                <td>132315점</td>
+                <td>{{ pointLogList[i].addDate }}</td>
+                <td>{{ pointLogList[i].reason }}</td>
+                <td>{{ pointLogList[i].point }}</td>
+                <td>{{ pointLogList[i].point }}</td>
             </tr>
+            {% endfor %}
         </table>
         <button class="more" onClick="location.href='/student/pointLog'">더보기</button>
     </div>
