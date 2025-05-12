@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const top = screenTop + (screenHeight - popupHeight) / 2; // 중앙 정렬 계산
 
         const popup = window.open(
-            "givePenaltyPointPopup.html",
+            "/teacher/givePenaltyPoint",
             "popupWindow",
             `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
         );
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const top = screenTop + (screenHeight - popupHeight) / 2; // 중앙 정렬 계산
 
         const popup = window.open(
-            "giveBonusPointPopup.html",
+            "/teacher/giveBonusPoint",
             "popupWindow",
             `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
         );

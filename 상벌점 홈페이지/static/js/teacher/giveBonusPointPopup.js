@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const studentRows = document.querySelectorAll(".studentTable tbody tr"); // 테이블 행
     const studentNumElement = document.querySelector(".studentNum"); // 학번 표시 영역
     const studentNameElement = document.querySelector(".studentName"); // 이름 표시 영역
+    const studentIdElement = document.querySelector(".studentId"); // 학생 ID 영역
+    const writeTeacherIdElement = document.querySelector(".writeTeacherId")
     const searchTeacherIcon = document.querySelector(".searchTeacherIcon"); // 부여자 검색 돋보기 아이콘
     const teacherSearchModal = document.querySelector(".teacherSearchModal"); // 부여자 검색 모달
     const teacherRows = document.querySelectorAll(".teacherTable tbody tr"); // 부여자 목록 행
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const studentNum = urlParams.get("studentNum") || ""; // 기본값 설정
     const studentName = urlParams.get("studentName") || ""; // 기본값 설정
+    const studentId = urlParams.get("studentId") || "";
 
     // 행 클릭 이벤트 추가
     tableRows.forEach(row => {
@@ -60,10 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
         row.addEventListener("click", function () {
             const studentNumber = row.querySelector("td:nth-child(1)").textContent; // 학번
             const studentName = row.querySelector("td:nth-child(2)").textContent; // 이름
+            const studentId = row.querySelector("td:nth-child(3)").textContent; // ID (숨겨진 셀)
 
             // 부여 정보 섹션에 데이터 업데이트
             studentNumElement.textContent = studentNumber;
             studentNameElement.textContent = studentName;
+            studentIdElement.textContent = studentId; // <- 여기에 ID도 반영
 
             // 모달 닫기
             studentSearchModal.classList.remove("visible");
@@ -89,10 +94,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // 부여자 목록 행 클릭 이벤트
     teacherRows.forEach(row => {
         row.addEventListener("click", function () {
+            const teacherId = row.querySelector("td:nth-child(1)").textContent; // ID
             const teacherName = row.querySelector("td:nth-child(2)").textContent; // 부여자 이름
 
             // 부여 정보 섹션에 부여자 이름 업데이트
             giveTeacherNameElement.textContent = teacherName;
+
+            // 숨겨진 span에 ID 저장
+            document.querySelector(".giveTeacherId").textContent = teacherId;
 
             // 모달 닫기
             teacherSearchModal.classList.remove("visible");
@@ -147,8 +156,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
         // 학번과 이름을 화면에 표시
-    if (studentNum && studentName) {
+    if (studentNum && studentName && studentId) {
         document.querySelector(".studentNum").textContent = studentNum;
         document.querySelector(".studentName").textContent = studentName;
+        document.querySelector(".studentId").textContent = studentId;
     }
 });
+
+function submitBonus() {
+    document.getElementById("formStudentId").value = document.querySelector(".studentId").textContent;
+    document.getElementById("formReason").value = document.querySelector(".reason").textContent;
+    document.getElementById("formPoint").value = document.querySelector(".studentBonusPoint").textContent.replace("+", "");
+    document.getElementById("formWriteTeacherId").value = document.querySelector(".writeTeacherId").textContent;
+    document.getElementById("formGiveTeacherId").value = document.querySelector(".giveTeacherId").textContent;
+    document.getElementById("formOpinion").value = document.querySelector(".opinion").value;
+
+    document.getElementById("bonusForm").submit();
+}

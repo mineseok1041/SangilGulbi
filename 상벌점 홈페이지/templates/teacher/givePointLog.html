@@ -13,21 +13,21 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
-    <p class="number">{studentNum}</p>
-    <p class="name">{name}</p>
+    <p class="number">인공지능 소프트웨어과</p>
+    <p class="name">{{ usersDTO.name }}선생님</p>
 
-    <a class="mypage_nav" href="mypage.html">마이페이지</a>
+    <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
-    <a class="givePoint_nav" href="givePointLog.html">상벌점 내역</a>
+    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="studentManagement_nav" href="studentManagement.html">학생 관리</a>
+    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="three">
-    <a class="teacherManagement_nav" href="teacherManagement.html">선생님 관리</a>
+    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="four">
-    <a class="community_nav" href="community_teacher.html">게시판</a>
+    <a class="community_nav" href="/teacher/community">게시판</a>
 
     <hr class="five">
-    <button class="logout">logout</button>
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
@@ -67,158 +67,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for i in range( pointLogList | length) %}
                     <tr>
-                        <td>30201</td>
-                        <td>홍길동</td>
-                        <td>지각</td>
-                        <td>2025-05-10 10:00</td>
-                        <td>-5</td> <!-- 벌점 -->
-                        <td>김선생</td>
+                        <td>{{ pointLogStudent[i].stdNum }}</td>
+                        <td>{{ pointLogStudent[i].name }}</td>
+                        <td>{{ pointLogList[i].reason }}</td>
+                        <td>{{ pointLogList[i].addDate }}</td>
+                        <td>{{ pointLogList[i].point }}</td>
+                        <td>{{ pointLogTeacher[i].name }}</td>
                     </tr>
-                    <tr>
-                        <td>30202</td>
-                        <td>김철수</td>
-                        <td>결석</td>
-                        <td>2025-05-09 09:30</td>
-                        <td>-3</td> <!-- 벌점 -->
-                        <td>박선생</td>
-                    </tr>
-                    <tr>
-                        <td>30203</td>
-                        <td>이영희</td>
-                        <td>칭찬</td>
-                        <td>2025-05-08 14:00</td>
-                        <td>+10</td> <!-- 상점 -->
-                        <td>최선생</td>
-                    </tr>
-                    <tr>
-                        <td>30204</td>
-                        <td>박민수</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-07 11:00</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>이선생</td>
-                    </tr>
-                    <tr>
-                        <td>30205</td>
-                        <td>정수빈</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-06 13:30</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>김선생</td>
-                    </tr>
-                    <tr>
-                        <td>30206</td>
-                        <td>이수정</td>
-                        <td>지각</td>
-                        <td>2025-05-05 10:30</td>
-                        <td>-5</td> <!-- 벌점 -->
-                        <td>박선생</td>
-                    </tr>
-                    <tr>
-                        <td>30207</td>
-                        <td>최지훈</td>
-                        <td>칭찬</td>
-                        <td>2025-05-04 15:00</td>
-                        <td>+10</td> <!-- 상점 -->
-                        <td>최선생</td>
-                    </tr>
-                    <tr>
-                        <td>30208</td>
-                        <td>김하늘</td>
-                        <td>결석</td>
-                        <td>2025-05-03 09:00</td>
-                        <td>-3</td> <!-- 벌점 -->
-                        <td>이선생</td>
-                    </tr>
-                    <tr>
-                        <td>30209</td>
-                        <td>이민호</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-02 12:00</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>김선생</td>
-                    </tr>
-                    <tr>
-                        <td>30210</td>
-                        <td>박지민</td>
-                        <td>칭찬</td>
-                        <td>2025-05-01 14:30</td>
-                        <td>+10</td> <!-- 상점 -->
-                        <td>박선생</td>
-                    </tr>
-                    <tr>
-                        <td>30211</td>
-                        <td>정우성</td>
-                        <td>지각</td>
-                        <td>2025-05-10 10:00</td>
-                        <td>-5</td> <!-- 벌점 -->
-                        <td>김선생</td>
-                    </tr>
-                    <tr>
-                        <td>30212</td>
-                        <td>이효리</td>
-                        <td>결석</td>
-                        <td>2025-05-09 09:30</td>
-                        <td>-3</td> <!-- 벌점 -->
-                        <td>박선생</td>
-                    </tr>
-                    <tr>
-                        <td>30213</td>
-                        <td>김태희</td>
-                        <td>칭찬</td>
-                        <td>2025-05-08 14:00</td>
-                        <td>+10</td> <!-- 상점 -->
-                        <td>최선생</td>
-                    </tr>
-                    <tr>
-                        <td>30214</td>
-                        <td>이준호</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-07 11:00</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>이선생</td>
-                    </tr>
-                    <tr>
-                        <td>30215</td>
-                        <td>박보검</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-06 13:30</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>김선생</td>
-                    </tr>
-                    <tr>
-                        <td>30216</td>
-                        <td>정해인</td>
-                        <td>지각</td>
-                        <td>2025-05-05 10:30</td>
-                        <td>-5</td> <!-- 벌점 -->
-                        <td>박선생</td>
-                    </tr>
-                    <tr>
-                        <td>30217</td>
-                        <td>이상윤</td>
-                        <td>칭찬</td>
-                        <td>2025-05-04 15:00</td>
-                        <td>+10</td> <!-- 상점 -->
-                        <td>최선생</td>
-                    </tr>
-                    <tr>
-                        <td>30218</td>
-                        <td>김소연</td>
-                        <td>결석</td>
-                        <td>2025-05-03 09:00</td>
-                        <td>-3</td> <!-- 벌점 -->
-                        <td>이선생</td>
-                    </tr>
-                    <tr>
-                        <td>30219</td>
-                        <td>이민정</td>
-                        <td>상장 수여</td>
-                        <td>2025-05-02 12:00</td>
-                        <td>+5</td> <!-- 상점 -->
-                        <td>김선생</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -32,7 +32,6 @@ def index():
             return redirect(url_for('teacher.index'))
         else:
             return redirect(url_for('auth.dologout'))
-        
     else:
         return render_template('index.html')
 

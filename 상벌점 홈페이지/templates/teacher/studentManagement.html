@@ -13,21 +13,21 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/logo.png') }}">
-    <p class="number">{studentNum}</p>
-    <p class="name">{name}</p>
+    <p class="number">인공지능 소프트웨어과</p>
+    <p class="name">{{ usersDTO.name }}선생님</p>
 
-    <a class="mypage_nav" href="mypage.html">마이페이지</a>
+    <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
-    <a class="givePoint_nav" href="givePointLog.html">상벌점 내역</a>
+    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="studentManagement_nav" href="studentManagement.html">학생 관리</a>
+    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="three">
-    <a class="teacherManagement_nav" href="teacherManagement.html">선생님 관리</a>
+    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="four">
-    <a class="community_nav" href="community_teacher.html">게시판</a>
+    <a class="community_nav" href="/teacher/community">게시판</a>
 
     <hr class="five">
-    <button class="logout">logout</button>
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
@@ -66,90 +66,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for student in studentList %}
                     <tr>
-                        <td>30200</td>
-                        <td>홍길동</td>
-                        <td>honggildong</td>
-                        <td>2023-10-01 12:00:00</td>
-                        <td>10</td>
+                        <td>{{ student.stdNum }}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.lastlogin }}</td>
+                        <td>{{ student.point }}</td>
                     </tr>
-                    <tr>
-                        <td>30201</td>
-                        <td>김철수</td>
-                        <td>kimchulsoo</td>
-                        <td>2023-10-02 14:30:00</td>
-                        <td>-5</td>
-                    </tr>
-                    <tr>
-                        <td>30202</td>
-                        <td>이영희</td>
-                        <td>leeyounghee</td>
-                        <td>2023-10-03 09:15:00</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>30203</td>
-                        <td>박지민</td>
-                        <td>parkjimin</td>
-                        <td>2023-10-04 16:45:00</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>30204</td>
-                        <td>최민수</td>
-                        <td>choiminsu</td>
-                        <td>2023-10-05 11:30:00</td>
-                        <td>-10</td>
-                    </tr>
-                    <tr>
-                        <td>30205</td>
-                        <td>정수빈</td>
-                        <td>jeongsubin</td>
-                        <td>2023-10-06 08:00:00</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>30206</td>
-                        <td>이수정</td>
-                        <td>leesujeong</td>
-                        <td>2023-10-07 13:20:00</td>
-                        <td>-15</td>
-                    </tr>
-                    <tr>
-                        <td>30207</td>
-                        <td>김민재</td>
-                        <td>kimminjae</td>
-                        <td>2023-10-08 10:10:00</td>
-                        <td>30</td>
-                    </tr>
-                    <tr>
-                        <td>30208</td>
-                        <td>이하늘</td>
-                        <td>leehaneul</td>
-                        <td>2023-10-09 15:50:00</td>
-                        <td>-20</td>
-                    </tr>
-                    <tr>
-                        <td>30209</td>
-                        <td>박지후</td>
-                        <td>parkjihoo</td>
-                        <td>2023-10-10 17:00:00</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td>30210</td>
-                        <td>정하늘</td>
-                        <td>jeonghaneul</td>
-                        <td>2023-10-11 12:30:00</td>
-                        <td>-5</td>
-                    </tr>
-                    <tr>
-                        <td>30211</td>
-                        <td>김하늘</td>
-                        <td>kimhaneul</td>
-                        <td>2023-10-12 14:00:00</td>
-                        <td>15</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
