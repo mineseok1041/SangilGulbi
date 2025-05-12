@@ -56,5 +56,6 @@ def communityList():
 def communityDetail(noticeId):
     if 'id' not in session:
         return redirect(url_for('index'))
+    respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
     notice = noticeSVC.get_notice_by_id(noticeId)
-    return render_template('student/communityInfoStudent.html', notice=notice)
+    return render_template('student/communityInfoStudent.html', notice=notice, usersDTO=respDTO)
