@@ -65,34 +65,9 @@ class usersSVC:
             return self.usersDAO.getTeachersList(page)
         except Exception as e:
             raise Exception(f"getUsersList Error: {e}")
-        
-    def givePoint(self, stdDTO:usersDTO, writerDTO:usersDTO, giverDTO:usersDTO, point:int, reason: int):
-        try:
-            if point > 0:
-                self.usersDAO.addPoint(stdDTO, point)
-            elif point < 0:
-                self.usersDAO.delPoint(stdDTO, point)
-            else:
-                raise Exception("0점은 부여할 수 없습니다.")
-            #self.usersDAO.addPointLog(stdDTO, writerDTO, giverDTO, point, reason)
-        except Exception as e:
-            raise Exception(f"givePoint Error: {e}")
-        
-    def delPoint(self, stdDTO:usersDTO, writerDTO:usersDTO, giverDTO:usersDTO, point:int, reason: int):
-        try:
-            self.usersDAO.delPoint(stdDTO, point)
-            #self.usersDAO.addPointLog(stdDTO, writerDTO, giverDTO, point, reason)
-        except Exception as e:
-            raise Exception(f"addPoint Error: {e}")
-        
+    
     def delUsers(self, reqDTO: usersDTO):
         try:
             self.DAO.delUsers(reqDTO)
         except Exception as e:
             raise Exception(f"delUsers Error: {e}")
-        
-    def getPointLogByStdID(self, reqDTO: usersDTO):
-        try:
-            return self.DAO.getPointLogByStdID(reqDTO)
-        except Exception as e:
-            raise Exception(f"getPointLogByStdID Error: {e}")

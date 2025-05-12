@@ -1,5 +1,5 @@
 select * from users;
-select * from notice;
+select * from pointReason;
 select * from pointLog;
 
 drop table users;
