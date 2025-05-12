@@ -107,7 +107,7 @@ class pointDAO:
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM pointLog WHERE no BETWEEN :startNo AND :endNo"
+        query = "SELECT * FROM pointLog WHERE no BETWEEN :startNo AND :endNo ORDER BY no DESC"
 
         conn = None
         cursor = None
@@ -129,7 +129,7 @@ class pointDAO:
     
     def getPointLogByStdID(self, usersDTO: usersDTO) -> list[pointLogDTO]:
         stdID = usersDTO.id
-        query = "SELECT * FROM pointLog WHERE stdId = :1"
+        query = "SELECT * FROM pointLog WHERE studentId = :1"
         
         conn = None
         cursor = None
@@ -138,22 +138,10 @@ class pointDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            print(stdID)
             cursor.execute(query, [stdID])
             results = cursor.fetchall()
 
-            logs = []
-            for row in results:
-                log = pointLogDTO(
-                    stdID=row[0],
-                    managerID=row[1],
-                    point=row[2],
-                    reason=row[3],
-                    addDate=row[4]
-                )
-                logs.append(log)
-
-            return logs
+            return [pointLogDTO(*row) for row in results]
         
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
