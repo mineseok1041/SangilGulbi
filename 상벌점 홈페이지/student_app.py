@@ -39,6 +39,7 @@ def pointLog():
     
     return render_template('student/pointLogStudent.html', usersDTO=respDTO, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
 
+
 # ------------------ community(게시판) 기능 ------------------
 
 @studentBlue.route('/community')
