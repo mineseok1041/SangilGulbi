@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector(".studentInfo_table");
     const tableRows = Array.from(document.querySelectorAll(".studentInfo_table tbody tr")); // 테이블의 모든 행 가져오기
-    const tableBody = table.querySelector("tbody");
+    const tableBody = table.querySelector(".studentInfo_table tbody");
     const headers = document.querySelectorAll(".studentInfo_table thead th.sortable");
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const bonusButton = document.querySelector(".giveBonus"); // "상점 부여" 버튼
@@ -35,6 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // 페이지 로드 시 기본 정렬 (학번순)
+    const sortedRows = tableRows.sort((a, b) => {
+        const aNumber = a.querySelector("td:nth-child(1)").textContent.trim(); // 학번 열
+        const bNumber = b.querySelector("td:nth-child(1)").textContent.trim();
+        return aNumber.localeCompare(bNumber); // 학번순 정렬
+    });
+
+    // 정렬된 행을 테이블에 추가
+    tableBody.innerHTML = "";
+    sortedRows.forEach(row => tableBody.appendChild(row));
 
     // 테이블 외부 클릭 시 선택 해제
     document.addEventListener("click", function (event) {
