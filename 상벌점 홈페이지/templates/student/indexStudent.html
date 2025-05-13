@@ -21,9 +21,12 @@
     <hr class="first">
     <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
+    <a class="pointList_nav" href="/student/pointListStudent">상벌점 항목</a>
+    <hr class="three">
     <a class="community_nav" href="/student/community">게시판</a>
 
-    <hr class="three">
+    <hr class="four">
+
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
@@ -43,22 +46,28 @@
         <div class="header">
             <h1>상벌점 내역</h1>
         </div>
-        <table class="log">
-            <tr>
-                <th scope="list">날짜</td>
-                <th scope="list">사유</td>
-                <th scope="list">해당 상벌점</td>
-                <th scope="list">총 상벌점</td>
-            </tr>
-            {% for i in range( pointLogList | length) %}
-            <tr>
-                <td>{{ pointLogList[i].addDate }}</td>
-                <td>{{ pointLogList[i].reason }}</td>
-                <td>{{ pointLogList[i].point }}</td>
-                <td>{{ pointLogList[i].point }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="log_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>사유</th>
+                        <th>부여 상벌점</th>
+                        <th>총 상벌점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range( pointLoglist | length) %}
+                    <tr>
+                        <td>{{ pointLogList[i].addDate }}</td>
+              		<td>{{ pointLogList[i].reason }}</td>
+                	<td>{{ pointLogList[i].point }}</td>
+                	<td>{{ pointLogList[i].point }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         <button class="more" onClick="location.href='/student/pointLog'">더보기</button>
     </div>
 
@@ -66,9 +75,11 @@
         <div class="header">
             <h1>게시판</h1>
         </div>
-        <table class="community">
+        <table class="community_table">
             <tr>
+                <th scope="list">번호</th>
                 <th scope="list">제목</th>
+                <th scope="list">작성자</th>
                 <th scope="list">작성일</th>
             </tr>
             {% for notice in notices[::-1][:5] %}

@@ -114,7 +114,7 @@ nav > .two{
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav > .pointList_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -134,7 +134,7 @@ nav > .three{
     left: 5%;
 }
 
-nav > .teacherManagement_nav {
+nav > .studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -154,7 +154,7 @@ nav > .four{
     left: 5%;
 }
 
-nav > .community_nav {
+nav > .teacherManagement_nav {
     color: white;
     position: absolute;
     top: 58.3%;
@@ -164,6 +164,26 @@ nav > .community_nav {
 }
 
 nav > .five{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 62%;
+    left: 5%;
+}
+
+nav > .community_nav {
+    color: white;
+    position: absolute;
+    top: 65.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -496,6 +516,11 @@ nav > .five{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+}
+
+.community_table a {
+    text-decoration: none; 
+    color : #000000;
 }
 .community_table th {
     background: #ffffff;

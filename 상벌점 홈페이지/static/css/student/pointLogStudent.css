@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
+
 header {
     width: 80%;
     height: 10%;
@@ -11,9 +22,10 @@ header {
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
@@ -23,26 +35,33 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    background-attachment: fixed;
-
+    
 }
 
-nav>.profiles {
-    width: 35%;
+nav > a {
+    font-size: 20px;
+}
+
+nav > a:not(.log_nav):hover{
+    color: #d8d8d8;
+}
+
+nav > .profiles{
+    width: 30%;
     border-radius: 50%;
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 10%;
 }
 
-nav>.number {
+nav > .number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav>.name {
+nav > .name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -50,77 +69,101 @@ nav>.name {
     color: white;
 }
 
-nav>.mypage_nav {
+nav > .mypage_nav {
     color: white;
     position: absolute;
-    top: 32%;
+    top: 30.5%;
     left: 10%;
     text-decoration: none;
 }
 
-nav>.first {
+nav > .first{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
-    top: 36%;
+    top: 34%;
     left: 5%;
 }
 
-nav>.log_nav {
+nav > .log_nav {
     color: #575e65;
     position: absolute;
-    top: 39%;
+    top: 37.3%;
     left: 10%;
     text-decoration: none;
+    cursor: pointer;
 }
 
-nav>.two {
+nav > .two{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
-    top: 43%;
+    top: 41%;
     left: 5%;
 }
 
-nav>.community_nav {
+nav > .pointList_nav {
     color: white;
     position: absolute;
-    top: 46%;
+    top: 44.2%;
     left: 10%;
     text-decoration: none;
+    cursor: pointer;
 }
 
-nav>.three {
+nav > .three{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 48%;
+    left: 5%;
+}
+
+nav > .community_nav {
+    color: white;
+    position: absolute;
+    top: 51%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .four{
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
 }
 
+
 .logout {
-    width: 80%;
+    width: 10%;
     height: auto;
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    left: 9%;
     color: white;
     cursor: pointer;
     border: none;
     background-color: #BCCCDC;
     font-size: larger;
     text-align: left;
+    font-size: 20px;
 }
 
-.log{
+.log_table{
     overflow-y: scroll;
     width: 80%;
     height: 90%;
