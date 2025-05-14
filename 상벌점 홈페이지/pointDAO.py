@@ -82,7 +82,7 @@ class pointDAO:
                 conn.close()
 
     def recordPointLog(self, type: Literal['bonus', 'penalty'], stdDTO: usersDTO, writeTeacherDTO: usersDTO, giveTeacherDTO, point: int, reason: str, opinion: str):
-        query = "INSERT INTO pointLog(type, studentId, writeTeacherId, giveTeacherId, point, reason, opinion) VALUES(:1, :2, :3, :4, :5, :6, :7)"
+        query = "INSERT INTO pointLog(type, studentId, studentNum, studentName, writeTeacherId, writeTeacherName, giveTeacherId, giveTeacherName, point, reason, opinion) VALUES(:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11)"
         
         conn = None
         cursor = None
@@ -91,7 +91,7 @@ class pointDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [type, stdDTO.id, writeTeacherDTO.id, giveTeacherDTO.id, point, reason, opinion])
+            cursor.execute(query, [type, stdDTO.id, stdDTO.stdNum, stdDTO.name, writeTeacherDTO.id, writeTeacherDTO.name, giveTeacherDTO.id, giveTeacherDTO.name, point, reason, opinion])
             
             conn.commit()
         except cx_Oracle.DatabaseError as e:

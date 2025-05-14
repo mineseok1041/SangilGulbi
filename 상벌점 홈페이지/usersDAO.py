@@ -27,7 +27,7 @@ class usersDAO:
             if row:
                 return usersDTO(*row)
             else:
-                raise ValueError(f"ID {reqDTO.id} not found")
+                return usersDTO(id=reqDTO.id, name='탈퇴한 사용자', stdNum='탈퇴한 사용자')
         # 데이터베이스 오류 발생 시 예외 처리    
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")

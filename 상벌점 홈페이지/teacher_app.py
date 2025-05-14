@@ -38,10 +38,8 @@ def pointLog():
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         pointLogList = pointSVC.getPointLog(1)
-        pointLogStudent = [usersSVC.getUsersInfo(usersDTO(id=log.studentId)) for log in pointLogList]
-        pointLogTeacher = [usersSVC.getUsersInfo(usersDTO(id=log.giveTeacherId)) for log in pointLogList]
     
-        return render_template('teacher/givePointLog.html', usersDTO=teacherDTO, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
+        return render_template('teacher/givePointLog.html', usersDTO=teacherDTO, pointLogList=pointLogList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))

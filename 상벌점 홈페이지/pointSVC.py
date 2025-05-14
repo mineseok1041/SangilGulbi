@@ -1,4 +1,5 @@
 import pointDAO
+import usersDAO
 import usersDTO
 import pointLogDTO
 import pointReasonDTO
@@ -7,9 +8,14 @@ from typing import Literal
 class pointSVC:
     def __init__(self):
         self.pointDAO = pointDAO.pointDAO()
+        self.usersDAO = usersDAO.usersDAO()
 
     def givePoint(self, stdDTO:usersDTO, writerDTO:usersDTO, giverDTO:usersDTO, point:int, reason: int, opinion: str):
         try:
+            stdDTO = self.usersDAO.getUsersInfo(stdDTO)
+            writerDTO = self.usersDAO.getUsersInfo(writerDTO)
+            giverDTO = self.usersDAO.getUsersInfo(giverDTO)
+
             if point > 0:
                 self.pointDAO.addPoint(stdDTO, point)
                 self.pointDAO.recordPointLog('bonus', stdDTO, writerDTO, giverDTO, point, reason, opinion)

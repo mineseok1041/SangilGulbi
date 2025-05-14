@@ -63,7 +63,7 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"getStudentsList Error: {e}")
 
-    def getTeachersList(self, page: int) -> list[usersDTO]:
+    def getTeachersList(self, page: int) -> list[usersDTO]: # type: ignore
         try:
             return self.usersDAO.getTeachersList(page)
         except Exception as e:

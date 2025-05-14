@@ -35,12 +35,12 @@
                 <th scope="list">해당 상벌점</td>
                 <th scope="list">교사명</td>
             </tr>
-            {% for i in range( pointLogList | length) %}
+            {% for pointLog in pointLogList %}
             <tr>
-                <td>{{ pointLogList[i].addDate }}</td>
-                <td>{{ pointLogList[i].reason }}</td>
-                <td>{{ pointLogList[i].point }}</td>
-                <td>{{ pointLogTeacher[i].name }}</td>
+                <td>{{ pointLog.addDate }}</td>
+                <td>{{ pointLog.reason }}</td>
+                <td>{{ pointLog.point }}</td>
+                <td>{{ pointLog.giveTeacherName }}</td>
             </tr>
             {% endfor %}
             
