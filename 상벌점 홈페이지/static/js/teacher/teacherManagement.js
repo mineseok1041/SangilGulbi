@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableBody = table.querySelector(".teacherInfo_table tbody");
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const headers = document.querySelectorAll(".teacherInfo_table thead th.sortable");
+    const bellButton = document.querySelector(".bell"); // 알림 버튼
 
     let selectedTeacher = null; // 선택된 학생 정보 초기화
 
@@ -65,6 +66,23 @@ document.addEventListener("DOMContentLoaded", function () {
             `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
         );
     });
+
+    // 알림 버튼 클릭 시 팝업 열기
+    bellButton.addEventListener("click", function () {
+        const popupWidth = 400;
+        const popupHeight = 300;
+        const left = (window.innerWidth - popupWidth) / 2 + window.screenX;
+        const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
+
+        // 팝업 열기
+        window.open(
+            "/teacher/teacherSignupApprovalPopup", // 팝업으로 열릴 페이지
+            "선생님 계정 승인",
+            `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
+        );
+    });
+
+
     // 정렬 기능 추가
     headers.forEach(header => {
         header.addEventListener("click", function () {
@@ -96,5 +114,16 @@ document.addEventListener("DOMContentLoaded", function () {
             tableBody.innerHTML = "";
             sortedRows.forEach(row => tableBody.appendChild(row));
         });
+    });
+    const dateCell = document.querySelectorAll('.date-cell');
+
+    dateCell.forEach(cell => {
+        const originalText = cell.textContent.trim(); // 예: "20250514 09:18:56"
+        const datePart = originalText.split(' ')[0];  // "20250514"
+
+        // 날짜 형식 변경
+        const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
+
+        cell.textContent = formattedDate; // "2025/05/14"
     });
 });

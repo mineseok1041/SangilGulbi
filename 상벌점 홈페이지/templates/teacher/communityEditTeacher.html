@@ -13,13 +13,13 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ usersDTO.name }}선생님</p>
+    <p class="name">{{ session["name"] }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
     <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="pointList_nav" href="/teacher/pointList">상벌점 항목</a>
+    <a class="pointReasons_nav" href="/teacher/pointReasons">상벌점 항목</a>
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">

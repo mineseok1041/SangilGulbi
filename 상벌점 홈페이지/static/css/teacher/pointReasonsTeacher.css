@@ -7,13 +7,6 @@
 
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    margin: 0%;
 }
 
 header {
@@ -23,15 +16,15 @@ header {
     position: absolute;
     top: 0%;
     right: 0%;
-    box-shadow: 0px 3px 3px gray;
+    box-shadow: 3px 3px 3px gray;
+    background-attachment: fixed;
 }
 
 .main {
     position: absolute;
-    top: 0%;
+    top: 5%;
     left: 3%;
     color: #55595D;
-    font-size: 35px;
 }
 
 nav {
@@ -48,7 +41,7 @@ nav > a {
     font-size: 20px;
 }
 
-nav > a:not(.mypage_nav):hover{
+nav > a:not(.pointReasons_nav):hover{
     color: #d8d8d8;
 }
 
@@ -76,7 +69,7 @@ nav > .name {
 }
 
 nav > .mypage_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
     top: 30.5%;
     left: 10%;
@@ -115,7 +108,7 @@ nav > .two{
 }
 
 nav > .pointReasons_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 44.2%;
     left: 10%;
@@ -208,90 +201,24 @@ nav > .six{
     font-size: 20px;
 }
 
-.giveBonusPoint {
-    width: 37.5%;
-    height: 8%;
+table{
+   font-size:10px;
+}
+
+.rewardList {
+    width: 35%;
+    height: 75%;
     position: absolute;
-    top: 15%;
-    left: 22%;
-    cursor: pointer;
-    box-shadow: 1px 1px 7px 2px gray;
-    transition: transform 0.1s ease, background-color 0.3s ease;
-}
-
-.giveBonusPoint:active {
-    transform: scale(0.99); /* 살짝 눌리는 효과 */
-}
-
-.giveBonusPoint:hover {
-    background-color: #e7e7e7; /* hover 시 어두운 색 */
-}
-
-.giveBonusPoint > .box {
-    width: 4%;
-    height: 100%;
-    background-color: #9AA6B2;
-}
-
-.giveBonusPoint > h1 {
-    width: 75%;
-    height: 90%;
-    position: absolute;
-    top: 15%;
-    left: 8%;
-    margin: 1% 0%;
-    color: #575e65;
-}
-
-.givePenaltyPoint {
-    width: 37.5%;
-    height: 8%;
-    position: absolute;
-    top: 15%;
-    left: 60.5%;
-    cursor: pointer;
-    box-shadow: 1px 1px 7px 2px gray;
-    transition: transform 0.1s ease, background-color 0.3s ease;
-}
-
-.givePenaltyPoint:active {
-    transform: scale(0.99); /* 살짝 눌리는 효과 */
-}
-
-.givePenaltyPoint:hover {
-    background-color: #e7e7e7; /* hover 시 어두운 색 */
-}
-
-.givePenaltyPoint > .box {
-    width: 4%;
-    height: 100%;
-    background-color: #9AA6B2;
-}
-
-.givePenaltyPoint > h1 {
-    width: 75%;
-    height: 90%;
-    position: absolute;
-    top: 15%;
-    left: 8%;
-    margin: 1% 0%;
-    color: #575e65;
-}
-.studentInfo {
-    width: 45%;
-    height: 59.5%;
-    max-height: 59.5%;
-    position: absolute;
-    top: 27%;
-    left: 22%;
+    top: 12%;
+    left: 23%;
     padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
-.studentInfo > .header{
+.rewardList> .header{
     width: 100%;
     height: 8%;
     position: absolute;
@@ -302,31 +229,32 @@ nav > .six{
     padding-top: 0.5%;
 }
 
-.studentInfo > .header >  h1{
+.rewardList > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
 }
 
 
-.studentInfo > .studentInfo_table {
+.rewardList> .studentInfo_table {
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
 }
 
-.studentInfo_table table {
+.rewardList_table table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+    font-size: 14px;
 }
 
-.studentInfo_table th {
+.rewardList_table th {
     background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
@@ -334,7 +262,7 @@ nav > .six{
     font-size: 20px;
 }
 
-.studentInfo_table td {
+.rewardList_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
@@ -342,18 +270,11 @@ nav > .six{
     color: #3f3f3f;
 }
 
-.studentInfo_table thead {
-    position: sticky; /* 헤더 고정 */
-    top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
-    z-index: 1;
-}
-
-.studentInfo_table tbody tr:hover {
+.rewardList_table tbody tr:hover {
     background: #f9f9f9;
 }
 
-.studentInfo > .more {
+.rewardList > .more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -369,29 +290,30 @@ nav > .six{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.studentInfo > .more:hover {
+.rewardList > .more:hover {
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
-.studentInfo > .more:active {
+.rewardList > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 
-.teacherManagement_box {
-    width: 29%;
-    height: 34%;
-    max-height: 33%;
+
+.penaltyList {
+    width: 35%;
+    height: 75%;
     position: absolute;
-    top: 27%;
-    left: 69%;
+    top: 12%;
+    left: 62%;
+    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
-.teacherManagement_box > .header{
+.penaltyList> .header{
     width: 100%;
-    height: 18%;
+    height: 8%;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -400,61 +322,54 @@ nav > .six{
     padding-top: 0.5%;
 }
 
-.teacherManagement_box > .header >  h1{
+.penaltyList > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 27%;
-    left: 5%;
+    top: 20%;
+    left: 3%;
     margin: 0%;
     font-size: 25px;
 }
 
-.teacherManagement_box > .teacherManagement_table {
+
+.penaltyList> .studentInfo_table {
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
-    margin-top: 17%;
 }
 
-.teacherManagement_table table {
+.penaltyList_table table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
+    font-size: 14px;
     border-top: #000000 solid 3px;
 }
 
-.teacherManagement_table th {
+.penaltyList_table th {
     background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
-.teacherManagement_table td {
+.penaltyList_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
-    font-size: 15px;
+    font-size: 20px;
     color: #3f3f3f;
 }
 
-.teacherManagement_table thead {
-    position: sticky; /* 헤더 고정 */
-    top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
-    z-index: 1;
-}
-
-.teacherManagement_table tbody tr:hover {
+.penaltyList_table tbody tr:hover {
     background: #f9f9f9;
 }
 
-
-.teacherManagement_box > .more {
-    width: 17%;
-    height: 10%;
+.penaltyList > .more {
+    width: 10%;
+    height: 5%;
     background-color: #9AA6B2;
     border: none;
     border-radius: 10%;
@@ -468,103 +383,27 @@ nav > .six{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.teacherManagement_box > .more:hover {
+.penaltyList > .more:hover {
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
-.teacherManagement_box > .more:active {
+.penaltyList > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
-.community_box {
-    width: 29%;
-    height: 34%;
-    position: absolute;
-    top: 63%;
-    left: 69%;
-    border-radius: 5px;
-    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+
+.num{
+    width: 12%;
+}
+.reward{
+    width: 13%;
+}
+.penalty{
+    width: 13%;
 }
 
-.community_box > .header{
-    width: 100%;
-    height: 18%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    background-color: #9AA6B2;
-    border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
-}
-
-.community_box > .header >  h1{
-    width: 100%;
-    color: white;
-    position: absolute;
-    top: 27%;
-    left: 5%;
-    margin: 0%;
-    font-size: 25px;
-}
-
-.community_box > .community_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
-    margin-top: 17%;
-}
-.community_table table {
-    width: 90%;
-    border-collapse: collapse;
-    margin: auto;
-    border-top: #000000 solid 3px;
-}
-
-.community_table a {
-    text-decoration: none; 
-    color : #000000;
-}
-.community_table th {
-    background: #ffffff;
-    padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
-    border-bottom: #000000 solid 3px;
-    font-size: 15px;
-}
-.community_table td {
-    padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
-    border-bottom: #55595D solid 1px;
-    font-size: 15px;
-    color: #3f3f3f;
-}
-.community_table thead {
-    position: sticky; /* 헤더 고정 */
-    top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
-    z-index: 1;
-}
-.community_table tbody tr:hover {
-    background: #f9f9f9;
-}
-
-.community_box > .more {
-    width: 17%;
-    height: 10%;
-    background-color: #9AA6B2;
-    border: none;
-    border-radius: 10%;
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-    color: white;
-    cursor: pointer;
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
-    font-size: 15px;
-    transition: transform 0.1s ease, background-color 0.3s ease;
-}
-
-.community_box > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
-}
-.community_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+/* 필요시 더 작게 */
+.rewardList_table table td,
+.rewardList_table table th,
+.penaltyList_table table td,
+.penaltyList_table table th {
+  font-size: 13px;
 }

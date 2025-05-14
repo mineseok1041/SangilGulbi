@@ -114,7 +114,7 @@ nav > .two{
     left: 5%;
 }
 
-nav > .pointList_nav {
+nav > .pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -229,7 +229,7 @@ nav > .four{
     padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -252,29 +252,6 @@ nav > .four{
     left: 3%;
     margin: 0%;
     font-size: 25px;
-}
-
-.log_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
-}
-
-/*이중선 제거*/
-.log_table th {
-    background: #ffffff;
-    padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
-    border-bottom: #000000 solid 3px;
-    font-size: 20px;
-}
-
-.log_table td {
-    padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
-    border-bottom: #55595D solid 1px;
-    font-size: 20px;
-    color: #3f3f3f;
 }
 
 .log_box > .more {
@@ -300,19 +277,79 @@ nav > .four{
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 
+.log_table{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+}
+.log_table table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    border-top: #000000 solid 3px;
+    margin-top: 4%;
+}
+
+.log_table table a {
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.log_table th {
+    background: #ffffff;
+    padding: 1.5%;
+    text-align: center;
+    border-bottom: #000000 solid 3px;
+    font-size: 20px;
+}
+
+.log_table th:nth-child(1) {
+    min-width: 160px;
+}
+
+.log_table th:nth-child(2) {
+    min-width: 100px; 
+}
+
+.log_table th:nth-child(3) {
+    min-width: 130px;
+}
+
+.log_table th:nth-child(4) {
+    min-width: 110px;
+}
+
+.log_table td {
+    padding: 1.5%;
+    text-align: center;
+    border-bottom: #55595D solid 1px;
+    font-size: 20px;
+    color: #3f3f3f;
+}
+
+.log_table .reason {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px; /* 원하는 최대 너비 */
+}
+
 .community_box {
     width: 28%;
     height: 70%;
     position: absolute;
     top: 27%;
     left: 70%;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .community_box > .header{
     width: 100%;
-    height: 10%;
+    height: 8.2%;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -325,36 +362,53 @@ nav > .four{
     width: 100%;
     color: white;
     position: absolute;
-    top: 15%;
-    left: 2%;
+    top: 30%;
+    left: 3%;
     margin: 0%;
     font-size: 25px;
 }
 
-.community{
+.community_table{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+}
+.community_table table {
     width: 90%;
     border-collapse: collapse;
-    margin-top: 18.5%;
-    margin-left: 5%;
+    margin: auto;
+    border-top: #000000 solid 3px;
+    margin-top: 6.6%;   
 }
 
-/*이중선 제거*/
-th, td {
-    
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-top: 1px solid #55595D;
-    border-bottom: 1px solid #55595D;
+.community_table a {
+    text-decoration: none;
+    color: #3f3f3f;
+}
 
-    vertical-align: top;
-    /* 위 */
-    vertical-align: bottom;
-    /* 아래 */
-    vertical-align: middle;
-    /* 가운데 */
-
+.community_table th {
+    background: #ffffff;
+    padding: 2.5%;
     text-align: center;
-    color: #55595D;
+    border-bottom: #000000 solid 3px;
+    font-size: 20px;
+    min-width: 80px;
+}
+
+.community_table td {
+    padding: 1.5%;
+    text-align: center;
+    border-bottom: #55595D solid 1px;
+    font-size: 20px;
+    color: #3f3f3f;
+}
+
+.community_table .noticeTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px; /* 원하는 최대 너비 */
 }
 
 .community_box > .more {

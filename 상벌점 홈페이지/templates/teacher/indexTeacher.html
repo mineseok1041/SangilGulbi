@@ -20,7 +20,7 @@
     <hr class="first">
     <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="pointList_nav" href="/teacher/pointList">상벌점 항목</a>
+    <a class="pointReasons_nav" href="/teacher/pointReasons">상벌점 항목</a>
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
@@ -91,7 +91,7 @@
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
-                        <td>{{ teacher.lastlogin }}</td>
+                        <td class="date-cell">{{ teacher.lastlogin }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -121,7 +121,7 @@
                             <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
                         </td>
                         <td>{{ notice.author }}</td>
-                        <td>{{ notice.created_date }}</td>
+                        <td class="date-cell">{{ notice.created_date }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

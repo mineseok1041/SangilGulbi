@@ -42,7 +42,7 @@ nav > a {
     font-size: 20px;
 }
 
-nav > a:not(.mypage_nav):hover{
+nav > a:not(.community_nav):hover{
     color: #d8d8d8;
 }
 
@@ -70,7 +70,7 @@ nav > .name {
 }
 
 nav > .mypage_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
     top: 30.5%;
     left: 10%;
@@ -108,7 +108,7 @@ nav > .two{
     left: 5%;
 }
 
-nav > .pointList_nav {
+nav > .pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -169,7 +169,7 @@ nav > .five{
 }
 
 nav > .community_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 65.3%;
     left: 10%;

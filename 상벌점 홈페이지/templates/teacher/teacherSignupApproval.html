@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>선생님 승인 팝업</title>
-  <link rel="stylesheet" href="../static/css/teacherSignupApproval.css" />
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/teacherSignupApproval.css') }}">
 </head>
 <body>
   <div class="container">
@@ -15,13 +15,15 @@
           <tr>
             <th scope="list">이름</td>
             <th scope="list">아이디</td>
-            <th></td>
+            <th scope="list" >확인코드</td>
+            <th></th>  
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>이기남</td>
             <td class="width">엉쪄구</td>
+            <td>966666</td>
             <td>
               <button class="approve">동의</button>
               <button class="reject">거부</button>

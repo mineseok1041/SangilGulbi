@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const table = document.querySelector(".pointLog_table");
-    const tableRows = Array.from(document.querySelectorAll(".pointLog_table tbody tr")); // 테이블의 모든 행 가져오기
-    const tableBody = table.querySelector(".pointLog_table tbody");
-    const headers = document.querySelectorAll(".pointLog_table thead th.sortable");
-    const filterIcon = document.querySelector(".filterIcon"); // 필터 아이콘
-    const filterPopup = document.querySelector(".filterPopup"); // 필터 팝업
-    const resetFiltersButton = filterPopup.querySelector(".resetFilters");
-    const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
+    const table = document.querySelector(".log_table");
+    const tableRows = Array.from(document.querySelectorAll(".log_table tbody tr")); // 테이블의 모든 행 가져오기
+    const tableBody = table.querySelector(".log_table tbody");
+    const headers = document.querySelectorAll(".log_table thead th.sortable");
+    const dateCells = document.querySelectorAll('.logDate');
+    // const filterIcon = document.querySelector(".filterIcon"); // 필터 아이콘
+    // const filterPopup = document.querySelector(".filterPopup"); // 필터 팝업
+    // const resetFiltersButton = filterPopup.querySelector(".resetFilters");
 
     // 행 클릭 이벤트 추가
     tableRows.forEach(row => {
@@ -43,33 +43,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 필터 아이콘 클릭 이벤트
-    filterIcon.addEventListener("click", function () {
-        filterPopup.classList.toggle("hidden"); // 팝업 메뉴 표시/숨김
-        if (!filterPopup.contains(event.target) && !filterIcon.contains(event.target)) {
-            filterPopup.classList.add("hidden"); // 필터 팝업 닫기
-        }
-    });
+    // // 필터 아이콘 클릭 이벤트
+    // filterIcon.addEventListener("click", function () {
+    //     filterPopup.classList.toggle("hidden"); // 팝업 메뉴 표시/숨김
+    //     if (!filterPopup.contains(event.target) && !filterIcon.contains(event.target)) {
+    //         filterPopup.classList.add("hidden"); // 필터 팝업 닫기
+    //     }
+    // });
 
-    // 팝업 외부 클릭 시 팝업 닫기
-    document.addEventListener("click", function (event) {
-        if (!filterPopup.contains(event.target) && !filterIcon.contains(event.target)) {
-            filterPopup.classList.add("hidden");
-        }
-    });
+    // // 팝업 외부 클릭 시 팝업 닫기
+    // document.addEventListener("click", function (event) {
+    //     if (!filterPopup.contains(event.target) && !filterIcon.contains(event.target)) {
+    //         filterPopup.classList.add("hidden");
+    //     }
+    // });
 
-    // 초기화 버튼 클릭 이벤트
-    resetFiltersButton.addEventListener("click", function () {
-        // 모든 체크박스 해제
-        checkboxes.forEach(checkbox => {
-            checkbox.checked = false;
-        });
+    // // 초기화 버튼 클릭 이벤트
+    // resetFiltersButton.addEventListener("click", function () {
+    //     // 모든 체크박스 해제
+    //     checkboxes.forEach(checkbox => {
+    //         checkbox.checked = false;
+    //     });
 
-        // 테이블의 모든 행 표시
-        tableRows.forEach(row => {
-            row.style.display = ""; // 모든 행 표시
-        });
-    });
+    //     // 테이블의 모든 행 표시
+    //     tableRows.forEach(row => {
+    //         row.style.display = ""; // 모든 행 표시
+    //     });
+    // });
 
     // 정렬 기능 추가
     headers.forEach(header => {
@@ -130,16 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
         sortedRows.forEach(row => tableBody.appendChild(row));
     });
 });
-  
-    const dateCell = document.querySelectorAll('.date-cell');
+  dateCells.forEach(cell => {
+    const originalText = cell.textContent.trim(); // 예: "20250514 09:18:56"
+    const datePart = originalText.split(' ')[0];  // "20250514"
 
-    dateCell.forEach(cell => {
-        const originalText = cell.textContent.trim(); // 예: "20250514 09:18:56"
-        const datePart = originalText.split(' ')[0];  // "20250514"
+    // 날짜 형식 변경
+    const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
 
-        // 날짜 형식 변경
-        const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
-
-        cell.textContent = formattedDate; // "2025/05/14"
-    });
+    cell.textContent = formattedDate; // "2025/05/14"
+  });
 });
