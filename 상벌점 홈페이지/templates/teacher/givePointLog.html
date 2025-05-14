@@ -65,14 +65,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in range( pointLogList | length) %}
+                    {% for pointLog in pointLogList %}
                     <tr>
-                        <td>{{ pointLogStudent[i].stdNum }}</td>
-                        <td>{{ pointLogStudent[i].name }}</td>
-                        <td>{{ pointLogList[i].reason }}</td>
-                        <td>{{ pointLogList[i].addDate }}</td>
-                        <td>{{ pointLogList[i].point }}</td>
-                        <td>{{ pointLogTeacher[i].name }}</td>
+                        <td>{{ pointLog.studentNum }}</td>
+                        <td>{{ pointLog.studentName }}</td>
+                        <td>{{ pointLog.reason }}</td>
+                        <td>{{ pointLog.addDate }}</td>
+                        <td>{{ pointLog.point }}</td>
+                        <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
                     {% endfor %}
 
