@@ -30,28 +30,58 @@
 </nav>
 
 <body>
-    <div class="log_table">
+    <div class="pointLog">
+        <div class="buttonsContainer">
+            <div class="searchBar">
+                <input type="text" class="searchInput" placeholder="찾고싶은 날짜를 입력해주세요">
+            </div>
+            <button class="searchButton">검색</button>
+            <img src="../static/img/filterIcon.png" alt="필터 아이콘" class="filterIcon"></img>
+            <div class="filterPopup hidden">
+                <h4>상벌점 구분</h4>
+                <label><input type="checkbox" name="point" value="상점"> 상점</label>
+                <label><input type="checkbox" name="point" value="벌점"> 벌점</label>
+                <button class="resetFilters">초기화</button>
+            </div>
+        </div>
+        <div class="pointLog_table">
             <table>
                 <thead>
                     <tr>
-                        <th>날짜</th>
-                        <th>사유</th>
-                        <th>부여 상벌점</th>
-                        <th>총 상벌점</th>
+                        <th data-column="1" class="sortable">날짜 <span class="arrow">▲</span></th>
+                        <th data-column="2" class="sortable">사유 <span class="arrow">▲</span></th>
+                        <th data-column="3" class="sortable">해당 상벌점 <span class="arrow">▲</span></th>
+                        <th data-column="4" class="sortable">부여자 <span class="arrow">▲</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for i in range( pointLoglist | length) %}
+                    {% for i in range( pointLogList | length) %}
                     <tr>
-                        <td>{{ pointLogList[i].addDate }}</td>
-              		<td>{{ pointLogList[i].reason }}</td>
-                	<td>{{ pointLogList[i].point }}</td>
-                	<td>{{ pointLogList[i].point }}</td>
+                        <td>{{ pointLogStudent[i].addDate }}</td>
+                        <td>{{ pointLogStudent[i].reason }}</td>
+                        <td>{{ pointLogList[i].point }}</td>
+                        <td>{{ pointLogList[i].name }}</td>
                     </tr>
                     {% endfor %}
+
+                    <tr class="main-row">
+                        <td>2025.26.23</td>
+                        <td>넘모 기특해 ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
+                        <td>5</td>
+                        <td>홍창기아프지마..</td>
+                    </tr>
+                     <tr class="dropdown-row" style="display: none;">
+                        <td colspan="4">
+                            사유 적는칸~
+                            <br>
+                            뭔 말알?
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/teacher/pointLogStudent.js') }}"></script>
 </body>
 
 </html>

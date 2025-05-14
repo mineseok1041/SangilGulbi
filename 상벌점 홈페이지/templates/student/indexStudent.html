@@ -46,28 +46,27 @@
         <div class="header">
             <h1>상벌점 내역</h1>
         </div>
-        <div class="log_table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>날짜</th>
-                        <th>사유</th>
-                        <th>부여 상벌점</th>
-                        <th>총 상벌점</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in range( pointLoglist | length) %}
-                    <tr>
-                        <td>{{ pointLogList[i].addDate }}</td>
-              		<td>{{ pointLogList[i].reason }}</td>
-                	<td>{{ pointLogList[i].point }}</td>
-                	<td>{{ pointLogList[i].point }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+
+        <table class="log_table">
+            <thead>
+                <tr>
+                    <th>날짜</th>
+                    <th>사유</th>
+                    <th>부여 상벌점</th>
+                    <th>총 상벌점</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range( pointLoglist | length) %}
+                <tr>
+                    <td>{{ pointLogList[i].addDate }}</td>
+                    <td>{{ pointLogList[i].reason }}</td>
+                    <td>{{ pointLogList[i].point }}</td>
+                    <td>{{ pointLogList[i].point }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <button class="more" onClick="location.href='/student/pointLog'">더보기</button>
     </div>
 

@@ -198,11 +198,17 @@ nav > .four{
     margin-left: 2%;
 }
 
+.date {
+    position: absolute;
+    top: 24%;
+    left: 25%;
+}
+
 .text_box {
     width: 70%;
-    height: 55%;
+    height: 64%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
@@ -214,15 +220,24 @@ nav > .four{
     position: absolute;
     top: 5%;
     left: 3%;
+    color: #55595D;
+}
+
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 20%;
 }
 
 input {
-    width: 55%;
+    width: 70%;
     height: 5%;
     border: 1;
-    position: absolute;
-    bottom: 10%;
-    left: 25%;
+    position: relative;
+    top: 0%;
+    left: 5%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
@@ -239,13 +254,56 @@ input:focus {
 .sumit {
     width: 10%;
     height: 5%;
-    position: absolute;
-    left: 85%;
-    bottom: 10%;
+    position: relative;
+    left: 10%;
+    top: 0%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.comments {
+    width: 70%;
+    height: 10%;
+    position: relative;
+    margin: 1% 0% 0% 5%;
+}
+
+.comments > img {
+    width: auto;
+    height: 60%;
+    position: absolute;
+    left: 0%;
+    top: 20%;
+}
+
+.comments > .ID {
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 25%;
+}
+
+.ID > .name {
+    position: relative;
+    bottom: 0%;
+    margin: 0%;
+}
+
+.ID > .date_ {
+    position: absolute;
+    bottom: 0%;
+    left: 17%;
+    width: 100%;
+    margin: 0%;
+    font-size: 12px;
+}
+
+.comment {
+    position: absolute;
+    top: 40%;
+    left: 12%;
 }

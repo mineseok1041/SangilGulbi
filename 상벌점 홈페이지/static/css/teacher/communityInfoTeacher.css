@@ -248,10 +248,11 @@ nav > .six{
     color: #55595D;
 }
 
-.text_box > p {
+.text_box > .date {
     position: absolute;
     top: 5%;
     left: 3%;
+    color: #55595D;
 }
 
 input {

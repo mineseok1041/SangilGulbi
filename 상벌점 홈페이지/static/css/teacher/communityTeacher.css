@@ -267,17 +267,12 @@ td {
     font-size: 20px;
     padding: 8px 15px;
     color: #ffffff;
-    background-color: #bcccdc;
+    background-color: #9AA6B2;
     border: none;
     position: absolute;
     bottom: 3%;
     right: 5%;
     cursor: pointer;
-}
-
-.write-tag{
-    color: #ffffff;
-    text-decoration: none;
 }
 
 .wide-column {

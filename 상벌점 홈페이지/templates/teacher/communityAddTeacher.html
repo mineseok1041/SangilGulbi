@@ -13,7 +13,7 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ usersDTO.name }}선생님</p>
+    <p class="name">{{ session["name"] }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
@@ -39,6 +39,9 @@
         <div class="writer_box">
             <h2 class="writer">&ensp;작성자 : {{ session['name'] }}</h2>
         </div>
+
+        <p class="date">작성일시 : {{ notice.created_date }}</p>
+
         <textarea name="content" class="content_input" placeholder="본문에 내용을 입력해주세요." required></textarea>
 
         <button class="sumit" type="submit">작성</button>
