@@ -21,7 +21,7 @@
     <hr class="first">
     <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="pointList_nav" href="/student/pointListStudent">상벌점 항목</a>
+    <a class="pointReasons_nav" href="/student/pointReasons">상벌점 항목</a>
     <hr class="three">
     <a class="community_nav" href="/student/community">게시판</a>
 
@@ -46,27 +46,24 @@
         <div class="header">
             <h1>상벌점 내역</h1>
         </div>
-
-        <table class="log_table">
-            <thead>
+        <div class="log_table">
+            <table>
                 <tr>
-                    <th>날짜</th>
-                    <th>사유</th>
-                    <th>부여 상벌점</th>
-                    <th>총 상벌점</th>
+                    <th scope="list">날짜</th>
+                    <th scope="list">사유</th>
+                    <th scope="list">부여 상벌점</th>
+                    <th scope="list">총 상벌점</th>
                 </tr>
-            </thead>
-            <tbody>
-                {% for i in range( pointLoglist | length) %}
+                    {% for i in range( pointLogList | length) %}
                 <tr>
-                    <td>{{ pointLogList[i].addDate }}</td>
-                    <td>{{ pointLogList[i].reason }}</td>
-                    <td>{{ pointLogList[i].point }}</td>
-                    <td>{{ pointLogList[i].point }}</td>
+                    <td class="date-cell">{{ pointLogList[i].addDate }}</td>
+              		<td class="reason" title="{{ pointLogList[i].reason}}">{{ pointLogList[i].reason }}</td>
+                	<td class="givePoint">{{ pointLogList[i].point }}</td>
+                	<td class="allPoint">{{ pointLogList[i].point }}</td>
                 </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    {% endfor %}
+            </table>
+        </div>
         <button class="more" onClick="location.href='/student/pointLog'">더보기</button>
     </div>
 
@@ -74,25 +71,30 @@
         <div class="header">
             <h1>게시판</h1>
         </div>
-        <table class="community_table">
-            <tr>
-                <th scope="list">번호</th>
-                <th scope="list">제목</th>
-                <th scope="list">작성자</th>
-                <th scope="list">작성일</th>
-            </tr>
-            {% for notice in notices[::-1][:5] %}
-            <tr>
-                <td>{{ notices|length - loop.index0 }}</td>
-                <td>
-                    <a href="{{ url_for('student.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
-                </td>
-                <td>{{ notice.created_date }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="community_table">
+            <table>
+                <tr>
+                    <th scope="list">번호</th>
+                    <th scope="list">제목</th>
+                    <th scope="list">작성자</th>
+                    <th scope="list">작성일</th>
+                </tr>
+                {% for notice in notices[::-1][:5] %}
+                <tr>
+                    <td class="noticeNum">{{ notices|length - loop.index0 }}</td>
+                    <td class="noticeTitle" title="{{ notice.title }}">
+                        <a href="{{ url_for('student.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                    </td>
+                    <td class="noticeAuthor">{{ notice.author }}</td>
+                    <td class="noticeDate">{{ notice.created_date }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
         <button class="more" onClick="location.href='/student/community'">더보기</button>
     </div>
 </body>
+
+<script src="{{ url_for('static', filename='js/student/indexStudent.js') }}"></script>
 
 </html>

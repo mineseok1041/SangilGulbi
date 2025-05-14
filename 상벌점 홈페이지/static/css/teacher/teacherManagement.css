@@ -115,7 +115,7 @@ nav > .two{
     left: 5%;
 }
 
-nav > .pointList_nav {
+nav > .pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -375,4 +375,22 @@ nav > .six{
 .sortable.desc .arrow {
     transform: rotate(180deg); /* 내림차순: 180도 회전 */
     color: #000; /* 활성화된 화살표 색상 */
+}
+
+.bell{
+    position: absolute;
+    width: 85px;
+    left: 70%;
+    top: -20%;
+    cursor: pointer;
+}
+
+.circle{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    left: 73.5%;
+    top: 215%;
 }
