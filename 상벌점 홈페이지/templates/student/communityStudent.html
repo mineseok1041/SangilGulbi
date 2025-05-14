@@ -20,9 +20,13 @@
     <hr class="first">
     <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="community_nav" href="{{ url_for('student.communityList') }}">게시판</a>
+    <a class="pointList_nav" href="/student/pointListStudent">상벌점 항목</a>
     <hr class="three">
-    <button class="logout" onclick="location.href='/auth/logout.do'">logout</button>
+    <a class="community_nav" href="/student/community">게시판</a>
+
+    <hr class="four">
+
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <div class="container">

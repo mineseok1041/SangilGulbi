@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
 header {
     width: 80%;
     height: 10%;
@@ -11,9 +21,10 @@ header {
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
@@ -23,26 +34,33 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    background-attachment: fixed;
-
+    
 }
 
-nav>.profiles {
-    width: 35%;
+nav > a {
+    font-size: 20px;
+}
+
+nav > a:not(.mypage_nav):hover{
+    color: #d8d8d8;
+}
+
+nav > .profiles{
+    width: 30%;
     border-radius: 50%;
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 10%;
 }
 
-nav>.number {
+nav > .number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav>.name {
+nav > .name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -50,74 +68,98 @@ nav>.name {
     color: white;
 }
 
-nav>.mypage_nav {
-    color: white;
-    position: absolute;
-    top: 32%;
-    left: 10%;
-    text-decoration: none;
-}
-
-nav>.first {
-    width: 90%;
-    left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 36%;
-    left: 5%;
-}
-
-nav>.log_nav {
-    color: white;
-    position: absolute;
-    top: 39%;
-    left: 10%;
-    text-decoration: none;
-}
-
-nav>.two {
-    width: 90%;
-    left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 43%;
-    left: 5%;
-}
-
-nav>.community_nav {
+nav > .mypage_nav {
     color: #575e65;
     position: absolute;
-    top: 46%;
+    top: 30.5%;
     left: 10%;
     text-decoration: none;
 }
 
-nav>.three {
+nav > .first{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 34%;
+    left: 5%;
+}
+
+nav > .log_nav {
+    color: white;
+    position: absolute;
+    top: 37.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .two{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 41%;
+    left: 5%;
+}
+
+nav > .pointList_nav {
+    color: white;
+    position: absolute;
+    top: 44.2%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .three{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 48%;
+    left: 5%;
+}
+
+nav > .community_nav {
+    color: white;
+    position: absolute;
+    top: 51%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .four{
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
 }
 
+
 .logout {
-    width: 80%;
+    width: 10%;
     height: auto;
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    left: 9%;
     color: white;
     cursor: pointer;
     border: none;
     background-color: #BCCCDC;
     font-size: larger;
     text-align: left;
+    font-size: 20px;
 }
 
 .title_box {
@@ -156,11 +198,17 @@ nav>.three {
     margin-left: 2%;
 }
 
+.date {
+    position: absolute;
+    top: 24%;
+    left: 25%;
+}
+
 .text_box {
     width: 70%;
-    height: 55%;
+    height: 64%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
@@ -172,15 +220,24 @@ nav>.three {
     position: absolute;
     top: 5%;
     left: 3%;
+    color: #55595D;
+}
+
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 20%;
 }
 
 input {
-    width: 55%;
+    width: 70%;
     height: 5%;
     border: 1;
-    position: absolute;
-    bottom: 10%;
-    left: 25%;
+    position: relative;
+    top: 0%;
+    left: 5%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
@@ -197,13 +254,56 @@ input:focus {
 .sumit {
     width: 10%;
     height: 5%;
-    position: absolute;
-    left: 85%;
-    bottom: 10%;
+    position: relative;
+    left: 10%;
+    top: 0%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.comments {
+    width: 70%;
+    height: 10%;
+    position: relative;
+    margin: 1% 0% 0% 5%;
+}
+
+.comments > img {
+    width: auto;
+    height: 60%;
+    position: absolute;
+    left: 0%;
+    top: 20%;
+}
+
+.comments > .ID {
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 25%;
+}
+
+.ID > .name {
+    position: relative;
+    bottom: 0%;
+    margin: 0%;
+}
+
+.ID > .date_ {
+    position: absolute;
+    bottom: 0%;
+    left: 17%;
+    width: 100%;
+    margin: 0%;
+    font-size: 12px;
+}
+
+.comment {
+    position: absolute;
+    top: 40%;
+    left: 12%;
 }

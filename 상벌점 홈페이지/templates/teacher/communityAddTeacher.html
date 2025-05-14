@@ -12,22 +12,24 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
-    <p class="number">{{ session['id'] }}</p>
-    <p class="name">{{ session['name'] }}</p>
+    <p class="number">인공지능소프트웨어과</p>
+    <p class="name">{{ session["name"] }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
-    <a class="award_nav" href="/teacher/pointLog">상점 부여</a>
+    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="penalty_nav" href="/teacher/pointLog">벌점 부여</a>
+    <a class="pointList_nav" href="/teacher/pointList">상벌점 항목</a>
     <hr class="three">
-    <a class="stu_manager_nav" href="/teacher/studentManagement">학생 관리</a>
+    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
-    <a class="teacher_manager_nav" href="/teacher/teacherManagement">선생님 관리</a>
+    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="five">
-    <a class="community_nav" href="{{ url_for('teacher.communityList') }}">게시판</a>
+    <a class="community_nav" href="/teacher/community">게시판</a>
+
     <hr class="six">
-    <button class="logout" onclick="location.href='/auth/logout.do'">logout</button>
+
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
@@ -37,6 +39,9 @@
         <div class="writer_box">
             <h2 class="writer">&ensp;작성자 : {{ session['name'] }}</h2>
         </div>
+
+        <p class="date">작성일시 : {{ notice.created_date }}</p>
+
         <textarea name="content" class="content_input" placeholder="본문에 내용을 입력해주세요." required></textarea>
 
         <button class="sumit" type="submit">작성</button>

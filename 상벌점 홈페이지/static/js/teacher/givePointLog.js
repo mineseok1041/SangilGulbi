@@ -8,6 +8,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const resetFiltersButton = filterPopup.querySelector(".resetFilters");
     const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
 
+    document.querySelectorAll('.main-row').forEach(row => {
+        row.addEventListener('click', () => {
+            const dropdown = row.nextElementSibling;
+
+            // 드롭다운이 아닌 경우 무시
+            if (!dropdown || !dropdown.classList.contains('dropdown-row')) return;
+
+            const isOpen = dropdown.style.display === 'table-row';
+
+            // 모든 드롭다운 닫기
+            document.querySelectorAll('.dropdown-row').forEach(r => r.style.display = 'none');
+
+            // 현재 클릭한 row만 토글
+            if (!isOpen) {
+                dropdown.style.display = 'table-row';
+            }
+        });
+    });
+
     // 행 클릭 이벤트 추가
     tableRows.forEach(row => {
         row.addEventListener("click", function (event) {
