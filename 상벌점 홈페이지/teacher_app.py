@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash
+from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash, jsonify
 
 from usersSVC import usersSVC
 from usersDTO import usersDTO
@@ -18,7 +18,7 @@ pointSVC = pointSVC()
 def index():
     try:
         if 'id' not in session:
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.login'))
         
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
@@ -28,43 +28,41 @@ def index():
         return render_template('teacher/indexTeacher.html', usersDTO=teacherDTO, notices=notices, studentList=studentList, teacherList=teacherList)
     except Exception as e:
         print(e)
-        return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/pointLog')
 def pointLog():
     try:
         if 'id' not in session:
-            return redirect(url_for('index'))
-        
+            return redirect(url_for('auth.login'))
+
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         pointLogList = pointSVC.getPointLog(1)
-        pointLogStudent = [usersSVC.getUsersInfo(usersDTO(id=log.studentId)) for log in pointLogList]
-        pointLogTeacher = [usersSVC.getUsersInfo(usersDTO(id=log.giveTeacherId)) for log in pointLogList]
     
-        return render_template('teacher/givePointLog.html', usersDTO=teacherDTO, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
+        return render_template('teacher/givePointLog.html', usersDTO=teacherDTO, pointLogList=pointLogList)
     except Exception as e:
         print(e)
-        return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/studentManagement')
 def studentManagement():
     try:
         if 'id' not in session:
-            return redirect(url_for('index'))
-        
+            return redirect(url_for('auth.login'))
+
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
     
         return render_template('teacher/studentManagement.html', usersDTO=teacherDTO, studentList=studentList)
     except Exception as e:
         print(e)
-        return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/teacherManagement')
 def teacherManagement():
     try:
         if 'id' not in session:
-            return redirect(url_for('index'))
+            return redirect(url_for('auth.login'))
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         teacherList = usersSVC.getTeachersList(1)
@@ -72,7 +70,87 @@ def teacherManagement():
         return render_template('teacher/teacherManagement.html', usersDTO=teacherDTO, teacherList=teacherList)
     except Exception as e:
         print(e)
-        return redirect(url_for('index'))
+        return redirect(url_for('auth.login'))
+
+@teacherBlue.route('/resetStudentPasswordPopup', methods=['GET'])
+def resetStudentPasswordPopup():
+    studentNum = request.args.get('studentNum', '')
+    studentName = request.args.get('studentName', '')
+    studentId = request.args.get('studentId', '')
+    studentList = usersSVC.getStudentsList(1)  # 학생 검색 모달용
+    return render_template(
+        'teacher/resetStudentPasswdPopup.html',
+        studentNum=studentNum,
+        studentName=studentName,
+        studentId=studentId,
+        studentList=studentList
+    )
+
+@teacherBlue.route('/resetStudentPasswordPopup.do', methods=['POST'])
+def resetStudentPasswordPopup_do():
+    studentId = request.form.get('studentId')
+    password = request.form.get('password')
+    passwordCheck = request.form.get('passwordCheck')
+    if not studentId or not password or not passwordCheck:
+        return "<script>alert('모든 정보를 입력해주세요.'); history.back();</script>"
+    if password != passwordCheck:
+        return "<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>"
+    try:
+        usersSVC.usersDAO.updatePassword(studentId, password)
+        return "<script>alert('비밀번호가 변경되었습니다.'); window.close();</script>"
+    except Exception as e:
+        return f"<script>alert('오류: {e}'); history.back();</script>"
+    
+@teacherBlue.route('/resetTeacherPasswordPopup', methods=['GET'])
+def resetTeacherPasswordPopup():
+    teacherName = request.args.get('teacherName', '')
+    teacherId = request.args.get('teacherId', '')
+    teacherList = usersSVC.getTeachersList(1)
+    return render_template(
+        'teacher/resetTeacherPasswdPopup.html',
+        teacherName=teacherName,
+        teacherId=teacherId,
+        teacherList=teacherList
+    )
+
+@teacherBlue.route('/resetTeacherPasswordPopup.do', methods=['POST'])
+def resetTeacherPasswordPopup_do():
+    teacherId = request.form.get('teacherId')
+    password = request.form.get('password')
+    passwordCheck = request.form.get('passwordCheck')
+    if not teacherId or not password or not passwordCheck:
+        return "<script>alert('모든 정보를 입력해주세요.'); history.back();</script>"
+    if password != passwordCheck:
+        return "<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>"
+    try:
+        usersSVC.usersDAO.updatePassword(teacherId, password)
+        return "<script>alert('비밀번호가 변경되었습니다.'); window.close();</script>"
+    except Exception as e:
+        return f"<script>alert('오류: {e}'); history.back();</script>"
+    
+@teacherBlue.route('/deleteStudentAccount', methods=['POST'])
+def deleteStudentAccount():
+    try:
+        data = request.get_json()
+        studentId = data.get('studentId')
+        if not studentId:
+            return jsonify({"success": False, "error": "학생 ID가 없습니다."})
+        usersSVC.delUsers(usersDTO(id=studentId))
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+@teacherBlue.route('/deleteTeacherAccount', methods=['POST'])
+def deleteTeacherAccount():
+    try:
+        data = request.get_json()
+        teacherId = data.get('teacherId')
+        if not teacherId:
+            return jsonify({"success": False, "error": "선생님 ID가 없습니다."})
+        usersSVC.delUsers(usersDTO(id=teacherId))
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
 
 # ------------------ community(게시판) 기능 ------------------
 

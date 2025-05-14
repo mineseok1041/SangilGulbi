@@ -18,7 +18,7 @@
 
     <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">
-    <a class="log_nav" href="/student/pointLogStudent">상벌점 내역</a>
+    <a class="log_nav" href="/student/pointLog">상벌점 내역</a>
     <hr class="two">
     <a class="community_nav" href="/student/community">게시판</a>
 
@@ -35,12 +35,12 @@
                 <th scope="list">해당 상벌점</td>
                 <th scope="list">교사명</td>
             </tr>
-            {% for i in range( pointLogList | length) %}
+            {% for pointLog in pointLogList %}
             <tr>
-                <td>{{ pointLogList[i].addDate }}</td>
-                <td>{{ pointLogList[i].reason }}</td>
-                <td>{{ pointLogList[i].point }}</td>
-                <td>{{ pointLogTeacher[i].name }}</td>
+                <td>{{ pointLog.addDate }}</td>
+                <td>{{ pointLog.reason }}</td>
+                <td>{{ pointLog.point }}</td>
+                <td>{{ pointLog.giveTeacherName }}</td>
             </tr>
             {% endfor %}
             
