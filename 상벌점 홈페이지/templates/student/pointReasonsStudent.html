@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상벌점 항목</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/student/pointReasonsStudent.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student/pointReasonsStudent.css') }}">
 </head>
-<header>
+<header>    
     <h2 class="main">상벌점 항목</h2>
 </header>
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
-    <p class="number">{{ usersDTO.stdNum }}</p>
-    <p class="name">{{ usersDTO.name }}</p>
+    <p class="number">{{ session["stdNum"] }}</p>
+    <p class="name">{{ session["name"] }}</p>
 
     <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">
@@ -29,7 +29,7 @@
 </nav>
 
 <body>
-     <div class="rewardList">
+    <div class="rewardList">
         <div class="header">
             <h1>상점 항목</h1>
         </div>

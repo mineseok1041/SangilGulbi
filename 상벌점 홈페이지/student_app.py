@@ -39,6 +39,16 @@ def pointLog():
     
     return render_template('student/pointLogStudent.html', usersDTO=respDTO, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
 
+@studentBlue.route('/pointReasons')
+def pointReasons():
+    if 'id' not in session:
+        return redirect(url_for('index'))
+
+    respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
+    bonusPointReasons = pointSVC.getPointReason('bonus')
+    penaltyPointReasons = pointSVC.getPointReason('penalty')
+    
+    return render_template('student/pointReasonsStudent.html', usersDTO=respDTO, bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
 
 # ------------------ community(게시판) 기능 ------------------
 
