@@ -45,6 +45,17 @@ def pointLog():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
+    
+@teacherBlue.route('/pointReasons')
+def pointReasons():
+    if 'id' not in session:
+        return redirect(url_for('index'))
+
+    respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
+    bonusPointReasons = pointSVC.getPointReason('bonus')
+    penaltyPointReasons = pointSVC.getPointReason('penalty')
+    
+    return render_template('teacher/pointReasonsTeacher.html', usersDTO=respDTO, bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
 
 @teacherBlue.route('/studentManagement')
 def studentManagement():
@@ -226,3 +237,36 @@ def communityDelete(noticeId):
     except Exception as e:
         print(e)
         return redirect(url_for('teacher.communityList'))
+    
+@teacherBlue.route('/teacherSignupApprovalPopup')
+def teacherSignupApprovalPopup():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        
+        return render_template('teacher/teacherSignupApprovalPopup.html')
+    except Exception as e:
+        print(e)
+        return 'Error'
+
+@teacherBlue.route('/resetTeacherPasswdPopup')
+def resetTeacherPasswdPopup():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        
+        return render_template('teacher/resetTeacherPasswdPopup.html')
+    except Exception as e:
+        print(e)
+        return 'Error'
+    
+@teacherBlue.route('/resetStudentPasswdPopup')
+def resetStudentPasswdPopup():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        
+        return render_template('teacher/resetStudentPasswdPopup.html')
+    except Exception as e:
+        print(e)
+        return 'Error'

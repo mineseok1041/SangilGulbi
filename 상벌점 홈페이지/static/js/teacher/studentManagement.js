@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 팝업 열기
             window.open(
-                `resetStudentPasswdPopup.html?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
+                `resetStudentPasswdPopup?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
                 "비밀번호 재설정",
                 `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
             );

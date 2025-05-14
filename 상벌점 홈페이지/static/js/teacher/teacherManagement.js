@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            `resetTeacherPasswdPopup.html?teacherName=${teacherName}&teacherId=${teacherId}`,
+            `/teacher/resetTeacherPasswdPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
             "비밀번호 재설정",
             `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
         );
@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 알림 버튼 클릭 시 팝업 열기
     bellButton.addEventListener("click", function () {
-        const popupWidth = 400;
-        const popupHeight = 300;
+        const popupWidth = 600;
+        const popupHeight = 800;
         const left = (window.innerWidth - popupWidth) / 2 + window.screenX;
         const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
 
