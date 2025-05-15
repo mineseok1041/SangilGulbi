@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableBody = table.querySelector(".teacherInfo_table tbody");
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const headers = document.querySelectorAll(".teacherInfo_table thead th.sortable");
-    const deleteButton = document.querySelector(".deleteAccount");
+    const bellButton = document.querySelector(".bell"); // 알림 버튼
 
     let selectedTeacher = null; // 선택된 학생 정보 초기화
 
@@ -61,39 +61,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            `/teacher/resetTeacherPasswordPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
+            `/teacher/resetTeacherPasswdPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
             "비밀번호 재설정",
             `width=600,height=800,left=${left},top=${top}`
         );
     });
 
-    // 삭제 버튼 클릭 이벤트
-    if (deleteButton) {
-        deleteButton.addEventListener("click", function () {
-            if (!selectedTeacher) {
-                alert("삭제할 선생님을 선택하세요.");
-                return;
-            }
-            const confirmDelete = confirm(`정말로 ${selectedTeacher.teacherName}(${selectedTeacher.teacherId}) 선생님 계정을 삭제하시겠습니까?`);
-            if (!confirmDelete) return;
+    // 알림 버튼 클릭 시 팝업 열기
+    bellButton.addEventListener("click", function () {
+        const popupWidth = 600;
+        const popupHeight = 800;
+        const left = (window.innerWidth - popupWidth) / 2 + window.screenX;
+        const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
 
-            fetch("/teacher/deleteTeacherAccount", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ teacherId: selectedTeacher.teacherId })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    alert("계정이 삭제되었습니다.");
-                    location.reload();
-                } else {
-                    alert(data.error || "삭제 중 오류가 발생했습니다.");
-                }
-            })
-            .catch(() => alert("삭제 요청 중 오류가 발생했습니다."));
-        });
-    }
+        // 팝업 열기
+        window.open(
+            "/teacher/teacherSignupApprovalPopup", // 팝업으로 열릴 페이지
+            "선생님 계정 승인",
+            `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
+        );
+    });
+
 
     // 정렬 기능 추가
     headers.forEach(header => {
@@ -126,5 +114,16 @@ document.addEventListener("DOMContentLoaded", function () {
             tableBody.innerHTML = "";
             sortedRows.forEach(row => tableBody.appendChild(row));
         });
+    });
+    const dateCell = document.querySelectorAll('.date-cell');
+
+    dateCell.forEach(cell => {
+        const originalText = cell.textContent.trim(); // 예: "20250514 09:18:56"
+        const datePart = originalText.split(' ')[0];  // "20250514"
+
+        // 날짜 형식 변경
+        const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
+
+        cell.textContent = formattedDate; // "2025/05/14"
     });
 });

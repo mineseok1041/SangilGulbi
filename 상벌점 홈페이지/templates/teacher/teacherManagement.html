@@ -20,7 +20,7 @@
     <hr class="first">
     <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="pointList_nav" href="/teacher/pointList">상벌점 항목</a>
+    <a class="pointReasons_nav" href="/teacher/pointReasons">상벌점 항목</a>
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
@@ -39,6 +39,10 @@
             <div class="searchBar">
                 <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
             </div>
+            <img class="bell" src="{{ url_for('static', filename='img/notification_Bell.png') }}">
+
+            <div class="circle"></div>
+            
             <div class="actionButtons">
                 <button class="resetPasswd">비밀번호 재설정</button>
                 <button class="deleteAccount">계정 삭제</button>
@@ -59,7 +63,7 @@
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
-                        <td>{{ teacher.lastlogin }}</td>
+                        <td class="date-cell">{{ teacher.lastlogin }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

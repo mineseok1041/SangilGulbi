@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -18,11 +25,11 @@ body {
 
 .popup-box {
   background: #ffffff;
-  padding: 40px 50px;
+  padding: 30px 40px;
   border-radius: 4px;
-  width: 60%;
+  width: 75%;
   border: 2px solid #BCCCDC;
-  height: 70%;
+  height: 85%;
 }
 
 .popup-box h2 {
@@ -55,7 +62,7 @@ th, td {
 }
 
 .width{
-    width: 40%;
+    width: 20%;
     color: #000;
 }
 
