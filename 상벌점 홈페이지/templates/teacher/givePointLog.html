@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                     {% for pointLog in pointLogList %}
-                    <tr>
+                    <tr class="main-row">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
                         <td>{{ pointLog.reason }}</td>
@@ -74,23 +74,14 @@
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
-                    {% endfor %}
-
-                    <tr class="main-row">
-                        <td>10313</td>
-                        <td>홓창기</td>
-                        <td>기특ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-                        <td>2025.23.23</td>
-                        <td>2점</td>
-                        <td>아프지마</td>
-                    </tr>
-                     <tr class="dropdown-row" style="display: none;">
+                                        <tr class="dropdown-row" style="display: none;">
                         <td colspan="6">
                             사유 적는칸~
                             <br>
                             뭔 말알?
                         </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
