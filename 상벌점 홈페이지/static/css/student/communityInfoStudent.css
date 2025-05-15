@@ -8,15 +8,16 @@
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
+
 header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
-    box-shadow: 3px 3px 3px gray;
-    background-attachment: fixed;
+    box-shadow: 0px 3px 3px gray;
+    z-index: 1;
 }
 
 .main {
@@ -28,13 +29,12 @@ header {
 }
 
 nav {
-    background-color: #BCCCDC;
+    background-color: #9AA6B2;
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
-    
 }
 
 nav > a {
@@ -87,7 +87,7 @@ nav > .first{
     left: 5%;
 }
 
-nav > .log_nav {
+nav > .givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -127,16 +127,56 @@ nav > .three{
     left: 5%;
 }
 
-nav > .community_nav {
-    color: #575e65;
+nav > .studentManagement_nav {
+    color: white;
     position: absolute;
-    top: 51%;
+    top: 51.4%;
     left: 10%;
     text-decoration: none;
     cursor: pointer;
 }
 
 nav > .four{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 55%;
+    left: 5%;
+}
+
+nav > .teacherManagement_nav {
+    color: white;
+    position: absolute;
+    top: 58.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .five{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 62%;
+    left: 5%;
+}
+
+nav > .community_nav {
+    color: #575e65;
+    position: absolute;
+    top: 65.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -146,9 +186,8 @@ nav > .four{
     border:0;
 }
 
-
 .logout {
-    width: 10%;
+    width: 80%;
     height: auto;
     position: absolute;
     bottom: 5%;
@@ -156,13 +195,13 @@ nav > .four{
     color: white;
     cursor: pointer;
     border: none;
-    background-color: #BCCCDC;
+    background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
     font-size: 20px;
 }
 
-.title_box {
+.title_input{
     width: 45%;
     height: 7%;
     position: absolute;
@@ -172,82 +211,75 @@ nav > .four{
     display: flex;
     align-items: center;
     color: #55595D;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-.title_box>.title {
-    width: 10%;
-    text-align: center;
-    margin-left: 2%;
+.title_input:focus{
+    color: #000000;
+    border: none;
 }
 
 .writer_box {
-    width: 22%;
+    width: 20%;
     height: 7%;
     position: absolute;
     top: 15%;
-    left: 73%;
+    left: 75%;
     background-color: #E6EEF6;
     display: flex;
     align-items: center;
     color: #55595D;
 }
 
-.writer_box>.writer {
-    width: 35%;
-    text-align: center;
-    margin-left: 2%;
-}
-
 .date {
-    position: absolute;
-    top: 24%;
-    left: 25%;
+    width: 30%;
+    height: 25%;
+    margin: 13% 25%;
 }
 
-.text_box {
+.content_input {
     width: 70%;
-    height: 64%;
+    height: 55%;
     position: absolute;
     top: 30%;
     left: 25%;
     background-color: #E6EEF6;
-    display: flex;
-    align-items: center;
     color: #55595D;
+    border: none;
+    font-family: Arial;
+    font-size: 30px;
+    font-weight: bold;
+
+    padding: 10px;
+    resize: none; /* 크기 조절 막기 */
+    overflow-y: auto;
+
+    /* 텍스트를 상단에 붙이기 위해 기본적으로 작동 */
+    vertical-align: top;
 }
 
-.text_box>p {
-    position: absolute;
-    top: 5%;
-    left: 3%;
-    color: #55595D;
+.content_input:focus {
+    color: #000000; /* 포커스되었을 때 텍스트 색 변경 */
 }
 
-.comment_box {
-    width: 80%;
-    height: 100%;
-    position: absolute;
-    top: 100%;
-    left: 20%;
-}
-
-input {
-    width: 70%;
+.input {
+    width: 50%;
     height: 5%;
     border: 1;
-    position: relative;
-    top: 0%;
-    left: 5%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
+    margin-top: 18%;
+    margin-left: 25%;
 
 }
 
-input:focus {
+.input:focus {
     outline: none;
 }
 
@@ -263,6 +295,14 @@ input:focus {
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 20%;
 }
 
 .comments {

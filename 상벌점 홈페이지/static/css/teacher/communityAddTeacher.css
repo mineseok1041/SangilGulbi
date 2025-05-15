@@ -13,7 +13,7 @@ header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 0px 3px 3px gray;
@@ -32,10 +32,9 @@ nav {
     background-color: #9AA6B2;
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
-    
 }
 
 nav > a {
@@ -234,11 +233,17 @@ nav > .six{
     color: #55595D;
 }
 
+.date {
+    width: 30%;
+    height: 25%;
+    margin: 13% 25%;
+}
+
 .content_input {
     width: 70%;
     height: 55%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     color: #55595D;
@@ -259,16 +264,86 @@ nav > .six{
     color: #000000; /* 포커스되었을 때 텍스트 색 변경 */
 }
 
+.input {
+    width: 50%;
+    height: 5%;
+    border: 1;
+    text-align: center;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: solid 1px #55595D;
+    color: #55595D;
+    margin-top: 18%;
+    margin-left: 25%;
+
+}
+
+.input:focus {
+    outline: none;
+}
+
 .sumit {
     width: 10%;
     height: 5%;
-    position: absolute;
-    left: 85%;
-    bottom: 10%;
+    position: relative;
+    left: 10%;
+    top: 0%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 20%;
+}
+
+.comments {
+    width: 70%;
+    height: 10%;
+    position: relative;
+    margin: 1% 0% 0% 5%;
+}
+
+.comments > img {
+    width: auto;
+    height: 60%;
+    position: absolute;
+    left: 0%;
+    top: 20%;
+}
+
+.comments > .ID {
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 25%;
+}
+
+.ID > .name {
+    position: relative;
+    bottom: 0%;
+    margin: 0%;
+}
+
+.ID > .date_ {
+    position: absolute;
+    bottom: 0%;
+    left: 17%;
+    width: 100%;
+    margin: 0%;
+    font-size: 12px;
+}
+
+.comment {
+    position: absolute;
+    top: 40%;
+    left: 12%;
 }

@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash, jsonify
+from datetime import datetime
 
 from usersSVC import usersSVC
 from usersDTO import usersDTO
@@ -173,11 +174,19 @@ def communityList():
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         notices = SVC.get_all_notices()
+        for n in notices:
+            if n.created_date:
+                try:
+                    if '-' in n.created_date:
+                        dt = datetime.strptime(n.created_date, '%Y-%m-%d %H:%M:%S')
+                    elif '/' in n.created_date:
+                        dt = datetime.strptime(n.created_date, '%Y/%m/%d %H:%M:%S')
+                    else:
+                        dt = datetime.strptime(n.created_date, '%Y%m%d %H:%M:%S')
+                    n.created_date = dt.strftime('%Y/%m/%d')
+                except Exception:
+                    n.created_date = n.created_date[:10].replace('-', '/')
         return render_template('teacher/communityTeacher.html', usersDTO=teacherDTO, notices=notices)
-    except Exception as e:
-        print(e)
-        return redirect(url_for('index'))
-
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
@@ -266,6 +275,17 @@ def communityDetail(noticeId):
         if 'id' not in session:
             return redirect(url_for('index'))
         notice = SVC.get_notice_by_id(noticeId)
+        if notice.created_date:
+            try:
+                if '-' in notice.created_date:
+                    dt = datetime.strptime(notice.created_date, '%Y-%m-%d %H:%M:%S')
+                elif '/' in notice.created_date:
+                    dt = datetime.strptime(notice.created_date, '%Y/%m/%d %H:%M:%S')
+                else:
+                    dt = datetime.strptime(notice.created_date, '%Y%m%d %H:%M:%S')
+                notice.created_date = dt.strftime('%Y/%m/%d %H:%M:%S')
+            except Exception:
+                notice.created_date = notice.created_date.replace('-', '/')
         return render_template('teacher/communityInfoTeacher.html', notice=notice)
     except Exception as e:
         print(e)
@@ -283,7 +303,8 @@ def communityAdd():
             notice = NoticeDTO(title=title, content=content, author=author)
             SVC.add_notice(notice)
             return redirect(url_for('teacher.communityList'))
-        return render_template('teacher/communityAddTeacher.html')
+        now = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+        return render_template('teacher/communityAddTeacher.html', created_date=now)
     except Exception as e:
         print(e)
         return redirect(url_for('teacher.communityList'))
