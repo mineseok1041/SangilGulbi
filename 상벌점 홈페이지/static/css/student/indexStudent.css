@@ -320,6 +320,64 @@ nav > .four{
     max-width: 250px; /* 원하는 최대 너비 */
 }
 
+.log_table{
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+}
+.log_table table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    border-top: #000000 solid 3px;
+    margin-top: 4%;
+}
+
+.log_table table a {
+    text-decoration: none;
+    color: #3f3f3f;
+}
+
+.log_table th {
+    background: #ffffff;
+    padding: 1.5%;
+    text-align: center;
+    border-bottom: #000000 solid 3px;
+    font-size: 20px;
+}
+
+.log_table th:nth-child(1) {
+    min-width: 160px;
+}
+
+.log_table th:nth-child(2) {
+    min-width: 100px; 
+}
+
+.log_table th:nth-child(3) {
+    min-width: 130px;
+}
+
+.log_table th:nth-child(4) {
+    min-width: 110px;
+}
+
+.log_table td {
+    padding: 1.5%;
+    text-align: center;
+    border-bottom: #55595D solid 1px;
+    font-size: 20px;
+    color: #3f3f3f;
+}
+
+.log_table .reason {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px; /* 원하는 최대 너비 */
+}
+
 .community_box {
     width: 28%;
     height: 70%;
