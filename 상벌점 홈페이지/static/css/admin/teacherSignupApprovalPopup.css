@@ -61,11 +61,6 @@ th, td {
   color: #55595D;
 }
 
-.width{
-    width: 20%;
-    color: #000;
-}
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -74,26 +69,37 @@ th, td {
 }
 
 .approve, .reject {
-  padding: 3px 12px;
+  font-family: 'KakaoSmallSans-Bold', sans-serif;
+  font-size: 15px;
+  padding: 6px 12px;
   border: none;
   border-radius: 4px;
-  font-weight: bold;
   cursor: pointer;
 }
 
 .approve {
   background-color: #BCCCDC;
   color: #000;
+  transition: background-color 0.3s ease;
 }
 
 .approve:hover {
-  background-color: #9AA6B2;
+  background-color: #bddcbc;
+}
+
+.approve:active {
+  scale: 0.98;
 }
 
 .reject {
-  background-color: #D9EAFD;
+  background-color: #BCCCDC;
   color: #000;
+  transition: background-color 0.3s ease;
 }
 .reject:hover{
-    background-color: #BCCCDC;
+    background-color: #dcbcbc;
+}
+
+.reject:active {
+  scale: 0.98;
 }

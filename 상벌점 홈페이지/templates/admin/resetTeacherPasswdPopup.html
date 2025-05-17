@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 재설정</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/resetTeacherPasswdPopup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/resetTeacherPasswdPopup.css') }}">
 </head>
 <body>
     <main class="popupMain">
@@ -36,7 +36,9 @@
                             <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
                         </div>
                     </div>
-                </div>
+                    <div class="note">
+                        <small>이 기능은 비밀번호를 변경하는 기능이니 신중하게 사용하여 주시길 바랍니다.</small>
+                    </div>
                 <button class="submitButton" type="submit">제출</button>
             </form>
             <!-- 선생님 검색 모달 -->
@@ -70,6 +72,6 @@
             </div>
         </div>
     </main>
-    <script src="{{ url_for('static', filename='js/teacher/resetTeacherPasswdPopup.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/resetTeacherPasswdPopup.js') }}"></script>
 </body>
 </html>
