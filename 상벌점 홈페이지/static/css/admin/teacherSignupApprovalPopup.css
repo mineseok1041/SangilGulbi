@@ -6,9 +6,8 @@
 }
 
 body {
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
+  font-family: 'KakaoSmallSans-Bold', sans-serif;
   margin: 0;
-  padding: 0;
   background-color: #ffffff;
 }
 
@@ -32,17 +31,17 @@ body {
   height: 85%;
 }
 
-.popup-box h2 {
-  margin: 0;
-  font-size: 20px;
+h2 {
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 3%;
 }
 
-.subtitle {
-  text-align: center;
-  margin: 10px 0 20px;
-  font-size: 14px;
+.note {
+    font-size: 15px; /* 노트 폰트 크기 */
+    color: #999; /* 노트 텍스트 색상 */
+    text-align: center; /* 가운데 정렬 */
 }
 
 table { 
