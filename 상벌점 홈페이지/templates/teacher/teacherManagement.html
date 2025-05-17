@@ -24,8 +24,10 @@
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
+    {% if session["identity"] == 0 %}
     <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="five">
+    {% endif %}
     <a class="community_nav" href="/teacher/community">게시판</a>
 
     <hr class="six">

@@ -21,7 +21,6 @@ def login():
         return redirect(url_for('index'))
     return render_template('auth/login.html')
 
-
 # 회원가입 페이지
 @authBlue.route('/signup/<userType>')
 def signup(userType):
@@ -55,9 +54,9 @@ def dosignup(userType):
             id = request.form['id']
             password = request.form['password']
             name = request.form['name']
+            checkCode = request.form['checkCode']
 
-            reqDTO = usersDTO(id=id, password=password, name=name, identity=1)
-
+            reqDTO = usersDTO(id=id, password=password, name=name, identity=1, checkCode=checkCode)
             usersSVC.signup(reqDTO)
 
             flash("회원가입이 완료되었습니다.")
@@ -98,7 +97,6 @@ def dologin():
                 response.set_cookie('SangilGulbiUserID', loginDTO.id, max_age=60*60*24*365) # 1년
                 response.set_cookie('SangilGulbiUserPWD', loginDTO.password, max_age=60*60*24*365) # 1년
         
-
         return response
     except Exception as e:
         print(e)

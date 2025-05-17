@@ -120,21 +120,19 @@ class usersDAO:
         return count > 0
 
     def addUsers(self, reqDTO: usersDTO):
-        query = "INSERT INTO users(id, password, name, stdNum, identity, verified) VALUES(:1, :2, :3, :4, :5, 1)"
-        
         conn = None
         cursor = None
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            if reqDTO.identity == 2:
+            if reqDTO.identity == 2:  # 학생
+                query = "INSERT INTO users(id, password, name, stdNum, identity, verified) VALUES(:1, :2, :3, :4, :5, 1)"
                 cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.stdNum, reqDTO.identity])
-            elif reqDTO.identity == 1:
-                query = "INSERT INTO users(id, password, name, identity, verified) VALUES(:1, :2, :3, :4, 0)"
-                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.identity])
+            elif reqDTO.identity == 1:  # 선생님
+                query = "INSERT INTO users(id, password, name, identity, verified, checkCode) VALUES(:1, :2, :3, :4, 0, :5)"
+                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.identity, reqDTO.checkCode])
 
-            
             conn.commit()
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
@@ -258,13 +256,47 @@ class usersDAO:
         limit = 20
         startNo = (page - 1) * limit + 1
         endNo = page * limit
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity IN (0, 1)"
+        
+        # 승인된(verified=1) 선생님만 조회
+        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 1 AND verified = 1"
+        
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            cursor.execute(query, [startNo, endNo])
+            rows = cursor.fetchall()
+            return [usersDTO(*row) for row in rows]
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+            
+    def getUnverifiedTeachers(self) -> list[usersDTO]:
+        query = "SELECT * FROM users WHERE identity = 1 AND verified = 0"
         conn = self.get_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
+            cursor.execute(query)
             rows = cursor.fetchall()
             return [usersDTO(*row) for row in rows]
+        finally:
+            cursor.close()
+            conn.close()
+            
+    def updateTeacherVerified(self, teacher_id: str, verified: int):
+        query = "UPDATE users SET verified = :1 WHERE id = :2"
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, [verified, teacher_id])
+            conn.commit()
+        except Exception as e:
+            raise Exception(f"승인 처리 실패: {e}")
         finally:
             cursor.close()
             conn.close()
