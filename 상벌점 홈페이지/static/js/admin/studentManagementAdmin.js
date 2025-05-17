@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            `/teacher/addStudentPopup`,
+            `/admin/addStudentPopup`,
             "학생 계정 추가",
             `width=600,height=800,left=${left},top=${top}`
         );
