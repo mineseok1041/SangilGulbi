@@ -27,9 +27,7 @@
     <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
     <hr class="five">
     <a class="community_nav" href="/teacher/community">게시판</a>
-
     <hr class="six">
-
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
@@ -40,7 +38,7 @@
                 <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
             </div>
             <button class="searchButton">검색</button>
-            <img src="../static/img/filterIcon.png" alt="필터 아이콘" class="filterIcon"></img>
+            <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon">
             <div class="filterPopup hidden">
                 <h4>학년 구분</h4>
                 <label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
@@ -69,15 +67,14 @@
                     <tr class="main-row">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
-                        <td>{{ pointLog.reason }}</td>
-                        <td>{{ pointLog.addDate }}</td>
+                        <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
+                        <td class="date-cell">{{ pointLog.addDate }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
-                                        <tr class="dropdown-row" style="display: none;">
+                    <tr class="dropdown-row">
                         <td colspan="6">
-                            사유 적는칸~
-                            <br>
+                            사유 적는칸~<br>
                             뭔 말알?
                         </td>
                     </tr>

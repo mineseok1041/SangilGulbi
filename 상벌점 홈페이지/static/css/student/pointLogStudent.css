@@ -235,13 +235,12 @@ nav>.four {
 }
 
 .log_table {
-    width: 78%;
-    height: 90%;
+    width: 80%;
+    height: 86%;
     position: absolute;
-    top: 10%;
+    top: 12%;
     left: 20%;
     border-radius: 5px;
-    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -254,7 +253,6 @@ nav>.four {
 }
 
 .log_table th {
-    background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
@@ -284,8 +282,10 @@ nav>.four {
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-
 
 /* .log_table td input[type="checkbox"] {
     transform: scale(2);
@@ -293,9 +293,9 @@ nav>.four {
 
 .log_table thead {
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
     z-index: 1;
 }
+
 
 
 .log_table tbody tr:not(.selected-row):hover {
@@ -333,4 +333,15 @@ nav>.four {
 .sortable.desc .arrow {
     transform: rotate(180deg); /* 내림차순: 180도 회전 */
     color: #000; /* 활성화된 화살표 색상 */
+}
+
+.dropdown-row {
+    background-color: #ffffff;
+    display: none;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.main-row {
+    overflow: hidden;
 }

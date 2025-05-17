@@ -44,13 +44,20 @@
             </thead>
             <tbody>
                     {% for pointLog in pointLogList %}
-                    <tr>
+                    <tr class="main-row">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
-                        <td>{{ pointLog.reason }}</td>
-                        <td>{{ pointLog.addDate }}</td>
+                        <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
+                        <td class="date-cell">{{ pointLog.addDate }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
+                    </tr>
+                    <tr class="dropdown-row"> 
+                        <td colspan="6">
+                            사유 적는칸~
+                            <br>
+                            뭔 말알?
+                        </td>
                     </tr>
                     {% endfor %}
             </tbody>
