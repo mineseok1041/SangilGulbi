@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const resetButton = document.querySelector(".resetPasswd"); // "비밀번호 재설정" 버튼
     const headers = document.querySelectorAll(".teacherInfo_table thead th.sortable");
     const bellButton = document.querySelector(".bell"); // 알림 버튼
+    const addButton = document.querySelector(".addTeacher"); // 추가 버튼
 
     let selectedTeacher = null; // 선택된 학생 정보 초기화
 
@@ -48,6 +49,20 @@ document.addEventListener("DOMContentLoaded", function () {
             tableRows.forEach(row => row.classList.remove("selected-row"));
             selectedTeacher = null; // 선택된 교사 정보 초기화
         }
+    });
+
+    addButton.addEventListener("click", function () {
+        const popupWidth = 600;
+        const popupHeight = 800;
+        const left = (window.innerWidth - popupWidth) / 2 + window.screenX;
+        const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
+
+        // 팝업 열기
+        window.open(
+            `/admin/addTeacherPopup`,
+            "선생님 계정 추가",
+            `width=600,height=800,left=${left},top=${top}`
+        );
     });
 
     resetButton.addEventListener("click", function () {
