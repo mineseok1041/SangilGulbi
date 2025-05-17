@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
 html {
     width: 100%;
     height: 100%;
@@ -5,6 +13,7 @@ html {
 }
 
 body {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
     background-color: white;
     width: 100%;
     height: 100%;
@@ -27,13 +36,22 @@ button{
     background-color: #BCCCDC;
     border: none;
     border-radius: 15px;
+    transition: background-color 0.3s ease , transform 0.3s ease;
 }
 
+button:hover{
+    background-color: #a9b7c5;
+}
+
+button:active{
+    background-color: #a9b7c5;  
+    transform: scale(0.95);
+}
 .teacher_img {
     width: 60%;
     height: auto;
     position: relative;
-    bottom: -14%;
+    bottom: -16%;
 }
 
 .stu_img {
@@ -44,9 +62,10 @@ button{
 }
 
 p{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
     text-align: center;
     position: relative;
-    bottom: 92%;
+    bottom: 95%;
     color: rgb(255, 255, 255);
     z-index: 3;
     font-size: 35px;
