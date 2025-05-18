@@ -144,6 +144,15 @@ nav>.community_nav {
     cursor: pointer;
 }
 
+nav > .myInfoEdit_nav{
+    color: white;
+    position: absolute;
+    bottom: 13%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 nav>.four {
     width: 90%;
     position: absolute;
