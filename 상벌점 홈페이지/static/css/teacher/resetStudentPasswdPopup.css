@@ -113,6 +113,13 @@ body {
     opacity: 1; /* 마우스 오버 시 불투명 */
 }
 
+.note {
+    font-size: 15px; /* 노트 폰트 크기 */
+    color: #ff5757; /* 노트 텍스트 색상 */
+    margin-top: 5px; /* 노트와 입력 필드 간격 */
+    text-align: center; /* 가운데 정렬 */
+}
+
 /* 모달 기본 스타일 */
 .studentSearchModal {
     position: fixed;
