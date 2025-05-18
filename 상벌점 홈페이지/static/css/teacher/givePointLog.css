@@ -184,7 +184,16 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-nav>.six {
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
