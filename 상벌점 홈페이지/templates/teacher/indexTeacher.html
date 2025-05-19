@@ -34,37 +34,29 @@
 </nav>
 
 <body>
-
-    <div class="giveBonusPoint">
-        <div class="box"></div>
-        <h1 class="giveBonus">상점 부여</h1>
-    </div>
-    <div class="givePenaltyPoint">
-        <div class="box"></div>
-        <h1 class="givePenalty">벌점 부여</h1>
-    </div>
-
-    <div class="studentInfo">
+    <div class="awardGive">
         <div class="header">
-            <h1>학생 관리</h1>
+            <h1>상점 부여</h1>
         </div>
-        <div class="studentInfo_table">
+        <div class="awardGive_table">
             <table>
                 <thead>
                     <tr>
                         <th>이름</th>
                         <th>학번</th>
-                        <th>아이디</th>
+                        <th>사유</th>
+                        <th>부여한 상점</th>
                         <th>총 상벌점</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for student in studentList %}
                     <tr>
-                        <td>{{ student.name }}</td>
-                        <td>{{ student.stdNum }}</td>
-                        <td>{{ student.id }}</td>
-                        <td>{{ student.point }}</td>
+                        <td>노성빈</td>
+                        <td>30205</td>
+                        <td>test1</td>
+                        <td>6</td>
+                        <td>100점</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -73,25 +65,59 @@
         <button class="more" onClick="location.href='/teacher/studentManagement'">더보기</button>
     </div>
 
-    <div class="teacherManagement_box">
+    <div class="penaltyGive_box">
         <div class="header">
-            <h1>선생님 관리</h1>
+            <h1>벌점 부여</h1>
         </div>
-        <div class="teacherManagement_table">
+        <div class="penaltyGive_table">
             <table>
                 <thead>
                     <tr>
+                        <th>학번</th>
                         <th>이름</th>
-                        <th>아이디</th>
-                        <th>마지막 활동</th>
+                        <th>사유</th>
+                        <th>부여한 벌점</th>
+                        <th>총 상벌점</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for teacher in teacherList %}
                     <tr>
-                        <td>{{ teacher.name }}</td>
-                        <td>{{ teacher.id }}</td>
-                        <td class="date-cell">{{ teacher.lastlogin }}</td>
+                        <td>★</td>
+                        <td>벌점</td>
+                        <td>1번</td>
+                        <td>쓰레기안버린 노성빈</td>
+                        <td>-1000000</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button class="more" onClick="location.href='/teacher/teacherManagement'">더보기</button>
+    </div>
+     <div class="manyUseList_box">
+        <div class="header">
+            <h1>많이 쓰는 항목</h1>
+        </div>
+        <div class="manyUseList_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>구분</th>
+                        <th>번호</th>
+                        <th>사유</th>
+                        <th>해당 상벌점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in teacherList %}
+                    <tr>
+                        <td>★</td>
+                        <td>벌점</td>
+                        <td>1번</td>
+                        <td>쓰레기안버린 노성빈</td>
+                        <td>-1000000</td>
                     </tr>
                     {% endfor %}
                 </tbody>

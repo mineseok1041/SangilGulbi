@@ -277,12 +277,12 @@ nav > .six{
     margin: 1% 0%;
     color: #575e65;
 }
-.studentInfo {
-    width: 45%;
-    height: 59.5%;
+.awardGive {
+    width: 40%;
+    height: 30%;
     max-height: 59.5%;
     position: absolute;
-    top: 27%;
+    top: 12%;
     left: 22%;
     padding-top: 5%;
     border-radius: 5px;
@@ -291,9 +291,9 @@ nav > .six{
     overflow-x: hidden;
 }
 
-.studentInfo > .header{
+.awardGive > .header{
     width: 100%;
-    height: 8%;
+    height: 15%;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -302,7 +302,7 @@ nav > .six{
     padding-top: 0.5%;
 }
 
-.studentInfo > .header >  h1{
+.awardGive > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
@@ -313,20 +313,20 @@ nav > .six{
 }
 
 
-.studentInfo > .studentInfo_table {
+.awardGive > .awardGive_table {
     width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
+    max-height: 50%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
 }
 
-.studentInfo_table table {
+.awardGive_table table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
 }
 
-.studentInfo_table th {
+.awardGive_table th {
     background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
@@ -334,7 +334,7 @@ nav > .six{
     font-size: 20px;
 }
 
-.studentInfo_table td {
+.awardGive_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
@@ -342,20 +342,20 @@ nav > .six{
     color: #3f3f3f;
 }
 
-.studentInfo_table thead {
+.awardGive_table thead {
     position: sticky; /* 헤더 고정 */
     top: 0;
     background-color: #f4f4f4; /* 헤더 배경색 */
     z-index: 1;
 }
 
-.studentInfo_table tbody tr:hover {
+.awardGive_table tbody tr:hover {
     background: #f9f9f9;
 }
 
-.studentInfo > .more {
-    width: 10%;
-    height: 5%;
+.awardGive > .more {
+    width: 15%;
+    height: 10%;
     background-color: #9AA6B2;
     border: none;
     border-radius: 10%;
@@ -369,29 +369,31 @@ nav > .six{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.studentInfo > .more:hover {
+.awardGive > .more:hover {
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
-.studentInfo > .more:active {
+
+.awardGive > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 
-.teacherManagement_box {
-    width: 29%;
-    height: 34%;
-    max-height: 33%;
+.manyUseList_box {
+    width: 35%;
+    height: 30%;
+    max-height: 59.5%;
     position: absolute;
-    top: 27%;
-    left: 69%;
+    top: 12%;
+    left: 64%;
+    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
-.teacherManagement_box > .header{
+.manyUseList_box > .header{
     width: 100%;
-    height: 18%;
+    height: 15%;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -400,31 +402,31 @@ nav > .six{
     padding-top: 0.5%;
 }
 
-.teacherManagement_box > .header >  h1{
+.manyUseList_box > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
     top: 27%;
-    left: 5%;
+    left: 3%;
     margin: 0%;
     font-size: 25px;
 }
 
-.teacherManagement_box > .teacherManagement_table {
+.manyUseList_box > .manyUseList_table {
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
-    margin-top: 17%;
+    margin-top: 0%;
 }
 
-.teacherManagement_table table {
+.manyUseList_table table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
 }
 
-.teacherManagement_table th {
+.manyUseList_table th {
     background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
@@ -432,7 +434,7 @@ nav > .six{
     font-size: 15px;
 }
 
-.teacherManagement_table td {
+.manyUseList_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
@@ -440,19 +442,18 @@ nav > .six{
     color: #3f3f3f;
 }
 
-.teacherManagement_table thead {
+.manyUseList_table thead {
     position: sticky; /* 헤더 고정 */
     top: 0;
     background-color: #f4f4f4; /* 헤더 배경색 */
     z-index: 1;
 }
 
-.teacherManagement_table tbody tr:hover {
+.manyUseList_table tbody tr:hover {
     background: #f9f9f9;
 }
 
-
-.teacherManagement_box > .more {
+.manyUseList_box > .more {
     width: 17%;
     height: 10%;
     background-color: #9AA6B2;
@@ -468,25 +469,29 @@ nav > .six{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.teacherManagement_box > .more:hover {
+.manyUseList_box > .more:hover {
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
-.teacherManagement_box > .more:active {
+.manyUseList_box > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 .community_box {
-    width: 29%;
-    height: 34%;
+    width: 35%;
+    height: 30%;
+    max-height: 59.5%;
     position: absolute;
-    top: 63%;
-    left: 69%;
+    top: 55%;
+    left: 64%;
+    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .community_box > .header{
     width: 100%;
-    height: 18%;
+    height: 15%;
     position: absolute;
     top: 0%;
     right: 0%;
@@ -500,7 +505,7 @@ nav > .six{
     color: white;
     position: absolute;
     top: 27%;
-    left: 5%;
+    left: 3%;
     margin: 0%;
     font-size: 25px;
 }
@@ -509,7 +514,7 @@ nav > .six{
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
-    margin-top: 17%;
+    margin-top: 0%;
 }
 .community_table table {
     width: 90%;
@@ -566,5 +571,105 @@ nav > .six{
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
 .community_box > .more:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
+
+.penaltyGive_box {
+    width: 40%;
+    height: 30%;
+    max-height: 59.5%;
+    position: absolute;
+    top: 55%;
+    left: 22%;
+    padding-top: 5%;
+    border-radius: 5px;
+    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.penaltyGive_box > .header{
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: #9AA6B2;
+    border-radius: 5px 5px 0px 0px;
+    padding-top: 0.5%;
+}
+
+.penaltyGive_box > .header >  h1{
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 27%;
+    left: 3%;
+    margin: 0%;
+    font-size: 25px;
+}
+
+.penaltyGive_box > .teacherManagement_table {
+    width: 100%; /* 테이블 너비 */
+    max-height: 80%; /* 테이블 높이 */
+    margin: auto; /* 가운데 정렬 */
+    margin-top: 0%;
+}
+
+.penaltyGive_table table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    border-top: #000000 solid 3px;
+}
+
+.penaltyGive_table th {
+    background: #ffffff;
+    padding: 1.5%;
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: #000000 solid 3px;
+    font-size: 15px;
+}
+
+.penaltyGive_table td {
+    padding: 1.5%;
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: #55595D solid 1px;
+    font-size: 15px;
+    color: #3f3f3f;
+}
+
+.penaltyGive_table thead {
+    position: sticky; /* 헤더 고정 */
+    top: 0;
+    background-color: #f4f4f4; /* 헤더 배경색 */
+    z-index: 1;
+}
+
+.penaltyGive_table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.penaltyGive_box > .more {
+    width: 15%;
+    height: 10%;
+    background-color: #9AA6B2;
+    border: none;
+    border-radius: 10%;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 15px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.penaltyGive > .more:hover {
+    background-color: #7d8791; /* hover 시 어두운 색 */
+}
+.penaltyGive > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
