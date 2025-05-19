@@ -169,6 +169,7 @@ nav>.four {
     text-align: left;
     font-size: 20px;
 }
+
 .log_box {
     width: 45%;
     height: 59.5%;
@@ -237,7 +238,7 @@ nav>.four {
 .log_table {
     width: 80%;
     height: 86%;
-    position: absolute;
+    position: fixed;
     top: 12%;
     left: 20%;
     border-radius: 5px;
@@ -246,7 +247,7 @@ nav>.four {
 }
 
 .log_table table {
-    width: 90%;
+    width: 60%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
@@ -277,6 +278,7 @@ nav>.four {
 } */
 
 .log_table td {
+    max-width: 400px;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
