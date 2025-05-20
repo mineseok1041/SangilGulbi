@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/indexAdmin.css') }}">
+    <title>상벌점 관리 페이지</title>
+</head>
+
+<header>
+    <h2 class="main">마이페이지</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
+    <p class="number">인공지능소프트웨어과</p>
+    <p class="name">{{ usersDTO.name }}선생님</p>
+
+    <a class="mypage_nav" href="/teacher/">마이페이지</a>
+    <hr class="first">
+    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
+    <hr class="two">
+    <a class="pointReasons_nav" href="/teacher/pointReasons">상벌점 항목</a>
+    <hr class="three">
+    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
+    <hr class="four">
+    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
+    <hr class="five">
+    <a class="community_nav" href="/teacher/community">게시판</a>
+
+    <hr class="six">
+
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
+</nav>
+
+<body>
+
+    <div class="giveBonusPoint">
+        <div class="box"></div>
+        <h1 class="giveBonus">상점 부여</h1>
+    </div>
+    <div class="givePenaltyPoint">
+        <div class="box"></div>
+        <h1 class="givePenalty">벌점 부여</h1>
+    </div>
+
+    <div class="studentInfo">
+        <div class="header">
+            <h1>학생 관리</h1>
+        </div>
+        <div class="studentInfo_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>학번</th>
+                        <th>이름</th>
+                        <th>마지막 활동</th>
+                        <th>총 상벌점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in studentList %}
+                    <tr>
+                        <td>{{ student.stdNum }}</td>                        
+                        <td>{{ student.name }}</td>
+                        <td class="date-cell">{{ student.lastlogin }}</td>
+                        <td>{{ student.point }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button class="more" onClick="location.href='/admin/studentManagementAdmin'">더보기</button>
+    </div>
+
+    <div class="teacherManagement_box">
+        <div class="header">
+            <h1>선생님 관리</h1>
+        </div>
+        <div class="teacherManagement_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이름</th>
+                        <th>아이디</th>
+                        <th>승인 여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in teacherList %}
+                    <tr>
+                        <td>{{ teacher.name }}</td>
+                        <td>{{ teacher.id }}</td>
+                        <!--<td class="date-cell">{{ teacher.lastlogin }}</td>-->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button class="more" onClick="location.href='/admin/teacherManagement'">더보기</button>
+    </div>
+    <div class="community_box">
+        <div class="header">
+            <h1>게시판</h1>
+        </div>
+        <div class="community_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <th>작성자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for notice in notices[::-1][:5] %}
+                    <tr>
+                        <td>{{ notices|length - loop.index0 }}</td>
+                        <td>
+                            <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                        </td>
+                        <td class="date-cell">{{ notice.created_date }}</td>                    
+                        <td>{{ notice.author }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button class="more" onClick="location.href='/admin/community'">더보기</button>
+    </div>
+
+    <div class="Box">
+        <div class="header">
+            <h1> </h1>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin/indexAdmin.js') }}"></script>
+
+</body>
+
+
+
+</html>
