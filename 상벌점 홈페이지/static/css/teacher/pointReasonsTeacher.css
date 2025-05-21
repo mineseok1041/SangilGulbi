@@ -407,5 +407,16 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-    font-size: 18px;
+  font-size: 16px;
+}
+
+.star{
+    font-size: 25px;     /* 별 크기 */
+    color: #ccc;         /* 기본 회색 */
+    cursor: pointer;     /* 마우스 오버 시 손 모양 */
+    transition: color 0.2s;  /* 부드러운 색 전환 */
+}
+
+.star.active{
+    color: #000000;
 }
