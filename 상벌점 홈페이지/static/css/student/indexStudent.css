@@ -41,18 +41,18 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+
 }
 
-nav > a {
+nav>a {
     font-size: 20px;
 }
 
-nav > a:not(.mypage_nav):hover{
+nav>a:not(.mypage_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -60,14 +60,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -75,7 +75,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: #575e65;
     position: absolute;
     top: 30.5%;
@@ -83,18 +83,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .log_nav {
+nav>.log_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -103,18 +103,18 @@ nav > .log_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -123,18 +123,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 51%;
@@ -143,24 +143,14 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-.all_score{
-    color: white;
-    position: absolute;
-    top: 83%;
-    left: 50%;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-nav > .four{
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 
@@ -243,12 +233,15 @@ nav > .four{
 
 .upscore_box>.header>h1 {
     width: 100%;
+    height: 100%;
     color: white;
     position: absolute;
-    top: 15%;
+    top: 0%;
     left: 2%;
     margin: 0%;
     font-size: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .upscore_box>.more {
@@ -297,12 +290,15 @@ nav > .four{
 
 .downscore_box>.header>h1 {
     width: 100%;
+    height: 100%;
     color: white;
     position: absolute;
-    top: 15%;
+    top: 0%;
     left: 2%;
     margin: 0%;
     font-size: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .downscore_box>.more {
@@ -351,12 +347,15 @@ nav > .four{
 
 .community_box>.header>h1 {
     width: 100%;
+    height: 100%;
     color: white;
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 2%;
     margin: 0%;
     font-size: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .community {
