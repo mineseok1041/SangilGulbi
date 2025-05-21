@@ -393,4 +393,5 @@ nav > .six{
     border-radius: 50%;
     left: 73.5%;
     top: 215%;
+    visibility: hidden;
 }
