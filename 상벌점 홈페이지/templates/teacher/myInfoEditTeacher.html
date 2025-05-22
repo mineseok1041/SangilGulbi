@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 정보 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/myInfoEditTeacher.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="studentInfoBox">
+            <h2 class="boxHead">내 정보 수정</h2>
+            <form id="resetPasswordForm" method="POST" action="/teacher/resetStudentPasswordPopup.do">
+                <div class="studentInfo">
+                    <div class="infoRow">
+                        <span class="infoLabel">학번:</span>
+                        <span class="infoValue studentNum">{{ studentNum }}</span>
+                        <img class="searchStudentIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">이름:</span>
+                        <span class="infoValue studentName">{{ studentName }}</span>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">아이디:</span>
+                        <span class="infoValue studentId">{{ studentId }}</span>
+                    </div>
+                    <input type="hidden" name="studentId" class="studentIdInput" value="{{ studentId }}" />
+                    <div class="infoRow">
+                        <span class="infoLabel">현재 비밀번호:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호 변경:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호 확인:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="passwordCheck" required />
+                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                        </div>
+                    </div>
+                </div>
+                <button class="submitButton" type="submit">제출</button>
+            </form>
+            <!-- 학생 검색 모달 -->
+            <div class="studentSearchModal hidden">
+                <div class="modalContent">
+                    <div class="searchBar">
+                        <input type="text" class="searchInput" placeholder="찾으실 학생의 정보를 적어주세요.">
+                        <button class="searchButton">
+                            <img src="../static/img/searchIcon.png" alt="검색" class="searchIcon" />
+                        </button>
+                    </div>
+                    <div class="studentList">
+                        <table class="studentTable">
+                            <thead>
+                                <tr>
+                                    <th>이름</th>
+                                    <th>아이디</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in studentList %}
+                                <tr>
+                                    <td>{{ teacher.name }}</td>
+                                    <td>{{ teacher.id }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/teacher/myInfoEditTeacher.js') }}"></script>
+</body>
+</html>
