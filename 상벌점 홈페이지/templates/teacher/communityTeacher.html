@@ -50,13 +50,6 @@
             </td>
             <td>{{ notice.author }}</td>
             <td class="date-cell">{{ notice.created_date }}</td>
-            <td>
-                <a href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}"><button class="agree-btn">수정</button></a>
-                &emsp;
-                <form method="post" action="{{ url_for('teacher.communityDelete', noticeId=notice.id) }}" style="display:inline;">
-                    <button class="decline-btn" type="submit">삭제</button>
-                </form>
-            </td>
         </tr>
         {% endfor %}
     </table>  
@@ -65,8 +58,5 @@
 <button class="write-btn" onClick="location.href='/teacher/community/add'"> 글쓰기</button>
 
 <script src="{{ url_for('static', filename='js/teacher/communityTeacher.js') }}"></script>
-
-<script src="{{ url_for('static', filename='js/teacher/communityTeacher.js') }}"></script>
-
 </body>
 </html>
