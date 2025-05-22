@@ -343,6 +343,18 @@ nav>.four {
     color: #333;
 }
 
+.reason,
+.opinion {
+    margin-top: 0%;
+    margin-left: 5%;
+    white-space: normal;
+}
+
+.date {
+    margin: -1% 0% 0% 78%;
+    font-size: 15px;
+}
+
 .main-row {
     overflow: hidden;
 }
