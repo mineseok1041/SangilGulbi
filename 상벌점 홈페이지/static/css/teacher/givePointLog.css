@@ -243,13 +243,13 @@ nav>.six {
 
 .filterIcon {
     cursor: pointer;
-    width: 2.5%;
+    width: 3%;
     /* 아이콘 너비를 퍼센트로 설정 */
     height: auto;
     /* 높이는 비율에 따라 자동 조정 */
-    margin-left: 63%;
+    margin-left: 64%;
     /* 왼쪽으로 이동 */
-    margin-top: 0.5%;
+    margin-top: 0.1%;
     /* 위쪽으로 이동 */
 }
 
@@ -327,8 +327,8 @@ nav>.six {
 
 .searchBar {
     width: 13%;
-    top: 7%;
-    right: 11%;
+    top: 5%;
+    right: 10%;
     position: absolute;
     font-family: 'KakaoSmallSans-Bold';
 }
