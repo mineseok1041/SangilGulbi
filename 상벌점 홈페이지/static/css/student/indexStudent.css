@@ -175,7 +175,7 @@ nav>.four {
     position: absolute;
     top: 13%;
     left: 22%;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
 }
 
 .all_score>.box {
@@ -186,12 +186,17 @@ nav>.four {
 
 .all_score>h1 {
     width: 83%;
-    height: 90%;
+    height: 100%;
     position: absolute;
     top: 0%;
+    left: 7%;
     text-align: center;
-    margin: 1% 0%;
+    margin: 0% 0%;
     color: #575e65;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
 }
 
 .all_log {
@@ -207,6 +212,17 @@ nav>.four {
     cursor: pointer;
     font-size: 25px;
     font-weight: 600;
+    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+}
+
+.all_log:active {
+    transform: scale(0.99);
+    /* 살짝 눌리는 효과 */
+}
+
+.all_log:hover {
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
 
 .upscore_box {
@@ -242,6 +258,7 @@ nav>.four {
     font-size: 25px;
     display: flex;
     align-items: center;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .upscore_box>.more {
@@ -257,10 +274,11 @@ nav>.four {
     cursor: pointer;
 }
 
+
 .up_log {
     width: 90%;
     border-collapse: collapse;
-    margin-top: 11%;
+    margin-top: 12%;
     margin-left: 5%;
     table-layout: fixed;
 
@@ -299,6 +317,7 @@ nav>.four {
     font-size: 25px;
     display: flex;
     align-items: center;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .downscore_box>.more {
@@ -317,7 +336,7 @@ nav>.four {
 .down_log {
     width: 90%;
     border-collapse: collapse;
-    margin-top: 11%;
+    margin-top: 12%;
     margin-left: 5%;
     table-layout: fixed;
 
@@ -356,12 +375,13 @@ nav>.four {
     font-size: 25px;
     display: flex;
     align-items: center;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .community {
     width: 90%;
     border-collapse: collapse;
-    margin-top: 4.5%;
+    margin-top: 5%;
     margin-left: 5%;
     table-layout: fixed;
 }
@@ -377,6 +397,16 @@ nav>.four {
     right: 3%;
     color: white;
     cursor: pointer;
+}
+
+.more:active {
+    transform: scale(0.99);
+    /* 살짝 눌리는 효과 */
+}
+
+.more:hover {
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
 
 th,
@@ -397,4 +427,5 @@ td {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
