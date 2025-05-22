@@ -150,6 +150,7 @@ nav > .myInfoEdit_nav{
     left: 10%;
     text-decoration: none;
     cursor: pointer;
+    z-index: 10;
 }
 
 nav > .four{
