@@ -492,3 +492,11 @@ nav > .six{
 .main-row {
     cursor: pointer;
 }
+
+.pointReason{
+    text-align: left !important;
+    vertical-align: top;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 2;
+}

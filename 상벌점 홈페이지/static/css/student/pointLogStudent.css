@@ -239,15 +239,14 @@ nav>.four {
     width: 80%;
     height: 86%;
     position: fixed;
-    top: 12%;
+    top: 15%;
     left: 20%;
     border-radius: 5px;
-    overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .log_table table {
-    width: 60%;
+    width: 80%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
@@ -346,4 +345,12 @@ nav>.four {
 
 .main-row {
     overflow: hidden;
+}
+
+.pointReason{
+    text-align: left !important;
+    vertical-align: top;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 2;
 }
