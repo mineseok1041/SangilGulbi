@@ -83,7 +83,7 @@
                     <tr>
                         <th>이름</th>
                         <th>아이디</th>
-                        <th>승인 여부</th>
+                        <th>마지막 활동</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -91,7 +91,7 @@
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
-                        <!--<td class="date-cell">{{ teacher.lastlogin }}</td>-->
+                        <td>{{ teacher.lastlogin }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -130,16 +130,36 @@
         <button class="more" onClick="location.href='/admin/community'">더보기</button>
     </div>
 
-    <div class="Box">
+    <div class="teacherConfirmBox">
         <div class="header">
-            <h1> </h1>
+            <h1>선생님 계정 승인</h1>
         </div>
+        <div class="teacherConfirm_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이름</th>
+                        <th>아이디</th>
+                        <th>승인 여부</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>홍길동</td>
+                        <td>ghdrlfehd12</td>
+                        <td>
+                            <button class="approve">승인</button>
+                            <button class="reject">거부</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="more" onClick="location.href='/admin/teacherSignupApprovalPopup'">더보기</button>
     </div>
 
     <script src="{{ url_for('static', filename='js/admin/indexAdmin.js') }}"></script>
 
 </body>
-
-
 
 </html>
