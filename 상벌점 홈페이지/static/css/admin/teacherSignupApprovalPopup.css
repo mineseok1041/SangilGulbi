@@ -40,7 +40,8 @@ h2 {
 
 .note {
     font-size: 15px; /* 노트 폰트 크기 */
-    color: #999; /* 노트 텍스트 색상 */
+    color: #ff5757; /* 노트 텍스트 색상 */
+    margin-top: 5px; /* 노트와 입력 필드 간격 */
     text-align: center; /* 가운데 정렬 */
 }
 
@@ -77,13 +78,13 @@ th, td {
 }
 
 .approve {
-  background-color: #BCCCDC;
+  background-color: #bddcbc;
   color: #000;
   transition: background-color 0.3s ease;
 }
 
 .approve:hover {
-  background-color: #bddcbc;
+  background-color: #9fb89e;
 }
 
 .approve:active {
@@ -91,12 +92,12 @@ th, td {
 }
 
 .reject {
-  background-color: #BCCCDC;
+  background-color: #dcbcbc;
   color: #000;
   transition: background-color 0.3s ease;
 }
 .reject:hover{
-    background-color: #dcbcbc;
+    background-color: #ac9393;
 }
 
 .reject:active {
