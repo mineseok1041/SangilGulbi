@@ -157,21 +157,11 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 62%;
-    left: 5%;
-}
 
 nav > .community_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
-    top: 65.3%;
+    top: 58.5%;
     left: 10%;
     text-decoration: none;
     cursor: pointer;
@@ -186,8 +176,7 @@ nav > .myInfoEdit_nav{
     cursor: pointer;
 }
 
-
-nav > .six{
+nav > .five{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -196,6 +185,7 @@ nav > .six{
     height:1px;
     border:0;
 }
+
 
 .logout {
     width: 80%;
