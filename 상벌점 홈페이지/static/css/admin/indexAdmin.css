@@ -277,13 +277,13 @@ nav > .six{
     margin: 1% 0%;
     color: #575e65;
 }
+
 .studentInfo {
     width: 37.5%;
-    height: 22.5%;
+    height: 33%;
     position: absolute;
     top: 27%;
     left: 22%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -292,25 +292,22 @@ nav > .six{
 
 .studentInfo > .header{
     width: 100%;
-    height: 18%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    height: 19.5%;
+    position: static;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    margin-bottom: 3%;
 }
 
 .studentInfo > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 30%;
+    top: 5.5%;
     left: 4%;
     margin: 0%;
     font-size: 25px;
 }
-
 
 .studentInfo > .studentInfo_table {
     width: 100%; /* 테이블 너비 */
@@ -377,33 +374,30 @@ nav > .six{
 
 .teacherManagement_box {
     width: 37.5%;
-    height: 22.5%;
+    height: 33%;
     position: absolute;
     top: 27%;
     left: 60.5%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
 .teacherManagement_box > .header{
     width: 100%;
-    height: 18%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    height: 19.5%;
+    position: static;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    margin-bottom: 3%;
 }
 
 .teacherManagement_box > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 27%;
+    top: 5.5%;
     left: 4%;
     margin: 0%;
     font-size: 25px;
@@ -475,11 +469,10 @@ nav > .six{
 
 .community_box {
     width: 37.5%;
-    height: 22.5%;
+    height: 33%;
     position: absolute;
-    top: 62%;
-    left: 60.5%;
-    padding-top: 5%;
+    top: 62.5%;
+    left: 22%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -488,20 +481,18 @@ nav > .six{
 
 .community_box > .header{
     width: 100%;
-    height: 18%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    height: 19.5%;
+    position: static;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    margin-bottom: 3%;
 }
 
 .community_box > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 27%;
+    top: 5.5%;
     left: 4%;
     margin: 0%;
     font-size: 25px;
@@ -570,36 +561,134 @@ nav > .six{
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 
-.Box {
+.teacherConfirmBox {
     width: 37.5%;
-    height: 22.5%;
+    height: 33%;
     position: absolute;
-    top: 62%;
-    left: 22%;
-    padding-top: 5%;
+    top: 62.5%;
+    left: 60.5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.Box > .header{
+.teacherConfirmBox > .header{
     width: 100%;
-    height: 18%;
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    height: 19.5%;
+    position: static;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    margin-bottom: 3%;
 }
 
-.Box > .header >  h1{
+.teacherConfirmBox > .header >  h1{
     width: 100%;
     color: white;
     position: absolute;
-    top: 27%;
+    top: 5.5%;
     left: 4%;
     margin: 0%;
     font-size: 25px;
+}
+
+.teacherConfirmBox > .teacherConfirm_table {
+    width: 100%; /* 테이블 너비 */
+    max-height: 70%; /* 테이블 높이 */
+}
+
+.teacherConfirm_table table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    border-top: #000000 solid 3px;
+}
+
+.teacherConfirm_table th {
+    background: #ffffff;
+    padding: 1.5%;
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: #000000 solid 3px;
+    font-size: 15px;
+    position: sticky;
+}
+
+.teacherConfirm_table td {
+    padding: 0.75%;
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: #55595D solid 1px;
+    font-size: 15px;
+    color: #3f3f3f;
+}
+
+.teacherConfirm_table thead {
+    position: sticky; /* 헤더 고정 */
+    top: 0;
+    background-color: #f4f4f4; /* 헤더 배경색 */
+    z-index: 1;
+}
+
+.teacherConfirm_table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+
+.teacherConfirmBox > .more {
+    width: 17%;
+    height: 10%;
+    background-color: #9AA6B2;
+    border: none;
+    border-radius: 10%;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 15px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.teacherConfirmBox > .more:hover {
+    background-color: #7d8791; /* hover 시 어두운 색 */
+}
+.teacherConfirmBox > .more:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
+
+.approve, .reject {
+  font-family: 'KakaoSmallSans-Bold', sans-serif;
+  font-size: 15px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.approve {
+  background-color: #bddcbc;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.approve:hover {
+  background-color: #9fb89e;
+}
+
+.approve:active {
+  scale: 0.98;
+}
+
+.reject {
+  background-color: #dcbcbc;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+.reject:hover{
+    background-color: #ac9393;
+}
+
+.reject:active {
+  scale: 0.98;
 }
