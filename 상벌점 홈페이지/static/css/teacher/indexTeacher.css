@@ -278,11 +278,11 @@ nav > .six{
     color: #575e65;
 }
 .awardGive {
-    width: 40%;
+    width: 37.5%;
     height: 30%;
     max-height: 59.5%;
     position: absolute;
-    top: 12%;
+    top: 13%;
     left: 22%;
     padding-top: 5%;
     border-radius: 5px;
@@ -331,14 +331,14 @@ nav > .six{
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .awardGive_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
-    font-size: 20px;
+    font-size: 15px;
     color: #3f3f3f;
 }
 
@@ -378,12 +378,12 @@ nav > .six{
 }
 
 .manyUseList_box {
-    width: 35%;
+    width: 37.5%;
     height: 30%;
     max-height: 59.5%;
     position: absolute;
-    top: 12%;
-    left: 64%;
+    top: 13%;
+    left: 61%;
     padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
@@ -476,12 +476,12 @@ nav > .six{
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 .community_box {
-    width: 35%;
+    width: 37.5%;
     height: 30%;
     max-height: 59.5%;
     position: absolute;
-    top: 55%;
-    left: 64%;
+    top: 56%;
+    left: 61%;
     padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
@@ -576,11 +576,11 @@ nav > .six{
 
 
 .penaltyGive_box {
-    width: 40%;
+    width: 37.5%;
     height: 30%;
     max-height: 59.5%;
     position: absolute;
-    top: 55%;
+    top: 56%;
     left: 22%;
     padding-top: 5%;
     border-radius: 5px;
