@@ -8,15 +8,16 @@
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
+
 header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 3px 3px 3px gray;
-    background-attachment: fixed;
+    z-index: 5;
 }
 
 .main {
@@ -31,21 +32,21 @@ nav {
     background-color: #BCCCDC;
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
-    
+
 }
 
-nav > a {
+nav>a {
     font-size: 20px;
 }
 
-nav > a:not(.community_nav):hover{
+nav>a:not(.community_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -53,14 +54,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -68,7 +69,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -76,18 +77,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .log_nav {
+nav>.log_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -96,18 +97,18 @@ nav > .log_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -116,18 +117,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: #575e65;
     position: absolute;
     top: 51%;
@@ -136,14 +137,24 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .four{
+.all_score {
+    color: white;
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 
@@ -177,15 +188,14 @@ nav > .four{
 .title_box>.title {
     width: 10%;
     text-align: center;
-    margin-left: 2%;
 }
 
 .writer_box {
-    width: 22%;
+    width: 20%;
     height: 7%;
     position: absolute;
     top: 15%;
-    left: 73%;
+    left: 75%;
     background-color: #E6EEF6;
     display: flex;
     align-items: center;
@@ -193,61 +203,44 @@ nav > .four{
 }
 
 .writer_box>.writer {
-    width: 35%;
+    width: 30%;
     text-align: center;
-    margin-left: 2%;
-}
-
-.date {
-    position: absolute;
-    top: 24%;
-    left: 25%;
 }
 
 .text_box {
-    width: 70%;
-    height: 64%;
+    width: 66%;
+    height: 50%;
     position: absolute;
     top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
-    align-items: center;
     color: #55595D;
+    padding: 2%;
 }
 
-.text_box>p {
-    position: absolute;
-    top: 5%;
-    left: 3%;
-    color: #55595D;
+.date {
+    width: 30%;
+    height: 25%;
+    margin: 13% 25%;
 }
 
-.comment_box {
-    width: 80%;
-    height: 100%;
-    position: absolute;
-    top: 100%;
-    left: 20%;
-}
-
-input {
-    width: 70%;
+.input {
+    width: 50%;
     height: 5%;
     border: 1;
-    position: relative;
-    top: 0%;
-    left: 5%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-
+    margin-top: 5%;
+    margin-left: 16%;
+    font-size: 18px;
 }
 
-input:focus {
+.input:focus {
     outline: none;
 }
 
@@ -265,6 +258,14 @@ input:focus {
     cursor: pointer;
 }
 
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 20%;
+}
+
 .comments {
     width: 70%;
     height: 10%;
@@ -272,7 +273,7 @@ input:focus {
     margin: 1% 0% 0% 5%;
 }
 
-.comments > img {
+.comments>img {
     width: auto;
     height: 60%;
     position: absolute;
@@ -280,20 +281,20 @@ input:focus {
     top: 20%;
 }
 
-.comments > .ID {
+.comments>.ID {
     width: 80%;
     position: absolute;
     left: 12%;
     top: 25%;
 }
 
-.ID > .name {
+.ID>.name {
     position: relative;
     bottom: 0%;
     margin: 0%;
 }
 
-.ID > .date_ {
+.ID>.date_ {
     position: absolute;
     bottom: 0%;
     left: 17%;

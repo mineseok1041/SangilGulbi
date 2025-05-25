@@ -25,7 +25,6 @@
     <a class="community_nav" href="/student/community">게시판</a>
 
     <hr class="four">
-
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
@@ -46,10 +45,16 @@
         <p>{{ notice.content }}</p>
     </div>
 
+    <div class="date">
+        <p>2025.26.23 22:25:03</p>
+    </div>
+
+    <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
+    <button class="sumit">전송</button>
+
     <div class="container">
         <div class="comment_box">
-            <input type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
-            <button class="sumit">전송</button>
+
 
             <div class="comments">
                 <img src="/img/logo.png">
