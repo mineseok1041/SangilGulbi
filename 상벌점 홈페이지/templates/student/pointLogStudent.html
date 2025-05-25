@@ -33,23 +33,30 @@
         <table>
             <thead>
                 <tr>
-                    <th data-column="1" class="sortable">학번 <span class="arrow">▲</span></th>
-                    <th data-column="2" class="sortable">이름 <span class="arrow">▲</span></th>
-                    <th data-column="3" class="sortable">사유 <span class="arrow">▲</span></th>
-                    <th data-column="4" class="sortable">부여 시각 <span class="arrow">▲</span></th>
-                    <th data-column="5" class="sortable">부여 점수 <span class="arrow">▲</span></th>
-                    <th data-column="6" class="sortable">부여자 <span class="arrow">▲</span></th>
+                    <th data-column="1" class="sortable">학번</th>
+                    <th data-column="2" class="sortable">이름</th>
+                    <th data-column="3" class="sortable">사유</th>
+                    <th data-column="4" class="sortable">부여 시각</th>
+                    <th data-column="5" class="sortable">부여 점수</th>
+                    <th data-column="6" class="sortable">부여자</th>
                 </tr>
             </thead>
             <tbody>
                     {% for pointLog in pointLogList %}
-                    <tr>
+                    <tr class="main-row">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
-                        <td>{{ pointLog.reason }}</td>
-                        <td>{{ pointLog.addDate }}</td>
+                        <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
+                        <td class="date-cell">{{ pointLog.addDate }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
+                    </tr>
+                    <tr class="dropdown-row"> 
+                        <td colspan="6" class="pointReason">
+                            <p class="date">시간 : 2025/25.25 12:12:12</p>
+                            <p class="reason">사유 : </p>
+                            <p class="opinion">의견 : </p>
+                        </td>
                     </tr>
                     {% endfor %}
             </tbody>
