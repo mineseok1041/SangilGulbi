@@ -209,6 +209,13 @@ nav>.four {
     font-weight: 600;
 }
 
+.all_log:hover {
+    background-color: #9AA6B2; /* hover 시 어두운 색 */
+}
+.all_log:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
 .upscore_box {
     width: 37%;
     height: 43%;
@@ -256,6 +263,15 @@ nav>.four {
     color: white;
     cursor: pointer;
 }
+
+.upscore_box > .more:hover {
+    background-color: #9AA6B2; /* hover 시 어두운 색 */
+}
+.upscore_box > .more:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
+
 
 .up_log {
     width: 90%;
@@ -314,6 +330,13 @@ nav>.four {
     cursor: pointer;
 }
 
+.downscore_box > .more:hover {
+    background-color: #9AA6B2; /* hover 시 어두운 색 */
+}
+.downscore_box > .more:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
 .down_log {
     width: 90%;
     border-collapse: collapse;
@@ -325,9 +348,9 @@ nav>.four {
 
 .community_box {
     width: 76%;
-    height: 25%;
+    height: 27%;
     position: absolute;
-    top: 71%;
+    top: 70%;
     left: 22%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
@@ -374,9 +397,16 @@ nav>.four {
     border-radius: 5px;
     position: absolute;
     bottom: 3%;
-    right: 3%;
+    right: 1%;
     color: white;
     cursor: pointer;
+}
+
+.community_box > .more:hover {
+    background-color: #9AA6B2; /* hover 시 어두운 색 */
+}
+.community_box > .more:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
 
 th,
