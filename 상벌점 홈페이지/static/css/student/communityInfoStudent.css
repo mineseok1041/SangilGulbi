@@ -236,7 +236,7 @@ nav>.four {
     border-bottom: solid 1px #55595D;
     color: #55595D;
     margin-top: 5%;
-    margin-left: 16%;
+    margin-left: 25%;
     font-size: 18px;
 }
 
@@ -271,6 +271,7 @@ nav>.four {
     height: 10%;
     position: relative;
     margin: 1% 0% 0% 5%;
+    border-bottom: 1px solid gray;
 }
 
 .comments>img {
@@ -284,7 +285,7 @@ nav>.four {
 .comments>.ID {
     width: 80%;
     position: absolute;
-    left: 12%;
+    left: 10%;
     top: 25%;
 }
 
@@ -306,5 +307,5 @@ nav>.four {
 .comment {
     position: absolute;
     top: 40%;
-    left: 12%;
+    left: 10%;
 }

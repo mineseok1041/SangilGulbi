@@ -301,6 +301,7 @@ nav > .six{
     height: 10%;
     position: relative;
     margin: 1% 0% 0% 5%;
+    border-bottom: 1px solid gray;
 }
 
 .comments > img {
@@ -314,7 +315,7 @@ nav > .six{
 .comments > .ID {
     width: 80%;
     position: absolute;
-    left: 12%;
+    left: 10%;
     top: 25%;
 }
 
@@ -336,5 +337,5 @@ nav > .six{
 .comment {
     position: absolute;
     top: 40%;
-    left: 12%;
+    left: 10%;
 }
