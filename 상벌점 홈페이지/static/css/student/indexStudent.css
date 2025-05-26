@@ -32,6 +32,10 @@ header {
     left: 3%;
     color: #55595D;
     font-size: 35px;
+    margin: 0%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav {
@@ -253,7 +257,7 @@ nav>.four {
     color: white;
     position: absolute;
     top: 0%;
-    left: 2%;
+    left: 4%;
     margin: 0%;
     font-size: 25px;
     display: flex;
@@ -272,6 +276,8 @@ nav>.four {
     right: 3%;
     color: white;
     cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
 
@@ -312,7 +318,7 @@ nav>.four {
     color: white;
     position: absolute;
     top: 0%;
-    left: 2%;
+    left: 4%;
     margin: 0%;
     font-size: 25px;
     display: flex;
@@ -331,6 +337,8 @@ nav>.four {
     right: 3%;
     color: white;
     cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
 .down_log {
@@ -394,9 +402,11 @@ nav>.four {
     border-radius: 5px;
     position: absolute;
     bottom: 3%;
-    right: 3%;
+    right: 1%;
     color: white;
     cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
 .more:active {
