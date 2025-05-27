@@ -64,7 +64,7 @@ def studentManagement():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
     
-        return render_template('teacher/studentManagement.html', usersDTO=teacherDTO, studentList=studentList)
+        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
