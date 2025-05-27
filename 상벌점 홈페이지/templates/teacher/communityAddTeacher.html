@@ -40,11 +40,12 @@
             <h2 class="writer">&ensp;작성자 : {{ session['name'] }}</h2>
         </div>
 
-        <p class="date">작성일시 : {{ notice.created_date }}</p>
+        <div class="date">
+            <p>2025.26.23 22:25:03</p>
+        </div>
 
         <textarea name="content" class="content_input" placeholder="본문에 내용을 입력해주세요." required></textarea>
+        <button class="write_btn">작성</button>
 
-        <button class="sumit" type="submit">작성</button>
-    </form>
-</body>
-</html>
+    </body>
+    </html>

@@ -17,3 +17,4 @@ class usersDTO:
     lastlogin: str = None
     identity: int = None
     verified: int = None
+    checkCode: str = None

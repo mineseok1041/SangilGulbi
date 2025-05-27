@@ -20,18 +20,21 @@
           </tr>
         </thead>
         <tbody>
+          {% for teacher in unverified_teachers %}
           <tr>
-            <td>이기남</td>
-            <td class="width">엉쪄구</td>
-            <td>966666</td>
+            <td>{{ teacher.name }}</td>
+            <td>{{ teacher.id }}</td>
+            <td>{{ teacher.checkCode }}</td>
             <td>
-              <button class="approve">동의</button>
-              <button class="reject">거부</button>
+              <button class="approve" data-id="{{ teacher.id }}">동의</button>
+              <button class="reject" data-id="{{ teacher.id }}">거부</button>
             </td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
   </div>
+  <script src="{{ url_for('static', filename='js/teacher/teacherSignupApproval.js') }}"></script>
 </body>
 </html>

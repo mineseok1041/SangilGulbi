@@ -25,12 +25,9 @@ class usersSVC:
         try:
             if self.usersDAO.isIDExist(reqDTO):
                 if self.usersDAO.isPWDCorrect(reqDTO):
-                    # if self.usersDAO.isVerified(reqDTO):
-                    #     self.usersDAO.updateLastLogin(reqDTO)  # 마지막 로그인 시간 업데이트
-                    #     return True
-                    # else:
-                    #     raise Exception("관리자의 승인이 필요합니다.")
-                    # ---- 관리자 승인 체크 임시 주석 처리 ----
+                    user_info = self.usersDAO.getUsersInfo(reqDTO)
+                    if user_info.identity in [0, 1] and not self.usersDAO.isVerified(reqDTO):   # 선생님(1) 또는 관리자(0)일 때 승인 여부 체크
+                        raise Exception("관리자의 승인이 필요합니다.")
                     self.usersDAO.updateLastLogin(reqDTO)
                     return True
                 else:
@@ -74,3 +71,9 @@ class usersSVC:
             self.usersDAO.delUsers(reqDTO)
         except Exception as e:
             raise Exception(f"delUsers Error: {e}")
+        
+    def getUnverifiedTeachers(self) -> list[usersDTO]:
+        try:
+            return self.usersDAO.getUnverifiedTeachers()
+        except Exception as e:
+            raise Exception(f"getUnverifiedTeachers Error: {e}")

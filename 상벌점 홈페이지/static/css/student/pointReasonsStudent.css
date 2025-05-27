@@ -22,9 +22,10 @@ header {
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
@@ -136,6 +137,16 @@ nav > .community_nav {
     cursor: pointer;
 }
 
+.all_score{
+    color: white;
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
 nav > .four{
     width: 90%;
     position: absolute;
@@ -195,7 +206,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -288,7 +299,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -367,5 +378,5 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-  font-size: 13px;
+  font-size: 18px;
 }
