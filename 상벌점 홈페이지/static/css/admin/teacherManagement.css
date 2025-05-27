@@ -414,6 +414,7 @@ nav > .six{
     width: 10px;
     background-color: #ff0000;
     border-radius: 50%;
-    left: 66.5%;
-    top: 70%;
+    left: 73.5%;
+    top: 215%;
+    visibility: hidden;
 }
