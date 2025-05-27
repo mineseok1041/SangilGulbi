@@ -279,12 +279,12 @@ nav > .six{
 }
 .awardGive {
     width: 37.5%;
-    height: 30%;
+    height: 33%;
     max-height: 59.5%;
     position: absolute;
     top: 13%;
     left: 22%;
-    padding-top: 5%;
+    padding-top: 4%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -379,12 +379,12 @@ nav > .six{
 
 .manyUseList_box {
     width: 37.5%;
-    height: 30%;
+    height: 33%;
     max-height: 59.5%;
     position: absolute;
     top: 13%;
     left: 61%;
-    padding-top: 5%;
+    padding-top: 4%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -477,12 +477,12 @@ nav > .six{
 }
 .community_box {
     width: 37.5%;
-    height: 30%;
+    height: 33%;
     max-height: 59.5%;
     position: absolute;
     top: 56%;
     left: 61%;
-    padding-top: 5%;
+    padding-top: 4%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -577,12 +577,12 @@ nav > .six{
 
 .penaltyGive_box {
     width: 37.5%;
-    height: 30%;
+    height: 33%;
     max-height: 59.5%;
     position: absolute;
     top: 56%;
     left: 22%;
-    padding-top: 5%;
+    padding-top: 4%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
