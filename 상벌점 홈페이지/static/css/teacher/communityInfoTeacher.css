@@ -50,142 +50,123 @@ nav>.name {
     color: white;
 }
 
-nav>.mypage_nav {
-    background-color: #9aa6b2;
+
+nav > .mypage_nav {
     color: white;
     position: absolute;
-    top: 27%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
+    top: 30.5%;
+    left: 10%;
     text-decoration: none;
-    border: none;
 }
 
-nav>.first {
+nav > .first{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 32%;
-    left: 5%;
-}
-
-nav>.award_nav {
-    color: white;
-    background-color: #9aa6b2;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 34%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.two {
+nav > .givePoint_nav {
+    color: white;
+    position: absolute;
+    top: 37.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .two{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 39%;
-}
-
-nav>.penalty_nav{
-    color: white;
-    background-color: #9aa6b2;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 41%;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
+    left: 5%;
 }
 
-nav>.three {
-    width: 90%;
-    position: absolute;
-    background: white;
-    height: 1px;
-    left: 5%;   
-    border: 0;
-    top: 46%;
-}
-
-nav>.stu_manager_nav{
+nav > .pointReasons_nav {
     color: white;
-    background-color: #9aa6b2;
+    position: absolute;
+    top: 44.2%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .three{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 48%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.four{
-    width: 90%;
-    position: absolute;
-    background: white;
-    height: 1px;
-    left: 5%;   
-    border: 0;
-    top: 53%;
-}
-
-nav>.teacher_manager_nav{
+nav > .studentManagement_nav {
     color: white;
-    background-color: #9aa6b2;
+    position: absolute;
+    top: 51.4%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .four{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 55%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-}
-nav>.five{
-    width: 90%;
-    position: absolute;
-    top: 60%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
 }
 
-nav>.community_nav {
-    color: #575e65;
-    background-color: #9aa6b2;
+nav > .teacherManagement_nav {
+    color: white;
+    position: absolute;
+    top: 58.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .five{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 62%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.six {
+nav > .community_nav {
+    color: #575e65;
+    position: absolute;
+    top: 65.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
 }
 
 .logout {
@@ -193,14 +174,16 @@ nav>.six {
     height: auto;
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    left: 9%;
     color: white;
     cursor: pointer;
     border: none;
-    background-color: #9aa6b2;
+    background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
+    font-size: 20px;
 }
+
 .title_box {
     width: 45%;
     height: 7%;
