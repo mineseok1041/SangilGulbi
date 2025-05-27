@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 계정 추가</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/addStudentPopup.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="studentInfoBox">
+            <h2 class="boxHead">학생 계정 추가</h2>
+                <div class="studentInfo">
+                    <div class="infoRow">
+                        <span class="infoLabel">학번:</span>
+                        <input class="numInput" type="text" required />
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">이름:</span> 
+                        <input class="nameInput" type="text" required />
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">아이디:</span>
+                        <input class="idInput" type="text" required />
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호 확인:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="passwordCheck" required />
+                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="note">
+                        <small>*학생 계정을 추가하는 계정으로 유의하여 사용해주시길 바랍니다.</small>
+                    </div>
+                <button class="submitButton" type="submit">제출</button>
+            </form>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/admin/addStudentPopup.js') }}"></script>
+</body>
+</html>

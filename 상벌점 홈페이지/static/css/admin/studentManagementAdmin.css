@@ -49,7 +49,7 @@ nav > a {
     font-size: 20px;
 }
 
-nav > a:not(.teacherManagement_nav):hover{
+nav > a:not(.studentManagement_nav):hover{
     color: #d8d8d8;
 }
 
@@ -136,7 +136,7 @@ nav > .three{
 }
 
 nav > .studentManagement_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 51.4%;
     left: 10%;
@@ -156,7 +156,7 @@ nav > .four{
 }
 
 nav > .teacherManagement_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
     top: 58.3%;
     left: 10%;
@@ -209,7 +209,7 @@ nav > .six{
     font-size: 20px;
 }
 
-.teacherInfo {
+.studentInfo {
     width: 80%;
     height: 90%;
     position: absolute;
@@ -232,11 +232,79 @@ nav > .six{
     width: 100%; /* 컨테이너 너비 */
     z-index: 10; /* 다른 요소 위에 표시 */
 }
+
+.filterIcon {
+    cursor: pointer;
+    width: 2.5%; /* 아이콘 너비를 퍼센트로 설정 */
+    height: auto; /* 높이는 비율에 따라 자동 조정 */
+    margin-left : 65%; /* 왼쪽으로 이동 */
+    margin-top: 0.5%; /* 위쪽으로 이동 */
+}
+
+.filterPopup {
+    position: absolute;
+    top: 100%; /* 아이콘 바로 아래에 팝업 표시 */
+    margin-left: 65%;
+    margin-top: 1%;
+    background-color: #fff;
+    border: 3px solid #9AA6B2;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5%; /* 내부 여백을 퍼센트로 설정 */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    width: 20%; /* 팝업 너비를 퍼센트로 설정 */
+}
+
+.filterPopup .resetFilters {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #9AA6B2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.filterPopup .resetFilters:hover {
+    background-color: #7d8791; /* hover 시 색상 변경 */
+}
+
+.filterPopup .resetFilters:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+    background-color: #6b757d; /* 누를 때 색상 변경 */
+}
+
+.filterPopup.hidden {
+    display: none; /* 팝업 숨기기 */
+}
+
+.filterPopup h4 {
+    margin: 2% 0 1%; /* 제목 간격을 퍼센트로 설정 */
+    font-size: 20px; /* 글꼴 크기를 상대 단위로 설정 */
+    font-weight: bold;
+    border-bottom: 1px solid #9AA6B2; /* 아래 테두리 추가 */
+    padding-bottom: 3%; /* 아래 여백 추가 */
+    padding-top: 3%;
+}
+
+.filterPopup label {
+    margin-bottom: 1%; /* 체크박스 간 간격을 퍼센트로 설정 */
+    cursor: pointer;
+    font-size: 18px; /* 글꼴 크기를 상대 단위로 설정 */
+    padding: 1%;
+    padding-top: 3%;
+}
+
 /* 비밀번호 재설정 및 계정 삭제 버튼 컨테이너 */
 .actionButtons {
-    width: 40%;
+    width: 55%;
     position: absolute;
-    margin-top: 2.9%; /* 상단 위치 */
+    top: 20%; /* 검색창과 같은 높이 */
     left: 5%; /* 왼쪽으로 이동 */
     display: flex;
     gap: 10px; /* 버튼 간 간격 */
@@ -244,7 +312,7 @@ nav > .six{
 
 /* 버튼 스타일 */
 .actionButtons button {
-    padding: 3% 4%;
+    padding: 2% 2%;
     border: none;
     border-radius: 5px;
     background-color: #9AA6B2;
@@ -267,8 +335,8 @@ nav > .six{
 
 .searchBar {
     width: 13%;
-    margin-top: 3%;
-    right: 11%;
+    top: 7%;
+    right: 18%;
     position: absolute;
 }
 
@@ -290,29 +358,52 @@ nav > .six{
     box-shadow: 0 0 8px #9AA6B2 /* 포커스 효과 */
 }
 
+.searchButton {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    width: 5%;
+    height: 90%;
+    background-color: #9AA6B2;
+    border: none;
+    border-radius: 25px;
+    position: absolute;
+    right: 6.5%;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton:hover {
+    background-color: #7d8791; /* hover 시 색상 변경 */
+}
+
+.searchButton:active {
+    transform: scale(0.98); /* 살짝 눌리는 효과 */
+}
+
 /* 선택된 행 스타일 */
 .selected-row {
-    background-color: #9AA6B2 !important; /* 선택된 행의 배경색 */
+    background-color: #9AA6B2; /* 선택된 행의 배경색 */
     color: #000; /* 선택된 행의 텍스트 색상 */
     transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
 }
 
 
-.teacherInfo > .teacherInfo_table {
+.studentInfo > .studentInfo_table {
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
-    margin-top: 6%;
+    margin-top: 3%;
 }
 
-.teacherInfo_table table {
+.studentInfo_table table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
 }
 
-.teacherInfo_table th {
+.studentInfo_table th {
     background: #ffffff;
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
@@ -320,11 +411,11 @@ nav > .six{
     font-size: 20px;
 }
 
-/* .teacherInfo_table th input[type="checkbox"] {
+/* .studentInfo_table th input[type="checkbox"] {
     transform: scale(2);
 } */
 
-.teacherInfo_table td {
+.studentInfo_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
@@ -332,22 +423,22 @@ nav > .six{
     color: #3f3f3f;
 }
 
-/* .teacherInfo_table td input[type="checkbox"] {
+/* .studentInfo_table td input[type="checkbox"] {
     transform: scale(2);
 } */
 
-.teacherInfo_table thead {
+.studentInfo_table thead {
     top: 0;
     background-color: #f4f4f4; /* 헤더 배경색 */
     z-index: 1;
 }
 
-.teacherInfo_table tbody tr:not(.selected-row):hover {
+.studentInfo_table tbody tr:not(.selected-row):hover {
     background: #f9f9f9;
     transition: background-color 0.2s ease; /* 부드러운 전환 효과 */
 }
 
-.teacherInfo_table tbody tr.select-row:hover {
+.studentInfo_table tbody tr.select-row:hover {
     background-color: #9AA6B2;
     color: #000; /* 선택된 행에 마우스 오버 시 텍스트 색상 */
     transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
@@ -375,22 +466,4 @@ nav > .six{
 .sortable.desc .arrow {
     transform: rotate(180deg); /* 내림차순: 180도 회전 */
     color: #000; /* 활성화된 화살표 색상 */
-}
-
-.bell{
-    position: absolute;
-    width: 85px;
-    left: 70%;
-    top: -20%;
-    cursor: pointer;
-}
-
-.circle{
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    left: 73.5%;
-    top: 215%;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/studentManagement.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/studentManagementTeacher.css') }}">
     <title>상벌점 관리 페이지</title>
 </head>
 
@@ -37,24 +37,21 @@
     <div class="studentInfo">
         <div class="buttonsContainer">
             <div class="searchBar">
-                <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
+            <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
             </div>
-                <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon"></img> <!-- 필터 아이콘 이미지 -->
+            <button class="searchButton">검색</button>
+            <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon"></img> <!-- 필터 아이콘 이미지 -->
             <div class="filterPopup hidden">
                 <h4>학년 구분</h4>
                 <label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
                 <label><input type="checkbox" name="grade" value="2학년"> 2학년</label>
                 <label><input type="checkbox" name="grade" value="3학년"> 3학년</label>
-                <h4>상벌점 구분</h4>
-                <label><input type="checkbox" name="point" value="상점"> 상점</label>
-                <label><input type="checkbox" name="point" value="벌점"> 벌점</label>
                 <button class="resetFilters">초기화</button>
             </div>
             <div class="actionButtons">
-                <button class="resetPasswd">비밀번호 재설정</button>
-                <button class="giveBonus">상점 부여</button>
-                <button class="givePenalty">벌점 부여</button>
-                <button class="deleteAccount">계정 삭제</button>
+                <button class="resetPasswd">학생 비밀번호 재설정</button>
+                <button class="giveBonus">학생 상점 부여</button>
+                <button class="givePenalty">학생 벌점 부여</button>
             </div>
         </div>
         <div class="studentInfo_table">
@@ -85,6 +82,6 @@
 </body>
 
 
-<script src="{{ url_for('static', filename='js/teacher/studentManagement.js') }}"></script>
+<script src="{{ url_for('static', filename='js/teacher/studentManagementTeacher.js') }}"></script>
 
 </html>
