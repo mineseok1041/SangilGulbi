@@ -297,6 +297,7 @@ nav > .six{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 3%;
+    margin: 0% 0% 2% 0%;
 }
 
 .studentInfo > .header >  h1{
@@ -312,7 +313,7 @@ nav > .six{
 .studentInfo > .studentInfo_table {
     width: 100%; /* 테이블 너비 */
     max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+    margin: 0px 0px 0px; /* 가운데 정렬 */
 }
 
 .studentInfo_table table {
@@ -391,6 +392,7 @@ nav > .six{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 3%;
+    margin: 0% 0% 2% 0%;
 }
 
 .teacherManagement_box > .header >  h1{
@@ -486,6 +488,7 @@ nav > .six{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 3%;
+    margin: 0% 0% 2% 0%;
 }
 
 .community_box > .header >  h1{
@@ -580,6 +583,7 @@ nav > .six{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     margin-bottom: 3%;
+    margin: 0% 0% 2% 0%;
 }
 
 .teacherConfirmBox > .header >  h1{
