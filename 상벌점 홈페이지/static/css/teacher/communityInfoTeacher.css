@@ -249,7 +249,7 @@ nav > .six{
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    margin-top: 19%;
+    margin-top: 17%;
     margin-left: 25%;
     font-size: 18px;
 
@@ -282,10 +282,11 @@ nav > .six{
 }
 
 .comments {
-    width: 70%;
+    width: 90%;
     height: 10%;
     position: relative;
     margin: 1% 0% 0% 5%;
+    border-bottom: 1px solid gray;
 }
 
 .comments > img {
@@ -296,20 +297,20 @@ nav > .six{
     top: 20%;
 }
 
-.comments > .ID {
-    width: 80%;
+.comments>.ID {
+    width: 53%;
     position: absolute;
-    left: 12%;
+    left: 7%;
     top: 25%;
 }
 
-.ID > .name {
+.ID>.name {
     position: relative;
     bottom: 0%;
     margin: 0%;
 }
 
-.ID > .date_ {
+.ID>.date_ {
     position: absolute;
     bottom: 0%;
     left: 17%;
@@ -321,6 +322,7 @@ nav > .six{
 .comment {
     position: absolute;
     top: 40%;
+
     left: 12%;
 }
 
@@ -363,4 +365,3 @@ nav > .six{
 .decline-btn:hover{
         background-color: #8a4b4b;
 }
-

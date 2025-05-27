@@ -247,9 +247,9 @@ nav>.four {
 
 .log_table {
     width: 80%;
-    height: 86%;
-    position: fixed;
-    top: 15%;
+    height: 90%;
+    position: absolute;
+    top: 10%;
     left: 20%;
     border-radius: 5px;
     overflow-x: hidden;
@@ -258,7 +258,7 @@ nav>.four {
 .log_table table {
     width: 80%;
     border-collapse: collapse;
-    margin: auto;
+    margin: 3%;
     border-top: #000000 solid 3px;
 }
 
