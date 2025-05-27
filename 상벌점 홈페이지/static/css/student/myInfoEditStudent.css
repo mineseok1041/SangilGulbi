@@ -50,13 +50,24 @@ body {
     gap: 13px; /* 각 정보 간 간격 */
 }
 
+.info {
+    display: flex;
+    justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
+    align-items: center;
+    padding: 9px 0; /* 위아래 간격 */
+    border-bottom: 1px solid #ddd; /* 각 행 구분선 */
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+
 .infoRow {
     display: flex;
     justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
     align-items: center;
     padding: 9px 0; /* 위아래 간격 */
     border-bottom: 1px solid #ddd; /* 각 행 구분선 */
-    padding-top: 5px;
+    padding-top: 10px;
 }
 
 .infoLabel {
@@ -145,22 +156,6 @@ body {
 .studentSearchModal.visible {
     visibility: visible;
     opacity: 1;
-}
-
-.teacherSearchModal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s ease;
 }
 
 .teacherSearchModal.visible {
