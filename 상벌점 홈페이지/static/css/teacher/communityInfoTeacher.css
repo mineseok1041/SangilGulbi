@@ -323,3 +323,44 @@ nav > .six{
     top: 40%;
     left: 12%;
 }
+
+.agree-btn{
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    padding: 5px 10px;
+    background-color: #9AA6B2;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 10%;
+    left:78%;
+}
+
+.agree-btn:hover{
+    background-color:  #6b6d70;
+}
+
+
+.decline-btn{
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    background-color: #bb6b6b;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 10%;
+    left: 87%;
+}
+
+.decline-btn:hover{
+        background-color: #8a4b4b;
+}
+
