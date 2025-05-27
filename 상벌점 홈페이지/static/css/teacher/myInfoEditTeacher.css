@@ -50,6 +50,17 @@ body {
     gap: 13px; /* 각 정보 간 간격 */
 }
 
+.info {
+    display: flex;
+    justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
+    align-items: center;
+    padding: 9px 0; /* 위아래 간격 */
+    border-bottom: 1px solid #ddd; /* 각 행 구분선 */
+    padding-top: 22px;
+    padding-bottom: 10px;
+}
+
+
 .infoRow {
     display: flex;
     justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
