@@ -267,7 +267,7 @@ nav>.four {
 }
 
 .comments {
-    width: 70%;
+    width: 90%;
     height: 10%;
     position: relative;
     margin: 1% 0% 0% 5%;
@@ -283,9 +283,9 @@ nav>.four {
 }
 
 .comments>.ID {
-    width: 80%;
+    width: 53%;
     position: absolute;
-    left: 10%;
+    left: 7%;
     top: 25%;
 }
 
@@ -307,5 +307,5 @@ nav>.four {
 .comment {
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 7%;
 }
