@@ -358,7 +358,7 @@ nav > .six{
     height: 10%;
     background-color: #9AA6B2;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
@@ -458,7 +458,7 @@ nav > .six{
     height: 10%;
     background-color: #9AA6B2;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
@@ -556,7 +556,7 @@ nav > .six{
     height: 10%;
     background-color: #9AA6B2;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
@@ -656,7 +656,7 @@ nav > .six{
     height: 10%;
     background-color: #9AA6B2;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
