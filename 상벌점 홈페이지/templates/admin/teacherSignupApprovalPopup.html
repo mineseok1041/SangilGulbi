@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>선생님 승인 팝업</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/teacherSignupApprovalPopup.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="popup-box">
+      <h2>선생님 승인</h2>
+      <div class="note">
+        <small>*요청을 승인하게 된다면 해당 계정이 선생님 계정으로 등록됩니다.</small>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="list">이름</td>
+            <th scope="list">아이디</td>
+            <th scope="list">확인코드</td>
+            <th scpe="list">승인여부</th>  
+          </tr>
+        </thead>
+        <tbody>
+          {% for teacher in unverified_teachers %}
+          <tr>
+            <td>{{ teacher.name }}</td>
+            <td>{{ teacher.id }}</td>
+            <td>{{ teacher.checkCode }}</td>
+            <td>
+              <button class="approve" data-id="{{ teacher.id }}">동의</button>
+              <button class="reject" data-id="{{ teacher.id }}">거부</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/teacher/teacherSignupApproval.js') }}"></script>
+</body>
+</html>

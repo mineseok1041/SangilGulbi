@@ -22,9 +22,10 @@ header {
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
@@ -233,7 +234,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -309,6 +310,7 @@ table{
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: 2%;
 }
 
 .penaltyList> .header{
@@ -326,7 +328,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -405,5 +407,5 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-  font-size: 13px;
+    font-size: 18px;
 }

@@ -13,8 +13,9 @@ create table users (
     signeddate varchar2(17) default to_char(sysdate, 'YYYYMMDD HH24:MI:SS'),
     lastlogin varchar2(17),
     identity number(1),
-    verified number(1)
+    verified number(1),
+    checkCode varchar2(20)
 );
 -- 0 : 최고 관리자(1명)
--- 1 : 관리자
+-- 1 : 선생님
 -- 2 : 학생

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비밀번호 재설정</title>
+    <title>학생 비밀번호 재설정</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/resetStudentPasswdPopup.css') }}">
 </head>
 <body>
     <main class="popupMain">
         <div class="studentInfoBox">
-            <h2 class="boxHead">비밀번호 재설정</h2>
+            <h2 class="boxHead">학생 비밀번호 재설정</h2>
             <form id="resetPasswordForm" method="POST" action="/teacher/resetStudentPasswordPopup.do">
                 <div class="studentInfo">
                     <div class="infoRow">
@@ -39,6 +39,9 @@
                             <input class="passwordInput" type="password" name="passwordCheck" required />
                             <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
                         </div>
+                    </div>
+                    <div class="note">
+                        <small>*이 기능은 비밀번호를 변경하는 기능이니 신중하게 사용하여 주시길 바랍니다.</small>
                     </div>
                 </div>
                 <button class="submitButton" type="submit">제출</button>

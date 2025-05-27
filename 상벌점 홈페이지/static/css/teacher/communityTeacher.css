@@ -222,7 +222,7 @@ table {
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
-    margin-top: 7.2%;
+    margin-top: 4%;
 }
 
 th {
@@ -242,50 +242,17 @@ td {
     color: #3f3f3f;
 }
 
-
-.agree-btn {
-    padding: 5px 10px;
-    background-color: #e0e7ed;
-    color: #333;
-    border-radius: 4px;
-    font-size: 0.9em;
-    cursor: pointer;
-    border: none;
-}
-
-.decline-btn {
-    padding: 5px 10px;
-    background-color: #9facb8;
-    color: white;
-    border-radius: 4px;
-    font-size: 0.9em;
-    cursor: pointer;
-    border: none;
-}
-.write-btn{
-    width: 10%;
-    font-size: 20px;
-    padding: 8px 15px;
-    color: #ffffff;
-    background-color: #9AA6B2;
-    border: none;
-    position: absolute;
-    bottom: 3%;
-    right: 5%;
-    cursor: pointer;
-}
-
 .wide-column {
     color: #000000;
     text-decoration: none;
-    width: 44%; /* 원하는 넓이 */
+    width: 40%; /* 원하는 넓이 */
     padding-left: 15px; /* 좌우 여백 */
     padding-right: 15px;
     text-align: center; /* 텍스트 중앙 정렬 */
 }
 
 .wide-column2 {
-    width: 11%; /* 원하는 넓이 */
+    width: 15%; /* 원하는 넓이 */
     padding-left: 15px; /* 좌우 여백 */
     padding-right: 15px;
     text-align: center; /* 텍스트 중앙 정렬 */
@@ -295,6 +262,26 @@ td {
     padding-left: 15px; /* 좌우 여백 */
     padding-right: 15px;
     text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.write-btn{
+    width: 11%;
+    height: 6%;
+    position: absolute;
+    background-color: #9AA6B2;
+    z-index: 1000;
+    border: none;
+    font-size: 25px;
+    left: 85%;
+    top: 90%;
+    color: #fff;
+    cursor: pointer;
+}
+.write-btn:hover{
+    background-color: #808a95;
+}
+.write-btn:active{
+    box-shadow: 2px 2px 0 rgb(0,0,0,0.5);
 }
 
 .nextpage{
