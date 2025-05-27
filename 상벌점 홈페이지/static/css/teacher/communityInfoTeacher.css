@@ -237,22 +237,18 @@ nav > .six{
 }
 
 .input {
-    width: 50%;
+width: 50%;
     height: 5%;
     border: 1;
-    position: absolute;
-    bottom: -10%;
-    left: 25%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    margin-top: 17%;
+    margin-top: 27%;
     margin-left: 25%;
     font-size: 18px;
-
 }
 
 .input:focus {
@@ -277,7 +273,7 @@ nav > .six{
     width: 80%;
     height: 100%;
     position: absolute;
-    top: 100%;
+    top: 108%;
     left: 20%;
 }
 
@@ -294,14 +290,14 @@ nav > .six{
     height: 60%;
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 10%;
 }
 
 .comments>.ID {
     width: 53%;
     position: absolute;
     left: 7%;
-    top: 25%;
+    top: 8%;
 }
 
 .ID>.name {
@@ -313,7 +309,7 @@ nav > .six{
 .ID>.date_ {
     position: absolute;
     bottom: 0%;
-    left: 17%;
+    left: 21%;
     width: 100%;
     margin: 0%;
     font-size: 12px;
@@ -321,9 +317,9 @@ nav > .six{
 
 .comment {
     position: absolute;
-    top: 40%;
+    top: 25%;
 
-    left: 12%;
+    left: 7%;
 }
 
 .agree-btn{
