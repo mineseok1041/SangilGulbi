@@ -14,7 +14,7 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ usersDTO.name }}선생님</p>
+    <p class="name">{{ session.name }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
@@ -63,13 +63,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for teacher in teacherList %}
+                    <!-- {% for teacher in teacherList %}
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
                         <td class="date-cell">{{ teacher.lastlogin }}</td>
                     </tr>
-                    {% endfor %}
+                    {% endfor %} -->
                 </tbody>
             </table>
         </div>

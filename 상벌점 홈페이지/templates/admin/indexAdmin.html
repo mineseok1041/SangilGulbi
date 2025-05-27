@@ -14,7 +14,7 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ usersDTO.name }}선생님</p>
+    <!-- <p class="name">{{ session.name }}선생님</p> -->
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
@@ -59,14 +59,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for student in studentList %}
+                    <!-- {% for student in studentList %}
                     <tr>
                         <td>{{ student.stdNum }}</td>                        
                         <td>{{ student.name }}</td>
                         <td class="date-cell">{{ student.lastlogin }}</td>
                         <td>{{ student.point }}</td>
                     </tr>
-                    {% endfor %}
+                    {% endfor %} -->
                 </tbody>
             </table>
         </div>
@@ -87,13 +87,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for teacher in teacherList %}
+                    <!-- {% for teacher in teacherList %}
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
                         <td>{{ teacher.lastlogin }}</td>
                     </tr>
-                    {% endfor %}
+                    {% endfor %} -->
                 </tbody>
             </table>
         </div>
@@ -114,16 +114,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for notice in notices[::-1][:5] %}
-                    <tr>
-                        <td>{{ notices|length - loop.index0 }}</td>
-                        <td>
-                            <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
-                        </td>
-                        <td class="date-cell">{{ notice.created_date }}</td>                    
-                        <td>{{ notice.author }}</td>
-                    </tr>
-                    {% endfor %}
                 </tbody>
             </table>
         </div>
