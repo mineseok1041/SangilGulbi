@@ -317,6 +317,7 @@ nav > .six{
     width: 100%; /* 테이블 너비 */
     max-height: 50%; /* 테이블 높이 */
     margin: auto; /* 가운데 정렬 */
+    border-collapse: collapse;
 }
 
 .awardGive_table table {
@@ -324,6 +325,7 @@ nav > .six{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+    table-layout: fixed;
 }
 
 .awardGive_table th {
@@ -340,6 +342,9 @@ nav > .six{
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .awardGive_table thead {
@@ -426,6 +431,10 @@ nav > .six{
     border-top: #000000 solid 3px;
 }
 
+.manyUseList_table td:nth-child(4) {
+    max-width: 90px;
+}
+
 .manyUseList_table th {
     background: #ffffff;
     padding: 1.5%;
@@ -440,6 +449,9 @@ nav > .six{
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .manyUseList_table thead {
@@ -521,6 +533,7 @@ nav > .six{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+    table-layout: fixed;
 }
 
 .community_table a {
@@ -534,13 +547,18 @@ nav > .six{
     border-bottom: #000000 solid 3px;
     font-size: 15px;
 }
+
 .community_table td {
     padding: 1.5%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .community_table thead {
     position: sticky; /* 헤더 고정 */
     top: 0;
@@ -622,6 +640,7 @@ nav > .six{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+    table-layout: fixed;
 }
 
 .penaltyGive_table th {
@@ -638,6 +657,9 @@ nav > .six{
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .penaltyGive_table thead {

@@ -46,7 +46,6 @@
                         <th>학번</th>
                         <th>사유</th>
                         <th>부여한 상점</th>
-                        <th>총 상벌점</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,8 +53,7 @@
                     <tr>
                         <td>노성빈</td>
                         <td>30205</td>
-                        <td>test1</td>
-                        <td>6</td>
+                        <td>반 친구의 잃어버린 물건을 찾아주는 행위를 하였을 때</td>
                         <td>100점</td>
                     </tr>
                     {% endfor %}
@@ -77,7 +75,6 @@
                         <th>이름</th>
                         <th>사유</th>
                         <th>부여한 벌점</th>
-                        <th>총 상벌점</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,8 +82,7 @@
                     <tr>
                         <td>30205</td>
                         <td>벌점</td>
-                        <td>1번</td>
-                        <td>쓰레기안버린 노성빈</td>
+                        <td title="">선생님의 지시를 불이행했기 때문에</td>
                         <td>-1000000</td>
                     </tr>
                     {% endfor %}
@@ -116,7 +112,7 @@
                         <td>★</td>
                         <td>벌점</td>
                         <td>1번</td>
-                        <td>쓰레기안버린 노성빈</td>
+                        <td title="">교실에서 친구의 잃어버린 물품을 찾는 것을 도와주었을때</td>
                         <td>-1000000</td>
                     </tr>
                     {% endfor %}
@@ -146,7 +142,7 @@
                         <td>
                             <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
                         </td>
-                        <td>{{ notice.author }}</td>
+                        <td title="">{{ notice.author }}</td>
                         <td class="date-cell">{{ notice.created_date }}</td>
                     </tr>
                     {% endfor %}
