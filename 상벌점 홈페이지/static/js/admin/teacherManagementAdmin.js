@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            `/teacher/resetTeacherPasswdPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
+            `/admin/resetTeacherPasswdPopup?teacherName=${teacherName}&teacherId=${teacherId}`,
             "비밀번호 재설정",
             `width=600,height=800,left=${left},top=${top}`
         );
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const confirmDelete = confirm(`정말로 ${selectedTeacher.teacherName}(${selectedTeacher.teacherId}) 선생님 계정을 삭제하시겠습니까?`);
             if (!confirmDelete) return;
 
-            fetch("/teacher/deleteTeacherAccount", {
+            fetch("/admin/deleteTeacherAccount", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ teacherId: selectedTeacher.teacherId })
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // 팝업 열기
         window.open(
-            "/teacher/teacherSignupApprovalPopup", // 팝업으로 열릴 페이지
+            "/admin/teacherSignupApprovalPopup", // 팝업으로 열릴 페이지
             "선생님 계정 승인",
             `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
         );

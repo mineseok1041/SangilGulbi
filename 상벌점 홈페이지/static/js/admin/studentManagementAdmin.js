@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
 
             window.open(
-                `/teacher/resetStudentPasswordPopup?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
+                `/admin/resetStudentPasswordPopup?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
                 "비밀번호 재설정",
                 `width=600,height=800,left=${left},top=${top}`
             );
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const confirmDelete = confirm(`정말로 ${selectedStudent.studentName}(${selectedStudent.studentId}) 학생 계정을 삭제하시겠습니까?`);
             if (!confirmDelete) return;
 
-            fetch("/teacher/deleteStudentAccount", {
+            fetch("/admin/deleteStudentAccount", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ studentId: selectedStudent.studentId })
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
 
             window.open(
-                `/teacher/givePenaltyPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
+                `/admin/givePenaltyPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
                 "벌점 부여",
                 `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
             );
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
 
             window.open(
-                `/teacher/giveBonusPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
+                `/admin/giveBonusPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
                 "상점 부여",
                 `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
             );

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link href="{{ url_for('static', filename='css/admin/communityInfoAdmin.css') }}" rel="stylesheet">
+</head>
+<header>
+    <h2 class="main">게시판</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
+    <p class="number">인공지능소프트웨어과</p>
+    <p class="name">{{ session["name"] }}선생님</p>
+
+    <a class="mypage_nav" href="/admin/">마이페이지</a>
+    <hr class="first">
+    <a class="givePoint_nav" href="/admin/pointLog">상벌점 내역</a>
+    <hr class="two">
+    <a class="pointReasons_nav" href="/admin/pointReasons">상벌점 항목</a>
+    <hr class="three">
+    <a class="studentManagement_nav" href="/admin/studentManagement">학생 관리</a>
+    <hr class="four">
+    <a class="teacherManagement_nav" href="/admin/teacherManagement">선생님 관리</a>
+    <hr class="five">
+    <a class="community_nav" href="/admin/community">게시판</a>
+
+    <hr class="six">
+
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
+</nav>
+
+<body>
+    <div class="title_box">
+        <h2 class="title">제목 : </h2>
+        <h2 class="title_">{{ notice.title }}</h2>
+    </div>
+
+    <div class="writer_box">
+        <h2 class="writer">작성자 : </h2>
+        <h2 class="writer_">{{ notice.author }}</h2>
+    </div>
+
+    <div class="date">
+        <p>2025.26.23 22:25:03</p>
+    </div>
+
+    <div class="text_box">
+        <p>{{ notice.content }}</p>
+    </div>
+
+     <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
+        <button class="sumit">전송</button>
+
+        <div class="container">
+            <div class="comment_box">
+
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+    
+                <div class="comments">
+                    <img src="/img/logo.png">
+                    <div class="ID">
+                        <p class="name"><strong>10312 이시은</strong></p>
+                        <p class="date_">2025.23.23</p>
+                    </div>
+                    <p class="comment">신청합니당</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
