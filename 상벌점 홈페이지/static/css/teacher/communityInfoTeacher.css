@@ -251,7 +251,6 @@ nav > .six{
     color: #55595D;
     margin-top: 17%;
     font-size: 18px;
-
 }
 
 .input:focus {
@@ -293,14 +292,14 @@ nav > .six{
     height: 60%;
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 10%;
 }
 
 .comments>.ID {
     width: 53%;
     position: absolute;
     left: 7%;
-    top: 25%;
+    top: 8%;
 }
 
 .ID>.name {
@@ -312,7 +311,7 @@ nav > .six{
 .ID>.date_ {
     position: absolute;
     bottom: 0%;
-    left: 17%;
+    left: 21%;
     width: 100%;
     margin: 0%;
     font-size: 12px;
@@ -320,9 +319,9 @@ nav > .six{
 
 .comment {
     position: absolute;
-    top: 40%;
+    top: 25%;
 
-    left: 12%;
+    left: 7%;
 }
 
 .agree-btn{
