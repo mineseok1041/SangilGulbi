@@ -325,7 +325,18 @@ nav > .six{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
-    table-layout: fixed;
+}
+
+.awardGive_table td:nth-child(1) {
+    max-width: 50px;
+}
+
+.awardGive_table td:nth-child(2) {
+    max-width: 50px;
+}
+
+.awardGive_table td:nth-child(3) {
+    max-width: 110px;
 }
 
 .awardGive_table th {
@@ -640,7 +651,10 @@ nav > .six{
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
-    table-layout: fixed;
+}
+
+.penaltyGive_table td:nth-child(3) {
+    max-width: 100px;
 }
 
 .penaltyGive_table th {
@@ -689,9 +703,9 @@ nav > .six{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyGive > .more:hover {
+.penaltyGive_box > .more:hover {
     background-color: #7d8791; /* hover 시 어두운 색 */
 }
-.penaltyGive > .more:active {
+.penaltyGive_box > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
 }
