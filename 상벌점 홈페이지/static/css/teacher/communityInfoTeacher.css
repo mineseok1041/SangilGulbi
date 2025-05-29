@@ -219,15 +219,15 @@ nav > .six{
 }
 
 .text_box {
-    width: 70%;
-    height: 55%;
+    width: 66%;
+    height: 47%;
     position: absolute;
     top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
-    align-items: center;
     color: #55595D;
+    padding: 2%;
 }
 
 .date {
@@ -237,17 +237,19 @@ nav > .six{
 }
 
 .input {
-width: 50%;
+    width: 56.5%;
     height: 5%;
     border: 1;
+    position: absolute;
+    bottom: -13%;
+    left: 25%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    margin-top: 27%;
-    margin-left: 25%;
+    margin-top: 17%;
     font-size: 18px;
 }
 
@@ -258,9 +260,9 @@ width: 50%;
 .sumit {
     width: 10%;
     height: 5%;
-    position: relative;
-    left: 10%;
-    top: 0%;
+    position: absolute;
+    right: 5%;
+    bottom: -13%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
@@ -273,7 +275,7 @@ width: 50%;
     width: 80%;
     height: 100%;
     position: absolute;
-    top: 108%;
+    top: 115%;
     left: 20%;
 }
 
