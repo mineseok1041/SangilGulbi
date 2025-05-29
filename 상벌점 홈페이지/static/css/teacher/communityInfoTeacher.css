@@ -237,7 +237,7 @@ nav > .six{
 }
 
 .input {
-    width: 50%;
+    width: 56.5%;
     height: 5%;
     border: 1;
     position: absolute;
@@ -250,7 +250,6 @@ nav > .six{
     border-bottom: solid 1px #55595D;
     color: #55595D;
     margin-top: 17%;
-    margin-left: 25%;
     font-size: 18px;
 
 }
@@ -262,9 +261,9 @@ nav > .six{
 .sumit {
     width: 10%;
     height: 5%;
-    position: relative;
-    left: 10%;
-    top: 0%;
+    position: absolute;
+    right: 5%;
+    bottom: -10%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
@@ -277,7 +276,7 @@ nav > .six{
     width: 80%;
     height: 100%;
     position: absolute;
-    top: 100%;
+    top: 115%;
     left: 20%;
 }
 
