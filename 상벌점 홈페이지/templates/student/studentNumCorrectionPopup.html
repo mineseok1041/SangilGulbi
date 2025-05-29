@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학번 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student/studentNumCorrecrionPopup.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="studentInfoBox">
+            <h2 class="boxHead">학번 수정</h2>
+            <form method="POST" action="">
+                <div class="studentInfo">
+                    <div class="info">
+                        <span class="infoLabel">이름:</span>
+                        <span class="infoValue studentName">{{ studentName }}</span>
+                    </div> 
+                    <div class="info">
+                        <span class="infoLabel">아이디:</span>
+                        <span class="infoValue studentId">{{ studentId }}</span>
+                    </div>
+                   <div class="infoRow">
+                        <span class="infoLabel">학번:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                        </div>
+                    </div>
+                </div>
+                <button class="submitButton" type="submit">제출</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

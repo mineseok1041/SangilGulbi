@@ -137,17 +137,16 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-.all_score {
+nav > .myInfoEdit_nav{
     color: white;
     position: absolute;
-    top: 83%;
-    left: 50%;
+    bottom: 15%;
+    left: 10%;
     text-decoration: none;
     cursor: pointer;
-    font-size: 20px;
 }
 
-nav>.four {
+nav > .four{
     width: 90%;
     position: absolute;
     bottom: 10%;

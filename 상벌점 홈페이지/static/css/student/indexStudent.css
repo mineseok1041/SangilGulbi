@@ -147,7 +147,17 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-nav>.four {
+nav > .myInfoEdit_nav{
+    color: white;
+    position: absolute;
+    bottom: 13%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+nav > .four{
     width: 90%;
     position: absolute;
     bottom: 10%;
