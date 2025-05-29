@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/teacherManagement.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/teacherManagementAdmin.css') }}">
     <title>상벌점 관리 페이지</title>
 </head>
 
@@ -14,21 +14,21 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ session.name }}선생님</p>
+    <p class="name">{{ session["name"] }}선생님</p>
 
-    <a class="mypage_nav" href="/teacher/">마이페이지</a>
+    <a class="mypage_nav" href="/admin/">마이페이지</a>
     <hr class="first">
-    <a class="givePoint_nav" href="/teacher/pointLog">상벌점 내역</a>
+    <a class="givePoint_nav" href="/admin/pointLog">상벌점 내역</a>
     <hr class="two">
-    <a class="pointReasons_nav" href="/teacher/pointReasons">상벌점 항목</a>
+    <a class="pointReasons_nav" href="/admin/pointReasons">상벌점 항목</a>
     <hr class="three">
-    <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
+    <a class="studentManagement_nav" href="/admin/studentManagement">학생 관리</a>
     <hr class="four">
     {% if session["identity"] == 0 %}
-    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
+    <a class="teacherManagement_nav" href="/admin/teacherManagement">선생님 관리</a>
     <hr class="five">
     {% endif %}
-    <a class="community_nav" href="/teacher/community">게시판</a>
+    <a class="community_nav" href="/admin/community">게시판</a>
 
     <a class="myInfoEdit_nav">내 정보 수정</a>
     <hr class="six">
@@ -75,7 +75,7 @@
             </table>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/admin/teacherManagement.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/teacherManagementAdmin.js') }}"></script>
 </body>
 
 </html>

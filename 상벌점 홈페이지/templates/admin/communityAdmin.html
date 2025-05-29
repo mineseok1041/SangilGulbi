@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link href="{{ url_for('static', filename='css/admin/communityAdmin.css') }}" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h2 class="main">게시판</h2>
+</header>
+
+<nav>
+    <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
+    <p class="number">인공지능소프트웨어과</p>
+    <p class="name">{{ session["name"] }}선생님</p>
+
+    <a class="mypage_nav" href="/admin/">마이페이지</a>
+    <hr class="first">
+    <a class="givePoint_nav" href="/admin/pointLog">상벌점 내역</a>
+    <hr class="two">
+    <a class="pointReasons_nav" href="/admin/pointReasons">상벌점 항목</a>
+    <hr class="three">
+    <a class="studentManagement_nav" href="/admin/studentManagement">학생 관리</a>
+    <hr class="four">
+    <a class="teacherManagement_nav" href="/admin/teacherManagement">선생님 관리</a>
+    <hr class="five">
+    <a class="community_nav" href="/admin/community">게시판</a>
+
+    <hr class="six">
+
+    <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
+</nav>
+
+<div class="container">
+    <table>
+        <tr>
+            <th scope="list">번호</th>
+            <th scope="list" class="wide-column">제목</th>
+            <th scope="list" class="wide-column2">작성자</th>
+            <th scope="list" class="wide-column3">작성일</th>
+            <th scope="list"></th>
+        </tr>
+        {% for notice in notices[::-1] %}
+        <tr>
+            <td>{{ notices|length - loop.index0 }}</td>
+            <td class="wide-column">
+                <a class="nextpage" href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+            </td>
+            <td>{{ notice.author }}</td>
+            <td class="date-cell">{{ notice.created_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>  
+</div>
+<button class="write-btn" onClick="location.href='/teacher/community/add'">글쓰기</button>
+<script src="{{ url_for('static', filename='js/admin/communityAdmin.js') }}"></script>
+</body>
+</html>
