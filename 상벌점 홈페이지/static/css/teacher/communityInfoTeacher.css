@@ -219,15 +219,15 @@ nav > .six{
 }
 
 .text_box {
-    width: 70%;
-    height: 55%;
+    width: 66%;
+    height: 47%;
     position: absolute;
     top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
-    align-items: center;
     color: #55595D;
+    padding: 2%;
 }
 
 .date {
