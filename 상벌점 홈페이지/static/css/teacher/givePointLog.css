@@ -158,26 +158,6 @@ nav>.four {
 nav>.teacherManagement_nav {
     color: white;
     position: absolute;
-    top: 58.3%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-nav>.five {
-    width: 90%;
-    left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 62%;
-    left: 5%;
-}
-
-nav>.community_nav {
-    color: white;
-    position: absolute;
     top: 58.5%;
     left: 10%;
     text-decoration: none;
@@ -193,7 +173,7 @@ nav > .myInfoEdit_nav{
     cursor: pointer;
 }
 
-nav > .five{
+nav>.five {
     width: 90%;
     position: absolute;
     bottom: 10%;
