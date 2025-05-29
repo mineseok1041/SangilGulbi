@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상점 부여</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/giveBonusPointPopupAdmin.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="bonusPointReason">
+            <h2 class="boxHead">상점 사유 항목</h2>
+        <!-- 왼쪽 박스: 사유 -->
+            <div class="bonusPointReasonTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>상점 부여 사유</th>
+                            <th>부여 점수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in range( pointReasonList | length) %}
+                        <tr>
+                            <td>{{ i }}</td>
+                            <td>{{ pointReasonList[i].reason }}</td>
+                            <td>+{{ pointReasonList[i].value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 오른쪽 박스: 선택한 학생 정보 -->
+        <div class="studentInfoBox">
+            <h2 class="boxHead">부여 정보</h2>
+            <div class="studentInfo">
+                <div class="infoRow">
+                    <span class="infoLabel">학번:</span>
+                    <span class="infoValue studentNum"></span>
+                    <img class="searchStudentIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">이름:</span>
+                    <span class="infoValue studentName"></span>
+                    <span class="infoValue studentId" style="display: none;"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">사유:</span>
+                    <span class="infoValue reason"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">점수:</span>
+                    <span class="infoValue studentBonusPoint"></span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">작성자:</span>
+                    <span class="infoValue writeTeacherName">{{ usersDTO.name }}</span>
+                    <span class="infoValue writeTeacherId" style="display: none;">{{ usersDTO.id }}</span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">부여자:</span> 
+                    <span class="infoValue giveTeacherName">{{ usersDTO.name }}</span>
+                    <span class="infoValue giveTeacherId" style="display: none;">{{ usersDTO.id }}</span> <!-- 숨겨진 ID 저장용 -->
+                    <img class="searchTeacherIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="학생 검색" />
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">일시</span>
+                    <span class="infoValue date">2025-05-03</span>
+                </div>
+                <div class="infoRow">
+                    <span class="infoLabel">의견:</span>
+                    <textarea class="infoValue opinion" type="text"></textarea>
+                </div>
+                <!-- 학생 검색 모달 -->
+                <div class="studentSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
+                            <button class="searchButton">
+                                <img src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="studentList">
+                            <table class="studentTable">
+                                <thead>
+                                    <tr>
+                                        <th>학번</th>
+                                        <th>이름</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for student in studentList %}
+                                    <tr>
+                                        <td>{{ student.stdNum }}</td>
+                                        <td>{{ student.name }}({{ student.id }})</td>
+                                        <td style="display: none;">{{ student.id }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 부여자 검색 모달 -->
+                <div class="teacherSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput" placeholder="찾으실 부여자의 정보를 적어주세요.">
+                            <button class="searchButton">
+                                <img src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="teacherList">
+                            <table class="teacherTable">
+                                <thead>
+                                    <tr>
+                                        <th>아이디</th>
+                                        <th>이름</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for teacher in teacherList %}
+                                    <tr>
+                                        <td>{{ teacher.id }}</td>
+                                        <td>{{ teacher.name }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            
+            <button class="submitButton" onclick="submitBonus()">제출</button>
+
+            <!-- <table class="studentInfoTable">
+                <tr>
+                    <th>학번</th>
+                    <td class="studentNum">20230001</td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td class="studentName">홍길동</td>
+                </tr>
+                <tr>
+                    <th>아이디</th>
+                    <td class="studentId">hong123</td>
+                </tr>
+                <tr>
+                    <th>총 상벌점</th>
+                    <td class="studentAllPoint">15</td>
+                </tr>
+            </table> -->
+        </div>
+        <form id="bonusForm" method="POST" action="/teacher/giveBonusPoint.do" style="display: none;">
+            <input type="hidden" name="stdId" id="formStudentId">
+            <input type="hidden" name="reason" id="formReason">
+            <input type="hidden" name="point" id="formPoint">
+            <input type="hidden" name="writeTeacherId" id="formWriteTeacherId">
+            <input type="hidden" name="giveTeacherId" id="formGiveTeacherId">
+            <input type="hidden" name="opinion" id="formOpinion">
+        </form>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/admin/giveBonusPointPopupAdmin.js') }}"></script>
+</body>
+</html>
