@@ -6,9 +6,8 @@
 }
 
 body {
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
+  font-family: 'KakaoSmallSans-Bold', sans-serif;
   margin: 0;
-  padding: 0;
   background-color: #ffffff;
 }
 
@@ -32,17 +31,18 @@ body {
   height: 85%;
 }
 
-.popup-box h2 {
-  margin: 0;
-  font-size: 20px;
+h2 {
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 3%;
 }
 
-.subtitle {
-  text-align: center;
-  margin: 10px 0 20px;
-  font-size: 14px;
+.note {
+    font-size: 15px; /* 노트 폰트 크기 */
+    color: #ff5757; /* 노트 텍스트 색상 */
+    margin-top: 5px; /* 노트와 입력 필드 간격 */
+    text-align: center; /* 가운데 정렬 */
 }
 
 table { 
@@ -61,11 +61,6 @@ th, td {
   color: #55595D;
 }
 
-.width{
-    width: 20%;
-    color: #000;
-}
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -74,26 +69,37 @@ th, td {
 }
 
 .approve, .reject {
-  padding: 3px 12px;
+  font-family: 'KakaoSmallSans-Bold', sans-serif;
+  font-size: 15px;
+  padding: 6px 12px;
   border: none;
   border-radius: 4px;
-  font-weight: bold;
   cursor: pointer;
 }
 
 .approve {
-  background-color: #BCCCDC;
+  background-color: #bddcbc;
   color: #000;
+  transition: background-color 0.3s ease;
 }
 
 .approve:hover {
-  background-color: #9AA6B2;
+  background-color: #9fb89e;
+}
+
+.approve:active {
+  scale: 0.98;
 }
 
 .reject {
-  background-color: #D9EAFD;
+  background-color: #dcbcbc;
   color: #000;
+  transition: background-color 0.3s ease;
 }
 .reject:hover{
-    background-color: #BCCCDC;
+    background-color: #ac9393;
+}
+
+.reject:active {
+  scale: 0.98;
 }

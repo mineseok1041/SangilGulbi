@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 정보 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/teacher/myInfoEditTeacher.css') }}">
+</head>
+<body>
+    <main class="popupMain">
+        <div class="teacherInfoBox">
+            <h2 class="boxHead">내 정보 수정</h2>                                                                              
+            <form id="" method="POST" action="">
+                <div class="Info">
+                    <div class="info">
+                        <span class="infoLabel">이름:</span>
+                        <span class="infoValue studentName">{{ usersDTO.name }}</span>
+                    </div>
+                    <div class="info">
+                        <span class="infoLabel">아이디:</span>
+                        <span class="infoValue studentId">{{  }}</span>
+                    </div>
+                    <input type="hidden" name="teacherId" class="teacherIdInput" value="{{  }}" />
+                    <div class="infoRow">
+                        <span class="infoLabel">현재 비밀번호:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                            <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호 변경:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="password" required />
+                            <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
+                        </div>
+                    </div>
+                    <div class="infoRow">
+                        <span class="infoLabel">비밀번호 확인:</span>
+                        <div class="passwordBox">
+                            <input class="passwordInput" type="password" name="passwordCheck" required />
+                            <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
+                        </div>
+                    </div>
+                </div>
+                <button class="submitButton" type="submit">제출</button>
+            </form>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/teacher/myInfoEditTeacher.js') }}"></script>
+</body>
+</html>

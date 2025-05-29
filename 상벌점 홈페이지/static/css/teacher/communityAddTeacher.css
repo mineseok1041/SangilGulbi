@@ -13,7 +13,7 @@ header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 0px 3px 3px gray;
@@ -32,10 +32,9 @@ nav {
     background-color: #9AA6B2;
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
-    
 }
 
 nav > a {
@@ -157,27 +156,26 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 62%;
-    left: 5%;
-}
 
 nav > .community_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
-    top: 65.3%;
+    top: 58.5%;
     left: 10%;
     text-decoration: none;
     cursor: pointer;
 }
 
-nav > .six{
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .five{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -186,6 +184,7 @@ nav > .six{
     height:1px;
     border:0;
 }
+
 
 .logout {
     width: 80%;
@@ -234,11 +233,17 @@ nav > .six{
     color: #55595D;
 }
 
+.date {
+    width: 30%;
+    height: 25%;
+    margin: 13% 25%;
+}
+
 .content_input {
     width: 70%;
     height: 55%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     color: #55595D;
@@ -259,16 +264,14 @@ nav > .six{
     color: #000000; /* 포커스되었을 때 텍스트 색 변경 */
 }
 
-.sumit {
+.write_btn{
     width: 10%;
     height: 5%;
-    position: absolute;
-    left: 85%;
-    bottom: 10%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
     font-size: 20px;
     cursor: pointer;
+    margin: 19% 0% 0% 85%;
 }

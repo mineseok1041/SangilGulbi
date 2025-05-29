@@ -22,9 +22,10 @@ header {
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
@@ -147,36 +148,25 @@ nav > .four{
     left: 5%;
 }
 
-nav > .teacherManagement_nav {
+nav > .community_nav {
     color: white;
     position: absolute;
-    top: 58.3%;
+    top: 58.5%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
     left: 10%;
     text-decoration: none;
     cursor: pointer;
 }
 
 nav > .five{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 62%;
-    left: 5%;
-}
-
-nav > .community_nav {
-    color: white;
-    position: absolute;
-    top: 65.3%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -185,6 +175,7 @@ nav > .six{
     height:1px;
     border:0;
 }
+
 
 .logout {
     width: 80%;
@@ -233,7 +224,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -309,6 +300,7 @@ table{
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: 2%;
 }
 
 .penaltyList> .header{
@@ -326,7 +318,7 @@ table{
     width: 100%;
     color: white;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 3%;
     margin: 0%;
     font-size: 25px;
@@ -405,5 +397,16 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-  font-size: 13px;
+  font-size: 16px;
+}
+
+.star{
+    font-size: 25px;     /* 별 크기 */
+    color: #ccc;         /* 기본 회색 */
+    cursor: pointer;     /* 마우스 오버 시 손 모양 */
+    transition: color 0.2s;  /* 부드러운 색 전환 */
+}
+
+.star.active{
+    color: #000000;
 }

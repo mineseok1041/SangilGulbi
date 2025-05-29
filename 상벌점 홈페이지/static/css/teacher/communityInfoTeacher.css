@@ -1,14 +1,3 @@
-@font-face {
-    font-family: 'KakaoSmallSans-Bold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-
-body {
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
-}
-
 header {
     width: 80%;
     height: 10%;
@@ -16,58 +5,51 @@ header {
     position: absolute;
     top: 0%;
     right: 0%;
-    box-shadow: 0px 3px 3px gray;
-    z-index: 1;
+    box-shadow: 3px 3px 3px gray;
+    background-attachment: fixed;
 }
 
 .main {
     position: absolute;
-    top: 0%;
+    top: 5%;
     left: 3%;
     color: #55595D;
-    font-size: 35px;
 }
 
 nav {
-    background-color: #9AA6B2;
+    background-color: #9aa6b2;
     width: 20%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 0%;
-    
+    background-attachment: fixed;
+
 }
 
-nav > a {
-    font-size: 20px;
-}
-
-nav > a:not(.community_nav):hover{
-    color: #d8d8d8;
-}
-
-nav > .profiles{
-    width: 30%;
+nav>.profiles {
+    width: 35%;
     border-radius: 50%;
     position: absolute;
     top: 5%;
-    left: 10%;
+    left: 5%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
     font-size: larger;
     color: white;
 }
+
 
 nav > .mypage_nav {
     color: white;
@@ -157,27 +139,26 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 62%;
-    left: 5%;
-}
 
 nav > .community_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
-    top: 65.3%;
+    top: 58.5%;
     left: 10%;
     text-decoration: none;
     cursor: pointer;
 }
 
-nav > .six{
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .five{
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -186,6 +167,7 @@ nav > .six{
     height:1px;
     border:0;
 }
+
 
 .logout {
     width: 80%;
@@ -237,30 +219,29 @@ nav > .six{
 }
 
 .text_box {
-    width: 70%;
-    height: 55%;
+    width: 66%;
+    height: 47%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
-    align-items: center;
     color: #55595D;
+    padding: 2%;
 }
 
-.text_box > .date {
-    position: absolute;
-    top: 5%;
-    left: 3%;
-    color: #55595D;
+.date {
+    width: 30%;
+    height: 25%;
+    margin: 13% 25%;
 }
 
-input {
-    width: 55%;
+.input {
+    width: 56.5%;
     height: 5%;
     border: 1;
     position: absolute;
-    bottom: 10%;
+    bottom: -13%;
     left: 25%;
     text-align: center;
     border-top: 0px;
@@ -268,19 +249,117 @@ input {
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    
+    margin-top: 17%;
+    font-size: 18px;
+}
+
+.input:focus {
+    outline: none;
 }
 
 .sumit {
     width: 10%;
     height: 5%;
     position: absolute;
-    left: 85%;
-    bottom: 10%;
+    right: 5%;
+    bottom: -13%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.comment_box {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 115%;
+    left: 20%;
+}
+
+.comments {
+    width: 90%;
+    height: 10%;
+    position: relative;
+    margin: 1% 0% 0% 5%;
+    border-bottom: 1px solid gray;
+}
+
+.comments > img {
+    width: auto;
+    height: 60%;
+    position: absolute;
+    left: 0%;
+    top: 10%;
+}
+
+.comments>.ID {
+    width: 53%;
+    position: absolute;
+    left: 7%;
+    top: 8%;
+}
+
+.ID>.name {
+    position: relative;
+    bottom: 0%;
+    margin: 0%;
+}
+
+.ID>.date_ {
+    position: absolute;
+    bottom: 0%;
+    left: 21%;
+    width: 100%;
+    margin: 0%;
+    font-size: 12px;
+}
+
+.comment {
+    position: absolute;
+    top: 25%;
+
+    left: 7%;
+}
+
+.agree-btn{
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    padding: 5px 10px;
+    background-color: #9AA6B2;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left:78%;
+}
+
+.agree-btn:hover{
+    background-color:  #6b6d70;
+}
+
+
+.decline-btn{
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    background-color: #bb6b6b;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left: 87%;
+}
+
+.decline-btn:hover{
+        background-color: #8a4b4b;
 }

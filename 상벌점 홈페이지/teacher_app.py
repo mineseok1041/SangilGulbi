@@ -64,7 +64,7 @@ def studentManagement():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
     
-        return render_template('teacher/studentManagement.html', usersDTO=teacherDTO, studentList=studentList)
+        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -72,12 +72,10 @@ def studentManagement():
 @teacherBlue.route('/teacherManagement')
 def teacherManagement():
     try:
-        if 'id' not in session:
+        if 'id' not in session or session.get('identity') != 0:
             return redirect(url_for('auth.login'))
-
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         teacherList = usersSVC.getTeachersList(1)
-
         return render_template('teacher/teacherManagement.html', usersDTO=teacherDTO, teacherList=teacherList)
     except Exception as e:
         print(e)
@@ -182,6 +180,61 @@ def communityList():
         print(e)
         return redirect(url_for('index'))
     
+@teacherBlue.route('/community/<int:noticeId>')
+def communityDetail(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        notice = SVC.get_notice_by_id(noticeId)
+        return render_template('teacher/communityInfoTeacher.html', notice=notice)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/add', methods=['GET', 'POST'])
+def communityAdd():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        if request.method == 'POST':
+            title = request.form['title']
+            content = request.form['content']
+            author = session['id']
+            notice = NoticeDTO(title=title, content=content, author=author)
+            SVC.add_notice(notice)
+            return redirect(url_for('teacher.communityList'))
+        return render_template('teacher/communityAddTeacher.html')
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/edit/<int:noticeId>', methods=['GET', 'POST'])
+def communityEdit(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        notice = SVC.get_notice_by_id(noticeId)
+        if request.method == 'POST':
+            notice.title = request.form['title']
+            notice.content = request.form['content']
+            SVC.update_notice(notice)
+            return redirect(url_for('teacher.communityDetail', noticeId=noticeId))
+        return render_template('teacher/communityEditTeacher.html', notice=notice)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+
+@teacherBlue.route('/community/delete/<int:noticeId>', methods=['POST'])
+def communityDelete(noticeId):
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        SVC.delete_notice(noticeId)
+        return redirect(url_for('teacher.communityList'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('teacher.communityList'))
+    
 @teacherBlue.route('/giveBonusPoint')
 def giveBonusPoint():
     try:
@@ -259,81 +312,25 @@ def doGivePenaltyPoint():
         print(e)
         flash(str(e))
         return redirect(url_for('teacher.giveBonusPoint'))
-
-@teacherBlue.route('/community/<int:noticeId>')
-def communityDetail(noticeId):
-    try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-        notice = SVC.get_notice_by_id(noticeId)
-        return render_template('teacher/communityInfoTeacher.html', notice=notice)
-    except Exception as e:
-        print(e)
-        return redirect(url_for('teacher.communityList'))
-
-@teacherBlue.route('/community/add', methods=['GET', 'POST'])
-def communityAdd():
-    try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-        if request.method == 'POST':
-            title = request.form['title']
-            content = request.form['content']
-            author = session['id']
-            notice = NoticeDTO(title=title, content=content, author=author)
-            SVC.add_notice(notice)
-            return redirect(url_for('teacher.communityList'))
-        return render_template('teacher/communityAddTeacher.html')
-    except Exception as e:
-        print(e)
-        return redirect(url_for('teacher.communityList'))
-
-@teacherBlue.route('/community/edit/<int:noticeId>', methods=['GET', 'POST'])
-def communityEdit(noticeId):
-    try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-        notice = SVC.get_notice_by_id(noticeId)
-        if request.method == 'POST':
-            notice.title = request.form['title']
-            notice.content = request.form['content']
-            # notice.author = notice.author
-            SVC.update_notice(notice)
-            return redirect(url_for('teacher.communityDetail', noticeId=noticeId))
-        return render_template('teacher/communityEditTeacher.html', notice=notice)
-    except Exception as e:
-        print(e)
-        return redirect(url_for('teacher.communityList'))
-
-@teacherBlue.route('/community/delete/<int:noticeId>', methods=['POST'])
-def communityDelete(noticeId):
-    try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-        SVC.delete_notice(noticeId)
-        return redirect(url_for('teacher.communityList'))
-    except Exception as e:
-        print(e)
-        return redirect(url_for('teacher.communityList'))
     
 @teacherBlue.route('/teacherSignupApprovalPopup')
 def teacherSignupApprovalPopup():
     try:
-        if 'id' not in session:
+        if 'id' not in session or session.get('identity') != 0:
             return redirect(url_for('index'))
-        
-        return render_template('teacher/teacherSignupApprovalPopup.html')
+        unverified_teachers = usersSVC.getUnverifiedTeachers()
+        return render_template('teacher/teacherSignupApprovalPopup.html', unverified_teachers=unverified_teachers)
     except Exception as e:
         print(e)
         return 'Error'
 
 @teacherBlue.route('/resetTeacherPasswdPopup')
 def resetTeacherPasswdPopup():
+    teacherList = usersSVC.getTeachersList(1)
     try:
         if 'id' not in session:
             return redirect(url_for('index'))
-        
-        return render_template('teacher/resetTeacherPasswdPopup.html')
+        return render_template('teacher/resetTeacherPasswdPopup.html', teacherList=teacherList)
     except Exception as e:
         print(e)
         return 'Error'
@@ -348,3 +345,14 @@ def resetStudentPasswdPopup():
     except Exception as e:
         print(e)
         return 'Error'
+    
+@teacherBlue.route('/approveTeacher', methods=['POST'])
+def approveTeacher():
+    if 'identity' not in session or session['identity'] != 0:
+        return jsonify({"success": False, "error": "권한이 없습니다."})
+    teacher_id = request.form.get('teacherId')
+    try:
+        usersSVC.usersDAO.updateTeacherVerified(teacher_id, 1)
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})

@@ -115,7 +115,7 @@ nav>.two {
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -178,6 +178,7 @@ nav>.four {
     text-align: left;
     font-size: 20px;
 }
+
 .log_box {
     width: 45%;
     height: 59.5%;
@@ -192,7 +193,7 @@ nav>.four {
     overflow-x: hidden;
 }
 
-.log_box > .header{
+.log_box>.header {
     width: 100%;
     height: 8%;
     position: absolute;
@@ -203,7 +204,7 @@ nav>.four {
     padding-top: 0.5%;
 }
 
-.log_box > .header >  h1{
+.log_box>.header>h1 {
     width: 100%;
     color: white;
     position: absolute;
@@ -213,7 +214,7 @@ nav>.four {
     font-size: 25px;
 }
 
-.log_box > .more {
+.log_box>.more {
     width: 10%;
     height: 5%;
     background-color: #BCCCDC;
@@ -229,44 +230,48 @@ nav>.four {
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.log_box > .more:hover {
+.log_box>.more:hover {
     background-color: #a9b7c5;
 }
-.log_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.log_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 /* 선택된 행 스타일 */
 .selected-row {
-    background-color: #9AA6B2; /* 선택된 행의 배경색 */
-    color: #000; /* 선택된 행의 텍스트 색상 */
-    transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
+    background-color: #9AA6B2;
+    /* 선택된 행의 배경색 */
+    color: #000;
+    /* 선택된 행의 텍스트 색상 */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .log_table {
     width: 78%;
     height: 90%;
-    position: absolute;
+    position: fixed;
     top: 10%;
     left: 20%;
     border-radius: 5px;
-    box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-    overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .log_table table {
-    width: 90%;
+    width: 95%;
     border-collapse: collapse;
-    margin: auto;
-    border-top: #000000 solid 3px;
+    margin: 3% 2.5%;
+    border-bottom: #000000 solid 1px;
 }
 
 .log_table th {
-    background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
+    border-top: #000000 solid 3px;
     font-size: 20px;
     min-width: 120px;
 }
@@ -288,13 +293,17 @@ nav>.four {
 } */
 
 .log_table td {
+    max-width: 400px;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-
 
 /* .log_table td input[type="checkbox"] {
     transform: scale(2);
@@ -302,44 +311,88 @@ nav>.four {
 
 .log_table thead {
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
     z-index: 1;
 }
 
 
+
 .log_table tbody tr:not(.selected-row):hover {
     background: #f9f9f9;
-    transition: background-color 0.2s ease; /* 부드러운 전환 효과 */
+    transition: background-color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .log_table tbody tr.select-row:hover {
     background-color: #9AA6B2;
-    color: #000; /* 선택된 행에 마우스 오버 시 텍스트 색상 */
-    transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
+    color: #000;
+    /* 선택된 행에 마우스 오버 시 텍스트 색상 */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 
 .sortable {
-    cursor: pointer; /* 정렬 가능한 열에 커서 표시 */
-    user-select: none; /* 텍스트 선택 방지 */
+    cursor: pointer;
+    /* 정렬 가능한 열에 커서 표시 */
+    user-select: none;
+    /* 텍스트 선택 방지 */
     position: relative;
 }
 
 .arrow {
     display: inline-block;
-    font-size: 20px; /* 화살표 크기 */
-    margin-left: 5px; /* 텍스트와 화살표 간격 */
-    color: #888; /* 화살표 색상 */
-    transition: transform 0.3s ease; /* 회전 애니메이션 */
+    font-size: 20px;
+    /* 화살표 크기 */
+    margin-left: 5px;
+    /* 텍스트와 화살표 간격 */
+    color: #888;
+    /* 화살표 색상 */
+    transition: transform 0.3s ease;
+    /* 회전 애니메이션 */
     pointer-events: auto;
 }
 
 .sortable.asc .arrow {
-    transform: rotate(0deg); /* 오름차순: 기본 상태 */
-    color: #000; /* 활성화된 화살표 색상 */
+    transform: rotate(0deg);
+    /* 오름차순: 기본 상태 */
+    color: #000;
+    /* 활성화된 화살표 색상 */
 }
 
 .sortable.desc .arrow {
-    transform: rotate(180deg); /* 내림차순: 180도 회전 */
-    color: #000; /* 활성화된 화살표 색상 */
+    transform: rotate(180deg);
+    /* 내림차순: 180도 회전 */
+    color: #000;
+    /* 활성화된 화살표 색상 */
+}
+
+.dropdown-row {
+    background-color: #ffffff;
+    display: none;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.reason,
+.opinion {
+    margin-top: 0%;
+    margin-left: 5%;
+    white-space: normal;
+}
+
+.date {
+    margin: -1% 0% 0% 67%;
+    font-size: 15px;
+}
+
+.main-row {
+    overflow: hidden;
+}
+
+.pointReason {
+    text-align: left !important;
+    vertical-align: top;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 2;
 }

@@ -24,15 +24,12 @@
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
-    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
-    <hr class="five">
     <a class="community_nav" href="/teacher/community">게시판</a>
 
-    <hr class="six">
-
+    <a class="myInfoEdit_nav">내 정보 수정</a>
+    <hr class="five">
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
-
 <body>
     <div class="pointLog">
         <div class="buttonsContainer">
@@ -40,7 +37,7 @@
                 <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
             </div>
             <button class="searchButton">검색</button>
-            <img src="../static/img/filterIcon.png" alt="필터 아이콘" class="filterIcon"></img>
+            <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon">
             <div class="filterPopup hidden">
                 <h4>학년 구분</h4>
                 <label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
@@ -56,12 +53,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th data-column="1" class="sortable">학번 <span class="arrow">▲</span></th>
-                        <th data-column="2" class="sortable">이름 <span class="arrow">▲</span></th>
-                        <th data-column="3" class="sortable">사유 <span class="arrow">▲</span></th>
-                        <th data-column="4" class="sortable">부여 시각 <span class="arrow">▲</span></th>
-                        <th data-column="5" class="sortable">부여 점수 <span class="arrow">▲</span></th>
-                        <th data-column="6" class="sortable">부여자 <span class="arrow">▲</span></th>
+                        <th data-column="1" class="sortable">학번 </th>
+                        <th data-column="2" class="sortable">이름</th>
+                        <th data-column="3" class="sortable">사유</th>
+                        <th data-column="4" class="sortable">부여 시각</th>
+                        <th data-column="5" class="sortable">부여 점수</th>
+                        <th data-column="6" class="sortable">부여자</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,16 +66,17 @@
                     <tr class="main-row">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
-                        <td>{{ pointLog.reason }}</td>
-                        <td>{{ pointLog.addDate }}</td>
+                        <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
+                        <td class="date-cell">{{ pointLog.addDate }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
-                                        <tr class="dropdown-row" style="display: none;">
-                        <td colspan="6">
-                            사유 적는칸~
-                            <br>
-                            뭔 말알?
+
+                    <tr class="dropdown-row">
+                        <td colspan="6" class="pointReason">
+                            <p class="date">시간 : 2025/25.25 12:12:12</p>
+                            <p class="reason">사유 : 선행 효행 단체활동 불우이웃돕기 일손 돕기 등의 봉사활동을 하여 공인된 외부 기관에서 모범표창을 받았거나 이와 상응한 경우</p>
+                            <p class="opinion">의견 : </p>
                         </td>
                     </tr>
                     {% endfor %}

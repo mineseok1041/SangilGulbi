@@ -24,12 +24,10 @@
     <hr class="three">
     <a class="studentManagement_nav" href="/teacher/studentManagement">학생 관리</a>
     <hr class="four">
-    <a class="teacherManagement_nav" href="/teacher/teacherManagement">선생님 관리</a>
-    <hr class="five">
     <a class="community_nav" href="/teacher/community">게시판</a>
 
-    <hr class="six">
-
+    <a class="myInfoEdit_nav">내 정보 수정</a>
+    <hr class="five">
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
@@ -40,7 +38,6 @@
             <th scope="list" class="wide-column">제목</th>
             <th scope="list" class="wide-column2">작성자</th>
             <th scope="list" class="wide-column3">작성일</th>
-            <th scope="list"></th>
         </tr>
         {% for notice in notices[::-1] %}
         <tr>
@@ -50,23 +47,11 @@
             </td>
             <td>{{ notice.author }}</td>
             <td class="date-cell">{{ notice.created_date }}</td>
-            <td>
-                <a href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}"><button class="agree-btn">수정</button></a>
-                &emsp;
-                <form method="post" action="{{ url_for('teacher.communityDelete', noticeId=notice.id) }}" style="display:inline;">
-                    <button class="decline-btn" type="submit">삭제</button>
-                </form>
-            </td>
         </tr>
         {% endfor %}
     </table>  
 </div>
-          
-<button class="write-btn" onClick="location.href='/teacher/community/add'"> 글쓰기</button>
-
+<button class="write-btn" onClick="location.href='/teacher/community/add'">글쓰기</button>
 <script src="{{ url_for('static', filename='js/teacher/communityTeacher.js') }}"></script>
-
-<script src="{{ url_for('static', filename='js/teacher/communityTeacher.js') }}"></script>
-
 </body>
 </html>
