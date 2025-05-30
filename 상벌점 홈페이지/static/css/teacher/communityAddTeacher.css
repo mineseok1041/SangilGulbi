@@ -7,6 +7,13 @@
 
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 0%;
 }
 
 header {
@@ -35,6 +42,7 @@ nav {
     position: fixed;
     top: 0%;
     left: 0%;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 nav > a {
@@ -158,7 +166,7 @@ nav > .teacherManagement_nav {
 
 
 nav > .community_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 58.5%;
     left: 10%;
