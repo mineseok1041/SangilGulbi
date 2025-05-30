@@ -16,13 +16,33 @@ def index():
     try:
         if 'id' not in session:
             return redirect(url_for('auth.login'))
+        
+        # 사용자 정보 가져오기
         respDTO = usersSVC.getUsersInfo(usersDTO(id=session['id']))
+        
+        # 상벌점 내역 가져오기
         pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']))
-        pointLogStudent = [usersSVC.getUsersInfo(usersDTO(id=log.studentId)) for log in pointLogList]
-        pointLogTeacher = [usersSVC.getUsersInfo(usersDTO(id=log.giveTeacherId)) for log in pointLogList]
-        notices = noticeSVC.get_all_notices()
+        
+        # 상점과 벌점 분리
+        bonusLogs = [log for log in pointLogList if log.type == 'bonus']
+        penaltyLogs = [log for log in pointLogList if log.type == 'penalty']
+        
+        # 총 상점과 벌점 계산
+        totalBonus = sum(log.point for log in bonusLogs)
+        totalPenalty = sum(log.point for log in penaltyLogs)
+        
+        # 공지사항 가져오기
+        notices = noticeSVC.get_all_notices()[:5]
 
-        return render_template('student/indexStudent.html', usersDTO=respDTO, notices=notices, pointLogList=pointLogList, pointLogStudent=pointLogStudent, pointLogTeacher=pointLogTeacher)
+        return render_template(
+            'student/indexStudent.html',
+            usersDTO=respDTO,
+            notices=notices,
+            bonusLogs=bonusLogs[:5],  # 상점 최근 5개
+            penaltyLogs=penaltyLogs[:5],  # 벌점 최근 5개
+            totalBonus=totalBonus,
+            totalPenalty=totalPenalty
+        )
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
