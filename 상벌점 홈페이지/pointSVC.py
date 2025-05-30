@@ -45,3 +45,9 @@ class pointSVC:
             return self.pointDAO.getPointLogByStdID(reqDTO)
         except Exception as e:
             raise Exception(f"getPointLogByStdID Error: {e}")
+        
+    def getPointLogByTeacherID(self, reqDTO: usersDTO, type: Literal['all', 'bonus', 'penalty']):
+        try:
+            return self.pointDAO.getPointLogByTeacherID(reqDTO, type)
+        except Exception as e:
+            raise Exception(f"getPointLogByTeacherID Error: {e}")

@@ -9,8 +9,8 @@ from noticeDTO import NoticeDTO
 from noticeSVC import NoticeSVC
 
 teacherBlue = Blueprint('teacher', __name__, url_prefix='/teacher')
-SVC = NoticeSVC()
 
+SVC = NoticeSVC()
 usersSVC = usersSVC()
 pointSVC = pointSVC()
 
@@ -20,12 +20,11 @@ def index():
         if 'id' not in session:
             return redirect(url_for('auth.login'))
         
-        teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
-        studentList = usersSVC.getStudentsList(1)
-        teacherList = usersSVC.getTeachersList(1)
+        bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'bonus')
+        penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'penalty')
         notices = SVC.get_all_notices()  # 게시글 목록 가져오기
     
-        return render_template('teacher/indexTeacher.html', usersDTO=teacherDTO, notices=notices, studentList=studentList, teacherList=teacherList)
+        return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -36,10 +35,10 @@ def pointLog():
         if 'id' not in session:
             return redirect(url_for('auth.login'))
 
-        teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
-        pointLogList = pointSVC.getPointLog(1)
+        
+        pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'all')
     
-        return render_template('teacher/givePointLog.html', usersDTO=teacherDTO, pointLogList=pointLogList)
+        return render_template('teacher/givePointLog.html', pointLogList=pointLogList)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
