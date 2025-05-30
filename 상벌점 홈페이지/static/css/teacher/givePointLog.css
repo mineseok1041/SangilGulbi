@@ -164,6 +164,15 @@ nav>.teacherManagement_nav {
     cursor: pointer;
 }
 
+nav > .community_nav {
+    color: #ffffff;
+    position: absolute;
+    top: 58.5%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 nav > .myInfoEdit_nav{
     color: #ffffff;
     position: absolute;
