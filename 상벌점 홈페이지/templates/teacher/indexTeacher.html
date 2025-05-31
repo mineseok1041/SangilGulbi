@@ -14,7 +14,7 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ usersDTO.name }}선생님</p>
+    <p class="name">{{ session["name"] }}선생님</p>
 
     <a class="mypage_nav" href="/teacher/">마이페이지</a>
     <hr class="first">
@@ -47,12 +47,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for student in studentList %}
+                    {% for bonusPointLog in bonusPointLogList %}
                     <tr>
-                        <td>노성빈</td>
-                        <td>30205</td>
-                        <td>반 친구의 잃어버린 물건을 찾아주는 행위를 하였을 때</td>
-                        <td>100점</td>
+                        <td>{{ bonusPointLog.studentNum }}</td>
+                        <td>{{ bonusPointLog.studentName }}</td>
+                        <td>{{ bonusPointLog.reason }}</td>
+                        <td>{{ bonusPointLog.point }}점</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -76,12 +76,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for teacher in teacherList %}
+                    {% for penaltyPointLog in penaltyPointLogList %}
                     <tr>
-                        <td>30205</td>
-                        <td>벌점</td>
-                        <td title="">선생님의 지시를 불이행했기 때문에 벌점을 부여합니다.</td>
-                        <td>-1000000</td>
+                        <td>{{ penaltyPointLog.studentNum }}</td>
+                        <td>{{ penaltyPointLog.studentName }}</td>
+                        <td>{{ penaltyPointLog.reason }}</td>
+                        <td>{{ penaltyPointLog.point }}점</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -89,7 +89,7 @@
         </div>
         <button class="more" onClick="location.href='/teacher/studentManagement'">더보기</button>
     </div>
-     <div class="manyUseList_box">
+    <div class="manyUseList_box">
         <div class="header">
             <h1>많이 쓰는 항목</h1>
         </div>

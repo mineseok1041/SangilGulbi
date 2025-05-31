@@ -72,7 +72,7 @@ class usersSVC:
         except Exception as e:
             raise Exception(f"delUsers Error: {e}")
         
-    def getUnverifiedTeachers(self) -> list[usersDTO]:
+    def getUnverifiedTeachers(self) -> list[usersDTO]: # type: ignore
         try:
             return self.usersDAO.getUnverifiedTeachers()
         except Exception as e:
