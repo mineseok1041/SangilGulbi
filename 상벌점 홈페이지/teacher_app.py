@@ -48,11 +48,10 @@ def pointReasons():
     if 'id' not in session:
         return redirect(url_for('index'))
 
-    respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
     bonusPointReasons = pointSVC.getPointReason('bonus')
     penaltyPointReasons = pointSVC.getPointReason('penalty')
     
-    return render_template('teacher/pointReasonsTeacher.html', usersDTO=respDTO, bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
+    return render_template('teacher/pointReasonsTeacher.html', bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
 
 @teacherBlue.route('/studentManagement')
 def studentManagement():
@@ -355,3 +354,14 @@ def approveTeacher():
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
+    
+@teacherBlue.route('/myInfoEditPopup')
+def myinfoEdit():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        
+        return render_template('teacher/myInfoEditTeacher.html')
+    except Exception as e:
+        print(e)
+        return redirect(url_for('index'))
