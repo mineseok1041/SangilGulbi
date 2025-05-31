@@ -45,8 +45,8 @@ nav {
 
 }
 
-nav>a {
-    font-size: 20px;
+nav > a {
+    font-size: 24px;
 }
 
 nav>a:not(.givePoint_nav):hover {
@@ -177,9 +177,16 @@ nav > .myInfoEdit_nav{
     color: #ffffff;
     position: absolute;
     bottom: 13%;
-    left: 10%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
+    font-size: 24px;
+    background-color: #9aa6b2;
+    border: none;
+}
+
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
 }
 
 nav>.five {
@@ -205,7 +212,7 @@ nav>.five {
     background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .pointLog {
@@ -566,4 +573,8 @@ nav>.five {
     padding-left: 30px;
     font-size: 14px;
     line-height: 2;
+}
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;    
 }

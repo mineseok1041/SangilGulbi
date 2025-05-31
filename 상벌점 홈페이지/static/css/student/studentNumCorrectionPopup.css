@@ -47,10 +47,7 @@ body {
 .studentInfo {
     display: flex;
     flex-direction: column;
-<<<<<<<< HEAD:상벌점 홈페이지/static/css/student/studentNumCorrectionPopup.css
     gap: 13px; /* 각 정보 간 간격 */
-========
->>>>>>>> 12d83a0209b90ff3d95aff752052a752bdeb4349:상벌점 홈페이지/static/css/admin/resetTeacherPasswdPopupAdmin.css
 }
 
 .info {
@@ -68,11 +65,8 @@ body {
     display: flex;
     justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
     align-items: center;
-<<<<<<<< HEAD:상벌점 홈페이지/static/css/student/studentNumCorrectionPopup.css
     padding: 9px 0; /* 위아래 간격 */
-========
     padding: 15px 0; /* 위아래 간격 */
->>>>>>>> 12d83a0209b90ff3d95aff752052a752bdeb4349:상벌점 홈페이지/static/css/admin/resetTeacherPasswdPopupAdmin.css
     border-bottom: 1px solid #ddd; /* 각 행 구분선 */
     padding-top: 10px;
 }
@@ -160,7 +154,6 @@ body {
 .togglePassword:hover {
     opacity: 1; /* 마우스 오버 시 불투명 */
 }
-<<<<<<<< HEAD:상벌점 홈페이지/static/css/student/studentNumCorrectionPopup.css
 
 .note {
     font-size: 15px; /* 노트 폰트 크기 */
@@ -171,9 +164,6 @@ body {
 
 /* 모달 기본 스타일 */
 .studentSearchModal {
-========
-.teacherSearchModal {
->>>>>>>> 12d83a0209b90ff3d95aff752052a752bdeb4349:상벌점 홈페이지/static/css/admin/resetTeacherPasswdPopupAdmin.css
     position: fixed;
     top: 0;
     left: 0;
@@ -299,10 +289,6 @@ body {
     position: absolute;
     bottom: 5%; /* 버튼 위치 조정 */
     right: 5%;
-<<<<<<<< HEAD:상벌점 홈페이지/static/css/student/studentNumCorrectionPopup.css
-    
-========
->>>>>>>> 12d83a0209b90ff3d95aff752052a752bdeb4349:상벌점 홈페이지/static/css/admin/resetTeacherPasswdPopupAdmin.css
 }
 
 .submitButton:hover {
