@@ -151,3 +151,33 @@ class pointDAO:
                 cursor.close()
             if conn:
                 conn.close()
+
+    def getPointLogByTeacherID(self, usersDTO: usersDTO, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
+        query = "SELECT * FROM pointLog WHERE giveTeacherId = :1"
+        
+        conn = None
+        cursor = None
+
+        try:
+            teacherID = usersDTO.id
+            if type == 'bonus':
+                query += " AND type = 'bonus'"
+            elif type == 'penalty':
+                query += " AND type = 'penalty'"
+
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
+            cursor.execute(query, [teacherID])
+            results = cursor.fetchall()
+
+            return [pointLogDTO(*row) for row in results]
+        
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
