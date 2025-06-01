@@ -41,18 +41,18 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+
 }
 
 nav > a {
-    font-size: 20px;
+    font-size: 24px;
 }
 
-nav > a:not(.mypage_nav):hover{
+nav>a:not(.mypage_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -60,14 +60,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -75,7 +75,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: #575e65;
     position: absolute;
     top: 30.5%;
@@ -83,18 +83,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .givePoint_nav {
+nav>.givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -103,18 +103,18 @@ nav > .givePoint_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -123,18 +123,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav>.studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -143,18 +143,18 @@ nav > .studentManagement_nav {
     cursor: pointer;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 55%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 58.5%;
@@ -163,23 +163,30 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
-    left: 10%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
+    font-size: 24px;
+    background-color: #9aa6b2;
+    border: none;
 }
 
-nav > .five{
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
+}
+
+nav>.five {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 .logout {
@@ -194,7 +201,7 @@ nav > .five{
     background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .giveBonusPoint {
@@ -209,20 +216,22 @@ nav > .five{
 }
 
 .giveBonusPoint:active {
-    transform: scale(0.99); /* 살짝 눌리는 효과 */
+    transform: scale(0.99);
+    /* 살짝 눌리는 효과 */
 }
 
 .giveBonusPoint:hover {
-    background-color: #e7e7e7; /* hover 시 어두운 색 */
+    background-color: #e7e7e7;
+    /* hover 시 어두운 색 */
 }
 
-.giveBonusPoint > .box {
+.giveBonusPoint>.box {
     width: 4%;
     height: 100%;
     background-color: #9AA6B2;
 }
 
-.giveBonusPoint > h1 {
+.giveBonusPoint>h1 {
     width: 75%;
     height: 90%;
     position: absolute;
@@ -244,20 +253,22 @@ nav > .five{
 }
 
 .givePenaltyPoint:active {
-    transform: scale(0.99); /* 살짝 눌리는 효과 */
+    transform: scale(0.99);
+    /* 살짝 눌리는 효과 */
 }
 
 .givePenaltyPoint:hover {
-    background-color: #e7e7e7; /* hover 시 어두운 색 */
+    background-color: #e7e7e7;
+    /* hover 시 어두운 색 */
 }
 
-.givePenaltyPoint > .box {
+.givePenaltyPoint>.box {
     width: 4%;
     height: 100%;
     background-color: #9AA6B2;
 }
 
-.givePenaltyPoint > h1 {
+.givePenaltyPoint>h1 {
     width: 75%;
     height: 90%;
     position: absolute;
@@ -266,6 +277,7 @@ nav > .five{
     margin: 1% 0%;
     color: #575e65;
 }
+
 .awardGive {
     width: 37.5%;
     height: 33%;
@@ -280,7 +292,7 @@ nav > .five{
     overflow-x: hidden;
 }
 
-.awardGive > .header{
+.giveBonus {
     width: 100%;
     height: 15%;
     position: absolute;
@@ -289,23 +301,49 @@ nav > .five{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     padding-top: 0.5%;
+    border: none;
+    cursor: pointer;
 }
 
-.awardGive > .header >  h1{
-    width: 100%;
+.giveBonus>h1 {
+    width: 95%;
+    height: 100%;
     color: white;
     position: absolute;
-    top: 30%;
-    left: 3%;
+    top: 0%;
+    right: 0;
     margin: 0%;
     font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
+
+.giveBonus>p {
+    width: 74%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    margin: 0%;
+    font-size: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-weight: 500;
 }
 
 
-.awardGive > .awardGive_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 50%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.awardGive>.awardGive_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 50%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
     border-collapse: collapse;
 }
 
@@ -331,14 +369,16 @@ nav > .five{
 .awardGive_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 15px;
 }
 
 .awardGive_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
@@ -348,9 +388,11 @@ nav > .five{
 }
 
 .awardGive_table thead {
-    position: sticky; /* 헤더 고정 */
+    position: sticky;
+    /* 헤더 고정 */
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
+    background-color: #f4f4f4;
+    /* 헤더 배경색 */
     z-index: 1;
 }
 
@@ -358,7 +400,7 @@ nav > .five{
     background: #f9f9f9;
 }
 
-.awardGive > .more {
+.awardGive>.more {
     width: 15%;
     height: 10%;
     background-color: #9AA6B2;
@@ -374,12 +416,14 @@ nav > .five{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.awardGive > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.awardGive>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 
-.awardGive > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+.awardGive>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 .manyUseList_box {
@@ -396,7 +440,7 @@ nav > .five{
     overflow-x: hidden;
 }
 
-.manyUseList_box > .header{
+.manyUseList_box>.header {
     width: 100%;
     height: 15%;
     position: absolute;
@@ -407,7 +451,7 @@ nav > .five{
     padding-top: 0.5%;
 }
 
-.manyUseList_box > .header >  h1{
+.manyUseList_box>.header>h1 {
     width: 100%;
     color: white;
     position: absolute;
@@ -417,10 +461,13 @@ nav > .five{
     font-size: 25px;
 }
 
-.manyUseList_box > .manyUseList_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.manyUseList_box>.manyUseList_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
     margin-top: 0%;
 }
 
@@ -438,14 +485,16 @@ nav > .five{
 .manyUseList_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 15px;
 }
 
 .manyUseList_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
@@ -455,9 +504,11 @@ nav > .five{
 }
 
 .manyUseList_table thead {
-    position: sticky; /* 헤더 고정 */
+    position: sticky;
+    /* 헤더 고정 */
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
+    background-color: #f4f4f4;
+    /* 헤더 배경색 */
     z-index: 1;
 }
 
@@ -465,7 +516,7 @@ nav > .five{
     background: #f9f9f9;
 }
 
-.manyUseList_box > .more {
+.manyUseList_box>.more {
     width: 17%;
     height: 10%;
     background-color: #9AA6B2;
@@ -481,12 +532,16 @@ nav > .five{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.manyUseList_box > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.manyUseList_box>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.manyUseList_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.manyUseList_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
+
 .community_box {
     width: 37.5%;
     height: 33%;
@@ -501,7 +556,7 @@ nav > .five{
     overflow-x: hidden;
 }
 
-.community_box > .header{
+.community_box>.header {
     width: 100%;
     height: 15%;
     position: absolute;
@@ -512,7 +567,7 @@ nav > .five{
     padding-top: 0.5%;
 }
 
-.community_box > .header >  h1{
+.community_box>.header>h1 {
     width: 100%;
     color: white;
     position: absolute;
@@ -522,12 +577,16 @@ nav > .five{
     font-size: 25px;
 }
 
-.community_box > .community_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.community_box>.community_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
     margin-top: 0%;
 }
+
 .community_table table {
     width: 90%;
     border-collapse: collapse;
@@ -537,20 +596,23 @@ nav > .five{
 }
 
 .community_table a {
-    text-decoration: none; 
-    color : #000000;
+    text-decoration: none;
+    color: #000000;
 }
+
 .community_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 15px;
 }
 
 .community_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
@@ -560,16 +622,19 @@ nav > .five{
 }
 
 .community_table thead {
-    position: sticky; /* 헤더 고정 */
+    position: sticky;
+    /* 헤더 고정 */
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
+    background-color: #f4f4f4;
+    /* 헤더 배경색 */
     z-index: 1;
 }
+
 .community_table tbody tr:hover {
     background: #f9f9f9;
 }
 
-.community_box > .more {
+.community_box>.more {
     width: 17%;
     height: 10%;
     background-color: #9AA6B2;
@@ -585,11 +650,14 @@ nav > .five{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.community_box > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.community_box>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.community_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.community_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 
@@ -607,7 +675,7 @@ nav > .five{
     overflow-x: hidden;
 }
 
-.penaltyGive_box > .header{
+.givePenalty {
     width: 100%;
     height: 15%;
     position: absolute;
@@ -616,22 +684,47 @@ nav > .five{
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
     padding-top: 0.5%;
+    border: none;
+    cursor: pointer;
 }
 
-.penaltyGive_box > .header >  h1{
-    width: 100%;
+.givePenalty>h1 {
+    width: 95%;
+    height: 100%;
     color: white;
     position: absolute;
-    top: 27%;
-    left: 3%;
+    top: 0%;
+    right: 0;
     margin: 0%;
     font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.penaltyGive_box > .teacherManagement_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 80%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.givePenalty>p {
+    width: 74%;
+    height: 100%;
+    color: white;
+    position: absolute;
+    bottom: 15%;
+    right: 0;
+    margin: 0%;
+    font-size: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-weight: 500;
+}
+
+.penaltyGive_box>.teacherManagement_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 80%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
     margin-top: 0%;
 }
 
@@ -649,14 +742,16 @@ nav > .five{
 .penaltyGive_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 15px;
 }
 
 .penaltyGive_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
@@ -666,9 +761,11 @@ nav > .five{
 }
 
 .penaltyGive_table thead {
-    position: sticky; /* 헤더 고정 */
+    position: sticky;
+    /* 헤더 고정 */
     top: 0;
-    background-color: #f4f4f4; /* 헤더 배경색 */
+    background-color: #f4f4f4;
+    /* 헤더 배경색 */
     z-index: 1;
 }
 
@@ -676,7 +773,7 @@ nav > .five{
     background: #f9f9f9;
 }
 
-.penaltyGive_box > .more {
+.penaltyGive_box>.more {
     width: 15%;
     height: 10%;
     background-color: #9AA6B2;
@@ -692,9 +789,14 @@ nav > .five{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyGive_box > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.penaltyGive_box>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 .penaltyGive_box > .more:active {
     transform: scale(0.95); /* 살짝 눌리는 효과 */
+}
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;    
 }

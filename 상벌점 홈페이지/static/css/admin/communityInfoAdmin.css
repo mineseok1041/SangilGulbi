@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'KakaoSmallSans-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/KakaoSmallSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 0%;
+}
+
 header {
     width: 80%;
     height: 10%;
@@ -5,26 +23,33 @@ header {
     position: absolute;
     top: 0%;
     right: 0%;
-    box-shadow: 3px 3px 3px gray;
-    background-attachment: fixed;
+    box-shadow: 0px 3px 3px gray;
 }
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
-    background-color: #9aa6b2;
+    background-color: #9AA6B2;
     width: 20%;
     height: 100%;
     position: fixed;
     top: 0%;
     left: 0%;
-    background-attachment: fixed;
+    
+}
 
+nav > a:not(.community_nav):hover{
+    color: #d8d8d8;
+}
+
+nav > a {
+    font-size: 24px;
 }
 
 nav>.profiles {
@@ -32,17 +57,17 @@ nav>.profiles {
     border-radius: 50%;
     position: absolute;
     top: 5%;
-    left: 5%;
+    left: 10%;
 }
 
-nav>.number {
+nav > .number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav>.name {
+nav > .name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -50,142 +75,137 @@ nav>.name {
     color: white;
 }
 
-nav>.mypage_nav {
-    background-color: #9aa6b2;
+nav > .mypage_nav {
     color: white;
     position: absolute;
-    top: 27%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
+    top: 30.5%;
+    left: 10%;
     text-decoration: none;
-    border: none;
 }
 
-nav>.first {
+nav > .first{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 32%;
-    left: 5%;
-}
-
-nav>.award_nav {
-    color: white;
-    background-color: #9aa6b2;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 34%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.two {
+nav > .givePoint_nav {
+    color: white;
+    position: absolute;
+    top: 37.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .two{
     width: 90%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
-    position: absolute;
-    top: 39%;
-}
-
-nav>.penalty_nav{
-    color: white;
-    background-color: #9aa6b2;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 41%;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
+    left: 5%;
 }
 
-nav>.three {
-    width: 90%;
-    position: absolute;
-    background: white;
-    height: 1px;
-    left: 5%;   
-    border: 0;
-    top: 46%;
-}
-
-nav>.stu_manager_nav{
+nav > .pointReasons_nav {
     color: white;
-    background-color: #9aa6b2;
+    position: absolute;
+    top: 44.2%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .three{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 48%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.four{
-    width: 90%;
-    position: absolute;
-    background: white;
-    height: 1px;
-    left: 5%;   
-    border: 0;
-    top: 53%;
-}
-
-nav>.teacher_manager_nav{
+nav > .studentManagement_nav {
     color: white;
-    background-color: #9aa6b2;
+    position: absolute;
+    top: 51.4%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .four{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 55%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-}
-nav>.five{
-    width: 90%;
-    position: absolute;
-    top: 60%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
 }
 
-nav>.community_nav {
-    color: #575e65;
-    background-color: #9aa6b2;
+nav > .teacherManagement_nav {
+    color: white;
+    position: absolute;
+    top: 58.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .five{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
     position: absolute;
     top: 62%;
-    left: 7%;
-    font-size: 15px;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
+    left: 5%;
 }
 
-nav>.six {
+nav > .community_nav {
+    color: #575e65;
+    position: absolute;
+    top: 65.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
+    left: 9%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #9aa6b2;
+    border: none;
+}
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
+}
+
+nav > .six{
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background: white;
-    height: 1px;
-    border: 0;
+    background:white;
+    height:1px;
+    border:0;
 }
 
 .logout {
@@ -193,14 +213,16 @@ nav>.six {
     height: auto;
     position: absolute;
     bottom: 5%;
-    left: 5%;
+    left: 9%;
     color: white;
     cursor: pointer;
     border: none;
-    background-color: #9aa6b2;
+    background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
+    font-size: 24px;
 }
+
 .title_box {
     width: 45%;
     height: 7%;
@@ -236,15 +258,15 @@ nav>.six {
 }
 
 .text_box {
-    width: 70%;
-    height: 55%;
+    width: 66%;
+    height: 47%;
     position: absolute;
     top: 30%;
     left: 25%;
     background-color: #E6EEF6;
     display: flex;
-    align-items: center;
     color: #55595D;
+    padding: 2%;
 }
 
 .date {
@@ -254,11 +276,11 @@ nav>.six {
 }
 
 .input {
-    width: 50%;
+    width: 56.5%;
     height: 5%;
     border: 1;
     position: absolute;
-    bottom: -10%;
+    bottom: -13%;
     left: 25%;
     text-align: center;
     border-top: 0px;
@@ -266,10 +288,8 @@ nav>.six {
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    margin-top: 19%;
-    margin-left: 25%;
+    margin-top: 17%;
     font-size: 18px;
-
 }
 
 .input:focus {
@@ -279,9 +299,9 @@ nav>.six {
 .sumit {
     width: 10%;
     height: 5%;
-    position: relative;
-    left: 10%;
-    top: 0%;
+    position: absolute;
+    right: 5%;
+    bottom: -13%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
@@ -294,15 +314,16 @@ nav>.six {
     width: 80%;
     height: 100%;
     position: absolute;
-    top: 100%;
+    top: 115%;
     left: 20%;
 }
 
 .comments {
-    width: 70%;
+    width: 90%;
     height: 10%;
     position: relative;
     margin: 1% 0% 0% 5%;
+    border-bottom: 1px solid gray;
 }
 
 .comments > img {
@@ -310,26 +331,26 @@ nav>.six {
     height: 60%;
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 10%;
 }
 
-.comments > .ID {
-    width: 80%;
+.comments>.ID {
+    width: 53%;
     position: absolute;
-    left: 12%;
-    top: 25%;
+    left: 7%;
+    top: 8%;
 }
 
-.ID > .name {
+.ID>.name {
     position: relative;
     bottom: 0%;
     margin: 0%;
 }
 
-.ID > .date_ {
+.ID>.date_ {
     position: absolute;
     bottom: 0%;
-    left: 17%;
+    left: 21%;
     width: 100%;
     margin: 0%;
     font-size: 12px;
@@ -337,6 +358,59 @@ nav>.six {
 
 .comment {
     position: absolute;
-    top: 40%;
-    left: 12%;
+    top: 25%;
+
+    left: 7%;
+}
+
+.agree-btn{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    padding: 5px 10px;
+    background-color: #9AA6B2;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left:78%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.agree-btn:hover{
+    background-color:  #6b6d70;
+}
+
+.agree-btn:active {
+    transform: scale(0.95);
+}
+
+
+.decline-btn{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    background-color: #bb6b6b;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left: 87%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.decline-btn:hover{
+    background-color: #8a4b4b;
+}
+
+.decline-btn:active {
+    transform: scale(0.95);
 }

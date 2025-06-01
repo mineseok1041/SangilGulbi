@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,16 +27,17 @@
     <hr class="four">
     <a class="community_nav" href="/teacher/community">게시판</a>
 
-    <a class="myInfoEdit_nav">내 정보 수정</a>
+    <button class="myInfoEdit_nav">내 정보 수정</button>
     <hr class="five">
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
     <div class="awardGive">
-        <div class="header">
+        <button class="giveBonus">
             <h1>상점 부여</h1>
-        </div>
+            <p>여기를 누르시면 상점을 부여하실 수 있습니다</p>
+        </button>
         <div class="awardGive_table">
             <table>
                 <thead>
@@ -62,9 +64,10 @@
     </div>
 
     <div class="penaltyGive_box">
-        <div class="header">
+        <button class="givePenalty">
             <h1>벌점 부여</h1>
-        </div>
+            <p>여기를 누르시면 벌점을 부여하실 수 있습니다</p>
+        </button>
         <div class="penaltyGive_table">
             <table>
                 <thead>
@@ -138,7 +141,8 @@
                     <tr>
                         <td>{{ notices|length - loop.index0 }}</td>
                         <td>
-                            <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                            <a href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title
+                                }}</a>
                         </td>
                         <td title="">{{ notice.author }}</td>
                         <td class="date-cell">{{ notice.created_date }}</td>

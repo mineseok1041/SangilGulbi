@@ -13,7 +13,7 @@
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
-    <p class="name">{{ session["name"] }}선생님</p>
+    <p class="name">{{ session["name"] }}</p>
 
     <a class="mypage_nav" href="/admin/">마이페이지</a>
     <hr class="first">
@@ -27,20 +27,20 @@
     <hr class="five">
     <a class="community_nav" href="/admin/community">게시판</a>
 
+    <button class="myInfoEdit_nav">내 정보 수정</button>
     <hr class="six">
-
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
 
 <body>
     <div class="title_box">
         <h2 class="title">제목 : </h2>
-        <h2 class="title_">{{ notice.title }}</h2>
+        <h2 class="title_"></h2>
     </div>
 
     <div class="writer_box">
         <h2 class="writer">작성자 : </h2>
-        <h2 class="writer_">{{ notice.author }}</h2>
+        <h2 class="writer_"></h2>
     </div>
 
     <div class="date">
@@ -48,8 +48,11 @@
     </div>
 
     <div class="text_box">
-        <p>{{ notice.content }}</p>
+        <p></p>
     </div>
+
+    <button class="agree-btn">수정</button>
+    <button class="decline-btn">삭제</button>
 
      <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
         <button class="sumit">전송</button>

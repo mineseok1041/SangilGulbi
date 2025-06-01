@@ -38,8 +38,8 @@ nav {
 
 }
 
-nav>a {
-    font-size: 20px;
+nav > a {
+    font-size: 24px;
 }
 
 nav>a:not(.community_nav):hover {
@@ -138,12 +138,19 @@ nav>.community_nav {
 }
 
 nav > .myInfoEdit_nav{
-    color: white;
+    color: #ffffff;
     position: absolute;
-    bottom: 15%;
-    left: 10%;
+    bottom: 13%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
+    font-size: 24px;
+    background-color: #9aa6b2;
+    border: none;
+}
+
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
 }
 
 nav > .four{
@@ -169,7 +176,7 @@ nav > .four{
     background-color: #BCCCDC;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .title_box {
@@ -307,4 +314,8 @@ nav > .four{
     position: absolute;
     top: 40%;
     left: 7%;
+}
+
+button{
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
 }

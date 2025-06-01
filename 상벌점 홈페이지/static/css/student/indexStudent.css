@@ -48,8 +48,8 @@ nav {
 
 }
 
-nav>a {
-    font-size: 20px;
+nav > a {
+    font-size: 24px;
 }
 
 nav>a:not(.mypage_nav):hover {
@@ -64,20 +64,13 @@ nav>.profiles {
     left: 10%;
 }
 
-nav>.number {
-    position: absolute;
-    left: 50%;
-    top: 6%;
-    color: white;
-}
-
 nav>.name {
     position: absolute;
     left: 50%;
-    top: 9%;
-    font-size: larger;
+    top: 8%;
     color: white;
 }
+
 
 nav>.mypage_nav {
     color: #575e65;
@@ -148,13 +141,19 @@ nav>.community_nav {
 }
 
 nav > .myInfoEdit_nav{
-    color: white;
+    color: #ffffff;
     position: absolute;
     bottom: 13%;
-    left: 10%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
-    z-index: 10;
+    font-size: 24px;
+    background-color: #BCCCDC;
+    border: none;
+}
+
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
 }
 
 nav > .four{
@@ -180,7 +179,7 @@ nav > .four{
     background-color: #BCCCDC;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .all_score {
@@ -504,4 +503,8 @@ td {
     overflow: hidden;
     white-space: nowrap;
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;    
 }
