@@ -164,7 +164,7 @@ nav>.teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: #ffffff;
     position: absolute;
     top: 58.5%;
@@ -173,7 +173,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -556,11 +556,7 @@ nav>.five {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
-}
-
-.date {
-    margin: -1% 0% 0% 78%;
-    font-size: 15px;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .main-row {

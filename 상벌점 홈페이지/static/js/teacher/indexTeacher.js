@@ -94,3 +94,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+    // 상점 부여 팝업
+    if (bonusButton) {
+        bonusButton.addEventListener("click", function () {
+            let studentNum = "";
+            let studentName = "";
+            let studentId = "";
+
+            if (selectedStudent) {
+                studentNum = selectedStudent.studentNum;
+                studentName = selectedStudent.studentName;
+                studentId = selectedStudent.studentId;
+            }
+            const popupWidth = 1280;
+            const popupHeight = 720;
+            const left = (window.innerWidth - popupWidth) / 2 + window.screenX;
+            const top = (window.innerHeight - popupHeight) / 2 + window.screenY;
+
+            window.open(
+                `/teacher/giveBonusPoint?studentNum=${studentNum}&studentName=${encodeURIComponent(studentName)}&studentId=${encodeURIComponent(studentId)}`,
+                "상점 부여",
+                `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`
+            );
+        });
+    }
+
