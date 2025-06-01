@@ -14,8 +14,7 @@
 
 <nav>
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
-    <p class="number">{{ usersDTO.stdNum }}</p>
-    <p class="name">{{ usersDTO.name }}</p>
+    <p class="name">{{ usersDTO.stdNum }} {{ usersDTO.name }}</p>
 
     <a class="mypage_nav" href="/student/">마이페이지</a>
     <hr class="first">
@@ -25,7 +24,7 @@
     <hr class="three">
     <a class="community_nav" href="/student/community">게시판</a>
 
-    <a class="myInfoEdit_nav" href="">내 정보 수정</a>
+    <button class="myInfoEdit_nav">내 정보 수정</button>
     <hr class="four">
     <button class="logout" onClick="location.href='/auth/logout.do'">logout</button>
 </nav>
@@ -45,7 +44,7 @@
 
     <div class="upscore_box">
         <div class="header">
-            <h1>총상점 : {{ totalBonus }}점</h1>
+            <h1>총 상점 : {{ totalBonus }}점</h1>
         </div>
         <table class="up_log">
             <tr>
@@ -70,7 +69,7 @@
 
     <div class="downscore_box">
         <div class="header">
-            <h1>총벌점 : {{ totalPenalty }}점</h1>
+            <h1>총 벌점 : {{ totalPenalty }}점</h1>
         </div>
         <table class="down_log">
             <tr>

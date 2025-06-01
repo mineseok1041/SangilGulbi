@@ -45,7 +45,7 @@ nav {
 }
 
 nav > a {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 nav > a:not(.studentManagement_nav):hover{
@@ -74,6 +74,7 @@ nav > .name {
     font-size: larger;
     color: white;
 }
+
 
 nav > .mypage_nav {
     color: white;
@@ -115,7 +116,7 @@ nav > .two{
 }
 
 nav > .pointReasons_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 44.2%;
     left: 10%;
@@ -135,7 +136,7 @@ nav > .three{
 }
 
 nav > .studentManagement_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
     top: 51.4%;
     left: 10%;
@@ -183,13 +184,21 @@ nav > .community_nav {
     cursor: pointer;
 }
 
+
 nav > .myInfoEdit_nav{
     color: #ffffff;
     position: absolute;
     bottom: 13%;
-    left: 10%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
+    font-size: 24px;
+    background-color: #9aa6b2;
+    border: none;
+}
+
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
 }
 
 nav > .six{
@@ -214,8 +223,9 @@ nav > .six{
     background-color: #9AA6B2;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
+
 
 .studentInfo {
     width: 80%;
@@ -474,4 +484,8 @@ nav > .six{
 .sortable.desc .arrow {
     transform: rotate(180deg); /* 내림차순: 180도 회전 */
     color: #000; /* 활성화된 화살표 색상 */
+}
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;    
 }

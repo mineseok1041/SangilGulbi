@@ -45,8 +45,8 @@ nav {
 
 }
 
-nav>a {
-    font-size: 20px;
+nav > a {
+    font-size: 24px;
 }
 
 nav>a:not(.mypage_nav):hover {
@@ -145,12 +145,19 @@ nav>.community_nav {
 }
 
 nav > .myInfoEdit_nav{
-    color: white;
+    color: #ffffff;
     position: absolute;
     bottom: 13%;
-    left: 10%;
+    left: 9%;
     text-decoration: none;
     cursor: pointer;
+    font-size: 24px;
+    background-color: #BCCCDC;
+    border: none;
+}
+
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
 }
 
 nav>.four {
@@ -176,7 +183,7 @@ nav>.four {
     background-color: #BCCCDC;
     font-size: larger;
     text-align: left;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .log_box {
@@ -378,12 +385,9 @@ nav>.four {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-.date {
-    margin: -1% 0% 0% 67%;
-    font-size: 15px;
-}
 
 .main-row {
     overflow: hidden;
@@ -395,4 +399,8 @@ nav>.four {
     padding-left: 30px;
     font-size: 14px;
     line-height: 2;
+}
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;    
 }
