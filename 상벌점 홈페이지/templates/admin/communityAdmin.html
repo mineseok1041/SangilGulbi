@@ -42,16 +42,16 @@
             <th scope="list" class="wide-column3">작성일</th>
             <th scope="list"></th>
         </tr>
-        {% for notice in notices[::-1] %}
-        <tr>
-            <td>{{ notices|length - loop.index0 }}</td>
-            <td class="wide-column">
-                <a class="nextpage" href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
-            </td>
-            <td>{{ notice.author }}</td>
-            <td class="date-cell">{{ notice.created_date }}</td>
-        </tr>
-        {% endfor %}
+            {% for notice in notices[::-1] %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td class="wide-column">
+                    <a class="nextpage" href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                </td>
+                <td>{{ notice.created_date }}</td>
+                <td>{{ notice.author }}</td>
+            </tr>
+            {% endfor %}
     </table>  
 </div>
 <button class="write-btn" onClick="location.href='/teacher/community/add'">글쓰기</button>
