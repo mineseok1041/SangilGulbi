@@ -291,3 +291,7 @@ nav > .six{
     cursor: pointer;
     margin: 19% 0% 0% 85%;
 }
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
