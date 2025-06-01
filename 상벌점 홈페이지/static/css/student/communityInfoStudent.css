@@ -54,18 +54,10 @@ nav>.profiles {
     left: 10%;
 }
 
-nav>.number {
-    position: absolute;
-    left: 50%;
-    top: 6%;
-    color: white;
-}
-
 nav>.name {
     position: absolute;
     left: 50%;
-    top: 9%;
-    font-size: larger;
+    top: 8%;
     color: white;
 }
 
