@@ -20,11 +20,11 @@ header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 3px 3px 3px gray;
-    background-attachment: fixed;
+    z-index: 5;
 }
 
 .main {
