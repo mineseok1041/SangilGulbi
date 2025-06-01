@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const tableRows = Array.from(document.querySelectorAll(".penaltyPointReasonTable tbody tr")); // 테이블의 모든 행 가져오기
     const searchStudentIcon = document.querySelector(".searchStudentIcon"); // 돋보기 아이콘
     const studentSearchModal = document.querySelector(".studentSearchModal"); // 모달
-    const modalContent = document.querySelector(".modalContent"); // 모달 내부 컨텐츠
+    const studentModalContent = document.querySelector(".studentSearchModal .modalContent");
+    const teacherModalContent = document.querySelector(".teacherSearchModal .modalContent");    
     const studentRows = document.querySelectorAll(".studentTable tbody tr"); // 테이블 행
     const studentNumElement = document.querySelector(".studentNum"); // 학번 표시 영역
     const studentNameElement = document.querySelector(".studentName"); // 이름 표시 영역
@@ -173,3 +174,114 @@ function submitPenalty() {
 
     document.getElementById("penaltyForm").submit();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // ---------- 학생 검색 ----------
+    const searchStudentIcon = document.querySelector(".searchStudentIcon");
+    const studentSearchModal = document.querySelector(".studentSearchModal");
+    const studentModalContent = studentSearchModal.querySelector(".modalContent");
+    const studentSearchInput = document.querySelector(".studentSearchModal .studentSearchInput");
+    const studentSearchButton = document.querySelector(".studentSearchModal .studentSearchButton");
+    const studentTableBody = studentSearchModal.querySelector(".studentTable tbody");
+
+    const studentNumElement = document.querySelector(".studentNum");
+    const studentNameElement = document.querySelector(".studentName");
+    const studentIdElement = document.querySelector(".studentId");
+
+    searchStudentIcon.addEventListener("click", () => {
+        studentSearchModal.classList.remove("hidden");
+        studentSearchModal.classList.add("visible");
+        loadStudents(""); // 초기 목록
+    });
+
+    studentSearchModal.addEventListener("click", function (event) {
+        if (!studentModalContent.contains(event.target)) {
+            studentSearchModal.classList.add("hidden");
+        }
+    });
+
+    studentSearchButton.addEventListener("click", () => {
+        const keyword = studentSearchInput.value.trim();
+        loadStudents(keyword);
+    });
+
+    function loadStudents(keyword) {
+        fetch(`/teacher/searchStudents?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                studentTableBody.innerHTML = "";
+                if (data.length === 0) {
+                    studentTableBody.innerHTML = "<tr><td colspan='2'>검색 결과 없음</td></tr>";
+                    return;
+                }
+                data.forEach(student => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${student.stdNum}</td>
+                        <td>${student.name} (${student.id})</td>
+                        <td style="display: none;">${student.id}</td>
+                    `;
+                    row.addEventListener("click", () => {
+                        studentNumElement.textContent = student.stdNum;
+                        studentNameElement.textContent = `${student.name} (${student.id})`;
+                        studentIdElement.textContent = student.id;
+                        studentSearchModal.classList.add("hidden");
+                    });
+                    studentTableBody.appendChild(row);
+                });
+            });
+    }
+
+    // ---------- 선생님 검색 ----------
+    const searchTeacherIcon = document.querySelector(".searchTeacherIcon");
+    const teacherSearchModal = document.querySelector(".teacherSearchModal");
+    const teacherModalContent = teacherSearchModal.querySelector(".modalContent");
+    const teacherSearchInput = document.querySelector(".teacherSearchModal .teacherSearchInput");
+    const teacherSearchButton = document.querySelector(".teacherSearchModal .teacherSearchButton");
+    const teacherTableBody = teacherSearchModal.querySelector(".teacherTable tbody");
+
+    const giveTeacherNameElement = document.querySelector(".giveTeacherName");
+    const giveTeacherIdElement = document.querySelector(".giveTeacherId");
+
+    searchTeacherIcon.addEventListener("click", () => {
+        teacherSearchModal.classList.remove("hidden");
+        teacherSearchModal.classList.add("visible");
+        loadTeachers("");
+    });
+
+    teacherSearchModal.addEventListener("click", function (event) {
+        if (!teacherModalContent.contains(event.target)) {
+            teacherSearchModal.classList.add("hidden");
+        }
+    });
+
+    teacherSearchButton.addEventListener("click", () => {
+        const keyword = teacherSearchInput.value.trim();
+        loadTeachers(keyword);
+    });
+
+    function loadTeachers(keyword) {
+        fetch(`/teacher/searchTeachers?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                teacherTableBody.innerHTML = "";
+                if (data.length === 0) {
+                    teacherTableBody.innerHTML = "<tr><td colspan='2'>검색 결과 없음</td></tr>";
+                    return;
+                }
+                data.forEach(teacher => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${teacher.id}</td>
+                        <td>${teacher.name}</td>
+                    `;
+                    row.addEventListener("click", () => {
+                        giveTeacherIdElement.textContent = teacher.id;
+                        giveTeacherNameElement.textContent = teacher.name;
+                        teacherSearchModal.classList.add("hidden");
+                    });
+                    teacherTableBody.appendChild(row);
+                });
+            });
+    }
+});

@@ -1,5 +1,7 @@
 from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash, jsonify
 
+from datetime import datetime
+
 from usersSVC import usersSVC
 from usersDTO import usersDTO
 from pointSVC import pointSVC
@@ -243,8 +245,9 @@ def giveBonusPoint():
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
         pointReasonList = pointSVC.getPointReason('bonus')
+        currentDate = datetime.now().strftime('%Y/%m/%d')
     
-        return render_template('teacher/giveBonusPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList)
+        return render_template('teacher/giveBonusPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
@@ -259,8 +262,9 @@ def givePenaltyPoint():
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
         pointReasonList = pointSVC.getPointReason('penalty')
+        currentDate = datetime.now().strftime('%Y/%m/%d')
             
-        return render_template('teacher/givePenaltyPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList)
+        return render_template('teacher/givePenaltyPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
@@ -365,3 +369,26 @@ def myinfoEdit():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
+    
+@teacherBlue.route('/searchStudents')
+def searchStudents():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        students = usersSVC.searchStudentsByKeyword(keyword)
+        return jsonify([
+            {'id': s.id, 'name': s.name, 'stdNum': s.stdNum} for s in students
+        ])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@teacherBlue.route('/searchTeachers')
+def searchTeachers():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        teachers = usersSVC.searchTeachersByKeyword(keyword)
+        return jsonify([
+            {'id': t.id, 'name': t.name} for t in teachers
+        ])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

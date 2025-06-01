@@ -77,3 +77,16 @@ class usersSVC:
             return self.usersDAO.getUnverifiedTeachers()
         except Exception as e:
             raise Exception(f"getUnverifiedTeachers Error: {e}")
+    
+    def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:  # type: ignore
+        try:
+            return self.usersDAO.searchStudentsByKeyword(keyword)
+        except Exception as e:
+            raise Exception(f"searchStudentsByKeyword Error: {e}")
+
+    def searchTeachersByKeyword(self, keyword: str) -> list[usersDTO]:  # type: ignore
+        try:
+            return self.usersDAO.searchTeachersByKeyword(keyword)
+        except Exception as e:
+            raise Exception(f"searchTeachersByKeyword Error: {e}")
+

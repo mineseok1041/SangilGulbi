@@ -280,3 +280,33 @@ class usersDAO:
         finally:
             cursor.close()
             conn.close()
+
+    def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:
+        query = """
+            SELECT * FROM users
+            WHERE identity = 2 AND (name LIKE :kw OR stdNum LIKE :kw)
+        """
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, {'kw': f'%{keyword}%'})
+            rows = cursor.fetchall()
+            return [usersDTO(*row) for row in rows]
+        finally:
+            cursor.close()
+            conn.close()
+
+    def searchTeachersByKeyword(self, keyword: str) -> list[usersDTO]:
+        query = """
+            SELECT * FROM users
+            WHERE identity = 1 AND verified = 1 AND (name LIKE :kw OR id LIKE :kw)
+        """
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        try:
+            cursor.execute(query, {'kw': f'%{keyword}%'})
+            rows = cursor.fetchall()
+            return [usersDTO(*row) for row in rows]
+        finally:
+            cursor.close()
+            conn.close()
