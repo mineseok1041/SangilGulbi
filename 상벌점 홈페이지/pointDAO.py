@@ -129,7 +129,7 @@ class pointDAO:
     
     def getPointLogByStdID(self, usersDTO: usersDTO) -> list[pointLogDTO]:
         stdID = usersDTO.id
-        query = "SELECT * FROM pointLog WHERE studentId = :1"
+        query = "SELECT * FROM pointLog WHERE studentId = :1 ORDER BY no DESC"
         
         conn = None
         cursor = None
@@ -164,6 +164,7 @@ class pointDAO:
                 query += " AND type = 'bonus'"
             elif type == 'penalty':
                 query += " AND type = 'penalty'"
+            query += " ORDER BY no DESC"
 
             conn = self.get_connection()
             cursor = conn.cursor()
