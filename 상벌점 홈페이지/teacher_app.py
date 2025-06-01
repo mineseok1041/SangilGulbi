@@ -289,7 +289,7 @@ def doGiveBonusPoint():
         return "<script>alert('상점이 부과되었습니다.'); opener.location.reload(); window.close();</script>"
     except Exception as e:
         print(e)
-        flash(str(e))
+        flash('모든 항목을 작성해주세요')
         return redirect(url_for('teacher.giveBonusPoint'))
     
 @teacherBlue.route('/givePenaltyPoint.do', methods=['POST'])
@@ -312,7 +312,7 @@ def doGivePenaltyPoint():
         return "<script>alert('벌점이 부과되었습니다.'); opener.location.reload(); window.close();</script>"
     except Exception as e:
         print(e)
-        flash(str(e))
+        flash('모든 항목을 작성해주세요')
         return redirect(url_for('teacher.giveBonusPoint'))
     
 @teacherBlue.route('/teacherSignupApprovalPopup')
