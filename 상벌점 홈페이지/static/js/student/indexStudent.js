@@ -27,7 +27,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll(".community tbody tr");
     rows.forEach((row, index) => {
-        if (index >= 2) {
+        if (index >= 3) {
             row.style.display = "none"; // 8번째 이후 데이터 숨김
         }
     });
