@@ -64,20 +64,13 @@ nav>.profiles {
     left: 10%;
 }
 
-nav>.number {
-    position: absolute;
-    left: 50%;
-    top: 6%;
-    color: white;
-}
-
 nav>.name {
     position: absolute;
     left: 50%;
-    top: 9%;
-    font-size: larger;
+    top: 8%;
     color: white;
 }
+
 
 nav>.mypage_nav {
     color: #575e65;
@@ -504,4 +497,10 @@ td {
     overflow: hidden;
     white-space: nowrap;
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+    text-decoration-line: none;
+}
+
+td > a{
+    text-decoration: none;
+    color: black;
 }

@@ -378,12 +378,9 @@ nav>.four {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-.date {
-    margin: -1% 0% 0% 67%;
-    font-size: 15px;
-}
 
 .main-row {
     overflow: hidden;
