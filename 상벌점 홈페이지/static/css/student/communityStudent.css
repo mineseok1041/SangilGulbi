@@ -8,6 +8,7 @@
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
+
 header {
     width: 80%;
     height: 10%;
@@ -20,11 +21,16 @@ header {
 }
 
 .main {
+    width: 97%;
+    height: 100%;
     position: absolute;
-    top: 0%;
-    left: 3%;
+    right: 0%;
     color: #55595D;
     font-size: 35px;
+    margin: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 nav {
@@ -34,18 +40,18 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
-nav > a:not(.community_nav):hover{
+nav>a:not(.community_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -60,7 +66,7 @@ nav>.name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -68,18 +74,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .log_nav {
+nav>.log_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -88,18 +94,18 @@ nav > .log_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -108,18 +114,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: #575e65;
     position: absolute;
     top: 51%;
@@ -128,7 +134,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -140,17 +146,18 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
-nav > .four{
+
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 
@@ -169,7 +176,7 @@ nav > .four{
     font-size: 24px;
 }
 
-.container{
+.container {
     overflow-y: scroll;
     width: 80%;
     height: 90%;
@@ -177,6 +184,7 @@ nav > .four{
     top: 10%;
     left: 20%;
 }
+
 table {
     width: 90%;
     border-collapse: collapse;
@@ -193,7 +201,8 @@ table a {
 th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
     min-width: 100px;
@@ -201,12 +210,13 @@ th {
 
 td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
-} 
+}
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
