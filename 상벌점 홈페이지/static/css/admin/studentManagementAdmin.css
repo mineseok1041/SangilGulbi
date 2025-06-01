@@ -116,7 +116,7 @@ nav > .two{
 }
 
 nav > .pointReasons_nav {
-    color: #575e65;
+    color: white;
     position: absolute;
     top: 44.2%;
     left: 10%;
@@ -136,7 +136,7 @@ nav > .three{
 }
 
 nav > .studentManagement_nav {
-    color: white;
+    color: #575e65;
     position: absolute;
     top: 51.4%;
     left: 10%;

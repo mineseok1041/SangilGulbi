@@ -414,3 +414,7 @@ nav > .six{
 .decline-btn:active {
     transform: scale(0.95);
 }
+
+button{
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
