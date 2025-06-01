@@ -24,14 +24,15 @@ header {
     top: 0%;
     right: 0%;
     box-shadow: 3px 3px 3px gray;
-    z-index: 5;
+    z-index: 1;
 }
 
 .main {
     position: absolute;
-    top: 5%;
+    top: 0%;
     left: 3%;
     color: #55595D;
+    font-size: 35px;
 }
 
 nav {
