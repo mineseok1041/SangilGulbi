@@ -42,7 +42,7 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+    z-index: 1;
 }
 
 nav > a {
@@ -235,7 +235,6 @@ nav > .six{
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: scroll;
     overflow-x: hidden;
-    z-index: -1;
 }
 
 .buttonsContainer {

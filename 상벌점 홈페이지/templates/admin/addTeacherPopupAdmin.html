@@ -23,14 +23,14 @@
                         <span class="infoLabel">비밀번호:</span>
                         <div class="passwordBox">
                             <input class="passwordInput" type="password" name="password" required />
-                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                            <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
                         </div>
                     </div>
                     <div class="infoRow">
                         <span class="infoLabel">비밀번호 확인:</span>
                         <div class="passwordBox">
                             <input class="passwordInput" type="password" name="passwordCheck" required />
-                            <img class="togglePassword" src="../static/img/eyeOffIcon.png" alt="Show Password" />
+                            <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
                         </div>
                     </div>
                     <div class="note">
