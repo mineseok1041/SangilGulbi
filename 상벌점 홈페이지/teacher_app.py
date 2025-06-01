@@ -162,7 +162,7 @@ def deleteTeacherAccount():
 # ------------------ community(게시판) 기능 ------------------
 
 @teacherBlue.route('/community')
-def communityList():
+def community():
     try:
         if 'id' not in session:
             return redirect(url_for('index'))

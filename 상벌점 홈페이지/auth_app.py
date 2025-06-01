@@ -1,6 +1,8 @@
 from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash, make_response
 from usersDTO import usersDTO
 from usersSVC import usersSVC
+from functools import wraps
+
 
 authBlue = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -114,3 +116,13 @@ def dologout():
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
+    
+# 관리자 권한 확인 데코레이터
+def adminAuth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'id' not in session or session.get('identity') != 0:
+            flash("관리자 권한이 필요합니다.")
+            return redirect(url_for('auth.login'))
+        return f(*args, **kwargs)
+    return decorated_function
