@@ -129,7 +129,7 @@ class pointDAO:
     
     def getPointLogByStdID(self, usersDTO: usersDTO) -> list[pointLogDTO]:
         stdID = usersDTO.id
-        query = "SELECT * FROM pointLog WHERE studentId = :1"
+        query = "SELECT * FROM pointLog WHERE studentId = :1 ORDER BY no DESC"
         
         conn = None
         cursor = None
@@ -153,7 +153,7 @@ class pointDAO:
                 conn.close()
 
     def getPointLogByTeacherID(self, usersDTO: usersDTO, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
-        query = "SELECT * FROM pointLog WHERE giveTeacherId = :1"
+        query = "SELECT * FROM pointLog WHERE giveTeacherId = :1 ORDER BY no DESC"
         
         conn = None
         cursor = None
