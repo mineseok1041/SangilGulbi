@@ -290,3 +290,17 @@ td {
 button{
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
+
+.write-btn{
+    width: 11%;
+    height: 6%;
+    position: absolute;
+    background-color: #9AA6B2;
+    z-index: 1000;
+    border: none;
+    font-size: 25px;
+    left: 85%;
+    top: 90%;
+    color: #fff;
+    cursor: pointer;
+}

@@ -11,13 +11,13 @@
 <body>
     <div class="buttons">
         <button class="teacher" onClick="location.href='/auth/signup/teacher'">
-            <img src="{{ url_for('static', filename='img/teacher.png') }}" class="teacher_img">
             <p class="teacher_">선생님</p>
+            <img src="{{ url_for('static', filename='img/teacher.png') }}" class="teacher_img">
         </button>
 
         <button class="student" onClick="location.href='/auth/signup/student'">
-            <img src="{{ url_for('static', filename='img/students.png') }}" class="stu_img">
             <p class="student_">학생</p>
+            <img src="{{ url_for('static', filename='img/students.png') }}" class="stu_img">
     </div>
     </div>
     {%with messages = get_flashed_messages()%}
