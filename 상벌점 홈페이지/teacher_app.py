@@ -20,8 +20,8 @@ def index():
         if 'id' not in session:
             return redirect(url_for('auth.login'))
         
-        bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'bonus')
-        penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'penalty')
+        bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'bonus') # 상점 로그 가져오기
+        penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'penalty') # 벌점 로그 가져오기
         notices = SVC.get_all_notices()  # 게시글 목록 가져오기
     
         return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList)
@@ -170,10 +170,6 @@ def community():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         notices = SVC.get_all_notices()
         return render_template('teacher/communityTeacher.html', usersDTO=teacherDTO, notices=notices)
-    except Exception as e:
-        print(e)
-        return redirect(url_for('index'))
-
     except Exception as e:
         print(e)
         return redirect(url_for('index'))

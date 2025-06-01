@@ -19,8 +19,12 @@ pointSVC = pointSVC()
 @adminAuth
 def index():
     try:
-        notices = SVC.get_all_notices()
-        return render_template('admin/indexAdmin.html', notices=notices)
+        studentList = usersSVC.getStudentsList(1)[:5]  # 학생 목록 (최근 활동 기준 상위 5명)
+        teacherList = usersSVC.getTeachersList(1)[:5]  # 선생님 목록 (최근 활동 기준 상위 5명)
+        notices = SVC.get_all_notices() # 공지사항 목록 (최신순)
+        unverifiedTeachers = usersSVC.getUnverifiedTeachers()  # 승인 대기 중인 선생님 계정
+
+        return render_template('admin/indexAdmin.html', notices=notices, studentList=studentList, teacherList=teacherList, unverifiedTeachers=unverifiedTeachers)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -29,7 +33,8 @@ def index():
 @adminAuth
 def studentManagement():
     try:
-        return render_template('admin/studentManagementAdmin.html')
+        studentList = usersSVC.getStudentsList(1)
+        return render_template('admin/studentManagementAdmin.html', studentList=studentList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -38,7 +43,8 @@ def studentManagement():
 @adminAuth
 def teacherManagement():
     try:
-        return render_template('admin/teacherManagementAdmin.html')
+        teacherList = usersSVC.getTeachersList(1)  # 선생님 목록 (페이지 1)
+        return render_template('admin/teacherManagementAdmin.html', teacherList=teacherList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -92,7 +98,8 @@ def teacherSignupApprovalPopup():
 @adminAuth
 def pointLog():
     try:
-        return render_template('admin/givePointLogAdmin.html')
+        pointLogList = pointSVC.getPointLog(1)
+        return render_template('admin/givePointLogAdmin.html', pointLogList=pointLogList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -110,9 +117,6 @@ def pointReasons():
 @adminAuth
 def community():
     try:
-        if 'id' not in session:
-            return redirect(url_for('auth.login'))
-        
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         notices = SVC.get_all_notices()
         return render_template('admin/communityAdmin.html', notices=notices)
