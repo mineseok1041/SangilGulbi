@@ -15,3 +15,4 @@ class pointLogDTO:
     reason: str = None
     opinion: str = None
     addDate: str = None
+    addTime: str = None

@@ -14,7 +14,9 @@ class usersDTO:
     delPoint: int = None
     point: int = None
     signeddate: str = None
-    lastlogin: str = None
+    signedtime: str = None
+    lastlogindate: str = None
+    lastlogintime: str = None
     identity: int = None
     verified: int = None
     checkCode: str = None

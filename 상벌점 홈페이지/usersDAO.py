@@ -66,30 +66,6 @@ class usersDAO:
             if conn:
                 conn.close()
 
-    def getTeachersList(self, page: int) -> list[usersDTO]:
-        limit = 20 # 한 페이지에 보여줄 관리자 수
-        startNo = (page - 1) * limit + 1
-        endNo = page * limit
-
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 1"
-        
-        conn = None
-        cursor = None
-        try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
-            
-            cursor.execute(query, [startNo, endNo])
-            rows = cursor.fetchall()
-            
-            return [usersDTO(*row) for row in rows]
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"DB Error: {e}")
-        finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
     
     def isIDExist(self, reqDTO: usersDTO) -> bool:
         query = "SELECT COUNT(*) FROM users WHERE id = :1"
@@ -213,11 +189,14 @@ class usersDAO:
                 
     # 마지막 로그인 시간 업데이트
     def updateLastLogin(self, reqDTO: usersDTO):
-        query = "UPDATE users SET lastlogin = TO_CHAR(SYSDATE, 'YYYYMMDD HH24:MI:SS') WHERE id = :1"
         conn = self.get_connection()
         cursor = conn.cursor()
         try:
+            query = "UPDATE users SET lastlogindate = TO_CHAR(SYSDATE, 'YYYY/MM/DD') WHERE id = :1"
             cursor.execute(query, [reqDTO.id])
+            query = "UPDATE users SET lastlogintime = TO_CHAR(SYSDATE, 'HH24:MI:SS') WHERE id = :1"
+            cursor.execute(query, [reqDTO.id])
+
             conn.commit()
         except cx_Oracle.DatabaseError as e:
             print(f"Database error: {e}")
@@ -237,6 +216,7 @@ class usersDAO:
         cursor.close()
         conn.close()
         
+        print(count)
         return count > 0
     
     def updatePassword(self, userId: str, newPassword: str):

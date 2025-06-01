@@ -11,5 +11,6 @@ create table pointLog (
     point number,
     reason varchar2(255),
     opinion varchar2(255),
-    addDate varchar2(17) default to_char(sysdate, 'YYYYMMDD HH24:MI:SS')
+    addDate varchar2(17) default to_char(sysdate, 'YYYY/MM/DD'),
+    addTime varchar2(17) default to_char(sysdate, 'HH24:MI:SS')
 );
