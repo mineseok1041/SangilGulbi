@@ -712,7 +712,7 @@ nav>.five {
     margin: 0%;
     font-size: 15px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
     font-family: 'KakaoSmallSans-Bold', sans-serif;
     font-weight: 500;
