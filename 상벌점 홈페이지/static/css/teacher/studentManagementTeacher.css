@@ -63,17 +63,16 @@ nav > .profiles{
 
 nav > .number {
     position: absolute;
-    left: 48%;
+    left: 50%;
     top: 6%;
     color: white;
-    font-size: 20px;
 }
 
 nav > .name {
     position: absolute;
-    left: 48%;
+    left: 50%;
     top: 9%;
-    font-size: 25px;
+    font-size: larger;
     color: white;
 }
 
