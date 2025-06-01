@@ -39,10 +39,10 @@ nav {
     background-color: #9AA6B2;
     width: 20%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 0%;
-    
+    z-index: 1;
 }
 
 nav > a:not(.community_nav):hover{

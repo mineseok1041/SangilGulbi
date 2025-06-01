@@ -80,6 +80,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             };
         });
+
+        const moreTeacherBtn = document.querySelector(".more-teacher-btn");
+        if (moreTeacherBtn) {
+            moreTeacherBtn.addEventListener("click", function () {
+                const popupWidth = 600;
+                const popupHeight = 800;
+                const screenLeft = window.screenLeft || window.screenX;
+                const screenTop = window.screenTop || window.screenY;
+                const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+                const screenHeight = window.innerHeight || document.documentElement.clientHeight;
+
+                const left = screenLeft + (screenWidth - popupWidth) / 2;
+                const top = screenTop + (screenHeight - popupHeight) / 2;
+
+                window.open(
+                    "/admin/teacherSignupApprovalPopup",
+                    "선생님 계정 승인",
+                    `width=${popupWidth},height=${popupHeight},left=${left},top=${top},resizable=yes,scrollbars=yes`
+                );
+            });
+        }
   
     const dateCell = document.querySelectorAll('.date-cell');
 

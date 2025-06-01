@@ -36,7 +36,7 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+    z-index: 1;
 }
 
 nav > a {
@@ -318,7 +318,7 @@ table{
 
 .penaltyList {
     width: 35%;
-    height: 75%;
+    height: 71%;
     position: absolute;
     top: 12%;
     left: 62%;

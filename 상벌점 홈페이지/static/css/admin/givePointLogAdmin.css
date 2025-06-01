@@ -42,7 +42,7 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-
+    z-index: 1;
 }
 
 nav > a {
@@ -583,6 +583,30 @@ nav > .six{
     padding-left: 30px;
     font-size: 14px;
     line-height: 2;
+}
+
+.sortable {
+    cursor: pointer; /* 정렬 가능한 열에 커서 표시 */
+    user-select: none; /* 텍스트 선택 방지 */
+    position: relative;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 20px; /* 화살표 크기 */
+    margin-left: 5px; /* 텍스트와 화살표 간격 */
+    color: #888; /* 화살표 색상 */
+    transition: transform 0.3s ease; /* 회전 애니메이션 */
+}
+
+.sortable.asc .arrow {
+    transform: rotate(0deg); /* 오름차순: 기본 상태 */
+    color: #000; /* 활성화된 화살표 색상 */
+}
+
+.sortable.desc .arrow {
+    transform: rotate(180deg); /* 내림차순: 180도 회전 */
+    color: #000; /* 활성화된 화살표 색상 */
 }
 
 button{

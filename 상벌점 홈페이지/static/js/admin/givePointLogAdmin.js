@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector(".pointLog_table");
     const allRows = Array.from(document.querySelectorAll(".pointLog_table tbody tr"));
-    const tableBody = table.querySelector("tbody");
     const filterIcon = document.querySelector(".filterIcon");
     const filterPopup = document.querySelector(".filterPopup");
+    const headers = document.querySelectorAll(".pointLog_table thead th.sortable");
     const resetFiltersButton = filterPopup.querySelector(".resetFilters");
     const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
 
@@ -75,6 +75,41 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         allRows.forEach(row => {
             row.style.display = "";
+        });
+    });
+
+    // 정렬 기능 추가
+    headers.forEach(header => {
+        header.addEventListener("click", function () {
+            const columnIndex = header.getAttribute("data-column") - 1;
+            const isAscending = header.classList.contains("asc");
+            const direction = isAscending ? -1 : 1;
+
+            headers.forEach(h => h.classList.remove("asc", "desc"));
+            header.classList.add(isAscending ? "desc" : "asc");
+
+            const sortedRows = tableRows.sort((a, b) => {
+                const aText = a.querySelectorAll("td")[columnIndex].textContent.trim();
+                const bText = b.querySelectorAll("td")[columnIndex].textContent.trim();
+
+                // 숫자 정렬 (총 상벌점)
+                if (columnIndex === 4) {
+                    const aValue = parseFloat(aText.replace("+", ""));
+                    const bValue = parseFloat(bText.replace("+", ""));
+                    return (aValue - bValue) * direction;
+                }
+
+                // 날짜 정렬 (마지막 활동)
+                if (columnIndex === 3) {
+                    return (new Date(aText) - new Date(bText)) * direction;
+                }
+
+                // 일반 텍스트 정렬
+                return aText > bText ? direction : aText < bText ? -direction : 0;
+            });
+
+            tableBody.innerHTML = "";
+            sortedRows.forEach(row => tableBody.appendChild(row));
         });
     });
 });
