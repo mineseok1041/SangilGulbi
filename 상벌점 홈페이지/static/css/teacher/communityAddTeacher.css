@@ -286,9 +286,12 @@ nav > .five{
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
-    margin: 19% 0% 0% 85%;
+    left: 86%;
+    bottom: 5%;
+    z-index: 100;
+    position: absolute;
 }
 
 button{
