@@ -258,28 +258,42 @@ class usersDAO:
             
     def getUnverifiedTeachers(self) -> list[usersDTO]:
         query = "SELECT * FROM users WHERE identity = 1 AND verified = 0"
-        conn = self.get_connection()
-        cursor = conn.cursor()
+        
+        conn = None
+        cursor = None
         try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+            
             cursor.execute(query)
             rows = cursor.fetchall()
-            return [usersDTO(*row) for row in rows]
+            
+            unverified_teachers = [usersDTO(*row) for row in rows]
+            return unverified_teachers
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"Database Error in getUnverifiedTeachers: {e}")
         finally:
-            cursor.close()
-            conn.close()
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
             
     def updateTeacherVerified(self, teacher_id: str, verified: int):
         query = "UPDATE users SET verified = :1 WHERE id = :2"
-        conn = self.get_connection()
-        cursor = conn.cursor()
+        conn = None
+        cursor = None
         try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
             cursor.execute(query, [verified, teacher_id])
             conn.commit()
-        except Exception as e:
-            raise Exception(f"승인 처리 실패: {e}")
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"Database Error: {e}")
         finally:
-            cursor.close()
-            conn.close()
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
 
     def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:
         query = """
