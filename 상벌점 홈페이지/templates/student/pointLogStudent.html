@@ -48,14 +48,14 @@
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
                         <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
-                        <td class="date-cell">{{ pointLog.addDate }}</td>
+                        <td>{{ pointLog.addDate }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
                     <tr class="dropdown-row"> 
                         <td colspan="6" class="pointReason">
-                            <p class="reason">사유 : </p>
-                            <p class="opinion">의견 : </p>
+                            <p class="reason">사유 : {{ pointLog.reason }}</p>
+                            <p class="opinion">의견 : {{ pointLog.opinion }}</p>
                         </td>
                     </tr>
                     {% endfor %}
