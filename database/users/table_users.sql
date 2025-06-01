@@ -10,8 +10,10 @@ create table users (
     addPoint number default 0,
     delPoint number default 0,
     point number default 0,
-    signeddate varchar2(17) default to_char(sysdate, 'YYYYMMDD HH24:MI:SS'),
-    lastlogin varchar2(17),
+    signeddate varchar2(17) default to_char(sysdate, 'YYYY/MM/DD'),
+    signedtime varchar2(17) default to_char(sysdate, 'HH24:MI:SS'),
+    lastlogindate varchar2(17),
+    lastlogintime varchar2(17),
     identity number(1),
     verified number(1),
     checkCode varchar2(20)
