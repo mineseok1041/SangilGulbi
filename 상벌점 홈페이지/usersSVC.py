@@ -89,4 +89,16 @@ class usersSVC:
             return self.usersDAO.searchTeachersByKeyword(keyword)
         except Exception as e:
             raise Exception(f"searchTeachersByKeyword Error: {e}")
+        
+    def changePassword(self, beforeDTO: usersDTO, newPassword: str, newPasswordCheck: str):
+        try:
+            if newPassword != newPasswordCheck:
+                raise Exception("새 비밀번호와 확인 비밀번호가 일치하지 않습니다.")
+            
+            if not self.usersDAO.isPWDCorrect(beforeDTO):
+                raise Exception("현재 비밀번호가 일치하지 않습니다.")
+            
+            self.usersDAO.updatePassword(beforeDTO.id, newPassword)
+        except Exception as e:
+            raise Exception(f"{e}")
 
