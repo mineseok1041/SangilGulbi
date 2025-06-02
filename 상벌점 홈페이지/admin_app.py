@@ -89,7 +89,8 @@ def resetStudentPasswordPopup():
 @adminAuth
 def teacherSignupApprovalPopup():
     try:
-        return render_template('admin/teacherSignupApprovalPopupAdmin.html')
+        unverified_teachers = usersSVC.getUnverifiedTeachers()
+        return render_template('admin/teacherSignupApprovalPopupAdmin.html', unverified_teachers=unverified_teachers)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -168,3 +169,33 @@ def givePenaltyPointPopup():
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
+
+@adminBlue.route('/approveTeacher', methods=['POST'])
+@adminAuth
+def approveTeacher():
+    try:
+        teacher_id = request.json.get('teacherId')  # JSON 데이터에서 teacherId 가져오기
+        if not teacher_id:
+            raise Exception("선생님 ID가 제공되지 않았습니다.")
+        
+        # 승인 처리
+        usersSVC.updateTeacherVerified(teacher_id, verified=1)
+        return jsonify({"success": True, "message": "선생님 계정이 승인되었습니다."})
+    except Exception as e:
+        print(f"Error in approveTeacher: {e}")
+        return jsonify({"success": False, "message": str(e)})
+
+@adminBlue.route('/rejectTeacher', methods=['POST'])
+@adminAuth
+def rejectTeacher():
+    try:
+        teacher_id = request.json.get('teacherId')  # JSON 데이터에서 teacherId 가져오기
+        if not teacher_id:
+            raise Exception("선생님 ID가 제공되지 않았습니다.")
+        
+        # 거부 처리 (삭제 또는 다른 처리)
+        usersSVC.delUsers(usersDTO(id=teacher_id))
+        return jsonify({"success": True, "message": "선생님 계정이 거부되었습니다."})
+    except Exception as e:
+        print(f"Error in rejectTeacher: {e}")
+        return jsonify({"success": False, "message": str(e)})
