@@ -50,7 +50,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
+            cursor.execute(query)
             rows = cursor.fetchall()
             
             result = []
