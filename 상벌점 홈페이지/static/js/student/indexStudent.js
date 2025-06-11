@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-
+  document.addEventListener("DOMContentLoaded", function () {
+  
     const dateCell = document.querySelectorAll('.date-cell');
 
     dateCell.forEach(cell => {
@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cell.textContent = formattedDate; // "2025/05/14"
     });
-        const rows = document.querySelectorAll(".community tbody tr");
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll(".community tbody tr");
     rows.forEach((row, index) => {
         if (index >= 3) {
             row.style.display = "none"; // 8번째 이후 데이터 숨김
