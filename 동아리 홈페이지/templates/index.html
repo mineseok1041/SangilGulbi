@@ -14,17 +14,13 @@
   <div class="wrap">
     <section class="container">
       <article class="one_section">
+        <img class="index" src="{{ url_for('static', filename='img/index/index.jpg') }}">
         <header class="header">
           <a class="logo" href="/">GB</a>
 
           <div class="main_menu">
-<<<<<<< HEAD:동아리 홈페이지/templates/index.html
             <a class="text" href="#">Community</a>
             <a class="text" href="/developers">Developers</a>
-=======
-            <a class="text" href="#">Calender</a>
-            <a class="text" href="#">Save</a>
->>>>>>> 809b35e4f8df1fbd5181752272afcab2e4f9ca1b:templates/index.html
             <a class="text" href="#">Game</a>
             <a class="text" href="/awards">Awards</a> {% if session['id'] %}
             <a class="text" href="/mypage">
@@ -59,15 +55,27 @@
 
     <section class="container">
       <article class="two_section">
-        <section class="category-section">
+        <section class="intro-section">
           <h2 class="two_title">동아리 소개</h2>
+          <p class="introduce">저희 동아리는 <strong>개인의 성장으로 동아리 전체의 성장을 이루는 동아리</strong>입니다.
+            <br>자신이 원하는 다양한 분야를 공부하고 다같이 협력해서 프로젝트를 만들기도 합니다.
+            <br>
+            <br> 교내대회, 외부대회등 <strong>많은 대회</strong>에 나가서 나가서 상과 함께 좋은 경험을 얻기도 하고 
+            <br> 내신을 챙기기 위해 시험기간 2주전에는 모든 활동을 멈추고 <strong>시험공부에 집중</strong>합니다.
+            <br> 여러분들의 미래를 위해 선생님뿐만 아니라 선배와 상담도 하고있습니다.
+            <br> 이렇게 공부만 하면 재미가 없으니 물총싸움이나 캠핑 등 <strong>다양한 활동</strong>도 하고있습니다.
+            <br>
+            <br>이 이외에도 자신이 성장할 수 있는 환경을 충분히 제공하고 있으니 
+            <br>저희 동아리에서 좋은 영향을 얻으실 수 있습니다.
+          </p>
+
           <div class="intro_card-container">
             <div class="intro_card">
               <h3>대회</h3>
               <p>google, 현대오토에버 등<br>여러 대회 활동</p>
               <img class="icon_1" src="{{ url_for('static', filename='img/index/icon_1.png') }}">
             </div>
-            <div class="intro_card2">
+            <div class="intro_card">
               <h3>내신</h3>
               <p>내신을 챙기기 위한<br>시험 대비 공부</p>
               <img class="icon_2" src="{{ url_for('static', filename='img/index/icon_2.png') }}">
@@ -77,12 +85,87 @@
               <p>미래의 진로에 대한<br>진로상담</p>
               <img class="icon_3" src="{{ url_for('static', filename='img/index/icon_3.png') }}">
             </div>
-            <div class="intro_card2">
+            <div class="intro_card">
               <h3>다양한 활동</h3>
               <p>물총싸움, 캠핑 등<br>다양한 활동도 합니다</p>
               <img class="icon_4" src="{{ url_for('static', filename='img/index/icon_4.png') }}">
             </div>
           </div>
+
+        </section>
+      </article>
+    </section>
+
+    <section class="container">
+      <article class="three_section">
+        <section class="intro-member-section">
+          <h2 class="three_title">동아리 멤버 소개</h2>
+
+          <div class="teacher_card-container">
+            <div class="teacher_card">
+              <img src="{{ url_for('static', filename='img/member/김정균 선생님.png') }}">
+              <p>김정균 선생님</p>
+            </div>
+            <div class="teacher_card">
+              <img src="{{ url_for('static', filename='img/member/김성주 선생님.png') }}">
+              <p>김성주 선생님</p>
+            </div>
+          </div>
+
+          <div class="grade3_card-container">
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/김기훈.png') }}">
+              <p>김기훈</p>
+            </div>
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/노성빈.png') }}">
+              <p>노성빈</p>
+            </div>
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/염민석.png') }}">
+              <p>염민석</p>
+            </div>
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/이기남.png') }}">
+              <p>이기남</p>
+            </div>
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/이시은.png') }}">
+              <p>이시은</p>
+            </div>
+            <div class="grade3_card">
+              <img src="{{ url_for('static', filename='img/member/최영탁.png') }}">
+              <p>최영탁</p>
+            </div>
+          </div>
+
+          <div class="grade2_card-container">
+            <div class="grade2_card">
+              <img src="{{ url_for('static', filename='img/member/고건희.png') }}">
+              <p>고건희</p>
+            </div>
+            <div class="grade2_card">
+              <img src="{{ url_for('static', filename='img/member/박시우.png') }}">
+              <p>박시우</p>
+            </div>
+            <div class="grade2_card">
+              <img src="{{ url_for('static', filename='img/member/이선우.png') }}">
+              <p>이선우</p>
+            </div>
+            <div class="grade2_card">
+              <img src="{{ url_for('static', filename='img/member/이진서.png') }}">
+              <p>이진서</p>
+            </div>
+            <div class="grade2_card">
+              <img src="{{ url_for('static', filename='img/member/조휘연.png') }}">
+              <p>조휘연</p>
+            </div>
+          </div>
+
+          <div class="grade1_card-container">
+            
+          </div>
+
         </section>
       </article>
     </section>
@@ -100,7 +183,7 @@
             <div class="card">
               <div class="author">넷마블 아카데미 수료</div>
               <div class="date">2018, 2019</div>
-              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2018') }}">
+              <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2018.png') }}">
               <img class="content" src="{{ url_for('static', filename='img/awards/netmarble_2019.png') }}">
             </div>
             <div class="card">
@@ -157,19 +240,19 @@
         <div class="cards2">
           <div class="card2">
             <div class="shape">★</div>
-            <h2>Calendar</h2>
+            <h2 class="big">Calendar</h2>
             <p>일정을 확인해보세요</p>
             <a href="#" class="see-more">SEE MORE →</a>
           </div>
           <div class="card2">
             <div class="shape">●</div>
-            <h2>Game</h2>
+            <h2 class="big">Game</h2>
             <p>많이 사용하는 게임도 보러오세요</p>
             <a href="#" class="see-more">SEE MORE →</a>
           </div>
           <div class="card2">
             <div class="shape">✦</div>
-            <h2>mypage</h2>
+            <h2 class="big">mypage</h2>
             <p>자신의 정보를 확인해보세요</p>
             <a href="/mypage" class="see-more">SEE MORE →</a>
           </div>
@@ -211,13 +294,13 @@
       <hr>
 
       <p id="p2">
-        꿀비 @2025
+        Made by 꿀비 @2025
+        <br>김기훈 노성빈 염민석 이기남 이시은 최영탁
       </p>
 
     </footer>
   </div>
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>
