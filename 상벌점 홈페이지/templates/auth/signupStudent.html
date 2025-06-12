@@ -14,13 +14,26 @@
         <h2>signup</h2>
         <form method="post" action="/auth/signup.do/student" id="login-form">
 
-            <input class="student_number" type="text" name="stdNum" placeholder="학번을 작성해주세요">
+            <input class="student_number" type="text" name="stdNum" 
+            placeholder="학번을 작성해주세요"
+            required
+            autofocus
+            pattern="^\d{5}$" > <!-- 5자리 숫자 -->
+            
 
-            <input class="name" type="text" name="name" placeholder="이름을 작성해주세요">
+            <input class="name" type="text" name="name" 
+            required
+            placeholder="이름을 작성해주세요">
 
-            <input class="id" type="text" name="id" placeholder="아이디를 작성해주세요" >
+            <input class="id" type="text" name="id" 
+            placeholder="아이디를 작성해주세요" 
+            required
+            pattern="^[A-Za-z0-9]{5,16}$" > <!-- 5~16자 영문,숫자 -->
 
-            <input class="password" type="password" name="password" placeholder="비밀번호를 작성해주세요">
+            <input class="password" type="password" name="password" 
+            placeholder="비밀번호를 작성해주세요"
+            required
+            pattern="^[A-Za-z0-9!@#\*\^_]{8,16}$" > <!-- 8~16자 영문,숫자,특수문자(!@#*^_) -->
 
             <button class="submit" type="submit">signup</button>
             <a class="login" href="/auth/login"> <br> 로그인으로 돌아가기</a>
