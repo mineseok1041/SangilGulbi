@@ -1,0 +1,380 @@
+/* font-face 설정 (2025-02-23 22:12) */
+@font-face {
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* 전체 페이지 스타일 (2025-02-23 22:12) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'MinSans-Regular', sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden; /* 가로 스크롤 제거 (2025-02-23 22:12) */
+    overflow-y: hidden; /* 세로 스크롤 활성화 (2025-02-23 22:12) */
+}
+
+/* 네비게이션 바 스타일 (2025-02-23 22:12) */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #3d3d3d;
+    padding: 10px 20px;
+    height: 60px;
+    min-width: 700px; /* 최소 너비 설정 (2025-02-23 22:12) */
+}
+
+/* 메인 GB 로고 설정 (2025-02-23 22:12) */
+.navbarLogo {
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
+.navbarMenu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 네비게이션 제목 스타일 (2025-02-23 22:12) */
+.navbarMenu span {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 네비게이션 링크 스타일 (2025-02-23 22:12) */
+.navbarMenu a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    margin-left: 30px;
+}
+
+.navbarMenu a:hover {
+    color: #ffcc00; /* 호버 효과 (2025-02-23 22:12) */
+}
+
+/* 사용자 아이콘 스타일 (2025-02-23 22:12) */
+.navbarUser {
+    margin-left: auto;
+}
+
+.navbarUser img {
+    width: 50px;
+    height: auto;
+}
+
+/* 메인 컨테이너 */
+.container {
+    width: 100%;
+    height: 100%;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.iconBox {
+    display: flex;
+    justify-content: center;  /* 가운데 정렬 */
+    align-items: center;
+    width: 12%;  /* 박스 크기 고정 */
+    height: auto;
+    padding: 15px;
+    background: #aaaaaa;  /* 연한 배경색 */
+    border-radius: 10px;  /* 모서리 둥글게 */
+    margin: 20px auto;  /* 위아래 여백 + 가운데 정렬 */
+    margin-left: 20%;
+}
+
+.icon {
+    display: flex;
+    gap: 20px;
+}
+
+.icon a {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBar {
+    margin-right: 26.3%;
+}
+
+.searchBar input {
+    padding: 20px 15px; /* 안쪽 여백 */
+    border: 2px solid #ccc; /* 테두리 색상 */
+    border-radius: 25px; /* 둥근 모서리 */
+    outline: none; /* 클릭 시 기본 테두리 제거 */
+    width: 130%; /* 검색창 너비 */
+    transition: all 0.3s ease-in-out; /* 부드러운 효과 */
+    font-family: 'MinSans-Regular', sans-serif;
+    font-size: 16px;
+    text-align: center; /* 가운데 정렬 */
+}
+
+.searchBar input:focus {
+    border-color: #ffd06b; /* 포커스 시 테두리 색상 변경 */
+    box-shadow: 0 0 8px #ffd06d; /* 포커스 효과 */
+}
+
+/* 모달 기본 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* addModal 스타일 */
+.addModal .modalContent {
+    background-color: #ffd380fa; /* 배경색 */
+    width: 35%;
+    height: 50%;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+.addModal .modalContent input {
+    font-size: 20px;
+}
+
+.addManagerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addManagerContainer h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.nameInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nameInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'MinSans-Regular', sans-serif;
+}
+
+.idInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.idInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'MinSans-Regular', sans-serif;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.passwordInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.passwordInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'MinSans-Regular', sans-serif;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 10px; /* 오른쪽 끝에 배치 */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'MinSans-Regular', sans-serif;
+    width: 20%;
+    align-self: flex-end; /* 오른쪽으로 정렬 */
+    margin-top: 3%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* pwModal 스타일 */
+.pwModal .modalContent {
+    background-color: #ffd380fa; /* 배경색 */
+    width: 600px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+.pwModal h2 {
+    font-size: 40px;
+}
+
+.pwModal .modalContent input {
+    font-size: 20px;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.passwordContainer label {
+    font-size: 30px;
+}
+
+.passwordContainer h2 {
+    font-size: 15px !important;
+    color:#fc5234fa
+}
+
+.passwordInput {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.passwordInput input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 35px; /* 눈 아이콘 공간 확보 */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: 'MinSans-Regular', sans-serif;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 10px; /* 오른쪽 끝에 배치 */
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'MinSans-Regular', sans-serif;
+    width: 20%;
+    align-self: flex-end; /* 오른쪽으로 정렬 */
+    margin-top: 3%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* deleteModal 스타일 */
+.deleteModal .modalContent {
+    background-color: #ffd380fa; /* awardModal 배경색 */
+    width: 40%;
+    height: auto;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* 테이블 스타일 */
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: auto;
+    border-left: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+}
+
+th, td {
+    padding: 20px;
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: 3px solid #ddd;
+    font-size: 25px;
+}
+
+th {
+    background: #aaaaaa;
+}
+
+th input[type="checkbox"] {
+    transform: scale(2);
+}
+
+td input[type="checkbox"] {
+    transform: scale(2);
+}
+
+tbody tr:hover {
+    background: #f9f9f9;
+}

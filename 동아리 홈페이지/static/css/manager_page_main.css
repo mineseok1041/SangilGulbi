@@ -1,17 +1,17 @@
 /* font-face 설정 (2025-02-23 22:12) */
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-family: 'MinSans-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/MinSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
 /* 전체 페이지 스타일 (2025-02-23 22:12) */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'S-CoreDream-3Light', sans-serif;
+    font-family: 'MinSans-Regular', sans-serif;
     background-color: #ffffff;
     overflow-x: hidden; /* 가로 스크롤 제거 (2025-02-23 22:12) */
     overflow-y: hidden; /* 세로 스크롤 활성화 (2025-02-23 22:12) */
@@ -27,51 +27,51 @@ html, body {
     min-width: 700px; /* 최소 너비 설정 (2025-02-23 22:12) */
 }
 
-/* 로고 이미지 크기 설정 (2025-02-23 22:12) */
-.nav_logo {
+/* 메인 GB 로고 설정 (2025-02-23 22:12) */
+.navbarLogo {
     font-size: 30px;
     color: white;
     text-decoration: none;
 }
 
 /* 네비게이션 메뉴 스타일 (2025-02-23 22:12) */
-.nav_menu {
+.navbarMenu {
     width: 100%;
     display: flex;
     align-items: center;
 }
 
 /* 네비게이션 제목 스타일 (2025-02-23 22:12) */
-.nav_menu span {
+.navbarMenu span {
     color: white;
     font-size: 30px;
     font-weight: bold;
 }
 
 /* 네비게이션 링크 스타일 (2025-02-23 22:12) */
-.nav_menu a {
+.navbarMenu a {
     color: white;
     text-decoration: none;
     font-size: 28px;
     margin-left: 30px;
 }
 
-.nav_menu a:hover {
+.navbarMenu a:hover {
     color: #ffcc00; /* 호버 효과 (2025-02-23 22:12) */
 }
 
 /* 사용자 아이콘 스타일 (2025-02-23 22:12) */
-.nav_user {
+.navbarUser {
     margin-left: auto;
 }
 
-.nav_user img {
+.navbarUser img {
     width: 50px;
     height: auto;
 }
 
 /* 메인 컨텐츠 박스 스타일 (2025-02-23 22:12) */
-.box_container {
+.boxContainer {
     display: flex;  /* 박스들을 가로로 배치 (2025-02-23 22:12) */
     flex-wrap: wrap;  /* 공간이 부족하면 줄 바꿈 (2025-02-23 22:12) */
     justify-content: flex-start;  /* 왼쪽 정렬 (2025-02-23 22:12) */
@@ -92,7 +92,7 @@ html, body {
 }
 
 /* 학생 박스 스타일 (2025-02-23 22:12) */
-.user_box {
+.userBox {
     background-color: #3a3a3a;
     margin-top: 3%;
     border-radius: 10px;
@@ -105,7 +105,7 @@ html, body {
 }
 
 /* 학생 박스 내부 헤더 스타일 (2025-02-23 22:12) */
-.user_box_header {
+.userBoxHeader {
     display: flex;
     gap: 5%;
     align-items: center;
@@ -113,19 +113,19 @@ html, body {
 }
 
 /* 학생 아이콘 스타일 (2025-02-23 22:12) */
-.user_box img {
+.userBox img {
     width: 40px;
     height: 40px;
 }
 
 /* 학생 박스 제목 스타일 (2025-02-23 22:12) */
-.user_box h1 {
+.userBox h1 {
     color: white;
     font-size: 32px;
 }
 
 /* 학생 수 스타일 (2025-02-23 22:12) */
-#userCount {
+.userCount {
     color: white;
     font-size: 48px;
     margin-top: 10px;
@@ -133,7 +133,7 @@ html, body {
 }
 
 /* 학생 박스 확장 화살표 스타일 (2025-02-23 22:12) */
-.expand_arrow {
+.expandArrow {
     font-size: 30px;
     color: white;
     cursor: pointer;
@@ -147,12 +147,12 @@ html, body {
 }
 
 /* 화살표 회전 효과 (2025-02-23 22:12) */
-.user_box.open .expand_arrow {
+.userBox.open .expandArrow {
     transform: rotate(180deg) translateX(50%);
 }
 
 /* 일정 박스 스타일 (2025-02-23 22:12) */
-.calendar_box {
+.calendarBox {
     background-color: #3a3a3a;
     margin-top: 3%;
     border-radius: 10px;
@@ -163,7 +163,7 @@ html, body {
 }
 
 /* 공지사항 박스 스타일 (2025-02-23 22:12) */
-.notification_box {
+.notificationBox {
     background-color: #3a3a3a;
     margin-top: 3%;
     border-radius: 10px;
@@ -180,14 +180,14 @@ html, body {
 }
 
 /* 일정 & 공지사항 제목 스타일 (2025-02-23 22:12) */
-.calendar_box h1, .notification_box h1 {
+.calendarBox h1, .notificationBox h1 {
     color: white;
     font-size: 32px;
     text-align: center;
 }
 
 /* 박스 확장 시 스타일 (2025-02-23 22:12) */
-.user_box.open {
+.userBox.open {
     height: auto;
     padding-bottom: 60px;
 }

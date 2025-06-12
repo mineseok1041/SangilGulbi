@@ -50,7 +50,7 @@ class usersDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query)
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
             rows = cursor.fetchall()
             
             result = []
@@ -258,42 +258,28 @@ class usersDAO:
             
     def getUnverifiedTeachers(self) -> list[usersDTO]:
         query = "SELECT * FROM users WHERE identity = 1 AND verified = 0"
-        
-        conn = None
-        cursor = None
+        conn = self.get_connection()
+        cursor = conn.cursor()
         try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
-            
             cursor.execute(query)
             rows = cursor.fetchall()
-            
-            unverified_teachers = [usersDTO(*row) for row in rows]
-            return unverified_teachers
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"Database Error in getUnverifiedTeachers: {e}")
+            return [usersDTO(*row) for row in rows]
         finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
+            cursor.close()
+            conn.close()
             
     def updateTeacherVerified(self, teacher_id: str, verified: int):
         query = "UPDATE users SET verified = :1 WHERE id = :2"
-        conn = None
-        cursor = None
+        conn = self.get_connection()
+        cursor = conn.cursor()
         try:
-            conn = self.get_connection()
-            cursor = conn.cursor()
             cursor.execute(query, [verified, teacher_id])
             conn.commit()
-        except cx_Oracle.DatabaseError as e:
-            raise Exception(f"Database Error: {e}")
+        except Exception as e:
+            raise Exception(f"승인 처리 실패: {e}")
         finally:
-            if cursor:
-                cursor.close()
-            if conn:
-                conn.close()
+            cursor.close()
+            conn.close()
 
     def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:
         query = """

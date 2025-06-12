@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const selectAll = document.getElementById("selectAll");
+document.addEventListener("DOMContentLoaded", function() {
+    const selectAll = document.querySelector(".selectAll");
     const checkboxes = document.querySelectorAll(".userCheckbox");
-    const searchInput = document.getElementById("searchInput");
+    const searchInput = document.querySelector(".searchInput");
     const rows = document.querySelectorAll("tbody tr");
-    const selectedUsers = document.getElementById("selectedUsers");
-    const selectedList = document.getElementById("selectedList");
+    const selectedUsers = document.querySelector(".selectedUsers");
+    const selectedList = document.querySelector(".selectedList");
 
     function updateSelectedUsers() {
         selectedList.innerHTML = "";
@@ -13,49 +13,65 @@ document.addEventListener("DOMContentLoaded", function () {
         checkboxes.forEach((checkbox, index) => {
             if (checkbox.checked) {
                 hasSelection = true;
-                const userName = rows[index].cells[1].textContent;
+                if (rows[index] && rows[index].cells.length > 1) {
+                    const userName = rows[index].cells[1].textContent;
 
-                const userBox = document.createElement("div");
-                userBox.classList.add("selected-user-box");
+                    const userBox = document.createElement("div");
+                    userBox.classList.add("selectedUserBox");
 
-                const icon = document.createElement("img");
-                icon.src = "../img/user_profile.png";
-                icon.alt = "User Icon";
+                    const icon = document.createElement("img");
+                    icon.src = "../img/user_profile.png";
+                    icon.alt = "User Icon";
 
-                const nameSpan = document.createElement("span");
-                nameSpan.textContent = userName;
+                    const nameSpan = document.createElement("span");
+                    nameSpan.textContent = userName;
 
-                userBox.appendChild(icon);
-                userBox.appendChild(nameSpan);
-                selectedList.appendChild(userBox);
+                    userBox.appendChild(icon);
+                    userBox.appendChild(nameSpan);
+                    selectedList.appendChild(userBox);
+                }
             }
         });
 
         selectedUsers.style.display = hasSelection ? "block" : "none";
     }
 
-    selectAll.addEventListener("change", function () {
+    selectAll.addEventListener("change", function() {
         checkboxes.forEach(cb => cb.checked = selectAll.checked);
         updateSelectedUsers();
     });
 
     checkboxes.forEach(cb => cb.addEventListener("change", updateSelectedUsers));
 
-    searchInput.addEventListener("input", function () {
-        const keyword = searchInput.value.toLowerCase();
-        rows.forEach(row => row.style.display = row.innerText.toLowerCase().includes(keyword) ? "" : "none");
+    searchInput.addEventListener("input", function() {
+        const keyword = searchInput.value.trim().toLowerCase();
+
+        rows.forEach(row => {
+            const name = row.cells[1]?.textContent.trim().toLowerCase(); // 이름 열 (2번째 열)
+
+            if (!keyword) {
+                // 검색창이 비어 있으면 모든 행 표시
+                row.style.display = "";
+            } else if (name && name.includes(keyword)) {
+                // 검색어와 일치하면 표시
+                row.style.display = "";
+            } else {
+                // 일치하지 않으면 숨김
+                row.style.display = "none";
+            }
+        });
     });
 });
 
 // 모달 열기
-function openModal(modalId) {
-    var modal = document.getElementById(modalId);
+function openModal(modalClass) {
+    var modal = document.querySelector("." + modalClass);
     modal.style.display = "flex"; // 모달을 flex로 보이게 함
 }
 
 // 모달 닫기
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
+function closeModal(modalClass) {
+    var modal = document.querySelector("." + modalClass);
     modal.style.display = "none"; // 모달을 숨김
 }
 
@@ -70,8 +86,8 @@ window.onclick = function(event) {
 }
 
 // 비밀번호 보기/숨기기 토글 함수
-function togglePasswordVisibility(inputId, icon) {
-    var input = document.getElementById(inputId);
+function togglePasswordVisibility(inputClass, icon) {
+    var input = document.querySelector("." + inputClass);
 
     if (input.type === "password") {
         input.type = "text"; // 비밀번호 보이게 설정
@@ -84,8 +100,8 @@ function togglePasswordVisibility(inputId, icon) {
 
 // 비밀번호 변경 함수
 function changePassword() {
-    var newPassword = document.getElementById('newPassword').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    var newPassword = document.querySelector('.newPassword').value;
+    var confirmPassword = document.querySelector('.confirmPassword').value;
 
     // 비밀번호가 일치하는지 확인
     if (newPassword === "" || confirmPassword === "") {
@@ -110,77 +126,109 @@ function changePassword() {
     // 여기에 서버로 변경된 비밀번호를 전송하는 코드가 필요함.
 }
 
-function updatePointValue(selectId, inputId) {
-    const select = document.getElementById(selectId);
-    const input = document.getElementById(inputId);
+// function updatePointValue(selectClass, inputClass) {
+//     const select = document.querySelector("." + selectClass);
+//     const input = document.querySelector("." + inputClass);
+//     const customInputContainer = select.nextElementSibling;
+//     const customInput = customInputContainer.querySelector('.customInput');
 
-    // 선택된 옵션의 값(점수)을 입력란에 자동으로 반영
-    input.value = select.value;
-}
+//     const selectedOption = select.options[select.selectedIndex];
 
-function updatePoints(inputId) {
-    const user = document.getElementById("userSelect").value;
-    const reason = document.getElementById("reasonSelect").options[document.getElementById("reasonSelect").selectedIndex].text;
-    const points = document.getElementById(inputId).value;
+//     if (selectedOption.value === "custom") {
+//         customInputContainer.style.display = 'block';
+//         input.removeAttribute('readonly');
+//         input.value = "0";
+//         input.focus();
+//     } else {
+//         customInputContainer.style.display = 'none';
+//         input.setAttribute('readonly', true);
+//         input.value = selectedOption.value;
+//     }
+// }
 
-    if (!user || !points) {
-        alert("사용자와 사유를 선택해주세요.");
-        return;
-    }
+document.querySelectorAll('.rewardInput, .penaltyInput').forEach(input => {
+    input.addEventListener('input', function() {
+        if (this.className === 'penaltyInput' && this.value > 0) {
+            this.value = 0;
+        }
+    });
+});
 
-    alert(`${user}에게 '${reason}' 사유로 ${points}점을 적용했습니다.`);
-    
-    // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
-    // 예시:
-    // fetch('/api/updatePoints', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ user, reason, points })
-    // }).then(response => {
-    //     if (response.ok) {
-    //         alert(`${points}점 등록이 완료되었습니다!`);
-    //     } else {
-    //         alert('점수 등록에 실패했습니다.');
-    //     }
-    // }).catch(error => {
-    //     console.error('Error:', error);
-    //     alert('점수 등록 중 오류가 발생했습니다.');
-    // });
+document.querySelectorAll('.customInput').forEach(input => {
+    input.addEventListener('input', function() {
+        const penaltyInput = document.querySelector('.penaltyInput');
+        penaltyInput.value = this.value;
+    });
+});
 
-    // 점수 등록이 완료되었음을 알리는 메시지
-    alert(`${points}점 등록이 완료되었습니다!`);
-}
+$(document).ready(function() {
+    $("#submitBtnAdd").click(function() {
+        var formId = $(this).data("form"); // 눌린 버튼의 data-form 속성 값 가져오기
+        var formData = $("#" + formId).serialize(); // 해당 폼의 데이터 직렬화
 
-// 수상 내역 저장 함수
-function saveAward() {
-    const awardTitle = document.getElementById("awardTitle").value;
-    const awardDescription = document.getElementById("awardDescription").value;
+        var checkedUserIds = [];
+        $(".userCheckbox:checked").each(function() {
+            checkedUserIds.push($(this).attr("name")); // 체크된 항목의 name 값(=user.id) 추가
+        });
 
-    if (!awardTitle || !awardDescription) {
-        alert("수상 제목과 설명을 입력해주세요.");
-        return;
-    }
+        if (checkedUserIds.length === 0) {
+            alert("최소 한 명 이상의 사용자를 선택하세요.");
+            return;
+        }
 
-    alert(`수상 내역이 저장되었습니다.\n제목: ${awardTitle}\n설명: ${awardDescription}`);
-    
-    // 실제 서버로 데이터 전송하는 로직을 추가하면 됨 (예: fetch API)
-    // 예시:
-    // fetch('/api/saveAward', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ awardTitle, awardDescription })
-    // }).then(response => {
-    //     if (response.ok) {
-    //         alert('수상 내역이 저장되었습니다.');
-    //     } else {
-    //         alert('수상 내역 저장에 실패했습니다.');
-    //     }
-    // }).catch(error => {
-    //     console.error('Error:', error);
-    //     alert('수상 내역 저장 중 오류가 발생했습니다.');
-    // });
-}
+        formData += "&userIds=" + checkedUserIds.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/management/addPoint.do",
+            data: formData,
+            dataType: "json",
+            success: function(data, xhr) {
+                console.log("AJAX 성공 응답:", data);
+                console.log("HTTP 응답 코드:", xhr.status);
+                alert(data.message);
+                // location.reload();
+            },
+            error: function(request, data) {
+                console.log("AJAX error:", data); // 에러 메시지 확인
+                alert("상점 부여에 실패했습니다");
+                // location.reload();
+            }
+        });
+    });
+});
+
+$(document).ready(function() {
+    $("#submitBtnDel").click(function() {
+        var formId = $(this).data("form"); // 눌린 버튼의 data-form 속성 값 가져오기
+        var formData = $("#" + formId).serialize(); // 해당 폼의 데이터 직렬화
+
+        var checkedUserIds = [];
+        $(".userCheckbox:checked").each(function() {
+            checkedUserIds.push($(this).attr("name")); // 체크된 항목의 name 값(=user.id) 추가
+        });
+
+        if (checkedUserIds.length === 0) {
+            alert("최소 한 명 이상의 사용자를 선택하세요.");
+            return;
+        }
+
+        formData += "&userIds=" + checkedUserIds.join(",");
+
+        $.ajax({
+            type: "POST",
+            url: "/management/addPoint.do",
+            data: formData,
+            dataType: "json",
+            success: function(data) {
+                console.log("Server response:", data); // 서버 응답 확인
+                alert(data.message);
+                location.reload();
+            },
+            error: function(request, status, error) {
+                alert("벌점 부여에 실패했습니다");
+                location.reload();
+            }
+        });
+    });
+});
