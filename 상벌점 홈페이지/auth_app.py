@@ -117,6 +117,32 @@ def dologout():
         print(e)
         return redirect(url_for('index'))
     
+@authBlue.route('/myInfoEditPopup')
+def myInfoEditPopup():
+    if 'id' not in session:
+        return redirect(url_for('index'))
+
+    return render_template('auth/myInfoEditPopup.html')
+
+@authBlue.route('/myInfoEdit.do', methods=['POST'])
+def doMyInfoEdit():
+    try:
+        if 'id' not in session:
+            return redirect(url_for('auth.login'))
+
+        id = session['id']
+        currentpassword = request.form.get('currentPassword')
+        newPassword = request.form.get('newPassword')
+        newPasswordCheck = request.form.get('newPasswordCheck')
+
+        beforeDTO = usersDTO(id=id, password=currentpassword)
+        usersSVC.changePassword(beforeDTO, newPassword, newPasswordCheck)
+
+        return "<script>alert('비밀번호가 변경되었습니다.'); window.close();</script>"
+    except Exception as e:
+        message = str(e)
+        return f"<script>alert('{message}'); history.back();</script>"
+    
 # 관리자 권한 확인 데코레이터
 def adminAuth(f):
     @wraps(f)
