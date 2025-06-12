@@ -89,6 +89,12 @@ class usersSVC:
             return self.usersDAO.searchTeachersByKeyword(keyword)
         except Exception as e:
             raise Exception(f"searchTeachersByKeyword Error: {e}")
+    
+    def updateTeacherVerified(self, teacher_id: str, verified: int):
+        try:
+            self.usersDAO.updateTeacherVerified(teacher_id, verified)
+        except Exception as e:
+            raise Exception(f"updateTeacherVerified Error: {e}")
         
     def changePassword(self, beforeDTO: usersDTO, newPassword: str, newPasswordCheck: str):
         try:
