@@ -57,6 +57,27 @@ def addStudentPopup():
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
+    
+@adminBlue.route('/addStudent.do', methods=['POST'])
+@adminAuth
+def addStudent():
+    try:
+        stdNum = request.form.get('stdNum')
+        name = request.form.get('name')
+        id = request.form.get('id')
+        password = request.form.get('password')
+        passwordCheck = request.form.get('passwordCheck')
+
+        if password != passwordCheck:
+            flash("비밀번호가 일치하지 않습니다.")
+            return redirect(url_for('admin.addStudentPopup'))
+
+        # 학생 추가
+        usersSVC.signup(usersDTO(stdNum=stdNum, name=name, id=id, password=password, identity=2))
+        return "<script>alert('학생이 성공적으로 추가되었습니다.'); window.close();</script>"
+    except Exception as e:
+        flash("학생 추가 중 오류가 발생했습니다: " + str(e))
+        return redirect(url_for('admin.addStudentPopup'))
 
 @adminBlue.route('/addTeacherPopup')
 @adminAuth
