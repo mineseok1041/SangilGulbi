@@ -9,31 +9,41 @@
 <body>
     <main class="popupMain">
         <div class="studentInfoBox">
+        <form method="post" action="/admin/addStudent.do">
             <h2 class="boxHead">학생 계정 추가</h2>
                 <div class="studentInfo">
                     <div class="infoRow">
                         <span class="infoLabel">학번:</span>
-                        <input class="numInput" type="text" required />
+                        <input class="numInput" type="text" name="stdNum"
+                        required 
+                        pattern="^\d{5}$">
                     </div>
                     <div class="infoRow">
                         <span class="infoLabel">이름:</span> 
-                        <input class="nameInput" type="text" required />
+                        <input class="nameInput" type="text" name="name"
+                        required >
                     </div>
                     <div class="infoRow">
                         <span class="infoLabel">아이디:</span>
-                        <input class="idInput" type="text" required />
+                        <input class="idInput" type="text" name="id"
+                        required 
+                        pattern="^[A-Za-z0-9]{5,16}$">
                     </div>
                     <div class="infoRow">
                         <span class="infoLabel">비밀번호:</span>
                         <div class="passwordBox">
-                            <input class="passwordInput" type="password" name="password" required />
+                            <input class="passwordInput" type="password" name="password" 
+                            required 
+                            pattern="^[A-Za-z0-9!@#\*\^_]{8,16}$">
                             <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
                         </div>
                     </div>
                     <div class="infoRow">
                         <span class="infoLabel">비밀번호 확인:</span>
                         <div class="passwordBox">
-                            <input class="passwordInput" type="password" name="passwordCheck" required />
+                            <input class="passwordInput" type="password" name="passwordCheck" 
+                            required 
+                            pattern="^[A-Za-z0-9!@#\*\^_]{8,16}$">
                             <img class="togglePassword" src="{{ url_for('static', filename='img/eyeOffIcon.png') }}" alt="Show Password" />
                         </div>
                     </div>
@@ -41,9 +51,17 @@
                         <small>*학생 계정을 추가하는 기능으로 유의하여 사용해주시길 바랍니다.</small>
                     </div>
                 <button class="submitButton" type="submit">제출</button>
-            </form>
+            </h2>
+        </form>
         </div>
     </main>
     <script src="{{ url_for('static', filename='js/admin/addStudentPopupAdmin.js') }}"></script>
+    {%with messages = get_flashed_messages()%}
+	{%if messages %}
+	<script type="text/javascript">
+		alert("{{messages[-1]}}");
+	</script>
+	{%endif%}
+	{%endwith%}
 </body>
 </html>
