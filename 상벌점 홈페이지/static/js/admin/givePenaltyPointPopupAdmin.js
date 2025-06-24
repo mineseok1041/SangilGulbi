@@ -173,3 +173,7 @@ function submitPenalty() {
 
     document.getElementById("penaltyForm").submit();
 }
+
+    document.querySelector('.cancelButton').addEventListener('click', function() {
+    window.close();
+});

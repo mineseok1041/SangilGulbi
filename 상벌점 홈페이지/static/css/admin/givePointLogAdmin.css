@@ -341,6 +341,37 @@ nav > .six{
     padding-top: 3%;
 }
 
+.actionButtons {
+    width: 55%;
+    position: absolute;
+    top: 20%; /* 검색창과 같은 높이 */
+    left: 5%; /* 왼쪽으로 이동 */
+    display: flex;
+    gap: 10px; /* 버튼 간 간격 */
+}
+
+/* 버튼 스타일 */
+.actionButtons button {
+    padding: 2% 2%;
+    border: none;
+    border-radius: 5px;
+    background-color: #9AA6B2;
+    color: white;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actionButtons button:hover {
+    background-color: #7d8791; /* hover 시 색상 변경 */
+}
+
+.actionButtons button:active {
+    transform: scale(0.95); /* 살짝 눌리는 효과 */
+    background-color: #6b757d; /* 누를 때 색상 변경 */
+}
+
 .searchBar {
     width: 13%;
     top: 5%;

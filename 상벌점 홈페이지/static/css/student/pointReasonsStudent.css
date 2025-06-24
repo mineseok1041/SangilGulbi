@@ -57,8 +57,9 @@ nav > .profiles{
 nav>.name {
     position: absolute;
     left: 50%;
-    top: 8%;
+    top: 7.5%;
     color: white;
+    font-size: 20px;
 }
 
 nav > .mypage_nav {

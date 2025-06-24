@@ -117,11 +117,10 @@ h2{
 }
 
 .login {
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
     color: white;
-    margin-top: 2%;
-    width: 90%;
+    display: block;
 }
 
 img {
