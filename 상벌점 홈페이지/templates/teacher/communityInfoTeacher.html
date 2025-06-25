@@ -50,8 +50,10 @@
     </div>
     
     {% if session['identity'] == 0 or session['id'] == notice.author_id %}
-        <button class="agree-btn">수정</button>
-        <button class="decline-btn">삭제</button>
+        <a href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}" class="agree-btn">수정</a>
+        <form method="post" action="{{ url_for('teacher.communityDelete', noticeId=notice.id) }}" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+            <button type="submit" class="decline-btn">삭제</button>
+        </form>
     {% endif %}
 
      <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
