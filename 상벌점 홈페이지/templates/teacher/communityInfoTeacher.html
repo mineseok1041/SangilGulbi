@@ -48,10 +48,11 @@
     <div class="text_box">
         <p>{{ notice.content }}</p>
     </div>
-
-    <button class="agree-btn">수정</button>
-    <button class="decline-btn">삭제</button>
-
+    
+    {% if session['identity'] == 0 or session['id'] == notice.author_id %}
+        <button class="agree-btn">수정</button>
+        <button class="decline-btn">삭제</button>
+    {% endif %}
 
      <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
         <button class="sumit">전송</button>
