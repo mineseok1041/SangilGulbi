@@ -152,3 +152,23 @@ def adminAuth(f):
             return redirect(url_for('auth.login'))
         return f(*args, **kwargs)
     return decorated_function
+
+# 선생님 권한 확인 데코레이터
+def teacherAuth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'id' not in session or session.get('identity') != 1:
+            flash("선생님 권한이 필요합니다.")
+            return redirect(url_for('auth.login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# 학생 권한 확인 데코레이터
+def studentAuth(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'id' not in session or session.get('identity') != 2:
+            flash("학생 권한이 필요합니다.")
+            return redirect(url_for('auth.login'))
+        return f(*args, **kwargs)
+    return decorated_function

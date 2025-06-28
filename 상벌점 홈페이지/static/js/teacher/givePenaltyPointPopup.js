@@ -283,5 +283,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     teacherTableBody.appendChild(row);
                 });
             });
-    }
+    }    
+    document.querySelector('.cancelButton').addEventListener('click', function() {
+    window.close();
+});
 });
