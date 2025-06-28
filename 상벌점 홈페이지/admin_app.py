@@ -78,6 +78,20 @@ def addStudent():
     except Exception as e:
         flash("학생 추가 중 오류가 발생했습니다: " + str(e))
         return redirect(url_for('admin.addStudentPopup'))
+    
+@adminBlue.route('/deleteStudentAccount', methods=['POST'])
+@adminAuth
+def deleteStudentAccount():
+    try:
+        data = request.get_json()
+        studentId = data.get('studentId')
+        if not studentId:
+            return jsonify({"success": False, "error": "학생 ID가 없습니다."})
+        usersSVC.delUsers(usersDTO(id=studentId))
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
 
 @adminBlue.route('/addTeacherPopup')
 @adminAuth

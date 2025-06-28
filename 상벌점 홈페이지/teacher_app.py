@@ -1,7 +1,5 @@
 from flask import Flask, redirect, render_template, session, url_for, Blueprint, request, flash, jsonify
-
 from datetime import datetime
-
 from usersSVC import usersSVC
 from usersDTO import usersDTO
 from pointSVC import pointSVC
@@ -9,6 +7,7 @@ from pointReasonDTO import pointReasonDTO
 from pointLogDTO import pointLogDTO
 from noticeDTO import NoticeDTO
 from noticeSVC import NoticeSVC
+from auth_app import teacherAuth
 
 teacherBlue = Blueprint('teacher', __name__, url_prefix='/teacher')
 
@@ -17,6 +16,7 @@ usersSVC = usersSVC()
 pointSVC = pointSVC()
 
 @teacherBlue.route('/')
+@teacherAuth
 def index():
     try:
         if 'id' not in session:
@@ -32,6 +32,7 @@ def index():
         return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/pointLog')
+@teacherAuth
 def pointLog():
     try:
         if 'id' not in session:
@@ -46,6 +47,7 @@ def pointLog():
         return redirect(url_for('index'))
     
 @teacherBlue.route('/pointReasons')
+@teacherAuth
 def pointReasons():
     if 'id' not in session:
         return redirect(url_for('index'))
@@ -56,6 +58,7 @@ def pointReasons():
     return render_template('teacher/pointReasonsTeacher.html', bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
 
 @teacherBlue.route('/studentManagement')
+@teacherAuth
 def studentManagement():
     try:
         if 'id' not in session:
@@ -70,6 +73,7 @@ def studentManagement():
         return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/teacherManagement')
+@teacherAuth
 def teacherManagement():
     try:
         if 'id' not in session or session.get('identity') != 0:
@@ -82,6 +86,7 @@ def teacherManagement():
         return redirect(url_for('auth.login'))
 
 @teacherBlue.route('/resetStudentPasswordPopup', methods=['GET'])
+@teacherAuth
 def resetStudentPasswordPopup():
     studentNum = request.args.get('studentNum', '')
     studentName = request.args.get('studentName', '')
@@ -96,6 +101,7 @@ def resetStudentPasswordPopup():
     )
 
 @teacherBlue.route('/resetStudentPasswordPopup.do', methods=['POST'])
+@teacherAuth
 def resetStudentPasswordPopup_do():
     studentId = request.form.get('studentId')
     password = request.form.get('password')
@@ -111,6 +117,7 @@ def resetStudentPasswordPopup_do():
         return f"<script>alert('오류: {e}'); history.back();</script>"
     
 @teacherBlue.route('/resetTeacherPasswordPopup', methods=['GET'])
+@teacherAuth
 def resetTeacherPasswordPopup():
     teacherName = request.args.get('teacherName', '')
     teacherId = request.args.get('teacherId', '')
@@ -123,6 +130,7 @@ def resetTeacherPasswordPopup():
     )
 
 @teacherBlue.route('/resetTeacherPasswordPopup.do', methods=['POST'])
+@teacherAuth
 def resetTeacherPasswordPopup_do():
     teacherId = request.form.get('teacherId')
     password = request.form.get('password')
@@ -138,6 +146,7 @@ def resetTeacherPasswordPopup_do():
         return f"<script>alert('오류: {e}'); history.back();</script>"
     
 @teacherBlue.route('/deleteStudentAccount', methods=['POST'])
+@teacherAuth
 def deleteStudentAccount():
     try:
         data = request.get_json()
@@ -150,6 +159,7 @@ def deleteStudentAccount():
         return jsonify({"success": False, "error": str(e)})
 
 @teacherBlue.route('/deleteTeacherAccount', methods=['POST'])
+@teacherAuth
 def deleteTeacherAccount():
     try:
         data = request.get_json()
@@ -164,6 +174,7 @@ def deleteTeacherAccount():
 # ------------------ community(게시판) 기능 ------------------
 
 @teacherBlue.route('/community')
+@teacherAuth
 def community():
     try:
         if 'id' not in session:
@@ -177,6 +188,7 @@ def community():
         return redirect(url_for('index'))
     
 @teacherBlue.route('/community/<int:noticeId>')
+@teacherAuth
 def communityDetail(noticeId):
     try:
         if 'id' not in session:
@@ -188,6 +200,7 @@ def communityDetail(noticeId):
         return redirect(url_for('teacher.community'))
 
 @teacherBlue.route('/community/add', methods=['GET', 'POST'])
+@teacherAuth
 def communityAdd():
     try:
         if 'id' not in session:
@@ -205,6 +218,7 @@ def communityAdd():
         return redirect(url_for('teacher.community'))
 
 @teacherBlue.route('/community/edit/<int:noticeId>', methods=['GET', 'POST'])
+@teacherAuth
 def communityEdit(noticeId):
     try:
         if 'id' not in session:
@@ -221,6 +235,7 @@ def communityEdit(noticeId):
         return redirect(url_for('teacher.community'))
 
 @teacherBlue.route('/community/delete/<int:noticeId>', methods=['POST'])
+@teacherAuth
 def communityDelete(noticeId):
     try:
         if 'id' not in session:
@@ -232,6 +247,7 @@ def communityDelete(noticeId):
         return redirect(url_for('teacher.community'))
     
 @teacherBlue.route('/giveBonusPoint')
+@teacherAuth
 def giveBonusPoint():
     try:
         if 'id' not in session:
@@ -249,6 +265,7 @@ def giveBonusPoint():
         return redirect(url_for('index'))
     
 @teacherBlue.route('/givePenaltyPoint')
+@teacherAuth
 def givePenaltyPoint():
     try:
         if 'id' not in session:
@@ -266,6 +283,7 @@ def givePenaltyPoint():
         return redirect(url_for('index'))
     
 @teacherBlue.route('/giveBonusPoint.do', methods=['POST'])
+@teacherAuth
 def doGiveBonusPoint():
     try:
         stdId = request.form['stdId']
@@ -289,6 +307,7 @@ def doGiveBonusPoint():
         return redirect(url_for('teacher.giveBonusPoint'))
     
 @teacherBlue.route('/givePenaltyPoint.do', methods=['POST'])
+@teacherAuth
 def doGivePenaltyPoint():
     try:
         stdId = request.form['stdId']
@@ -312,6 +331,7 @@ def doGivePenaltyPoint():
         return redirect(url_for('teacher.giveBonusPoint'))
     
 @teacherBlue.route('/teacherSignupApprovalPopup')
+@teacherAuth
 def teacherSignupApprovalPopup():
     try:
         if 'id' not in session or session.get('identity') != 0:
@@ -323,6 +343,7 @@ def teacherSignupApprovalPopup():
         return 'Error'
 
 @teacherBlue.route('/resetTeacherPasswdPopup')
+@teacherAuth
 def resetTeacherPasswdPopup():
     teacherList = usersSVC.getTeachersList(1)
     try:
@@ -334,6 +355,7 @@ def resetTeacherPasswdPopup():
         return 'Error'
     
 @teacherBlue.route('/resetStudentPasswdPopup')
+@teacherAuth
 def resetStudentPasswdPopup():
     try:
         if 'id' not in session:
@@ -345,6 +367,7 @@ def resetStudentPasswdPopup():
         return 'Error'
     
 @teacherBlue.route('/approveTeacher', methods=['POST'])
+@teacherAuth
 def approveTeacher():
     if 'identity' not in session or session['identity'] != 0:
         return jsonify({"success": False, "error": "권한이 없습니다."})
@@ -356,6 +379,7 @@ def approveTeacher():
         return jsonify({"success": False, "error": str(e)})
     
 @teacherBlue.route('/myInfoEditPopup')
+@teacherAuth
 def myinfoEdit():
     try:
         if 'id' not in session:
@@ -367,6 +391,7 @@ def myinfoEdit():
         return redirect(url_for('index'))
     
 @teacherBlue.route('/searchStudents')
+@teacherAuth
 def searchStudents():
     keyword = request.args.get('keyword', '').strip()
     try:
@@ -379,6 +404,7 @@ def searchStudents():
 
 
 @teacherBlue.route('/searchTeachers')
+@teacherAuth
 def searchTeachers():
     keyword = request.args.get('keyword', '').strip()
     try:
