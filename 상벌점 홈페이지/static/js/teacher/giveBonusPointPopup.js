@@ -284,4 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
     }
+    document.querySelector('.cancelButton').addEventListener('click', function() {
+    window.close();
+});
 });

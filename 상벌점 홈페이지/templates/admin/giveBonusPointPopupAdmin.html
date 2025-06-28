@@ -135,25 +135,7 @@
                 </div>
             
             <button class="submitButton" onclick="submitBonus()">제출</button>
-
-            <!-- <table class="studentInfoTable">
-                <tr>
-                    <th>학번</th>
-                    <td class="studentNum">20230001</td>
-                </tr>
-                <tr>
-                    <th>이름</th>
-                    <td class="studentName">홍길동</td>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <td class="studentId">hong123</td>
-                </tr>
-                <tr>
-                    <th>총 상벌점</th>
-                    <td class="studentAllPoint">15</td>
-                </tr>
-            </table> -->
+            <button class="cancelButton" type="button" onclick="window.close();">취소</button>
         </div>
         <form id="bonusForm" method="POST" action="/teacher/giveBonusPoint.do" style="display: none;">
             <input type="hidden" name="stdId" id="formStudentId">

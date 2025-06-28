@@ -43,6 +43,7 @@ label {
 
 h2{
     color: white;
+    font-size: 28px;
 }
 
 .id {
@@ -68,8 +69,8 @@ h2{
 .remember-check{
     margin-top: 2%;
     border-radius: 10px;
-    padding-left: 2%;
-    font-size: 14px;
+    padding-left: 1%;
+    font-size: 15px;
     color: white;
 }
 
@@ -96,10 +97,11 @@ h2{
 }
 
 .signup {
-    font-size: 13px;
+    font-size: 15px;
     text-decoration: none;
     color: white;
-    margin-top: 1%;
+    display: block;
+    margin-top: 1.5%;
 }
 
 img {

@@ -120,9 +120,7 @@ h2 {
     font-size: 15px;
     text-decoration: none;
     color: white;
-    margin-top: -2%;
-    display: flex;
-    justify-content: flex-start;
+    display: block;
 }
 
 img {

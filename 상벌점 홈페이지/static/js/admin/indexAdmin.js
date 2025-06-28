@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll(".studentInfo_table tbody tr");
     rows.forEach((row, index) => {
-        if (index >= 8) {
-            row.style.display = "none"; // 8번째 이후 데이터 숨김
+        if (index >= 3) {
+            row.style.display = "none"; // 3번째 이후 데이터 숨김
         }
     });
 });
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll(".teacherManagement_table tbody tr");
     rows.forEach((row, index) => {
         if (index >= 3) {
-            row.style.display = "none"; // 8번째 이후 데이터 숨김
+            row.style.display = "none"; // 3번째 이후 데이터 숨김
         }
     });
 });
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll(".community_table tbody tr");
     rows.forEach((row, index) => {
         if (index >= 3) {
-            row.style.display = "none"; // 8번째 이후 데이터 숨김
+            row.style.display = "none"; // 3번째 이후 데이터 숨김
         }
     });
 });
