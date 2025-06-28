@@ -130,7 +130,7 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -138,11 +138,11 @@ nav > .myInfoEdit_nav{
     text-decoration: none;
     cursor: pointer;
     font-size: 24px;
-    background-color: #9aa6b2;
+    background-color: #BCCCDC;
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
