@@ -182,3 +182,45 @@ class pointDAO:
                 cursor.close()
             if conn:
                 conn.close()
+
+    def getPointLogByNo(self, logNo: int) -> pointLogDTO:
+        query = "SELECT * FROM pointLog WHERE no = :1"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [logNo])
+            row = cursor.fetchone()
+
+            if row:
+                return pointLogDTO(*row)
+            else:
+                raise Exception("로그를 찾을 수 없습니다.")
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    def deletePointLog(self, logNo: int):
+        query = "DELETE FROM pointLog WHERE no = :1"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+
+            cursor = conn.cursor()
+            cursor.execute(query, [logNo])
+
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            cursor.close()
+            conn.close()

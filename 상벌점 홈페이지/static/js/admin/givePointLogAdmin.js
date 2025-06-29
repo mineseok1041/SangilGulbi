@@ -6,20 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const headers = document.querySelectorAll(".pointLog_table thead th.sortable");
     const resetFiltersButton = filterPopup.querySelector(".resetFilters");
     const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
-
-    // 날짜 형식 변경 (YYYY/MM/DD)
-    allRows.forEach(row => {
-        const cells = row.querySelectorAll("td");
-        const dateCell = cells[3];
-        if (dateCell) {
-            const originalText = dateCell.textContent.trim();
-            const match = originalText.match(/^(\d{4})(\d{2})(\d{2})/);
-            if (match) {
-                const [_, year, month, day] = match;
-                dateCell.textContent = `${year}/${month}/${day}`;
-            }
-        }
-    });
+    const pointCancelButton = document.querySelector(".pointCancel");
 
     // 드롭다운 토글
     document.querySelectorAll('.main-row').forEach(row => {
@@ -78,38 +65,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 정렬 기능 추가
-    headers.forEach(header => {
-        header.addEventListener("click", function () {
-            const columnIndex = header.getAttribute("data-column") - 1;
-            const isAscending = header.classList.contains("asc");
-            const direction = isAscending ? -1 : 1;
-
-            headers.forEach(h => h.classList.remove("asc", "desc"));
-            header.classList.add(isAscending ? "desc" : "asc");
-
-            const sortedRows = tableRows.sort((a, b) => {
-                const aText = a.querySelectorAll("td")[columnIndex].textContent.trim();
-                const bText = b.querySelectorAll("td")[columnIndex].textContent.trim();
-
-                // 숫자 정렬 (총 상벌점)
-                if (columnIndex === 4) {
-                    const aValue = parseFloat(aText.replace("+", ""));
-                    const bValue = parseFloat(bText.replace("+", ""));
-                    return (aValue - bValue) * direction;
+    pointCancelButton.addEventListener("click", () => {
+        const selectedRow = document.querySelector(".pointLog_table .selected-row");
+    
+        if (!selectedRow) {
+            alert("취소할 로그를 선택해주세요");
+            return;
+        }
+        
+        const logNo = selectedRow.dataset.no;
+        
+        if (confirm("상벌점 부여 취소? : " + logNo)) {
+            fetch("/admin/pointCancel.do", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ no: logNo })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("점수 부여가 취소되었습니다.");
+                    location.reload();
+                } else {
+                    alert(data.error || "취소 중 오류가 발생했습니다.");
                 }
-
-                // 날짜 정렬 (마지막 활동)
-                if (columnIndex === 3) {
-                    return (new Date(aText) - new Date(bText)) * direction;
-                }
-
-                // 일반 텍스트 정렬
-                return aText > bText ? direction : aText < bText ? -direction : 0;
-            });
-
-            tableBody.innerHTML = "";
-            sortedRows.forEach(row => tableBody.appendChild(row));
-        });
+            })
+            .catch(() => alert("취소 요청 중 오류가 발생했습니다."));
+        }
     });
 });
