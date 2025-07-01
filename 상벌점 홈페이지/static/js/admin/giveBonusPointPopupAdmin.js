@@ -173,3 +173,7 @@ function submitBonus() {
 
     document.getElementById("bonusForm").submit();
 }
+
+    document.querySelector('.cancelButton').addEventListener('click', function() {
+    window.close();
+});

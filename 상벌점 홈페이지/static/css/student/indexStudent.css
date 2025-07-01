@@ -67,8 +67,9 @@ nav>.profiles {
 nav>.name {
     position: absolute;
     left: 50%;
-    top: 8%;
+    top: 7.5%;
     color: white;
+    font-size: 20px;
 }
 
 
@@ -507,7 +508,7 @@ td {
 
 td > a{
     text-decoration: none;
-    color: #55595D;
+    color: #000000;
 }
 
 button{

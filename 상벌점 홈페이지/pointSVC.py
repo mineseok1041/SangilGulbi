@@ -51,3 +51,17 @@ class pointSVC:
             return self.pointDAO.getPointLogByTeacherID(reqDTO, type)
         except Exception as e:
             raise Exception(f"getPointLogByTeacherID Error: {e}")
+        
+    def cancelPointLog(self, logNo: int):
+        try:
+            pointLogDTO = self.pointDAO.getPointLogByNo(logNo)
+            returnPoint = pointLogDTO.point
+            studentDTO = self.usersDAO.getUsersInfo(usersDTO.usersDTO(id=pointLogDTO.studentId))
+
+            if returnPoint > 0:
+                self.pointDAO.addPoint(studentDTO, (returnPoint * -1))
+            elif returnPoint < 0:
+                self.pointDAO.delPoint(studentDTO, (returnPoint * -1))
+            self.pointDAO.deletePointLog(logNo)
+        except Exception as e:
+            raise Exception(f"deletePointLog Error: {e}")

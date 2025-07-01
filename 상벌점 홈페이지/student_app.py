@@ -5,6 +5,7 @@ from usersSVC import usersSVC
 from usersDTO import usersDTO
 from pointSVC import pointSVC
 from pointLogDTO import pointLogDTO
+from auth_app import studentAuth
 
 studentBlue = Blueprint('student', __name__, url_prefix='/student')
 usersSVC = usersSVC()
@@ -12,6 +13,7 @@ pointSVC = pointSVC()
 noticeSVC = NoticeSVC()
 
 @studentBlue.route('/')
+@studentAuth
 def index():
     try:
         if 'id' not in session:
@@ -48,6 +50,7 @@ def index():
         return redirect(url_for('auth.login'))
 
 @studentBlue.route('/pointLog')
+@studentAuth
 def pointLog():
     if 'id' not in session:
         return redirect(url_for('auth.login'))
@@ -58,6 +61,7 @@ def pointLog():
     return render_template('student/pointLogStudent.html', usersDTO=respDTO, pointLogList=pointLogList)
 
 @studentBlue.route('/pointReasons')
+@studentAuth
 def pointReasons():
     if 'id' not in session:
         return redirect(url_for('index'))
@@ -71,6 +75,7 @@ def pointReasons():
 # ------------------ community(게시판) 기능 ------------------
 
 @studentBlue.route('/community')
+@studentAuth
 def communityList():
     if 'id' not in session:
         return redirect(url_for('index'))
@@ -81,6 +86,7 @@ def communityList():
     return render_template('student/communityStudent.html', notices=notices, usersDTO=respDTO)
 
 @studentBlue.route('/community/<int:noticeId>')
+@studentAuth
 def communityDetail(noticeId):
     if 'id' not in session:
         return redirect(url_for('index'))

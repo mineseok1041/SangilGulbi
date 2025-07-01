@@ -135,16 +135,16 @@
                 </div>
             
             <button class="submitButton" onclick="submitPenalty()">제출</button>
-
-            <form id="penaltyForm" method="POST" action="/teacher/givePenaltyPoint.do" style="display: none;">
-                <input type="hidden" name="stdId" id="formStudentId">
-                <input type="hidden" name="reason" id="formReason">
-                <input type="hidden" name="point" id="formPoint">
-                <input type="hidden" name="writeTeacherId" id="formWriteTeacherId">
-                <input type="hidden" name="giveTeacherId" id="formGiveTeacherId">
-                <input type="hidden" name="opinion" id="formOpinion">
-            </form>
+            <button class="cancelButton" type="button" onclick="window.close();">취소</button>
         </div>
+        <form id="penaltyForm" method="POST" action="/teacher/givePenaltyPoint.do" style="display: none;">
+            <input type="hidden" name="stdId" id="formStudentId">
+            <input type="hidden" name="reason" id="formReason">
+            <input type="hidden" name="point" id="formPoint">
+            <input type="hidden" name="writeTeacherId" id="formWriteTeacherId">
+            <input type="hidden" name="giveTeacherId" id="formGiveTeacherId">
+            <input type="hidden" name="opinion" id="formOpinion">
+        </form>
     </main>
 
     <script src="{{ url_for('static', filename='js/admin/givePenaltyPointPopupAdmin.js') }}"></script>

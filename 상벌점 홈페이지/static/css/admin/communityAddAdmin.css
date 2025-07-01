@@ -288,9 +288,37 @@ nav > .six{
     border-radius: 5px;
     background-color: #8392a0;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
-    margin: 19% 0% 0% 85%;
+    left: 86%;
+    bottom: 5%;
+    z-index: 100;
+    position: absolute;
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.write_btn:hover {
+    background-color: #7d8791; /* hover 시 색상 변경 */
+}
+
+.cancelButton{
+    width: 10%;
+    height: 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: #a08383;
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    left: 75%;
+    bottom: 5%;
+    z-index: 100;
+    position: absolute;
+}
+
+.cancelButton:hover {
+    background-color: #917d7d; /* hover 시 색상 변경 */
 }
 
 button{
