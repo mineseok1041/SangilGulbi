@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const filterPopup = document.querySelector(".filterPopup");
     const resetFiltersButton = filterPopup.querySelector(".resetFilters");
     const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
+    const pointCancelButton = document.querySelector(".pointCancel");
 
     // 날짜 형식 변경 (YYYY/MM/DD)
     allRows.forEach(row => {
@@ -76,5 +77,34 @@ document.addEventListener("DOMContentLoaded", function () {
         allRows.forEach(row => {
             row.style.display = "";
         });
+    });
+
+    pointCancelButton.addEventListener("click", () => {
+        const selectedRow = document.querySelector(".pointLog_table .selected-row");
+    
+        if (!selectedRow) {
+            alert("취소할 로그를 선택해주세요");
+            return;
+        }
+        
+        const logNo = selectedRow.dataset.no;
+        
+        if (confirm("해당 상벌점 부여를 취소하시겠습니까?")) {
+            fetch("/teacher/pointCancel.do", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ no: logNo })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert("점수 부여가 취소되었습니다.");
+                    location.reload();
+                } else {
+                    alert(data.error || "취소 중 오류가 발생했습니다.");
+                }
+            })
+            .catch(() => alert("취소 요청 중 오류가 발생했습니다."));
+        }
     });
 });

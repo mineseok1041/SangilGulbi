@@ -139,6 +139,19 @@ def pointLog():
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
+    
+@adminBlue.route('/pointCancel.do' , methods=['POST'])
+@adminAuth
+def pointCancel():
+    try:
+        data = request.get_json()
+        logNo = int(data.get('no'))
+
+        pointSVC.cancelPointLog(logNo)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
 
 @adminBlue.route('/pointReasons')
 @adminAuth
