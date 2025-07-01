@@ -66,7 +66,7 @@
                 </thead>
                 <tbody>
                     {% for pointLog in pointLogList %}
-                    <tr class="main-row">
+                    <tr class="main-row" data-no="{{ pointLog.no }}">
                         <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
                         <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>

@@ -414,3 +414,16 @@ def searchTeachers():
         ])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+@teacherBlue.route('/pointCancel.do' , methods=['POST'])
+@teacherAuth
+def pointCancel():
+    try:
+        data = request.get_json()
+        logNo = int(data.get('no'))
+
+        pointSVC.cancelPointLog(logNo)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
