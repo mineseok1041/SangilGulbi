@@ -50,7 +50,7 @@
     </div>
     
     {% if session['identity'] == 0 or session['id'] == notice.author_id %}
-        <a href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}" class="agree-btn">수정</a>
+        <button href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}" class="agree-btn">수정</button>
         <form method="post" action="{{ url_for('teacher.communityDelete', noticeId=notice.id) }}" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
             <button type="submit" class="decline-btn">삭제</button>
         </form>
