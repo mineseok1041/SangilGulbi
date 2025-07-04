@@ -42,7 +42,17 @@ class usersDAO:
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 2"
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM users WHERE identity = 2 ORDER BY no
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
         
         conn = None
         cursor = None
@@ -54,8 +64,10 @@ class usersDAO:
             rows = cursor.fetchall()
             
             result = []
+
             for row in rows:
-                result.append(usersDTO(*row))
+                print(row)
+                result.append(usersDTO(*row[:-1]))
             
             return result
         except cx_Oracle.DatabaseError as e:
