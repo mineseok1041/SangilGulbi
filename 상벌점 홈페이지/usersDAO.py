@@ -66,7 +66,6 @@ class usersDAO:
             result = []
 
             for row in rows:
-                print(row)
                 result.append(usersDTO(*row[:-1]))
             
             return result
@@ -250,16 +249,34 @@ class usersDAO:
         endNo = page * limit
         
         # 승인된(verified=1) 선생님만 조회
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 1 AND verified = 1"
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM users WHERE identity = 1 AND verified = 1 ORDER BY no
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
         
         conn = None
         cursor = None
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
-            cursor.execute(query, [startNo, endNo])
+
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
             rows = cursor.fetchall()
-            return [usersDTO(*row) for row in rows]
+
+            result = []
+
+            for row in rows:
+                print(row)
+                result.append(usersDTO(*row[:-1]))
+            
+            return result
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
         finally:
