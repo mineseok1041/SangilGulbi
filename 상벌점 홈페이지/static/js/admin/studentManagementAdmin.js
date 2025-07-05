@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const resetFiltersButton = filterPopup ? filterPopup.querySelector(".resetFilters") : null;
     const deleteButton = document.querySelector(".deleteAccount");
     const addButton = document.querySelector(".addStudent");
+    const searchInput = document.querySelector(".searchBar .searchInput");
+    const searchButton = document.querySelector(".searchButton");
 
     let selectedStudent = null;
 
@@ -239,5 +241,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
 
         cell.textContent = formattedDate; // "2025/05/14"
+    });
+
+    searchButton.addEventListener("click", function () {
+        const keyword = searchInput.value.trim();
+        fetch(`/admin/searchStudents?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                tableBody.innerHTML = "";
+                data.forEach(student => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${student.stdNum ?? ""}</td>
+                        <td>${student.name ?? ""}</td>
+                        <td>${student.id ?? ""}</td>
+                        <td>${student.lastlogindate ?? ""}</td>
+                        <td>${student.point ?? ""}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            });
+    });
+    
+    // 엔터키로도 검색 가능하게
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            searchButton.click();
+        }
     });
 });

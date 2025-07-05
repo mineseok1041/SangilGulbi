@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const bellButton = document.querySelector(".bell"); // 알림 버튼
     const deleteButton = document.querySelector(".deleteAccount");
     const addButton = document.querySelector(".addTeacher"); // 추가 버튼
+    const searchInput = document.querySelector(".searchBar .searchInput");
+    const searchButton = document.querySelector(".searchButton");
 
     let selectedTeacher = null; // 선택된 학생 정보 초기화
 
@@ -168,5 +170,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
 
         cell.textContent = formattedDate; // "2025/05/14"
+    });
+
+    searchButton.addEventListener("click", function () {
+        const keyword = searchInput.value.trim();
+        fetch(`/admin/searchTeachers?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                tableBody.innerHTML = "";
+                data.forEach(teacher => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${teacher.name ?? ""}</td>
+                        <td>${teacher.id ?? ""}</td>
+                        <td>${teacher.lastlogindate ?? ""}</td>
+                    `;
+                    tableBody.appendChild(tr);
+                });
+            });
+    });
+    
+    // 엔터키로도 검색 가능하게
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            searchButton.click();
+        }
     });
 });
