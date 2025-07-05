@@ -273,7 +273,6 @@ class usersDAO:
             result = []
 
             for row in rows:
-                print(row)
                 result.append(usersDTO(*row[:-1]))
             
             return result

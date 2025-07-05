@@ -36,6 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // 테이블 외부 클릭 시 선택 해제
+    document.addEventListener("click", function (event) {
+        if (!table.contains(event.target)) {
+            const currentRows = tableBody.querySelectorAll("tr");
+            currentRows.forEach(row => row.classList.remove("selected-row"));
+            selectedStudent = null;
+        }
+    });
+    
+
     // 필터 아이콘 클릭 이벤트
     if (filterIcon && filterPopup) {
         filterIcon.addEventListener("click", function () {
@@ -192,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${student.stdNum ?? ""}</td>
                         <td>${student.name ?? ""}</td>
                         <td>${student.id ?? ""}</td>
-                        <td>${student.lastlogindate ?? ""}</td>
+                        <td>${student.lastlogindate ?? "로그인 기록 없음"}</td>
                         <td>${student.point ?? ""}</td>
                     `;
 
