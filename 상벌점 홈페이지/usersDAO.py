@@ -327,7 +327,7 @@ class usersDAO:
     def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:
         query = """
             SELECT * FROM users
-            WHERE identity = 2 AND (name LIKE :kw OR stdNum LIKE :kw)
+            WHERE identity = 2 AND (name LIKE :kw OR stdNum LIKE :kw OR id LIKE :kw)
         """
         conn = self.get_connection()
         cursor = conn.cursor()

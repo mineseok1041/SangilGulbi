@@ -397,20 +397,13 @@ def searchStudents():
     try:
         students = usersSVC.searchStudentsByKeyword(keyword)
         return jsonify([
-            {'id': s.id, 'name': s.name, 'stdNum': s.stdNum} for s in students
-        ])
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
-
-@teacherBlue.route('/searchTeachers')
-@teacherAuth
-def searchTeachers():
-    keyword = request.args.get('keyword', '').strip()
-    try:
-        teachers = usersSVC.searchTeachersByKeyword(keyword)
-        return jsonify([
-            {'id': t.id, 'name': t.name} for t in teachers
+            {
+                'stdNum': s.stdNum,
+                'name': s.name,
+                'id': s.id,
+                'lastlogindate': s.lastlogindate,
+                'point': s.point
+            } for s in students
         ])
     except Exception as e:
         return jsonify({'error': str(e)}), 500
