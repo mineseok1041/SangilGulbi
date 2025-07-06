@@ -240,9 +240,34 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${student.stdNum ?? ""}</td>
                         <td>${student.name ?? ""}</td>
                         <td>${student.id ?? ""}</td>
-                        <td>${student.lastlogindate ?? ""}</td>
+                        <td>${student.lastlogindate ?? "로그인 기록 없음"}</td>
                         <td>${student.point ?? ""}</td>
                     `;
+                    
+                    // 선택 이벤트 바인딩
+                    tr.addEventListener("click", function (event) {
+                        event.stopPropagation();
+
+                        // 이미 선택된 경우 해제
+                        if (tr.classList.contains("selected-row")) {
+                            tr.classList.remove("selected-row");
+                            selectedStudent = null;
+                            return;
+                        }
+                    
+                        // 기존 선택 해제
+                        tableBody.querySelectorAll("tr").forEach(r => r.classList.remove("selected-row"));
+                    
+                        // 새 선택 적용
+                        tr.classList.add("selected-row");
+                    
+                        const studentNum = tr.cells[0].textContent.trim();
+                        const studentName = tr.cells[1].textContent.trim();
+                        const studentId = tr.cells[2].textContent.trim();
+                    
+                        selectedStudent = { studentNum, studentName, studentId };
+                    });
+
                     tableBody.appendChild(tr);
                 });
             });
