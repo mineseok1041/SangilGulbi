@@ -42,7 +42,17 @@ class usersDAO:
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 2"
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM users WHERE identity = 2 ORDER BY no
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
         
         conn = None
         cursor = None
@@ -54,8 +64,9 @@ class usersDAO:
             rows = cursor.fetchall()
             
             result = []
+
             for row in rows:
-                result.append(usersDTO(*row))
+                result.append(usersDTO(*row[:-1]))
             
             return result
         except cx_Oracle.DatabaseError as e:
@@ -238,16 +249,33 @@ class usersDAO:
         endNo = page * limit
         
         # 승인된(verified=1) 선생님만 조회
-        query = "SELECT * FROM users WHERE no BETWEEN :startNo AND :endNo AND identity = 1 AND verified = 1"
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM users WHERE identity = 1 AND verified = 1 ORDER BY no
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
         
         conn = None
         cursor = None
         try:
             conn = self.get_connection()
             cursor = conn.cursor()
-            cursor.execute(query, [startNo, endNo])
+
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
             rows = cursor.fetchall()
-            return [usersDTO(*row) for row in rows]
+
+            result = []
+
+            for row in rows:
+                result.append(usersDTO(*row[:-1]))
+            
+            return result
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
         finally:
@@ -298,7 +326,7 @@ class usersDAO:
     def searchStudentsByKeyword(self, keyword: str) -> list[usersDTO]:
         query = """
             SELECT * FROM users
-            WHERE identity = 2 AND (name LIKE :kw OR stdNum LIKE :kw)
+            WHERE identity = 2 AND (name LIKE :kw OR stdNum LIKE :kw OR id LIKE :kw)
         """
         conn = self.get_connection()
         cursor = conn.cursor()

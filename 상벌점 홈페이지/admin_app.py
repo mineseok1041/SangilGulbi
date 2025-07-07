@@ -166,7 +166,6 @@ def pointReasons():
 @adminAuth
 def community():
     try:
-        teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         notices = SVC.get_all_notices()
         return render_template('admin/communityAdmin.html', notices=notices)
     except Exception as e:
@@ -191,14 +190,17 @@ def communityEdit():
         print(e)
         return redirect(url_for('auth.login'))
 
-@adminBlue.route('/community/info')
+@adminBlue.route('/community/<int:noticeId>')
 @adminAuth
-def communityInfo():
+def communityDetail(noticeId):
     try:
-        return render_template('admin/communityInfoAdmin.html')
+        if 'id' not in session:
+            return redirect(url_for('index'))
+        notice = SVC.get_notice_by_id(noticeId)
+        return render_template('admin/communityInfoAdmin.html', notice=notice)
     except Exception as e:
         print(e)
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('admin.community'))
 
 @adminBlue.route('/giveBonusPointPopup')
 @adminAuth
@@ -247,3 +249,31 @@ def rejectTeacher():
     except Exception as e:
         print(f"Error in rejectTeacher: {e}")
         return jsonify({"success": False, "message": str(e)})
+    
+@adminBlue.route('/searchStudents')
+@adminAuth
+def search_students():
+    keyword = request.args.get('keyword', '').strip()
+    students = usersSVC.searchStudentsByKeyword(keyword)
+    return jsonify([
+        {
+            'stdNum': s.stdNum,
+            'name': s.name,
+            'id': s.id,
+            'lastlogindate': s.lastlogindate,
+            'point': s.point
+        } for s in students
+    ])
+
+@adminBlue.route('/searchTeachers')
+@adminAuth
+def search_teachers():
+    keyword = request.args.get('keyword', '').strip()
+    teachers = usersSVC.searchTeachersByKeyword(keyword)
+    return jsonify([
+        {
+            'name': t.name,
+            'id': t.id,
+            'lastlogindate': t.lastlogindate
+        } for t in teachers
+    ])

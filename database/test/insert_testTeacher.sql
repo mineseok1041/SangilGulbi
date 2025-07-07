@@ -1,0 +1,22 @@
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher5', 'teacher5', '선생님5', 1, 1, 8349);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher6', 'teacher6', '선생님6', 1, 1, 5192);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher7', 'teacher7', '선생님7', 1, 1, 6703);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher8', 'teacher8', '선생님8', 1, 1, 1027);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher9', 'teacher9', '선생님9', 1, 1, 2915);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher10', 'teacher10', '선생님10', 1, 1, 4086);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher11', 'teacher11', '선생님11', 1, 1, 1930);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher12', 'teacher12', '선생님12', 1, 1, 7564);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher13', 'teacher13', '선생님13', 1, 1, 0871);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher14', 'teacher14', '선생님14', 1, 1, 6448);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher15', 'teacher15', '선생님15', 1, 1, 3960);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher16', 'teacher16', '선생님16', 1, 1, 2145);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher17', 'teacher17', '선생님17', 1, 1, 9083);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher18', 'teacher18', '선생님18', 1, 1, 1104);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher19', 'teacher19', '선생님19', 1, 1, 5662);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher20', 'teacher20', '선생님20', 1, 1, 3481);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher21', 'teacher21', '선생님21', 1, 1, 7280);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher22', 'teacher22', '선생님22', 1, 1, 0639);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher23', 'teacher23', '선생님23', 1, 1, 4774);
+INSERT INTO users (id, password, name, identity, verified, checkCode) VALUES ('teacher24', 'teacher24', '선생님24', 1, 1, 3102);
+
+commit;
