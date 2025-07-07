@@ -40,7 +40,7 @@ INSERT INTO pointReason (no, reason, value, type) VALUES (224, '실습 시간 �
 INSERT INTO pointReason (no, reason, value, type) VALUES (225, '학생에서 통신매체를 이용하여 사행성 프로그램에 접속하였거나 도박을 한 학생', -10, 'penalty');
 INSERT INTO pointReason (no, reason, value, type) VALUES (226, '교내에서 도색잡지 소지 및 음란 사이트 접속하거나 배포한 학생', -5, 'penalty');
 INSERT INTO pointReason (no, reason, value, type) VALUES (227, '인원(출석) 점검 시 대리로 대답한 학생', -10, 'penalty');
-INSERT INTO pointReason (no, reason, value, type) VALUES (228, '황당한 이유 없이 미인정 지각한 경우', -1, 'penalty');
+INSERT INTO pointReason (no, reason, value, type) VALUES (228, '합당한 이유 없이 미인정 지각한 경우', -1, 'penalty');
 INSERT INTO pointReason (no, reason, value, type) VALUES (229, '미인정으로 조퇴, 결과, 외출한 경우', -2, 'penalty');
 INSERT INTO pointReason (no, reason, value, type) VALUES (230, '합당한 이유 없이 미인정 결석한 경우', -2, 'penalty');
 INSERT INTO pointReason (no, reason, value, type) VALUES (231, '학생 생활 규정에 따른 교사의 정당한 지도에 불응한 학생', -10, 'penalty');
