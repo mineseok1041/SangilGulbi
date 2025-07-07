@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const filterPopup = document.querySelector(".filterPopup");
     const resetFiltersButton = filterPopup ? filterPopup.querySelector(".resetFilters") : null;
     const deleteButton = document.querySelector(".deleteAccount");
+    const searchInput = document.querySelector(".searchBar .searchInput");
+    const searchButton = document.querySelector(".searchButton");
 
     let selectedStudent = null;
 
@@ -32,15 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-
-    // 페이지 로드 시 기본 정렬 (학번순)
-    const sortedRows = tableRows.sort((a, b) => {
-        const aNumber = a.querySelector("td:nth-child(1)").textContent.trim();
-        const bNumber = b.querySelector("td:nth-child(1)").textContent.trim();
-        return aNumber.localeCompare(bNumber);
-    });
-    tableBody.innerHTML = "";
-    sortedRows.forEach(row => tableBody.appendChild(row));
 
     // 테이블 외부 클릭 시 선택 해제
     document.addEventListener("click", function (event) {
@@ -72,8 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 팝업 외부 클릭 시 팝업 닫기
     document.addEventListener("click", function (event) {
-        if (filterPopup && !filterPopup.contains(event.target) && !filterIcon.contains(event.target)) {
-            filterPopup.classList.add("hidden");
+        if (!table.contains(event.target)) {
+            const currentRows = tableBody.querySelectorAll("tr");
+            currentRows.forEach(row => row.classList.remove("selected-row"));
+            selectedStudent = null;
         }
     });
 
@@ -180,49 +175,56 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 정렬 기능 추가
-    headers.forEach(header => {
-        header.addEventListener("click", function () {
-            const columnIndex = header.getAttribute("data-column") - 1;
-            const isAscending = header.classList.contains("asc");
-            const direction = isAscending ? -1 : 1;
+    searchButton.addEventListener("click", function () {
+        const keyword = searchInput.value.trim();
+        fetch(`/teacher/searchStudents?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                tableBody.innerHTML = "";
+                data.forEach(student => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${student.stdNum ?? ""}</td>
+                        <td>${student.name ?? ""}</td>
+                        <td>${student.id ?? ""}</td>
+                        <td>${student.lastlogindate ?? "로그인 기록 없음"}</td>
+                        <td>${student.point ?? ""}</td>
+                    `;
+                    
+                    // 선택 이벤트 바인딩
+                    tr.addEventListener("click", function (event) {
+                        event.stopPropagation();
 
-            headers.forEach(h => h.classList.remove("asc", "desc"));
-            header.classList.add(isAscending ? "desc" : "asc");
+                        // 이미 선택된 경우 해제
+                        if (tr.classList.contains("selected-row")) {
+                            tr.classList.remove("selected-row");
+                            selectedStudent = null;
+                            return;
+                        }
+                    
+                        // 기존 선택 해제
+                        tableBody.querySelectorAll("tr").forEach(r => r.classList.remove("selected-row"));
+                    
+                        // 새 선택 적용
+                        tr.classList.add("selected-row");
+                    
+                        const studentNum = tr.cells[0].textContent.trim();
+                        const studentName = tr.cells[1].textContent.trim();
+                        const studentId = tr.cells[2].textContent.trim();
+                    
+                        selectedStudent = { studentNum, studentName, studentId };
+                    });
 
-            const sortedRows = tableRows.sort((a, b) => {
-                const aText = a.querySelectorAll("td")[columnIndex].textContent.trim();
-                const bText = b.querySelectorAll("td")[columnIndex].textContent.trim();
-
-                // 숫자 정렬 (총 상벌점)
-                if (columnIndex === 4) {
-                    const aValue = parseFloat(aText.replace("+", ""));
-                    const bValue = parseFloat(bText.replace("+", ""));
-                    return (aValue - bValue) * direction;
-                }
-
-                // 날짜 정렬 (마지막 활동)
-                if (columnIndex === 3) {
-                    return (new Date(aText) - new Date(bText)) * direction;
-                }
-
-                // 일반 텍스트 정렬
-                return aText > bText ? direction : aText < bText ? -direction : 0;
+                    tableBody.appendChild(tr);
+                });
             });
-
-            tableBody.innerHTML = "";
-            sortedRows.forEach(row => tableBody.appendChild(row));
-        });
     });
-    const dateCell = document.querySelectorAll('.date-cell');
 
-    dateCell.forEach(cell => {
-        const originalText = cell.textContent.trim(); // 예: "20250514 09:18:56"
-        const datePart = originalText.split(' ')[0];  // "20250514"
-
-        // 날짜 형식 변경
-        const formattedDate = `${datePart.slice(0, 4)}/${datePart.slice(4, 6)}/${datePart.slice(6, 8)}`;
-
-        cell.textContent = formattedDate; // "2025/05/14"
+    // 엔터키로도 검색 가능하게
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            searchButton.click();
+        }
     });
 });

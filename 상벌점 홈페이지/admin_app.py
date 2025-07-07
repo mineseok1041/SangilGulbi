@@ -249,3 +249,31 @@ def rejectTeacher():
     except Exception as e:
         print(f"Error in rejectTeacher: {e}")
         return jsonify({"success": False, "message": str(e)})
+    
+@adminBlue.route('/searchStudents')
+@adminAuth
+def search_students():
+    keyword = request.args.get('keyword', '').strip()
+    students = usersSVC.searchStudentsByKeyword(keyword)
+    return jsonify([
+        {
+            'stdNum': s.stdNum,
+            'name': s.name,
+            'id': s.id,
+            'lastlogindate': s.lastlogindate,
+            'point': s.point
+        } for s in students
+    ])
+
+@adminBlue.route('/searchTeachers')
+@adminAuth
+def search_teachers():
+    keyword = request.args.get('keyword', '').strip()
+    teachers = usersSVC.searchTeachersByKeyword(keyword)
+    return jsonify([
+        {
+            'name': t.name,
+            'id': t.id,
+            'lastlogindate': t.lastlogindate
+        } for t in teachers
+    ])

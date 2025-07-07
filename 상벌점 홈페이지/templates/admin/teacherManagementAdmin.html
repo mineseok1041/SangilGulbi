@@ -68,7 +68,7 @@
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
-                        <td>{{ teacher.lastlogindate }}</td>
+                        <td>{{ teacher.lastlogindate if teacher.lastlogindate else "로그인 기록 없음" }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -69,7 +69,7 @@
                         <td>{{ student.stdNum }}</td>
                         <td>{{ student.name }}</td>
                         <td>{{ student.id }}</td>
-                        <td>{{ student.lastlogindate }}</td>
+                        <td>{{ student.lastlogindate if student.lastlogindate else "로그인 기록 없음" }}</td>
                         <td>{{ student.point }}</td>
                     </tr>
                     {% endfor %}
