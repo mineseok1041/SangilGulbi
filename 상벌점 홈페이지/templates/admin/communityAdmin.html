@@ -45,7 +45,7 @@
             <tr>
                 <td>{{ loop.index }}</td>
                 <td class="wide-column">
-                    <a class="nextpage" href="{{ url_for('teacher.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
+                    <a class="nextpage" href="{{ url_for('admin.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
                 </td>
                 <td>{{ notice.created_date }}</td>
                 <td>{{ notice.author }}</td>
