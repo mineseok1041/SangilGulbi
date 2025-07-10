@@ -216,6 +216,10 @@ nav > .five{
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
+
 .studentInfo {
     width: 80%;
     height: 90%;

@@ -204,6 +204,10 @@ nav>.five {
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
+
 .giveBonusPoint {
     width: 37.5%;
     height: 8%;

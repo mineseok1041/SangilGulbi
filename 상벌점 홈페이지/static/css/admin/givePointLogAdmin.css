@@ -224,6 +224,9 @@ nav > .six{
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
 
 .pointLog {
     width: 80%;

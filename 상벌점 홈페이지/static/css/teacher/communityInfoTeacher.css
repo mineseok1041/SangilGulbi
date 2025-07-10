@@ -49,6 +49,11 @@ nav > a {
     font-size: 24px;
 }
 
+nav > a:not(.community_nav):hover{
+    color: #d8d8d8;
+}
+
+
 nav>.profiles {
     width: 30%;
     border-radius: 50%;
@@ -213,6 +218,10 @@ nav > .five{
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
+
 .title_box {
     width: 45%;
     height: 7%;
@@ -349,7 +358,6 @@ nav > .five{
 .comment {
     position: absolute;
     top: 25%;
-
     left: 7%;
 }
 

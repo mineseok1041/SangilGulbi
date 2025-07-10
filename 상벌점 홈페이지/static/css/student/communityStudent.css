@@ -177,6 +177,10 @@ nav>.four {
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
+
 .container {
     overflow-y: scroll;
     width: 80%;

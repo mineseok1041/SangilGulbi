@@ -53,6 +53,10 @@ nav > a:not(.community_nav):hover{
     color: #d8d8d8;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
+
 nav > .profiles{
     width: 30%;
     border-radius: 50%;

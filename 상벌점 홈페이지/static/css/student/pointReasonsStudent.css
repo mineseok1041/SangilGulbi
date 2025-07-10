@@ -172,6 +172,9 @@ nav > .four{
     font-size: 24px;
 }
 
+nav > .logout:hover{
+    color: #d8d8d8;
+}
 
 table{
    font-size:10px;
