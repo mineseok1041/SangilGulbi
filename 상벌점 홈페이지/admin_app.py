@@ -101,6 +101,30 @@ def addTeacherPopup():
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
+    
+@adminBlue.route('/addTeacher.do', methods=['POST'])
+@adminAuth
+def addTeacher():
+    try:
+        name = request.form.get('name')
+        id = request.form.get('id')
+        password = request.form.get('password')
+        passwordCheck = request.form.get('passwordCheck')
+
+        if not name or not id or not password or not passwordCheck:
+            return "<script>alert('모든 정보를 입력해주세요.'); history.back();</script>"
+        if password != passwordCheck:
+            return "<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>"
+
+        # 중복 아이디 체크
+        if usersSVC.isIDExist(usersDTO(id=id)):
+            return "<script>alert('이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.'); history.back();</script>"
+
+        # 선생님 추가 (identity=1, verified=1로 바로 승인)
+        usersSVC.signup(usersDTO(name=name, id=id, password=password, identity=1, verified=1))
+        return "<script>alert('선생님 계정이 성공적으로 추가되었습니다.'); window.close();</script>"
+    except Exception as e:
+        return f"<script>alert('추가 중 오류 발생: {e}'); history.back();</script>"
 
 @adminBlue.route('/resetTeacherPasswdPopup')
 @adminAuth
