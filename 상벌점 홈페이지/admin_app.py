@@ -277,3 +277,16 @@ def search_teachers():
             'lastlogindate': t.lastlogindate
         } for t in teachers
     ])
+
+@adminBlue.route('/deleteTeacherAccount', methods=['POST'])
+@adminAuth
+def deleteTeacherAccount():
+    try:
+        data = request.get_json()
+        teacherId = data.get('teacherId')
+        if not teacherId:
+            return jsonify({"success": False, "error": "선생님 ID가 없습니다."})
+        usersSVC.delUsers(usersDTO(id=teacherId))
+        return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})

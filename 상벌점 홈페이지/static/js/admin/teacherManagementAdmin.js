@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!table.contains(event.target)) {
             const currentRows = tableBody.querySelectorAll("tr");
             currentRows.forEach(row => row.classList.remove("selected-row"));
-            selectedStudent = null;
+            selectedTeacher = null;
         }
     });
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         // 이미 선택된 경우 해제
                         if (tr.classList.contains("selected-row")) {
                             tr.classList.remove("selected-row");
-                            selectedStudent = null;
+                            selectedTeacher = null;
                             return;
                         }
                     
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const studentName = tr.cells[1].textContent.trim();
                         const studentId = tr.cells[2].textContent.trim();
                     
-                        selectedStudent = { studentNum, studentName, studentId };
+                        selectedTeacher = { studentNum, studentName, studentId };
                     });
                     tableBody.appendChild(tr);
                 });
