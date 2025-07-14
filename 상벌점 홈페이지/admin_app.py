@@ -102,14 +102,38 @@ def addTeacherPopup():
         print(e)
         return redirect(url_for('auth.login'))
 
-@adminBlue.route('/resetTeacherPasswordPopup')
+@adminBlue.route('/resetTeacherPasswdPopup')
 @adminAuth
-def resetTeacherPasswordPopup():
+def resetTeacherPasswdPopup():
     try:
-        return render_template('admin/resetTeacherPasswdPopupAdmin.html')
+        teacherName = request.args.get('teacherName', '')
+        teacherId = request.args.get('teacherId', '')
+        teacherList = usersSVC.getTeachersList(1)
+        return render_template(
+            'admin/resetTeacherPasswdPopupAdmin.html',
+            teacherName=teacherName,
+            teacherId=teacherId,
+            teacherList=teacherList
+        )
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
+    
+@adminBlue.route('/resetTeacherPasswordPopup.do', methods=['POST'])
+@adminAuth
+def resetTeacherPasswordPopup_do():
+    teacherId = request.form.get('teacherId')
+    password = request.form.get('password')
+    passwordCheck = request.form.get('passwordCheck')
+    if not teacherId or not password or not passwordCheck:
+        return "<script>alert('모든 정보를 입력해주세요.'); history.back();</script>"
+    if password != passwordCheck:
+        return "<script>alert('비밀번호가 일치하지 않습니다.'); history.back();</script>"
+    try:
+        usersSVC.usersDAO.updatePassword(teacherId, password)
+        return "<script>alert('비밀번호가 변경되었습니다.'); window.close();</script>"
+    except Exception as e:
+        return f"<script>alert('오류: {e}'); history.back();</script>"
 
 @adminBlue.route('/resetStudentPasswordPopup')
 @adminAuth

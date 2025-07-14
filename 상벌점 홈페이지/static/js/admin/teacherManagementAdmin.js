@@ -141,18 +141,17 @@ document.addEventListener("DOMContentLoaded", function () {
                             selectedTeacher = null;
                             return;
                         }
-                    
+
                         // 기존 선택 해제
                         tableBody.querySelectorAll("tr").forEach(r => r.classList.remove("selected-row"));
-                    
+
                         // 새 선택 적용
                         tr.classList.add("selected-row");
-                    
-                        const studentNum = tr.cells[0].textContent.trim();
-                        const studentName = tr.cells[1].textContent.trim();
-                        const studentId = tr.cells[2].textContent.trim();
-                    
-                        selectedTeacher = { studentNum, studentName, studentId };
+
+                        const teacherName = tr.cells[0].textContent.trim();
+                        const teacherId = tr.cells[1].textContent.trim();
+
+                        selectedTeacher = { teacherName, teacherId }; // 반드시 이 구조로!
                     });
                     tableBody.appendChild(tr);
                 });
