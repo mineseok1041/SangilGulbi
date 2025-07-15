@@ -111,3 +111,77 @@ img {
     bottom: 20%;
     left: 10%;
 }
+
+@media (max-width: 767px) {
+
+    .login-wrapper {
+        width: 80%;
+        height: 40%;
+        margin: 0%;
+        background-color: #BCCCDC;
+        padding: 5%;
+        border-radius: 15px;
+        position: absolute;
+        top: 30%;
+        right: 5%;
+    }
+
+    h2 {
+        color: white;
+        font-size: 25px;
+    }
+
+    .id {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 91%;
+        height: 40px;
+        margin-top: 5%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .password {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 91%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .remember-check {
+        margin-top: 2%;
+        border-radius: 10px;
+        padding-left: 1%;
+        font-size: 13px;
+        color: white;
+    }
+
+    .submit {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 98%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        background-color: #d4e7ff;
+        font-size: 20px;
+        color: #000000;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup {
+        font-size: 13px;
+        text-decoration: none;
+        color: white;
+        display: block;
+        margin-top: 1.5%;
+    }
+
+    img {
+        display: none;
+    }
+
+}
