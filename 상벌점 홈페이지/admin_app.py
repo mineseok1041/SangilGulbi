@@ -322,7 +322,6 @@ def search_teachers():
         {
             'name': t.name,
             'id': t.id,
-            'lastlogindate': t.lastlogindate
         } for t in teachers
     ])
 
