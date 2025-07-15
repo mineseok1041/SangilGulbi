@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!table.contains(event.target)) {
             const currentRows = tableBody.querySelectorAll("tr");
             currentRows.forEach(row => row.classList.remove("selected-row"));
-            selectedStudent = null;
+            selectedTeacher = null;
         }
     });
 
@@ -138,21 +138,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         // 이미 선택된 경우 해제
                         if (tr.classList.contains("selected-row")) {
                             tr.classList.remove("selected-row");
-                            selectedStudent = null;
+                            selectedTeacher = null;
                             return;
                         }
-                    
+
                         // 기존 선택 해제
                         tableBody.querySelectorAll("tr").forEach(r => r.classList.remove("selected-row"));
-                    
+
                         // 새 선택 적용
                         tr.classList.add("selected-row");
-                    
-                        const studentNum = tr.cells[0].textContent.trim();
-                        const studentName = tr.cells[1].textContent.trim();
-                        const studentId = tr.cells[2].textContent.trim();
-                    
-                        selectedStudent = { studentNum, studentName, studentId };
+
+                        const teacherName = tr.cells[0].textContent.trim();
+                        const teacherId = tr.cells[1].textContent.trim();
+
+                        selectedTeacher = { teacherName, teacherId }; // 반드시 이 구조로!
                     });
                     tableBody.appendChild(tr);
                 });

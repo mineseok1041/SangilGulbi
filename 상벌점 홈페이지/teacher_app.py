@@ -408,6 +408,21 @@ def searchStudents():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
+@teacherBlue.route('/searchTeachers')
+@teacherAuth
+def searchTeachers():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        teachers = usersSVC.searchTeachersByKeyword(keyword)
+        return jsonify([
+            {
+                'name': t.name,
+                'id': t.id,
+            } for t in teachers
+        ])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
 @teacherBlue.route('/pointCancel.do' , methods=['POST'])
 @teacherAuth
 def pointCancel():

@@ -114,12 +114,18 @@ class usersDAO:
             cursor = conn.cursor()
             
             if reqDTO.identity == 2:  # 학생
-                query = "INSERT INTO users(id, password, name, stdNum, identity, verified) VALUES(:1, :2, :3, :4, :5, 1)"
-                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.stdNum, reqDTO.identity])
+                query = "INSERT INTO users(id, password, name, stdNum, identity, verified) VALUES(:1, :2, :3, :4, :5, :6)"
+                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.stdNum, reqDTO.identity, reqDTO.verified or 1])
             elif reqDTO.identity == 1:  # 선생님
-                query = "INSERT INTO users(id, password, name, identity, verified, checkCode) VALUES(:1, :2, :3, :4, 0, :5)"
-                cursor.execute(query, [reqDTO.id, reqDTO.password, reqDTO.name, reqDTO.identity, reqDTO.checkCode])
-
+                query = "INSERT INTO users(id, password, name, identity, verified, checkCode) VALUES(:1, :2, :3, :4, :5, :6)"
+                cursor.execute(query, [
+                    reqDTO.id,
+                    reqDTO.password,
+                    reqDTO.name,
+                    reqDTO.identity,
+                    reqDTO.verified if reqDTO.verified is not None else 0,
+                    reqDTO.checkCode
+                ])
             conn.commit()
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")

@@ -56,4 +56,55 @@ document.addEventListener("DOMContentLoaded", function () {
             teacherSearchModal.classList.add("hidden");
         });
     });
+
+    // ---------- 선생님 검색 ----------
+    const teacherModalContent = teacherSearchModal.querySelector(".modalContent");
+    const teacherSearchInput = document.querySelector(".teacherSearchModal .teacherSearchInput");
+    const teacherSearchButton = document.querySelector(".teacherSearchModal .teacherSearchButton");
+    const teacherTableBody = teacherSearchModal.querySelector(".teacherTable tbody");
+
+    const giveTeacherNameElement = document.querySelector(".giveTeacherName");
+    const giveTeacherIdElement = document.querySelector(".giveTeacherId");
+
+    searchTeacherIcon.addEventListener("click", () => {
+        teacherSearchModal.classList.remove("hidden");
+        teacherSearchModal.classList.add("visible");
+        loadTeachers("");
+    });
+
+    teacherSearchModal.addEventListener("click", function (event) {
+        if (!teacherModalContent.contains(event.target)) {
+            teacherSearchModal.classList.add("hidden");
+        }
+    });
+
+    teacherSearchButton.addEventListener("click", () => {
+        const keyword = teacherSearchInput.value.trim();
+        loadTeachers(keyword);
+    });
+
+    function loadTeachers(keyword) {
+        fetch(`/admin/searchTeachers?keyword=${encodeURIComponent(keyword)}`)
+            .then(res => res.json())
+            .then(data => {
+                teacherTableBody.innerHTML = "";
+                if (data.length === 0) {
+                    teacherTableBody.innerHTML = "<tr><td colspan='2'>검색 결과 없음</td></tr>";
+                    return;
+                }
+                data.forEach(teacher => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${teacher.id}</td>
+                        <td>${teacher.name}</td>
+                    `;
+                    row.addEventListener("click", () => {
+                        giveTeacherIdElement.textContent = teacher.id;
+                        giveTeacherNameElement.textContent = teacher.name;
+                        teacherSearchModal.classList.add("hidden");
+                    });
+                    teacherTableBody.appendChild(row);
+                });
+            });
+    }
 });

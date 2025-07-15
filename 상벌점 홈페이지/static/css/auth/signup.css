@@ -137,3 +137,118 @@ p {
     font-size: 13px;
     margin-top: 1%;
 }
+
+@media (max-width: 767px) {
+
+    .signup-wrapper {
+        width: 80%;
+        height: 55%;
+        margin: 0%;
+        background-color: #BCCCDC;
+        padding: 5%;
+        border-radius: 15px;
+        position: absolute;
+        top: 20%;
+        right: 5%;
+    }
+
+    h2 {
+        color: white;
+        font-size: 25px;
+    }
+
+    .name {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 5%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .id {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 5%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .password {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .student_number {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    .check_code {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+        font-size: 10.5px;
+    }
+
+    .id {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 90%;
+        height: 40px;
+        margin-top: 4%;
+        border-radius: 10px;
+        padding-left: 5%;
+        background-color: white;
+    }
+
+    p {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        color: white;
+        font-size: 10px;
+        margin-top: 1%;
+    }
+
+    .submit {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 98%;
+        height: 45px;
+        margin-top: 6%;
+        border-radius: 10px;
+        background-color: #d1e4fb;
+        font-size: 20px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .login {
+        font-size: 13px;
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+
+    img {
+        width: 25%;
+        height: auto;
+        position: absolute;
+        top: 4%;
+        left: 10%;
+    }
+}
