@@ -442,3 +442,26 @@ button{
     pointer-events: none;
     background-color: #eee;
 }
+
+@media (max-width: 767px) {
+
+    nav {
+        position: absolute;
+        left: -10%;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .main {
+        left: 15%;
+    }
+
+    .log_table {
+        width: 90%;
+        left: 5%;
+    }
+
+}
+
