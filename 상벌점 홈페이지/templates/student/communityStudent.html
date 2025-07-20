@@ -7,11 +7,14 @@
     <link href="{{ url_for('static', filename='css/student/communityStudent.css') }}" rel="stylesheet">
 </head>
 <body>
+
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">게시판</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="name">{{ usersDTO.stdNum }} {{ usersDTO.name }}</p>
 
@@ -29,7 +32,7 @@
 </nav>
 
 <div class="container">
-    <table>
+    <table class="notice_table">
         <tr>
             <th scope="list">번호</th>
             <th scope="list">제목</th>
@@ -54,5 +57,6 @@
     </div>
 </div>
 <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+<script src="{{ url_for('static', filename='js/student/communityStudent.js') }}"></script>
 </body>
 </html>
