@@ -38,10 +38,17 @@ def pointLog():
         if 'id' not in session:
             return redirect(url_for('auth.login'))
 
+        page = request.args.get('page', default=1, type=int)
+        maxPage = pointSVC.getTeacherPointLogMaxPage()
         
         pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'all')
+
+        if page > maxPage:
+            page = maxPage
+        if page < 1:
+            page = 1
     
-        return render_template('teacher/givePointLog.html', pointLogList=pointLogList)
+        return render_template('teacher/givePointLog.html', pointLogList=pointLogList, currentPage=page, maxPage=maxPage)
     except Exception as e:
         print(e)
         return redirect(url_for('index'))
@@ -65,10 +72,15 @@ def studentManagement():
             return redirect(url_for('auth.login'))
         
         page = request.args.get('page', default=1, type=int)
+        maxPage = usersSVC.getStudentMaxPage()
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(page)
-        maxPage = usersSVC.getStudentMaxPage()
+
+        if page > maxPage:
+            page = maxPage
+        if page < 1:
+            page = 1
     
         return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList, currentPage=page, maxPage=maxPage)
     except Exception as e:

@@ -207,6 +207,27 @@ class pointDAO:
             if conn:
                 conn.close()
 
+    def getTeacherPointLogMaxPage(self) -> int:
+        query = "SELECT CEIL(COUNT(*) / 20) FROM pointLog WHERE type = 'bonus' OR type = 'penalty'"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query)
+            max_page = cursor.fetchone()[0]
+
+            return int(max_page) if max_page else 1
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
     def deletePointLog(self, logNo: int):
         query = "DELETE FROM pointLog WHERE no = :1"
 

@@ -52,6 +52,12 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"getPointLogByTeacherID Error: {e}")
         
+    def getTeacherPointLogMaxPage(self) -> int:
+        try:
+            return self.pointDAO.getTeacherPointLogMaxPage()
+        except Exception as e:
+            raise Exception(f"getTeacherPointLogMaxPage Error: {e}")
+        
     def cancelPointLog(self, logNo: int):
         try:
             pointLogDTO = self.pointDAO.getPointLogByNo(logNo)
