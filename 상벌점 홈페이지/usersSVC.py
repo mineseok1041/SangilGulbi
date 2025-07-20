@@ -65,6 +65,12 @@ class usersSVC:
             return self.usersDAO.getTeachersList(page)
         except Exception as e:
             raise Exception(f"getTeachersList Error: {e}")
+        
+    def getStudentMaxPage(self) -> int:
+        try:
+            return self.usersDAO.getStudentMaxPage()
+        except Exception as e:
+            raise Exception(f"getStudentMaxPage Error: {e}")
 
     def delUsers(self, reqDTO: usersDTO):
         try:

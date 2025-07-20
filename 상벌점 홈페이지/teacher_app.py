@@ -68,8 +68,9 @@ def studentManagement():
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(page)
+        maxPage = usersSVC.getStudentMaxPage()
     
-        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList, currentPage=page, maxPage=2)
+        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList, currentPage=page, maxPage=maxPage)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
