@@ -63,11 +63,13 @@ def studentManagement():
     try:
         if 'id' not in session:
             return redirect(url_for('auth.login'))
+        
+        page = request.args.get('page', default=1, type=int)
 
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
-        studentList = usersSVC.getStudentsList(1)
+        studentList = usersSVC.getStudentsList(page)
     
-        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList)
+        return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList, currentPage=page, maxPage=2)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
