@@ -53,7 +53,7 @@ def studentManagement():
 def teacherManagement():
     try:
         page = request.args.get('page', default=1, type=int)
-        maxPage = usersSVC.getStudentMaxPage()
+        maxPage = usersSVC.getTeacherMaxPage()
     
         teacherList = usersSVC.getTeachersList(page)
 

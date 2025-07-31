@@ -325,6 +325,20 @@ class usersDAO:
         conn.close()
 
         return int(max_page) if max_page else 1
+    
+    def getTeacherMaxPage(self) -> int:
+        query = "SELECT CEIL(COUNT(*) / 20) FROM users WHERE identity = 1 AND verified = 1"
+        
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute(query)
+        max_page = cursor.fetchone()[0]
+        
+        cursor.close()
+        conn.close()
+
+        return int(max_page) if max_page else 1
             
     def updateTeacherVerified(self, teacher_id: str, verified: int):
         query = "UPDATE users SET verified = :1 WHERE id = :2"
