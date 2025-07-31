@@ -6,11 +6,14 @@
     <title>상벌점 항목</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/student/pointReasonsStudent.css') }}">
 </head>
+
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>    
     <h2 class="main">상벌점 항목</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="name">{{ usersDTO.stdNum }} {{ usersDTO.name }}</p>
 
@@ -79,6 +82,7 @@
 
     </div>
     <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/student/pointReasonsStudent.js') }}"></script>
 </body>
 
 </html>

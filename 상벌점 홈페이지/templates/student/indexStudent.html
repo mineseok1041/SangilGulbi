@@ -8,11 +8,13 @@
     <title>mainpage</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">상벌점 홈페이지</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="name">{{ usersDTO.stdNum }} {{ usersDTO.name }}</p>
 

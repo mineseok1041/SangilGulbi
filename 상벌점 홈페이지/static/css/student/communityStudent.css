@@ -7,6 +7,13 @@
 
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 0%;
 }
 
 header {
@@ -21,16 +28,16 @@ header {
 }
 
 .main {
-    width: 97%;
-    height: 100%;
     position: absolute;
-    right: 0%;
+    top: 0%;
+    left: 3%;
     color: #55595D;
     font-size: 35px;
     margin: 0%;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 nav {
@@ -266,3 +273,248 @@ button {
     pointer-events: none;
     background-color: #eee;
 }
+
+@media (max-width: 767px) {
+ .hamburger {
+    position: fixed;
+    top: 0.6%;
+    left: 1.5%;
+    z-index: 11;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #333;
+    cursor: pointer;
+    display: block;
+    }
+
+    body {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        margin: 0%;
+    }
+    nav.sidebar {
+    position: fixed;
+    background-color: #BCCCDC;
+    left: -100%;
+    width: 85%;
+    height: 100%;
+    top: 0%;
+    z-index: 10;
+    transition: left 0.3s;
+}
+/* nav가 열렸을 때 */
+.sidebar.active {
+    left: 0;
+}
+
+nav > a {
+    font-size: 24px;
+}
+
+nav > a:not(.mypage_nav):hover{
+    color: #d8d8d8;
+}
+
+nav > .profiles{
+    width: 30%;
+    border-radius: 50%;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+}
+
+nav > .name {
+    position: absolute;
+    left: 50%;
+    top: 7.5%;
+    font-size: larger;
+    color: white;
+}
+
+nav > .mypage_nav {
+    color: white;
+    position: absolute;
+    top: 30.5%;
+    left: 10%;
+    text-decoration: none;
+}
+
+nav > .first{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 34%;
+    left: 5%;
+}
+
+nav > .log_nav {
+    color: white;
+    position: absolute;
+    top: 37.3%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .two{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 41%;
+    left: 5%;
+}
+
+nav > .pointReasons_nav {
+    color: white;
+    position: absolute;
+    top: 44.2%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .three{
+    width: 90%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+    position: absolute;
+    top: 48%;
+    left: 5%;
+}
+
+nav > .community_nav {
+    color: #575e65;
+    position: absolute;
+    top: 51.4%;
+    left: 10%;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > .four{
+    width: 90%;
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    background:white;
+    height:1px;
+    border:0;
+}
+
+nav > .myInfoEdit_nav{
+    color: #ffffff;
+    position: absolute;
+    bottom: 13%;
+    left: 9%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #BCCCDC;
+    border: none;
+}
+.myInfoEdit_nav:hover{
+    color: #d8d8d8;
+}
+
+td, th {
+    text-overflow: ellipsis;
+}
+
+.logout {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    bottom: 5%;
+    left: 9%;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: #BCCCDC;
+    font-size: larger;
+    text-align: left;
+    font-size: 24px;
+}
+
+
+    header {
+    width: 100%;
+    height: 7%;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    box-shadow: 0px 3px 3px gray;
+    z-index: 1;
+    }       
+
+    .main {
+    position: absolute;
+    left: 15%;
+    top: 2%;
+    color: #55595D;
+    font-size: 30px;
+}
+
+    .container {
+        width: 90%;
+        left: 5%;
+        scrollbar-width: none;
+    }
+
+    th {
+        padding: 3%;
+    }
+    
+    .notice_table {
+        width: 100%;
+        margin-top: 10%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .notice_table td {
+        line-height: 1.2;   
+    }
+
+    .notice_table th:nth-child(1),
+    .notice_table td:nth-child(1) {
+        max-width: 80px;
+        min-width: 60px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(2),
+    .notice_table td:nth-child(2) {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(3),
+    .notice_table td:nth-child(3) {
+        max-width: 100px;
+        min-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(4),
+    .notice_table td:nth-child(4) {
+        display: none;
+    }
+
+}
+

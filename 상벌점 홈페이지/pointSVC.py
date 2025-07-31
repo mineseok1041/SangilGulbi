@@ -34,23 +34,41 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"getPointReason Error: {e}")
         
-    def getPointLog(self, page: int) -> list[pointLogDTO]: # type: ignore
+    def getPointLog(self, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]: # type: ignore
         try:
-            return self.pointDAO.getPointLog(page)
+            return self.pointDAO.getPointLog(page, type)
         except Exception as e:
             raise Exception(f"getPointLog Error: {e}")
         
-    def getPointLogByStdID(self, reqDTO: usersDTO):
+    def getPointLogByStdID(self, reqDTO: usersDTO, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]: # type: ignore
         try:
-            return self.pointDAO.getPointLogByStdID(reqDTO)
+            return self.pointDAO.getPointLogByStdID(reqDTO, page, type)
         except Exception as e:
             raise Exception(f"getPointLogByStdID Error: {e}")
         
-    def getPointLogByTeacherID(self, reqDTO: usersDTO, type: Literal['all', 'bonus', 'penalty']):
+    def getPointLogByTeacherID(self, reqDTO: usersDTO, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]: # type: ignore
         try:
-            return self.pointDAO.getPointLogByTeacherID(reqDTO, type)
+            return self.pointDAO.getPointLogByTeacherID(reqDTO, page, type)
         except Exception as e:
             raise Exception(f"getPointLogByTeacherID Error: {e}")
+        
+    def getTeacherPointLogMaxPage(self, teacherDTO) -> int:
+        try:
+            return self.pointDAO.getTeacherPointLogMaxPage(teacherDTO)
+        except Exception as e:
+            raise Exception(f"getTeacherPointLogMaxPage Error: {e}")
+        
+    def getStudentPointLogMaxPage(self, studentDTO) -> int:
+        try:
+            return self.pointDAO.getStudentPointLogMaxPage(studentDTO)
+        except Exception as e:
+            raise Exception(f"getStudentPointLogMaxPage Error: {e}")
+        
+    def getPointLogMaxPage(self) -> int:
+        try:
+            return self.pointDAO.getPointLogMaxPage()
+        except Exception as e:
+            raise Exception(f"getPointLogMaxPage Error: {e}")
         
     def cancelPointLog(self, logNo: int):
         try:
