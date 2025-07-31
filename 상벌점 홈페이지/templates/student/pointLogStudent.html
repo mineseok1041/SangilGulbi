@@ -7,11 +7,14 @@
     <title>상벌점 내역</title>
     <link href="{{ url_for('static', filename='css/student/pointLogStudent.css') }}" rel="stylesheet">
 </head>
+
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">상벌점 내역</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="name">{{ usersDTO.stdNum }} {{ usersDTO.name }}</p>
 
@@ -53,6 +56,8 @@
                     </tr>
                     <tr class="dropdown-row"> 
                         <td colspan="6" class="pointReason">
+                            <p class="date">부여 시각 : {{ pointLog.addDate }}</p>
+                            <p class="teacher">부여자 : {{ pointLog.giveTeacherName }}</p>
                             <p class="reason">사유 : {{ pointLog.reason }}</p>
                             <p class="opinion">의견 : {{ pointLog.opinion }}</p>
                         </td>
