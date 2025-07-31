@@ -65,14 +65,17 @@
                     {% endfor %}
             </tbody>
         </table>
+        <input type="hidden" id="currentPage" value="{{ currentPage }}">
+        <input type="hidden" id="maxPage" value="{{ maxPage }}">
         <div class="pageNation">
-            <button class="pageNation-btn disabled">←</button>
-            <button class="pageNation-btn active">1</button>
-            <button class="pageNation-btn">→</button>
+            <button class="pageNation-btn" onclick="location.href='?page={{ currentPage - 1 }}'">←</button>
+            <button class="pageNation-btn active">{{ currentPage }}</button>
+            <button class="pageNation-btn" onclick="location.href='?page={{ currentPage + 1 }}'">→</button>
         </div>
     </div>
 </body>
 
 <script src="{{ url_for('static', filename='js/student/pointLogStudent.js') }}"></script>
 <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+<script src="{{ url_for('static', filename='js/student/paging.js') }}"></script>
 </html>

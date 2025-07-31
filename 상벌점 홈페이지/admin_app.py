@@ -33,8 +33,17 @@ def index():
 @adminAuth
 def studentManagement():
     try:
-        studentList = usersSVC.getStudentsList(1)
-        return render_template('admin/studentManagementAdmin.html', studentList=studentList)
+        page = request.args.get('page', default=1, type=int)
+        maxPage = usersSVC.getStudentMaxPage()
+
+        studentList = usersSVC.getStudentsList(page)
+
+        if page > maxPage:
+            page = maxPage
+        if page < 1:
+            page = 1
+
+        return render_template('admin/studentManagementAdmin.html', studentList=studentList, currentPage=page, maxPage=maxPage)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -43,8 +52,18 @@ def studentManagement():
 @adminAuth
 def teacherManagement():
     try:
-        teacherList = usersSVC.getTeachersList(1)  # 선생님 목록 (페이지 1)
-        return render_template('admin/teacherManagementAdmin.html', teacherList=teacherList)
+        page = request.args.get('page', default=1, type=int)
+        maxPage = usersSVC.getTeacherMaxPage()
+
+        print(page, maxPage)
+    
+        teacherList = usersSVC.getTeachersList(page)
+
+        if page > maxPage:
+            page = maxPage
+        if page < 1:
+            page = 1
+        return render_template('admin/teacherManagementAdmin.html', teacherList=teacherList, currentPage=page, maxPage=maxPage)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -182,8 +201,16 @@ def teacherSignupApprovalPopup():
 @adminAuth
 def pointLog():
     try:
-        pointLogList = pointSVC.getPointLog(1)
-        return render_template('admin/givePointLogAdmin.html', pointLogList=pointLogList)
+        page = request.args.get('page', default=1, type=int)
+        maxPage = pointSVC.getPointLogMaxPage()
+        if page > maxPage:
+            page = maxPage
+        if page < 1:
+            page = 1
+
+        pointLogList = pointSVC.getPointLog(page, 'all')
+
+        return render_template('admin/givePointLogAdmin.html', pointLogList=pointLogList, currentPage=page, maxPage=maxPage)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))

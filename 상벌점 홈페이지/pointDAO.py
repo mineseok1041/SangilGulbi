@@ -102,12 +102,22 @@ class pointDAO:
             if conn:
                 conn.close()
     
-    def getPointLog(self, page: int) -> list[pointLogDTO]:
-        limit = 30
+    def getPointLog(self, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
+        limit = 20
         startNo = (page - 1) * limit + 1
         endNo = page * limit
 
-        query = "SELECT * FROM pointLog WHERE no BETWEEN :startNo AND :endNo ORDER BY no DESC"
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM pointLog ORDER BY no DESC
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
 
         conn = None
         cursor = None
@@ -115,10 +125,10 @@ class pointDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
 
-            cursor.execute(query, [startNo, endNo])
+            cursor.execute(query, {'startNo': startNo, 'endNo': endNo})
             results = cursor.fetchall()
             
-            return [pointLogDTO(*row) for row in results]
+            return [pointLogDTO(*row[:-1]) for row in results]
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
         finally:
@@ -127,9 +137,23 @@ class pointDAO:
             if conn:
                 conn.close()
     
-    def getPointLogByStdID(self, usersDTO: usersDTO) -> list[pointLogDTO]:
+    def getPointLogByStdID(self, usersDTO: usersDTO, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
         stdID = usersDTO.id
-        query = "SELECT * FROM pointLog WHERE studentId = :1 ORDER BY no DESC"
+        limit = 20
+        startNo = (page - 1) * limit + 1
+        endNo = page * limit
+
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM pointLog WHERE studentId = :stdID ORDER BY no DESC
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """
         
         conn = None
         cursor = None
@@ -138,10 +162,10 @@ class pointDAO:
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [stdID])
+            cursor.execute(query, {'stdID': stdID, 'startNo': startNo, 'endNo': endNo})
             results = cursor.fetchall()
 
-            return [pointLogDTO(*row) for row in results]
+            return [pointLogDTO(*row[:-1]) for row in results]
         
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
@@ -152,27 +176,40 @@ class pointDAO:
             if conn:
                 conn.close()
 
-    def getPointLogByTeacherID(self, usersDTO: usersDTO, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
-        query = "SELECT * FROM pointLog WHERE giveTeacherId = :1"
-        
+    def getPointLogByTeacherID(self, usersDTO: usersDTO, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]:
+        limit = 20
+        startNo = (page - 1) * limit + 1
+        endNo = page * limit
+
+        query = """
+                SELECT *
+                FROM (
+                    SELECT a.*, ROWNUM AS rn
+                    FROM (
+                        SELECT * FROM pointLog WHERE giveTeacherId = :teacherID ORDER BY no DESC
+                    ) a
+                    WHERE ROWNUM <= :endNo
+                )
+                WHERE rn >= :startNo
+            """        
         conn = None
         cursor = None
 
         try:
             teacherID = usersDTO.id
-            if type == 'bonus':
-                query += " AND type = 'bonus'"
-            elif type == 'penalty':
-                query += " AND type = 'penalty'"
-            query += " ORDER BY no DESC"
+            # if type == 'bonus':
+            #     query += " AND type = 'bonus'"
+            # elif type == 'penalty':
+            #     query += " AND type = 'penalty'"
+            # query += " ORDER BY no DESC"
 
             conn = self.get_connection()
             cursor = conn.cursor()
             
-            cursor.execute(query, [teacherID])
+            cursor.execute(query, {'teacherID': teacherID, 'startNo': startNo, 'endNo': endNo})
             results = cursor.fetchall()
 
-            return [pointLogDTO(*row) for row in results]
+            return [pointLogDTO(*row[:-1]) for row in results]
         
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
@@ -199,6 +236,69 @@ class pointDAO:
                 return pointLogDTO(*row)
             else:
                 raise Exception("로그를 찾을 수 없습니다.")
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    def getTeacherPointLogMaxPage(self, teacherDTO) -> int:
+        query = "SELECT CEIL(COUNT(*) / 20) FROM pointLog WHERE giveTeacherId = :1"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [teacherDTO.id])
+            max_page = cursor.fetchone()[0]
+
+            return int(max_page) if max_page else 1
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+    
+    def getStudentPointLogMaxPage(self, studentDTO) -> int:
+        query = "SELECT CEIL(COUNT(*) / 20) FROM pointLog WHERE studentId = :1"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [studentDTO.id])
+            max_page = cursor.fetchone()[0]
+
+            return int(max_page) if max_page else 1
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    def getPointLogMaxPage(self) -> int:
+        query = "SELECT CEIL(COUNT(*) / 20) FROM pointLog"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query)
+            max_page = cursor.fetchone()[0]
+
+            return int(max_page) if max_page else 1
         except cx_Oracle.DatabaseError as e:
             raise Exception(f"DB Error: {e}")
         finally:
