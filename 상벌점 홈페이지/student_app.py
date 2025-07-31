@@ -23,7 +23,7 @@ def index():
         respDTO = usersSVC.getUsersInfo(usersDTO(id=session['id']))
         
         # 상벌점 내역 가져오기
-        pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']))
+        pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']), 1, 'all')
         
         # 상점과 벌점 분리
         bonusLogs = [log for log in pointLogList if log.type == 'bonus']
@@ -55,10 +55,18 @@ def pointLog():
     if 'id' not in session:
         return redirect(url_for('auth.login'))
 
+    page = request.args.get('page', default=1, type=int)
+    maxPage = pointSVC.getStudentPointLogMaxPage(usersDTO(id=session['id']))
+
+    if page > maxPage:
+        page = maxPage
+    if page < 1:
+        page = 1
+
     respDTO = usersDTO(id=session['id'], name=session['name'], stdNum=session['stdNum'], identity=session['identity'])
-    pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']))
+    pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']), page, 'all')
     
-    return render_template('student/pointLogStudent.html', usersDTO=respDTO, pointLogList=pointLogList)
+    return render_template('student/pointLogStudent.html', usersDTO=respDTO, pointLogList=pointLogList, currentPage=page, maxPage=maxPage)
 
 @studentBlue.route('/pointReasons')
 @studentAuth

@@ -22,8 +22,14 @@ def index():
         if 'id' not in session:
             return redirect(url_for('auth.login'))
         
-        bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'bonus') # 상점 로그 가져오기
-        penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'penalty') # 벌점 로그 가져오기
+        pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']), 1, 'all')
+
+        # 상점과 벌점 분리
+        bonusPointLogList = [log for log in pointLogList if log.type == 'bonus']
+        penaltyPointLogList = [log for log in pointLogList if log.type == 'penalty']
+        
+        # bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'bonus')
+        # penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'penalty')
         notices = SVC.get_all_notices()  # 게시글 목록 가져오기
     
         return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList)
@@ -39,9 +45,9 @@ def pointLog():
             return redirect(url_for('auth.login'))
 
         page = request.args.get('page', default=1, type=int)
-        maxPage = pointSVC.getTeacherPointLogMaxPage()
+        maxPage = pointSVC.getTeacherPointLogMaxPage(usersDTO(id=session['id']))
         
-        pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 'all')
+        pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), page, 'all')
 
         if page > maxPage:
             page = maxPage
