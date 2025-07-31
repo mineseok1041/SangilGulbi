@@ -54,6 +54,8 @@ def teacherManagement():
     try:
         page = request.args.get('page', default=1, type=int)
         maxPage = usersSVC.getTeacherMaxPage()
+
+        print(page, maxPage)
     
         teacherList = usersSVC.getTeachersList(page)
 

@@ -74,7 +74,7 @@ class usersSVC:
     
     def getTeacherMaxPage(self) -> int:
         try:
-            return self.usersDAO.getStudentMaxPage()
+            return self.usersDAO.getTeacherMaxPage()
         except Exception as e:
             raise Exception(f"getStudentMaxPage Error: {e}")
 
