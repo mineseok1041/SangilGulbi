@@ -345,3 +345,349 @@ button{
     pointer-events: none;
     background-color: #eee;
 }
+
+@media screen and (max-width: 600px) {
+
+    body {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        margin: 0%;
+    }
+
+    header {
+        width: 100%;
+        height: 10%;
+        background-color: white;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        box-shadow: 0px 3px 3px gray;
+        z-index: 1;
+    }
+
+    .main {
+        position: absolute;
+        top: 0%;
+        left: 3%;
+        color: #55595D;
+        font-size: 35px;
+    }
+
+    nav {
+        background-color: #9AA6B2;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: -20%;
+    }
+
+    nav > a {
+        font-size: 24px;
+    }
+
+    nav > a:not(.community_nav):hover{
+        color: #d8d8d8;
+    }
+
+    nav > .profiles{
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
+
+    nav > .number {
+        position: absolute;
+        left: 50%;
+        top: 6%;
+        color: white;
+    }
+
+    nav > .name {
+        position: absolute;
+        left: 50%;
+        top: 9%;
+        font-size: larger;
+        color: white;
+    }
+
+    nav > .mypage_nav {
+        color: white;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
+
+    nav > .first{
+        width: 90%;
+        left: 5%;
+        background:white;
+        height:1px;
+        border:0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
+
+    nav > .givePoint_nav {
+        color: white;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav > .two{
+        width: 90%;
+        left: 5%;
+        background:white;
+        height:1px;
+        border:0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
+
+    nav > .pointReasons_nav {
+        color: white;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav > .three{
+        width: 90%;
+        left: 5%;
+        background:white;
+        height:1px;
+        border:0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
+
+    nav > .studentManagement_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav > .four{
+        width: 90%;
+        left: 5%;
+        background:white;
+        height:1px;
+        border:0;
+        position: absolute;
+        top: 55%;
+        left: 5%;
+    }
+
+    nav > .teacherManagement_nav {
+        color: white;
+        position: absolute;
+        top: 58.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+    nav > .community_nav {
+        color: #575e65;
+        position: absolute;
+        top: 58.5%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav > .myInfoEdit_nav{
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #9aa6b2;
+        border: none;
+    }
+
+    .myInfoEdit_nav:hover{
+        color: #d8d8d8;
+    }
+
+    nav > .five{
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background:white;
+        height:1px;
+        border:0;
+    }
+
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #9AA6B2;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .container{
+        overflow-y: scroll;
+        width: 90%;
+        height: 90%;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+    }
+
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        margin-top: 4%;
+    }
+
+    th {
+        background: #ffffff;
+        padding: 1.5%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #000000 solid 3px;
+        font-size: 20px;
+        min-width: 100px;
+    }
+
+    td {
+        padding: 1.5%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #55595D solid 1px;
+        font-size: 20px;
+        color: #3f3f3f;
+    }
+
+    .wide-column {
+        color: #000000;
+        text-decoration: none;
+        width: 40%; /* 원하는 넓이 */
+        padding-left: 15px; /* 좌우 여백 */
+        padding-right: 15px;
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .wide-column2 {
+        width: 15%; /* 원하는 넓이 */
+        padding-left: 15px; /* 좌우 여백 */
+        padding-right: 15px;
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .wide-column3 {
+        padding-left: 15px; /* 좌우 여백 */
+        padding-right: 15px;
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .write-btn{
+        width: 11%;
+        height: 6%;
+        position: absolute;
+        background-color: #9AA6B2;
+        z-index: 1000;
+        border: none;
+        font-size: 25px;
+        left: 85%;
+        top: 90%;
+        color: #fff;
+        cursor: pointer;
+    }
+    .write-btn:hover{
+        background-color: #808a95;
+    }
+    .write-btn:active{
+        box-shadow: 2px 2px 0 rgb(0,0,0,0.5);
+    }
+
+    .nextpage{
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+    }
+
+    button{
+        font-family: 'KakaoSmallSans-Bold', sans-serif;    
+    }
+
+    .pageNation {
+        display: flex;
+        justify-content: center; /* 버튼들을 가운데 정렬 */
+        align-items: center;
+        flex-wrap: nowrap;
+        position: relative;
+        margin-top: 2%;
+        bottom: -3%;
+        margin-bottom: 3%;
+        left: 50%;
+        transform: translateX(-50%); /* 정중앙으로 이동 */
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .pageNation-btn {
+        margin: 0 4px;
+        padding: 8px 12px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 14px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .pageNation-btn:hover {
+        background-color: #eee;
+    }
+
+    .pageNation-btn.active {
+        background-color: #9AA6B2;
+        color: white;
+        border-color: #9AA6B2;
+        cursor: pointer;
+    }
+
+    .pageNation-btn.disabled {
+        color: #aaa;
+        pointer-events: none;
+        background-color: #eee;
+    }
+
+
+}
