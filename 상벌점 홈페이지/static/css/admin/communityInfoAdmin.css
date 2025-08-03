@@ -45,11 +45,11 @@ nav {
     z-index: 1;
 }
 
-nav > a:not(.community_nav):hover{
+nav>a:not(.community_nav):hover {
     color: #d8d8d8;
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
@@ -61,14 +61,14 @@ nav>.profiles {
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -76,7 +76,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -84,18 +84,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .givePoint_nav {
+nav>.givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -104,18 +104,18 @@ nav > .givePoint_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: white;
     position: absolute;
     top: 44.2%;
@@ -124,18 +124,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav>.studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -144,18 +144,18 @@ nav > .studentManagement_nav {
     cursor: pointer;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 55%;
     left: 5%;
 }
 
-nav > .teacherManagement_nav {
+nav>.teacherManagement_nav {
     color: white;
     position: absolute;
     top: 58.3%;
@@ -164,18 +164,18 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
+nav>.five {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 62%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: #575e65;
     position: absolute;
     top: 65.3%;
@@ -184,7 +184,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -195,18 +195,19 @@ nav > .myInfoEdit_nav{
     background-color: #9aa6b2;
     border: none;
 }
-.myInfoEdit_nav:hover{
+
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .six{
+nav>.six {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 .logout {
@@ -236,9 +237,11 @@ nav > .six{
     color: #55595D;
 }
 
-.title_box > .title {
-    width: 10%;
-    text-align: center;
+.title_box>.title {
+    width: 35%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
 }
 
 .writer_box {
@@ -253,9 +256,11 @@ nav > .six{
     color: #55595D;
 }
 
-.writer_box > .writer {
-    width: 30%;
-    text-align: center;
+.writer_box>.writer {
+    width: 35%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
 }
 
 .text_box {
@@ -327,7 +332,7 @@ nav > .six{
     border-bottom: 1px solid gray;
 }
 
-.comments > img {
+.comments>img {
     width: auto;
     height: 60%;
     position: absolute;
@@ -364,7 +369,7 @@ nav > .six{
     left: 7%;
 }
 
-.agree-btn{
+.agree-btn {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
     position: absolute;
     z-index: 1000;
@@ -378,12 +383,12 @@ nav > .six{
     cursor: pointer;
     border: none;
     bottom: 8%;
-    left:78%;
+    left: 78%;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.agree-btn:hover{
-    background-color:  #6b6d70;
+.agree-btn:hover {
+    background-color: #6b6d70;
 }
 
 .agree-btn:active {
@@ -391,7 +396,7 @@ nav > .six{
 }
 
 
-.decline-btn{
+.decline-btn {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
     position: absolute;
     z-index: 1000;
@@ -408,7 +413,7 @@ nav > .six{
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.decline-btn:hover{
+.decline-btn:hover {
     background-color: #8a4b4b;
 }
 
@@ -416,6 +421,144 @@ nav > .six{
     transform: scale(0.95);
 }
 
-button{
+button {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
+
+@media (max-width: 768px) {
+    nav {
+        left: -100%;
+    }
+
+    header {
+        height: 7%;
+        width: 100%;
+    }
+
+    .main {
+        top: 20%;
+        left: 15%;
+        margin: 0px;
+        font-size: 30px;
+    }
+
+    .title_box {
+        width: 90%;
+        top: 10%;
+        left: 6%;
+    }
+
+    .title_box>.title {
+        width: 35%;
+    }
+
+    .writer_box {
+        width: 90%;
+        top: 20%;
+        left: 6%;
+    }
+
+    .text_box {
+        width: 85%;
+        height: 55%;
+        position: absolute;
+        top: 33%;
+        left: 5%;
+        background-color: #E6EEF6;
+        display: flex;
+        color: #55595D;
+        padding: 3%;
+    }
+
+    .agree-btn {
+        width: 15%;
+        font-size: 15px;
+        left: 63%;
+        bottom: 2%;
+    }
+
+    .decline-btn {
+        width: 15%;
+        font-size: 15px;
+        left: 80%;
+        bottom: 2%;
+    }
+
+    .date {
+        position: absolute;
+        top: 19.5%;
+        left: -19%;
+        font-size: 13px;
+        width: 60%;
+        height: 25%;
+    }
+
+    .input {
+        width: 70%;
+        font-size: 12px;
+        left: 7%;
+    }
+
+    .sumit {
+        width: 15%;
+        font-size: 15px;
+    }
+
+    .comment_box {
+        width: 90%;
+        height: 100%;
+        position: absolute;
+        top: 115%;
+        left: 5%;
+    }
+
+    .ID>.name {
+        position: relative;
+        bottom: 0%;
+        left: 20%;
+        font-size: 15px;
+        margin: 0%;
+    }
+
+    .comments {
+        height: 9%;
+    }
+
+    .comments>img {
+        width: auto;
+        height: 60%;
+        position: absolute;
+        left: 0%;
+        top: 15%;
+    }
+
+    .comments>.ID {
+        top: 13%;
+    }
+
+    .ID>.name {
+        position: relative;
+        bottom: 0%;
+        left: 20%;
+        font-size: 15px;
+        margin: 0%;
+    }
+
+    .ID>.date_ {
+        position: absolute;
+        bottom: 0%;
+        left: 100%;
+        width: 100%;
+        margin: 0%;
+        font-size: 10px;
+    }
+
+    .comment {
+        position: absolute;
+        top: 25%;
+        right: 15%;
+        left: 18%;
+        font-size: 14px;
+    }
+
 }

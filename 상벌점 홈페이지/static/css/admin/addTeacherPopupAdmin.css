@@ -185,3 +185,19 @@ body {
     background-color: #7d8791; /* 클릭 시 색상 변경 */
     transform: scale(0.98); /* 클릭 시 약간 아래로 이동 */
 }
+
+@media (max-width: 768px) {
+
+    body {
+        width: 320px;
+    }
+
+    .passwordBox {
+        width: 72%;
+    }
+
+    .teacherInfoBox {
+    width: 88%;
+    height: 83%;
+    }
+}

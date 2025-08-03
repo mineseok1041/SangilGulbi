@@ -688,3 +688,103 @@ button{
     pointer-events: none;
     background-color: #eee;
 }
+
+@media (max-width: 768px) {
+    nav {
+        left: -100%;
+    }
+
+    header {
+        height: 7%;
+        width: 100%;
+    }
+
+    .main {
+        top: 20%;
+        left: 15%;
+        margin: 0px;
+        font-size: 30px;
+    }
+
+    .pointLog {
+        width: 100%;
+        height: 93%;
+        left: 0%;
+        top: 7%;
+    }
+
+    .actionButtons button {
+        padding: 4% 4%;
+        font-size: 10px;
+    }
+
+    .buttonsContainer {
+        top: 1%;
+    }
+
+    .actionButtons {
+        top: 15%;
+    }
+
+    .searchBar {
+        width: 13%;
+        top: 20%;
+        right: 50%;
+        position: absolute;
+        font-family: 'KakaoSmallSans-Bold';
+    }
+
+    .searchBar input {
+        padding: 10% 7%;
+        border: 2px solid #9AA6B2;
+        border-radius: 25px;
+        outline: none;
+        width: 319%;
+        transition: all 0.3s ease-in-out;
+        font-family: "KakaoSmallSans-Bold", sans-serif;
+        font-size: 10px;
+        text-align: center;
+        position: absolute;
+        left: 0%;
+    }
+
+    .searchButton {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 10%;
+        height: 72%;
+        background-color: #9AA6B2;
+        border: none;
+        border-radius: 25px;
+        position: absolute;
+        top: 22%;
+        right: 7%;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .pointLog_table th {
+        font-size: 6px;
+    }
+
+    .arrow {
+        font-size: 8px;
+    }
+
+    .pageNation-btn {
+        margin: 0 4px;
+        padding: 2px 5px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 11px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .pointLog_table td {
+        font-size: 5px;
+    }
+
+}

@@ -535,3 +535,120 @@ button{
     pointer-events: none;
     background-color: #eee;
 }
+
+@media (max-width: 768px) {
+    nav {
+        left: -100%;
+    }
+
+    header {
+        height: 7%;
+        width: 100%;
+    }
+
+    .main {
+        top: 20%;
+        left: 15%;
+        margin: 0px;
+        font-size: 30px;
+    }
+
+    .studentInfo {
+        width: 100%;
+        height: 93%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+    }
+
+    .buttonsContainer {
+        top: 2%;
+    }
+
+    .actionButtons {
+        width: 94%;
+        position: absolute;
+        top: 0%;
+        left: 0.5%;
+        display: flex;
+        gap: 1%;
+        justify-content: center;
+    }
+
+    .actionButtons button {
+        font-size: 9px;
+    }
+
+    .searchBar {
+        width: 40%;
+        top: 60%;
+        right: 36%;
+        position: absolute;
+    }
+
+    .searchBar input {
+        padding: 4% 4%;
+        border: 2px solid #9AA6B2;
+        border-radius: 25px;
+        outline: none;
+        width: 123%;
+        transition: all 0.3s ease-in-out;
+        font-family: "KakaoSmallSans-Bold", sans-serif;
+        font-size: 10px;
+        text-align: center;
+        right: 26.3%;
+    }
+
+    .searchButton {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 13%;
+        height: 38%;
+        background-color: #9AA6B2;
+        border: none;
+        border-radius: 25px;
+        position: absolute;
+        right: 8%;
+        top: 60%;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 11px;
+        transition: background-color 0.3s ease;
+    }
+
+    .filterIcon {
+        cursor: pointer;
+        width: 4%;
+        height: auto;
+        margin-left: 16%;
+        margin-top: 11%;
+    }
+
+    .studentInfo_table td {
+        font-size: 9px;
+    }
+
+    .arrow {
+        font-size: 9px;
+    }
+
+    .studentInfo_table th {
+        font-size: 10px;
+    }
+
+    .pageNation-btn {
+        margin: 0 4px;
+        padding: 2px 5px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 11px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .studentInfo>.studentInfo_table {
+        margin-top: 6%;
+    }
+
+
+}

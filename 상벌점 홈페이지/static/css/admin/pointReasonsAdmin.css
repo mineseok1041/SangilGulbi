@@ -430,3 +430,101 @@ table{
 button{
         font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
+
+@media (max-width: 767px) {
+
+    body {
+        overflow-y: scroll;
+    }
+
+    nav {
+        left: -100%;
+    }
+
+    header {
+        height: 7%;
+        width: 100%;
+    }
+
+    .main {
+        top: 30%;
+        left: 15%;
+        margin: 0px;
+        font-size: 30px;
+    }
+
+    .rewardList {
+        width: 90%;
+        height: 65%;
+        position: absolute;
+        top: 12%;
+        left: 5%;
+    }
+
+    .rewardList>.header {
+        height: 10%;
+    }
+
+    .rewardList>.header>h1 {
+        top: 25%;
+        left: 5%;
+    }
+
+    .rewardList_table table td {
+        font-size: 11px;
+    }
+
+    .rewardList_table table th {
+        font-size: 12px;
+    }
+
+    .rewardList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        font-size: 14px;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        z-index: -1;
+    }
+
+    .penaltyList {
+        width: 90%;
+        height: 65%;
+        position: absolute;
+        top: 83%;
+        left: 5%;
+    }
+
+    .penaltyList>.header {
+        height: 10%;
+    }
+
+    .penaltyList>.header>h1 {
+        top: 25%;
+        left: 5%;
+    }
+
+    .penaltyList_table table td {
+        font-size: 11px;
+    }
+
+    .penaltyList_table table th {
+        font-size: 12px;
+    }
+
+    .penaltyList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        font-size: 14px;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        z-index: -1;
+    }
+
+}
