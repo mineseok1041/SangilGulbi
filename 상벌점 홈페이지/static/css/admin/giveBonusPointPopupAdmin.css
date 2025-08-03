@@ -261,7 +261,7 @@ body {
 .modalContent {
     background-color: #fff;
     border-radius: 8px;
-    width: 30%;
+    width: 84%;
     margin-left: 45%;
     margin-top: 5%;
     max-height: 80%;
@@ -439,6 +439,7 @@ body {
         justify-content: flex-start;
         align-items: stretch;
         overflow-y: hidden;
+        position: absolute;
     }
 
     .bonusPointReasonTable th {
@@ -461,7 +462,7 @@ body {
         width: 92%;
         height: 106%;
         position: absolute;
-        top: 106%;
+        top: 96%;
         border-radius: 5px;
         overflow-y: auto;
         border: 2px solid #BCCCDC;

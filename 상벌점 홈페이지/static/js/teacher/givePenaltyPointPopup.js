@@ -288,5 +288,3 @@ document.addEventListener("DOMContentLoaded", function () {
     window.close();
 });
 });
-
-window.resizeTo(320, 650);
