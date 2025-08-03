@@ -539,6 +539,7 @@ body {
         justify-content: flex-start;
         align-items: stretch;
         overflow-y: hidden;
+        position: absolute;
     }
 
     .bonusPointReasonTable th {
@@ -559,7 +560,7 @@ body {
         margin-top: 0%;
         margin-left: 2%;
         width: 92%;
-        height: 106%;
+        height: 98%;
         position: absolute;
         top: 106%;
         border-radius: 5px;
@@ -569,5 +570,17 @@ body {
 
     .bonusPointReasonTable td {
         font-size: 14px;
+    }
+
+    .modalContent {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 84%;
+        margin-left: 4%;
+        margin-top: 5%;
+        max-height: 80%;
+        overflow-y: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
     }
 }
