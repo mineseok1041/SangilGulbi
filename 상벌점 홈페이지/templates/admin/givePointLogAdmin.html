@@ -7,11 +7,13 @@
     <title>상벌점 관리 페이지</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">상벌점 내역</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}</p>

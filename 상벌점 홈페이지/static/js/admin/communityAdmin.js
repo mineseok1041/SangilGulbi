@@ -11,4 +11,7 @@
 
         cell.textContent = formattedDate; // "2025/05/14"
     });
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('active');
+});
   });
