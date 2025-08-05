@@ -960,6 +960,16 @@ button{
         top: 7%;
     }
 
+    .pointLog_table table{
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        table-layout: fixed;
+        margin-top: 6%;
+        max-width: 850px;
+    }
+
     .actionButtons button {
         padding: 4% 4%;
         font-size: 10px;
@@ -1012,7 +1022,7 @@ button{
     }
 
     .pointLog_table th {
-        font-size: 6px;
+        font-size: 13px;
     }
 
     .arrow {
@@ -1025,13 +1035,13 @@ button{
         text-decoration: none;
         border: 1px solid #ccc;
         color: #333;
-        font-size: 11px;
+        font-size: 15px;
         border-radius: 50%;
         cursor: pointer;
     }
 
     .pointLog_table td {
-        font-size: 5px;
+        font-size: 11px;
     }
 
 }

@@ -638,12 +638,12 @@ button {
     }
 
     th {
-        font-size: 12px;
-        min-width: 50px;
+        font-size: 15px;
+        min-width: 70px;
     }
 
     td {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .pageNation-btn {
