@@ -21,7 +21,8 @@ body {
     display: flex;
     justify-content: space-between;
     width: 90%;
-    gap: 2%; /* 박스 간 간격을 %로 설정 */
+    gap: 2%;
+    /* 박스 간 간격을 %로 설정 */
     height: 90%;
 }
 
@@ -33,27 +34,44 @@ body {
 
 .bonusPointReason {
     margin-top: 3%;
-    width: 80%; /* 왼쪽 박스 너비 */
-    height: 95%; /* 왼쪽 박스 높이 */
-    background-color: #ffffff; /* 배경색 */
-    border: 2px solid #BCCCDC; /* 테두리 */
-    border-radius: 5px; /* 모서리 둥글게 */
-    padding: 2%; /* 내부 여백 */
+    width: 80%;
+    /* 왼쪽 박스 너비 */
+    height: 95%;
+    /* 왼쪽 박스 높이 */
+    background-color: #ffffff;
+    /* 배경색 */
+    border: 2px solid #BCCCDC;
+    /* 테두리 */
+    border-radius: 5px;
+    /* 모서리 둥글게 */
+    padding: 2%;
+    /* 내부 여백 */
     display: flex;
-    flex-direction: column; /* 내부 요소를 세로로 정렬 */
-    justify-content: flex-start; /* 내부 요소를 상단에 정렬 */
-    align-items: stretch; /* 내부 요소를 가로로 채움 */
-    overflow-y: hidden; /* 세로 스크롤바 추가 */
+    flex-direction: column;
+    /* 내부 요소를 세로로 정렬 */
+    justify-content: flex-start;
+    /* 내부 요소를 상단에 정렬 */
+    align-items: stretch;
+    /* 내부 요소를 가로로 채움 */
+    overflow-y: hidden;
+    /* 세로 스크롤바 추가 */
 }
 
 .bonusPointReasonTable {
-    width: 100%; /* 테이블 너비 */
-    height: 100%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
-    overflow-y: auto; /* Y축 스크롤 활성화 */
-    overflow-x: hidden; /* X축 스크롤 비활성화 */
-    border-collapse: collapse; /* 테두리 간격 제거 */
-    box-sizing: border-box; /* 크기 계산 정확히 */
+    width: 100%;
+    /* 테이블 너비 */
+    height: 100%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
+    overflow-y: auto;
+    /* Y축 스크롤 활성화 */
+    overflow-x: hidden;
+    /* X축 스크롤 비활성화 */
+    border-collapse: collapse;
+    /* 테두리 간격 제거 */
+    box-sizing: border-box;
+    /* 크기 계산 정확히 */
 }
 
 .bonusPointReasonTable table {
@@ -66,10 +84,12 @@ body {
 .bonusPointReasonTable th {
     background: #677179;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
-    color: #ffffff; /* 헤더 텍스트 색상 */
+    color: #ffffff;
+    /* 헤더 텍스트 색상 */
 }
 
 /* .bonusPointReasonTable th input[type="checkbox"] {
@@ -78,7 +98,8 @@ body {
 
 .bonusPointReasonTable td {
     padding: 3%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
@@ -88,45 +109,60 @@ body {
     transform: scale(2);
 } */
 
-.bonusPointReasonTable td:nth-child(1), /* 번호 열 */
+.bonusPointReasonTable td:nth-child(1),
+/* 번호 열 */
 .bonusPointReasonTable th:nth-child(1) {
-    min-width: 80px; /* 번호 열 최소 너비 */
+    min-width: 80px;
+    /* 번호 열 최소 너비 */
 }
 
-.bonusPointReasonTable td:nth-child(3), /* 부여 점수 열 */
+.bonusPointReasonTable td:nth-child(3),
+/* 부여 점수 열 */
 .bonusPointReasonTable th:nth-child(3) {
-    min-width: 120px; /* 부여 점수 열 최소 너비 */
+    min-width: 120px;
+    /* 부여 점수 열 최소 너비 */
 }
 
 /* 선택된 행 스타일 */
 .selected-row {
-    background-color: #BCCCDC; /* 선택된 행 배경색 */
-    font-weight: bold; /* 선택된 행 텍스트 굵게 */
-    transition: background-color 0.2s ease; /* 부드러운 전환 효과 */
+    background-color: #BCCCDC;
+    /* 선택된 행 배경색 */
+    font-weight: bold;
+    /* 선택된 행 텍스트 굵게 */
+    transition: background-color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .bonusPointReasonTable tbody tr:not(.selected-row):hover {
     background: #e7e7e7;
-    transition: background-color 0.2s ease; /* 부드러운 전환 효과 */
+    transition: background-color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .bonusPointReasonTable tbody tr.select-row:hover {
     background-color: #9AA6B2;
-    color: #000; /* 선택된 행에 마우스 오버 시 텍스트 색상 */
-    transition: background-color 0.2s ease, color 0.2s ease; /* 부드러운 전환 효과 */
+    color: #000;
+    /* 선택된 행에 마우스 오버 시 텍스트 색상 */
+    transition: background-color 0.2s ease, color 0.2s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .studentInfoBox {
     margin-top: 3%;
-    width: 35%; /* 오른쪽 박스 너비 */
-    height: 95%; /* 오른쪽 박스 높이 */
+    width: 35%;
+    /* 오른쪽 박스 너비 */
+    height: 95%;
+    /* 오른쪽 박스 높이 */
     position: relative;
-    padding: 2%; /* 내부 여백 */
+    padding: 2%;
+    /* 내부 여백 */
     border-radius: 5px;
     overflow-y: auto;
-    border: 2px solid #BCCCDC; /* 테두리 */
-    flex-direction: column; 
+    border: 2px solid #BCCCDC;
+    /* 테두리 */
+    flex-direction: column;
 }
+
 .studentInfo {
     display: flex;
     flex-direction: column;
@@ -134,45 +170,67 @@ body {
 
 .infoRow {
     display: flex;
-    justify-content: space-between; /* 라벨과 값 양쪽 정렬 */
+    justify-content: space-between;
+    /* 라벨과 값 양쪽 정렬 */
     align-items: center;
-    padding: 15px 0; /* 위아래 간격 */
-    border-bottom: 1px solid #ddd; /* 각 행 구분선 */
+    padding: 15px 0;
+    /* 위아래 간격 */
+    border-bottom: 1px solid #ddd;
+    /* 각 행 구분선 */
 }
 
 .infoLabel {
     font-weight: bold;
-    font-size: 16px; /* 라벨 폰트 크기 */
-    color: #333; /* 라벨 텍스트 색상 */
-    flex: 1; /* 라벨 너비 */
-    text-align: left; /* 라벨 텍스트 왼쪽 정렬 */
-    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    font-size: 16px;
+    /* 라벨 폰트 크기 */
+    color: #333;
+    /* 라벨 텍스트 색상 */
+    flex: 1;
+    /* 라벨 너비 */
+    text-align: left;
+    /* 라벨 텍스트 왼쪽 정렬 */
+    white-space: nowrap;
+    /* 텍스트 줄바꿈 방지 */
 }
 
 .infoValue.studentNum {
-    margin-right: 10px; /* 오른쪽 여백 */
+    margin-right: 10px;
+    /* 오른쪽 여백 */
 }
 
 .infoValue:not(.opinion):not(.reason) {
-    font-size: 16px; /* 값 폰트 크기 */
-    color: #555; /* 값 텍스트 색상 */
-    text-align: right; /* 값 오른쪽 정렬 */
-    flex: 2; /* 값 너비 */
+    font-size: 16px;
+    /* 값 폰트 크기 */
+    color: #555;
+    /* 값 텍스트 색상 */
+    text-align: right;
+    /* 값 오른쪽 정렬 */
+    flex: 2;
+    /* 값 너비 */
 }
 
 .infoValue.reason {
-    font-size: 16px; /* 값 폰트 크기 */
-    color: #555; /* 값 텍스트 색상 */
-    text-align: right; /* 값 왼쪽 정렬 */
-    flex: 4; /* 값 너비 */
-    line-height: 1.5; /* 줄 간격 설정 */
-    overflow: hidden; /* 오버플로우 숨김 */
-    white-space: nowrap; /* 줄바꿈 방지 */
-    text-overflow: ellipsis; /* 텍스트 길면 ... 으로 대체 */
+    font-size: 16px;
+    /* 값 폰트 크기 */
+    color: #555;
+    /* 값 텍스트 색상 */
+    text-align: right;
+    /* 값 왼쪽 정렬 */
+    flex: 4;
+    /* 값 너비 */
+    line-height: 1.5;
+    /* 줄 간격 설정 */
+    overflow: hidden;
+    /* 오버플로우 숨김 */
+    white-space: nowrap;
+    /* 줄바꿈 방지 */
+    text-overflow: ellipsis;
+    /* 텍스트 길면 ... 으로 대체 */
 }
 
 .infoValue.giveTeacherName {
-    margin-right: 10px; /* 오른쪽 여백 */
+    margin-right: 10px;
+    /* 오른쪽 여백 */
 }
 
 /* 드롭다운 메뉴 스타일 */
@@ -186,26 +244,40 @@ body {
 }
 
 .teacherDropdown.hidden {
-    display: none; /* 기본적으로 숨김 */
+    display: none;
+    /* 기본적으로 숨김 */
 }
 
 /* opinion: 입력 필드 */
 .opinion {
-    width: 80%; /* 입력 필드 너비 */
-    height: 60px; /* 입력 필드 높이 */
+    width: 80%;
+    /* 입력 필드 너비 */
+    height: 60px;
+    /* 입력 필드 높이 */
     padding: 2% 2%;
-    border: 1px solid #ccc; /* 테두리 */
-    border-radius: 5px; /* 모서리 둥글게 */
-    font-size: 14px; /* 입력 필드 폰트 크기 */
-    color: #555; /* 텍스트 색상 */
-    background-color: #ffffff; /* 배경색 */
-    box-sizing: border-box; /* 크기 계산 정확히 */
+    border: 1px solid #ccc;
+    /* 테두리 */
+    border-radius: 5px;
+    /* 모서리 둥글게 */
+    font-size: 14px;
+    /* 입력 필드 폰트 크기 */
+    color: #555;
+    /* 텍스트 색상 */
+    background-color: #ffffff;
+    /* 배경색 */
+    box-sizing: border-box;
+    /* 크기 계산 정확히 */
     overflow-y: auto;
-    resize: none; /* 사용자가 크기를 조정하지 못하도록 설정 */
-    text-align: left; /* 텍스트 좌측 정렬 */
-    white-space: pre-wrap; /* 줄바꿈 유지 및 공백 처리 */
-    word-wrap: break-word; /* 긴 단어 줄바꿈 */
-    line-height: 1.5; /* 줄 간격 설정 */
+    resize: none;
+    /* 사용자가 크기를 조정하지 못하도록 설정 */
+    text-align: left;
+    /* 텍스트 좌측 정렬 */
+    white-space: pre-wrap;
+    /* 줄바꿈 유지 및 공백 처리 */
+    word-wrap: break-word;
+    /* 긴 단어 줄바꿈 */
+    line-height: 1.5;
+    /* 줄 간격 설정 */
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
@@ -275,25 +347,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; /* 검색창과 테이블 간격 */
+    margin-bottom: 20px;
+    /* 검색창과 테이블 간격 */
 }
 
 .searchBar input {
-    padding: 3% 7%; /* 안쪽 여백 */
-    border: 2px solid #9AA6B2; /* 테두리 색상 */
-    border-radius: 25px; /* 둥근 모서리 */
-    outline: none; /* 클릭 시 기본 테두리 제거 */
-    width: 130%; /* 검색창 너비 */
-    transition: all 0.3s ease-in-out; /* 부드러운 효과 */
-    font-family: "KakaoSmallSans-Bold", sans-serif; /* 폰트 설정 */
+    padding: 3% 7%;
+    /* 안쪽 여백 */
+    border: 2px solid #9AA6B2;
+    /* 테두리 색상 */
+    border-radius: 25px;
+    /* 둥근 모서리 */
+    outline: none;
+    /* 클릭 시 기본 테두리 제거 */
+    width: 130%;
+    /* 검색창 너비 */
+    transition: all 0.3s ease-in-out;
+    /* 부드러운 효과 */
+    font-family: "KakaoSmallSans-Bold", sans-serif;
+    /* 폰트 설정 */
     font-size: 16px;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     right: 26.3%;
 }
 
 .searchBar input:focus {
-    border-color: #9AA6B2; /* 포커스 시 테두리 색상 변경 */
-    box-shadow: 0 0 8px #9AA6B2 /* 포커스 효과 */
+    border-color: #9AA6B2;
+    /* 포커스 시 테두리 색상 변경 */
+    box-shadow: 0 0 8px #9AA6B2
+        /* 포커스 효과 */
 }
 
 .searchButton {
@@ -314,24 +397,30 @@ body {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    opacity: 0.5; /* 기본 불투명도 설정 */
-    transition: opacity 0.5s ease; /* 부드러운 전환 효과 */
+    opacity: 0.5;
+    /* 기본 불투명도 설정 */
+    transition: opacity 0.5s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .searchStudentIcon:hover {
-    opacity: 1; /* 마우스를 올렸을 때 완전히 보이도록 설정 */
+    opacity: 1;
+    /* 마우스를 올렸을 때 완전히 보이도록 설정 */
 }
 
 .searchTeacherIcon {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    opacity: 0.5; /* 기본 불투명도 설정 */
-    transition: opacity 0.5s ease; /* 부드러운 전환 효과 */
+    opacity: 0.5;
+    /* 기본 불투명도 설정 */
+    transition: opacity 0.5s ease;
+    /* 부드러운 전환 효과 */
 }
 
 .searchTeacherIcon:hover {
-    opacity: 1; /* 마우스를 올렸을 때 완전히 보이도록 설정 */
+    opacity: 1;
+    /* 마우스를 올렸을 때 완전히 보이도록 설정 */
 }
 
 .studentTable {
@@ -339,7 +428,8 @@ body {
     border-collapse: collapse;
 }
 
-.studentTable th, .studentTable td {
+.studentTable th,
+.studentTable td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -355,7 +445,8 @@ body {
     border-collapse: collapse;
 }
 
-.teacherTable th, .teacherTable td {
+.teacherTable th,
+.teacherTable td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -370,40 +461,126 @@ body {
     width: 40%;
     background-color: #9AA6B2;
     color: white;
-    padding: 3%; /* 버튼 안쪽 여백 */
+    padding: 3%;
+    /* 버튼 안쪽 여백 */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 19px; /* 버튼 폰트 크기 */
+    font-size: 19px;
+    /* 버튼 폰트 크기 */
     font-family: 'KakaoSmallSans-Bold', sans-serif;
-    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+    transition: background-color 0.3s ease;
+    /* 부드러운 전환 효과 */
     position: absolute;
-    bottom: 5%; /* 버튼 위치 조정 */
+    bottom: 5%;
+    /* 버튼 위치 조정 */
     right: 6%;
-    
+
 }
 
 .submitButton:hover {
-    background-color: #7d8791; /* hover 시 색상 변경 */
+    background-color: #7d8791;
+    /* hover 시 색상 변경 */
 }
 
 .cancelButton {
     width: 40%;
     background-color: #b29a9a;
     color: white;
-    padding: 3%; /* 버튼 안쪽 여백 */
+    padding: 3%;
+    /* 버튼 안쪽 여백 */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 19px; /* 버튼 폰트 크기 */
+    font-size: 19px;
+    /* 버튼 폰트 크기 */
     font-family: 'KakaoSmallSans-Bold', sans-serif;
-    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+    transition: background-color 0.3s ease;
+    /* 부드러운 전환 효과 */
     position: absolute;
-    bottom: 5%; /* 버튼 위치 조정 */
+    bottom: 5%;
+    /* 버튼 위치 조정 */
     right: 54%;
-    
+
 }
 
 .cancelButton:hover {
-    background-color: #917d7d; /* hover 시 색상 변경 */
+    background-color: #917d7d;
+    /* hover 시 색상 변경 */
+}
+
+@media (max-width: 768px) {
+
+    body {
+        width: 289px;
+        height: 650px;
+    }
+
+    .popupMain {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 2%;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .bonusPointReason {
+        margin-top: 3%;
+        margin-left: 2%;
+        width: 93%;
+        height: 89%;
+        background-color: #ffffff;
+        border: 2px solid #BCCCDC;
+        border-radius: 5px;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        overflow-y: hidden;
+        position: absolute;
+    }
+
+    .bonusPointReasonTable th {
+        font-size: 11px;
+    }
+
+    .bonusPointReasonTable td:nth-child(1),
+    .bonusPointReasonTable th:nth-child(1) {
+        min-width: 45px;
+    }
+
+    .bonusPointReasonTable td:nth-child(3),
+    .bonusPointReasonTable th:nth-child(3) {
+        min-width: 60px;
+    }
+
+    .studentInfoBox {
+        margin-top: 0%;
+        margin-left: 2%;
+        width: 92%;
+        height: 80%;
+        position: absolute;
+        top: 98%;
+        border-radius: 5px;
+        overflow-y: auto;
+        border: 2px solid #BCCCDC;
+    }
+
+    .bonusPointReasonTable td {
+        font-size: 14px;
+    }
+
+    .modalContent {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 84%;
+        margin-left: 4%;
+        margin-top: 5%;
+        max-height: 80%;
+        overflow-y: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
 }

@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cell.textContent = formattedDate; // "2025/05/14"
     });
-});
 
     // 상점 부여 팝업
     if (bonusButton) {
@@ -119,3 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('active');
+});
+});
