@@ -688,3 +688,360 @@ button{
     pointer-events: none;
     background-color: #eee;
 }
+
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        margin: 0%;
+    }
+
+    header {
+        width: 100%;
+        height: 7%;
+        background-color: white;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        box-shadow: 0px 3px 3px gray;
+        z-index: 1;
+    }
+
+    .main {
+        position: absolute;
+        top: 25%;
+        left: 15%;
+        color: #55595D;
+        font-size: 30px;
+        margin: 0%;
+    }
+
+    /* 햄버거 버튼 스타일 */
+    .hamburger {
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+    }
+
+
+    nav.sidebar {
+        position: fixed;
+        background-color: #9AA6B2;
+        left: -100%;
+        width: 85%;
+        height: 100%;
+        top: 0%;
+        z-index: 100;
+        transition: left 0.3s;
+    }
+
+    /* nav가 열렸을 때 */
+    .sidebar.active {
+        left: 0;
+    }
+
+    nav>a {
+        font-size: 24px;
+    }
+
+    nav>a:not(.givePoint_nav):hover {
+        color: #d8d8d8;
+    }
+
+    nav>.profiles {
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
+
+    nav>.number {
+        position: absolute;
+        left: 50%;
+        top: 6%;
+        color: white;
+    }
+
+    nav>.name {
+        position: absolute;
+        left: 50%;
+        top: 9%;
+        font-size: larger;
+        color: white;
+    }
+
+    nav>.mypage_nav {
+        color: white;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
+
+    nav>.first {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
+
+    nav>.givePoint_nav {
+        color: #575e65;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.two {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
+
+    nav>.pointReasons_nav {
+        color: white;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.three {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
+
+    nav>.studentManagement_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.four {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 55%;
+        left: 5%;
+    }
+
+    nav>.teacherManagement_nav {
+        color: white;
+        position: absolute;
+        top: 58.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.five {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 62%;
+        left: 5%;
+    }
+
+    nav>.community_nav {
+        color: white;
+        position: absolute;
+        top: 65.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.myInfoEdit_nav {
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #9aa6b2;
+        border: none;
+    }
+
+    .myInfoEdit_nav:hover {
+        color: #d8d8d8;
+    }
+
+    nav>.six {
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+    }
+
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #9AA6B2;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .pointLog {
+        width: 100%;
+        height: 93%;
+        left: 0%;
+        top: 7%;
+    }
+
+    .pointLog_table table{
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        table-layout: fixed;
+        margin-top: 6%;
+        max-width: 850px;
+    }
+
+    .actionButtons button {
+        padding: 4% 4%;
+        font-size: 10px;
+    }
+
+    .buttonsContainer {
+        top: 1%;
+    }
+
+    .actionButtons {
+        top: 15%;
+    }
+
+    .searchBar {
+        width: 13%;
+        top: 20%;
+        right: 50%;
+        position: absolute;
+        font-family: 'KakaoSmallSans-Bold';
+    }
+
+    .searchBar input {
+        padding: 10% 7%;
+        border: 2px solid #9AA6B2;
+        border-radius: 25px;
+        outline: none;
+        width: 319%;
+        transition: all 0.3s ease-in-out;
+        font-family: "KakaoSmallSans-Bold", sans-serif;
+        font-size: 10px;
+        text-align: center;
+        position: absolute;
+        left: 0%;
+    }
+
+    .searchButton {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        width: 10%;
+        height: 72%;
+        background-color: #9AA6B2;
+        border: none;
+        border-radius: 25px;
+        position: absolute;
+        top: 22%;
+        right: 7%;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-size: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .pointLog_table th {
+        font-size: 13px;
+    }
+
+    .arrow {
+        font-size: 8px;
+    }
+
+    .pageNation-btn {
+        margin: 0 4px;
+        padding: 2px 5px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .pointLog_table td {
+        font-size: 11px;
+    }
+
+}

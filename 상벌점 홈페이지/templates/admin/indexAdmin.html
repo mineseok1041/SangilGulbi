@@ -7,11 +7,13 @@
     <title>상벌점 관리 페이지</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">마이페이지</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}</p>
@@ -143,10 +145,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- 여기에 선생님 데이터 불러와주세요. 부탁드립니다.
+                         데이터 있을때만 버튼 뜨게 해주세요. >< -->
                     <tr>
-                        <td>홍길동</td>
-                        <td>ghdrlfehd12</td>
-                        <td>1234</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <button class="approve">승인</button>
                             <button class="reject">거부</button>

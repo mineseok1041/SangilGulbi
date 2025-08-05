@@ -12,3 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+window.resizeTo(320, 650);

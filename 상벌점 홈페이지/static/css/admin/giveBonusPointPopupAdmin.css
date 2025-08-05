@@ -408,3 +408,79 @@ body {
 .cancelButton:hover {
     background-color: #917d7d; /* hover 시 색상 변경 */
 }
+
+@media (max-width: 768px) {
+
+    body {
+        width: 289px;
+        height: 650px;
+    }
+
+    .popupMain {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 2%;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .bonusPointReason {
+        margin-top: 3%;
+        margin-left: 2%;
+        width: 93%;
+        height: 89%;
+        background-color: #ffffff;
+        border: 2px solid #BCCCDC;
+        border-radius: 5px;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        overflow-y: hidden;
+        position: absolute;
+    }
+
+    .bonusPointReasonTable th {
+        font-size: 11px;
+    }
+
+    .bonusPointReasonTable td:nth-child(1),
+    .bonusPointReasonTable th:nth-child(1) {
+        min-width: 45px;
+    }
+
+    .bonusPointReasonTable td:nth-child(3),
+    .bonusPointReasonTable th:nth-child(3) {
+        min-width: 60px;
+    }
+
+    .studentInfoBox {
+        margin-top: 0%;
+        margin-left: 2%;
+        width: 92%;
+        height: 80%;
+        position: absolute;
+        top: 96%;
+        border-radius: 5px;
+        overflow-y: auto;
+        border: 2px solid #BCCCDC;
+    }
+
+    .bonusPointReasonTable td {
+        font-size: 14px;
+    }
+
+     .modalContent {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 84%;
+        margin-left: 4%;
+        margin-top: 5%;
+        max-height: 80%;
+        overflow-y: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+}

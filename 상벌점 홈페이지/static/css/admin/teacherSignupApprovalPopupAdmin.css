@@ -103,3 +103,27 @@ th, td {
 .reject:active {
   scale: 0.98;
 }
+
+@media (max-width: 768px) {
+
+    body {
+        width: 320px;
+    }
+
+    .popup-box {
+    width: 65%;
+    }
+
+    table {
+    width: 85%;
+    border-collapse: collapse;
+    margin-top: 6%;
+    position: absolute;
+    right: 7%;
+    }
+
+    th, td {
+    font-size: 15%;
+    }
+
+}
