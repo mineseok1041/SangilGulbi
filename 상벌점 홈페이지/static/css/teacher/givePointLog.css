@@ -1146,7 +1146,6 @@ button {
         border-bottom: #000000 solid 3px;
         font-size: 15px;
         min-width: 120px;
-
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
