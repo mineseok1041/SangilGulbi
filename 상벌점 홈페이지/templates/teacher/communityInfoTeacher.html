@@ -6,11 +6,14 @@
     <title>게시판</title>
     <link href="{{ url_for('static', filename='css/teacher/communityInfoTeacher.css') }}" rel="stylesheet">
 </head>
+
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">게시판</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}선생님</p>
@@ -50,13 +53,13 @@
     </div>
     
     {% if session['identity'] == 0 or session['id'] == notice.author_id %}
-        <button href="{{ url_for('teacher.communityEdit', noticeId=notice.id) }}" class="agree-btn">수정</button>
+        <button onclick="location.href='{{ url_for('teacher.communityEdit', noticeId=notice.id) }}'" class="agree-btn">수정</button>
         <form method="post" action="{{ url_for('teacher.communityDelete', noticeId=notice.id) }}" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
             <button type="submit" class="decline-btn">삭제</button>
         </form>
     {% endif %}
 
-     <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
+    <input class="input" type="text" placeholder="신청 댓글을 입력해주세요. 비방댓글이나 모욕댓글은 즉시 처벌이 있을 수 있습니다.">
         <button class="sumit">전송</button>
 
         <div class="container">
@@ -182,5 +185,6 @@
             </div>
         </div>
         <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/teacher/communityInfoTeacher.js') }}"></script>
     </body>
     </html>
