@@ -6,4 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
       star.classList.toggle('active');
     });
   });
+      document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('active');
+});
 });

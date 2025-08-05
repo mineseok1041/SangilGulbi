@@ -107,4 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(() => alert("취소 요청 중 오류가 발생했습니다."));
         }
     });
+
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.sidebar').classList.toggle('active');
+});
 });
