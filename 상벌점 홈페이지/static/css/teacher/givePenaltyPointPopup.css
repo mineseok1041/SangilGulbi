@@ -309,6 +309,29 @@ body {
     opacity: 1;
 }
 
+.reasonSearchModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.reasonSearchModal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
 .teacherSearchModal {
     position: fixed;
     top: 0;
@@ -412,6 +435,21 @@ body {
     /* 마우스를 올렸을 때 완전히 보이도록 설정 */
 }
 
+.searchReasonIcon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    /* 기본 불투명도 설정 */
+    transition: opacity 0.5s ease;
+    /* 부드러운 전환 효과 */
+}
+
+.searchReasonIcon:hover {
+    opacity: 1;
+    /* 마우스를 올렸을 때 완전히 보이도록 설정 */
+}
+
 .searchTeacherIcon {
     width: 20px;
     height: 20px;
@@ -459,6 +497,39 @@ body {
 .teacherTable tr:not(.selected-row):hover {
     background-color: #f1f1f1;
     cursor: pointer;
+}
+
+.reasonSearchModal .reasonTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reasonSearchModal .reasonTable th,
+.reasonSearchModal .reasonTable td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.reasonSearchModal .reasonTable tr:not(.selected-row):hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.reasonTable td:nth-child(1),
+.reasonTable th:nth-child(1) {
+    min-width: 30px;
+}
+
+.reasonTable td:nth-child(2),
+.reasonTable th:nth-child(2) {
+    min-width: 120px;
+    line-height: 1.7;
+}
+
+.reasonTable td:nth-child(3),
+.reasonTable th:nth-child(3) {
+    min-width: 30px;
 }
 
 .submitButton {
@@ -515,6 +586,10 @@ body {
 
 @media (max-width: 768px) {
 
+    .penaltyPointReason {
+        display: none;
+    }
+
     body {
         width: 289px;
         height: 650px;
@@ -529,11 +604,12 @@ body {
         flex-direction: column;
     }
 
-    .penaltyPointReason {
+    .studentInfoBox {
         margin-top: 3%;
-        margin-left: 2%;
-        width: 93%;
-        height: 89%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 95%;
         background-color: #ffffff;
         border: 2px solid #BCCCDC;
         border-radius: 5px;
@@ -544,32 +620,6 @@ body {
         align-items: stretch;
         overflow-y: hidden;
         position: absolute;
-    }
-
-    .penaltyPointReasonTable th {
-        font-size: 11px;
-    }
-
-    .penaltyPointReasonTable td:nth-child(1),
-    .bonusPointReasonTable th:nth-child(1) {
-        min-width: 45px;
-    }
-
-    .penaltyPointReasonTable td:nth-child(3),
-    .penaltyPointReasonTable th:nth-child(3) {
-        min-width: 60px;
-    }
-
-    .studentInfoBox {
-        margin-top: 0%;
-        margin-left: 2%;
-        width: 92%;
-        height: 80%;
-        position: absolute;
-        top: 98%;
-        border-radius: 5px;
-        overflow-y: auto;
-        border: 2px solid #BCCCDC;
     }
 
     .penaltyPointReasonTable td {

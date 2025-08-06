@@ -1229,10 +1229,10 @@ button {
 
     .studentInfo>.more {
         width: 20%;
-        height: 15%;
+        height: 10%;
         background-color: #9AA6B2;
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         position: absolute;
         bottom: 3%;
         right: 3%;
@@ -1361,10 +1361,10 @@ button {
 
     .teacherManagement_box>.more {
         width: 20%;
-        height: 15%;
+        height: 10%;
         background-color: #9AA6B2;
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         position: absolute;
         bottom: 3%;
         right: 3%;
@@ -1503,10 +1503,10 @@ button {
 
     .community_box>.more {
         width: 20%;
-        height: 15%;
+        height: 10%;
         background-color: #9AA6B2;
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         position: absolute;
         bottom: 3%;
         right: 3%;
@@ -1640,17 +1640,17 @@ button {
 
     .teacherConfirmBox>.more-teacher-btn {
         width: 20%;
-        height: 15%;
+        height: 10%;
         background-color: #9AA6B2;
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         position: absolute;
         bottom: 3%;
         right: 3%;
         color: white;
         cursor: pointer;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 11px;
+        font-size: 15px;
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 

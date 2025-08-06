@@ -749,11 +749,11 @@ td, th {
     }
 
     .upscore_box>.more {
-    width: 25%;
+    width: 20%;
     height: 10%;
     background-color: #BCCCDC;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
@@ -795,11 +795,11 @@ td, th {
     }
 
     .downscore_box>.more {
-    width: 25%;
+    width: 20%;
     height: 10%;
     background-color: #BCCCDC;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     position: absolute;
     bottom: 3%;
     right: 3%;
@@ -812,19 +812,36 @@ td, th {
 
     .community_box {
         width: 90%;
-        height: 27%;
-        position: absolute;
-        top: 100%;
+        height: 35%;
         left: 5%;
-        border-radius: 5px;
-        box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-        overflow: hidden;
+        top: 100%;
+    }
+
+    .community_box>.header {
+        width: 100%;
+        height: 15%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        background-color: #BCCCDC;
+        border-radius: 5px 5px 0px 0px;
+        padding-top: 0.5%;
     }
 
     .community_box>.more {
-        width: 25%;
-        height:11%;
+        width: 20%;
+        height: 10%;
+        background-color: #BCCCDC;
+        border: none;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 3%;
         right: 3%;
+        color: white;
+        cursor: pointer;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        font-size: 15px;
+        transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
     .community_box>.header>h1 {
@@ -832,7 +849,7 @@ td, th {
     }
 
     .community {
-        margin-top: 15%;
+        margin-top: 17%;
     }
 
     td {

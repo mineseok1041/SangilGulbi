@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const studentNum = urlParams.get("studentNum") || ""; // 기본값 설정
     const studentName = urlParams.get("studentName") || ""; // 기본값 설정
     const studentId = urlParams.get("studentId") || "";
+    const searchReasonIcon = document.querySelector(".searchReasonIcon"); // 사유 돋보기
+    const reasonSearchModal = document.querySelector(".reasonSearchModal"); // 사유 검색 모달
+    const reasonModalContent = reasonSearchModal?.querySelector(".modalContent");
+    const reasonTableRows = document.querySelectorAll(".reasonSearchModal .reasonTable tbody tr"); // 사유 모달 내 테이블 행
 
     // 행 클릭 이벤트 추가
     tableRows.forEach(row => {
@@ -161,6 +165,44 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".studentNum").textContent = studentNum;
         document.querySelector(".studentName").textContent = studentName;
         document.querySelector(".studentId").textContent = studentId;
+    }
+
+    // 사유 돋보기 클릭 이벤트 (모바일용)
+    if (searchReasonIcon && reasonSearchModal) {
+        searchReasonIcon.addEventListener("click", () => {
+            reasonSearchModal.classList.remove("hidden");
+            reasonSearchModal.classList.add("visible");
+        });
+
+        // 모달 외부 클릭 시 닫기
+        reasonSearchModal.addEventListener("click", function (event) {
+            if (reasonModalContent && !reasonModalContent.contains(event.target)) {
+                reasonSearchModal.classList.add("hidden");
+                reasonSearchModal.classList.remove("visible");
+            }
+        });
+
+        // 사유 모달 내 테이블 행 클릭 이벤트
+        reasonTableRows.forEach(row => {
+            row.addEventListener("click", function () {
+                const reason = row.querySelector("td:nth-child(2)")?.textContent; // 사유 (2번째 열)
+                const bonusPoint = row.querySelector("td:nth-child(3)")?.textContent; // 점수 (3번째 열)
+
+                if (reason && bonusPoint && reasonElement && bonusPointElement) {
+                    // 부여 정보 섹션에 데이터 업데이트
+                    reasonElement.textContent = reason;
+                    bonusPointElement.textContent = bonusPoint;
+
+                    // 선택된 행 강조 표시
+                    reasonTableRows.forEach(r => r.classList.remove("selected-row"));
+                    row.classList.add("selected-row");
+
+                    // 모달 닫기
+                    reasonSearchModal.classList.add("hidden");
+                    reasonSearchModal.classList.remove("visible");
+                }
+            });
+        });
     }
 });
 
