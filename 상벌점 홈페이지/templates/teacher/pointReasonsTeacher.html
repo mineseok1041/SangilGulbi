@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,38 +60,38 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
     </div>
-</div>
     <div class="penaltyList">
-    <div class="header">
-        <h1>벌점 항목</h1>
+        <div class="header">
+            <h1>벌점 항목</h1>
+        </div>
+        <div class="penaltyList_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th class="num">번호</th>
+                        <th>사유</th>
+                        <th class="penalty">벌점</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for penaltyPointReason in penaltyPointReasonDTO %}
+                    <tr>
+                        <td><span class="star">★</span></td>
+                        <td>{{ penaltyPointReason.no - 200 }}</td>
+                        <td>{{ penaltyPointReason.reason }}</td>
+                        <td>{{ penaltyPointReason.value }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="penaltyList_table">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th class="num">번호</th>
-                    <th>사유</th>
-                    <th class="penalty">벌점</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for penaltyPointReason in penaltyPointReasonDTO %}
-                <tr>
-                    <td><span class="star">★</span></td>
-                    <td>{{ penaltyPointReason.no - 200 }}</td>
-                    <td>{{ penaltyPointReason.reason }}</td>
-                    <td>{{ penaltyPointReason.value }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-    </div>
-
-    <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <div class="footer"></div>
+        <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
 </body>
 
 </html>

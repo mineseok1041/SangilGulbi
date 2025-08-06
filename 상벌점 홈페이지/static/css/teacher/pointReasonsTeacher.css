@@ -35,18 +35,18 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
-nav > a:not(.pointReasons_nav):hover{
+nav>a:not(.pointReasons_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -54,14 +54,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -69,7 +69,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -77,18 +77,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .givePoint_nav {
+nav>.givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -97,18 +97,18 @@ nav > .givePoint_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: #575e65;
     position: absolute;
     top: 44.2%;
@@ -117,18 +117,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav>.studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -137,18 +137,18 @@ nav > .studentManagement_nav {
     cursor: pointer;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 55%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 58.5%;
@@ -157,7 +157,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -169,18 +169,18 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .five{
+nav>.five {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 
@@ -199,8 +199,8 @@ nav > .five{
     font-size: 24px;
 }
 
-table{
-   font-size:10px;
+table {
+    font-size: 10px;
 }
 
 .rewardList {
@@ -216,7 +216,7 @@ table{
     overflow-y: scroll;
 }
 
-.rewardList> .header{
+.rewardList>.header {
     width: 100%;
     height: 8%;
     position: absolute;
@@ -227,7 +227,7 @@ table{
     padding-top: 0.5%;
 }
 
-.rewardList > .header >  h1{
+.rewardList>.header>h1 {
     width: 100%;
     color: white;
     position: absolute;
@@ -238,10 +238,13 @@ table{
 }
 
 
-.rewardList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.rewardList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .rewardList_table table {
@@ -255,14 +258,16 @@ table{
 .rewardList_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .rewardList_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
@@ -272,7 +277,7 @@ table{
     background: #f9f9f9;
 }
 
-.rewardList > .more {
+.rewardList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -288,11 +293,14 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.rewardList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.rewardList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.rewardList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.rewardList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 
@@ -310,7 +318,7 @@ table{
     padding-bottom: 2%;
 }
 
-.penaltyList> .header{
+.penaltyList>.header {
     width: 100%;
     height: 8%;
     position: absolute;
@@ -321,7 +329,7 @@ table{
     padding-top: 0.5%;
 }
 
-.penaltyList > .header >  h1{
+.penaltyList>.header>h1 {
     width: 100%;
     color: white;
     position: absolute;
@@ -332,10 +340,13 @@ table{
 }
 
 
-.penaltyList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.penaltyList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .penaltyList_table table {
@@ -349,14 +360,16 @@ table{
 .penaltyList_table th {
     background: #ffffff;
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .penaltyList_table td {
     padding: 1.5%;
-    text-align: center; /* 가운데 정렬 */
+    text-align: center;
+    /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
@@ -366,7 +379,7 @@ table{
     background: #f9f9f9;
 }
 
-.penaltyList > .more {
+.penaltyList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -382,20 +395,25 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
-}
-.penaltyList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+.penaltyList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 
-.num{
+.penaltyList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
+}
+
+.num {
     width: 12%;
 }
-.reward{
+
+.reward {
     width: 13%;
 }
-.penalty{
+
+.penalty {
     width: 13%;
 }
 
@@ -404,33 +422,45 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-  font-size: 16px;
+    font-size: 16px;
 }
 
-.star{
-    font-size: 25px;     /* 별 크기 */
-    color: #ccc;         /* 기본 회색 */
-    cursor: pointer;     /* 마우스 오버 시 손 모양 */
-    transition: color 0.2s;  /* 부드러운 색 전환 */
+.star {
+    font-size: 25px;
+    /* 별 크기 */
+    color: #ccc;
+    /* 기본 회색 */
+    cursor: pointer;
+    /* 마우스 오버 시 손 모양 */
+    transition: color 0.2s;
+    /* 부드러운 색 전환 */
 }
 
-.star.active{
+.star.active {
     color: #000000;
 }
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-@media (min-width: 900px){
-    .hamburger { display: none; }
-    .sidebar { left: 0; position: absolute; width: 20%; }
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
 }
 
 @media (max-width: 768px) {
-* {
-    -webkit-tap-highlight-color: transparent;
-}
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
     body {
         font-family: 'KakaoSmallSans-Bold', sans-serif;
         background-color: white;
@@ -463,19 +493,19 @@ button{
     }
 
     .hamburger {
-    position: fixed;
-    top: 0.6%;
-    left: 1.5%;
-    z-index: 11;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #333;
-    cursor: pointer;
-    display: block;
+        position: fixed;
+        top: 0.6%;
+        left: 1.5%;
+        z-index: 11;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
     }
 
-    nav.sidebar{
+    nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
         left: -100%;
@@ -490,15 +520,15 @@ button{
         left: 0;
     }
 
-    nav > a {
+    nav>a {
         font-size: 24px;
     }
 
-    nav > a:not(.pointReasons_nav):hover{
+    nav>a:not(.pointReasons_nav):hover {
         color: #d8d8d8;
     }
 
-    nav > .profiles{
+    nav>.profiles {
         width: 30%;
         border-radius: 50%;
         position: absolute;
@@ -506,14 +536,14 @@ button{
         left: 10%;
     }
 
-    nav > .number {
+    nav>.number {
         position: absolute;
         left: 50%;
         top: 6%;
         color: white;
     }
 
-    nav > .name {
+    nav>.name {
         position: absolute;
         left: 50%;
         top: 9%;
@@ -521,7 +551,7 @@ button{
         color: white;
     }
 
-    nav > .mypage_nav {
+    nav>.mypage_nav {
         color: white;
         position: absolute;
         top: 30.5%;
@@ -529,18 +559,18 @@ button{
         text-decoration: none;
     }
 
-    nav > .first{
+    nav>.first {
         width: 90%;
         left: 5%;
-        background:white;
-        height:1px;
-        border:0;
+        background: white;
+        height: 1px;
+        border: 0;
         position: absolute;
         top: 34%;
         left: 5%;
     }
 
-    nav > .givePoint_nav {
+    nav>.givePoint_nav {
         color: white;
         position: absolute;
         top: 37.3%;
@@ -549,18 +579,18 @@ button{
         cursor: pointer;
     }
 
-    nav > .two{
+    nav>.two {
         width: 90%;
         left: 5%;
-        background:white;
-        height:1px;
-        border:0;
+        background: white;
+        height: 1px;
+        border: 0;
         position: absolute;
         top: 41%;
         left: 5%;
     }
 
-    nav > .pointReasons_nav {
+    nav>.pointReasons_nav {
         color: #575e65;
         position: absolute;
         top: 44.2%;
@@ -569,18 +599,18 @@ button{
         cursor: pointer;
     }
 
-    nav > .three{
+    nav>.three {
         width: 90%;
         left: 5%;
-        background:white;
-        height:1px;
-        border:0;
+        background: white;
+        height: 1px;
+        border: 0;
         position: absolute;
         top: 48%;
         left: 5%;
     }
 
-    nav > .studentManagement_nav {
+    nav>.studentManagement_nav {
         color: white;
         position: absolute;
         top: 51.4%;
@@ -589,18 +619,18 @@ button{
         cursor: pointer;
     }
 
-    nav > .four{
+    nav>.four {
         width: 90%;
         left: 5%;
-        background:white;
-        height:1px;
-        border:0;
+        background: white;
+        height: 1px;
+        border: 0;
         position: absolute;
         top: 55%;
         left: 5%;
     }
 
-    nav > .community_nav {
+    nav>.community_nav {
         color: white;
         position: absolute;
         top: 58.5%;
@@ -609,7 +639,7 @@ button{
         cursor: pointer;
     }
 
-    nav > .myInfoEdit_nav{
+    nav>.myInfoEdit_nav {
         color: #ffffff;
         position: absolute;
         bottom: 13%;
@@ -621,18 +651,18 @@ button{
         border: none;
     }
 
-    .myInfoEdit_nav:hover{
+    .myInfoEdit_nav:hover {
         color: #d8d8d8;
     }
 
-    nav > .five{
+    nav>.five {
         width: 90%;
         position: absolute;
         bottom: 10%;
         left: 5%;
-        background:white;
-        height:1px;
-        border:0;
+        background: white;
+        height: 1px;
+        border: 0;
     }
 
 
@@ -651,8 +681,8 @@ button{
         font-size: 24px;
     }
 
-    table{
-    font-size:10px;
+    table {
+        font-size: 10px;
     }
 
     .rewardList {
@@ -668,7 +698,7 @@ button{
         overflow-y: scroll;
     }
 
-    .rewardList> .header{
+    .rewardList>.header {
         width: 100%;
         height: 8%;
         position: absolute;
@@ -679,7 +709,7 @@ button{
         padding-top: 0.5%;
     }
 
-    .rewardList > .header >  h1{
+    .rewardList>.header>h1 {
         width: 100%;
         color: white;
         position: absolute;
@@ -690,10 +720,13 @@ button{
     }
 
 
-    .rewardList> .studentInfo_table {
-        width: 100%; /* 테이블 너비 */
-        max-height: 70%; /* 테이블 높이 */
-        margin: auto; /* 가운데 정렬 */
+    .rewardList>.studentInfo_table {
+        width: 100%;
+        /* 테이블 너비 */
+        max-height: 70%;
+        /* 테이블 높이 */
+        margin: auto;
+        /* 가운데 정렬 */
     }
 
     .rewardList_table table {
@@ -710,14 +743,16 @@ button{
     .rewardList_table th {
         background: #ffffff;
         padding: 1.5%;
-        text-align: center; /* 가운데 정렬 */
+        text-align: center;
+        /* 가운데 정렬 */
         border-bottom: #000000 solid 3px;
         font-size: 20px;
     }
 
     .rewardList_table td {
         padding: 1.5%;
-        text-align: center; /* 가운데 정렬 */
+        text-align: center;
+        /* 가운데 정렬 */
         border-bottom: #55595D solid 1px;
         font-size: 20px;
         color: #3f3f3f;
@@ -727,7 +762,7 @@ button{
         background: #f9f9f9;
     }
 
-    .rewardList > .more {
+    .rewardList>.more {
         width: 10%;
         height: 5%;
         background-color: #9AA6B2;
@@ -743,11 +778,14 @@ button{
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
-    .rewardList > .more:hover {
-        background-color: #7d8791; /* hover 시 어두운 색 */
+    .rewardList>.more:hover {
+        background-color: #7d8791;
+        /* hover 시 어두운 색 */
     }
-    .rewardList > .more:active {
-        transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+    .rewardList>.more:active {
+        transform: scale(0.95);
+        /* 살짝 눌리는 효과 */
     }
 
     .penaltyList {
@@ -765,7 +803,7 @@ button{
         margin-bottom: 5%;
     }
 
-    .penaltyList> .header{
+    .penaltyList>.header {
         width: 100%;
         height: 8%;
         position: absolute;
@@ -776,7 +814,7 @@ button{
         padding-top: 0.5%;
     }
 
-    .penaltyList > .header >  h1{
+    .penaltyList>.header>h1 {
         width: 100%;
         color: white;
         position: absolute;
@@ -787,11 +825,14 @@ button{
     }
 
 
-    .penaltyList> .studentInfo_table {
+    .penaltyList>.studentInfo_table {
         position: absolute;
-        width: 100%; /* 테이블 너비 */
-        max-height: 70%; /* 테이블 높이 */
-        margin: auto; /* 가운데 정렬 */
+        width: 100%;
+        /* 테이블 너비 */
+        max-height: 70%;
+        /* 테이블 높이 */
+        margin: auto;
+        /* 가운데 정렬 */
     }
 
     .penaltyList_table table {
@@ -808,14 +849,16 @@ button{
     .penaltyList_table th {
         background: #ffffff;
         padding: 1.5%;
-        text-align: center; /* 가운데 정렬 */
+        text-align: center;
+        /* 가운데 정렬 */
         border-bottom: #000000 solid 3px;
         font-size: 20px;
     }
 
     .penaltyList_table td {
         padding: 1.5%;
-        text-align: center; /* 가운데 정렬 */
+        text-align: center;
+        /* 가운데 정렬 */
         border-bottom: #55595D solid 1px;
         font-size: 20px;
         color: #3f3f3f;
@@ -825,7 +868,7 @@ button{
         background: #f9f9f9;
     }
 
-    .penaltyList > .more {
+    .penaltyList>.more {
         width: 10%;
         height: 5%;
         background-color: #9AA6B2;
@@ -841,20 +884,25 @@ button{
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
-    .penaltyList > .more:hover {
-        background-color: #7d8791; /* hover 시 어두운 색 */
-    }
-    .penaltyList > .more:active {
-        transform: scale(0.95); /* 살짝 눌리는 효과 */
+    .penaltyList>.more:hover {
+        background-color: #7d8791;
+        /* hover 시 어두운 색 */
     }
 
-    .num{
+    .penaltyList>.more:active {
+        transform: scale(0.95);
+        /* 살짝 눌리는 효과 */
+    }
+
+    .num {
         width: 12%;
     }
-    .reward{
+
+    .reward {
         width: 13%;
     }
-    .penalty{
+
+    .penalty {
         width: 13%;
     }
 
@@ -863,22 +911,36 @@ button{
     .rewardList_table table th,
     .penaltyList_table table td,
     .penaltyList_table table th {
-    font-size: 16px;
+        font-size: 16px;
     }
 
-    .star{
-        font-size: 25px;     /* 별 크기 */
-        color: #ccc;         /* 기본 회색 */
-        cursor: pointer;     /* 마우스 오버 시 손 모양 */
-        transition: color 0.2s;  /* 부드러운 색 전환 */
+    .star {
+        font-size: 25px;
+        /* 별 크기 */
+        color: #ccc;
+        /* 기본 회색 */
+        cursor: pointer;
+        /* 마우스 오버 시 손 모양 */
+        transition: color 0.2s;
+        /* 부드러운 색 전환 */
     }
 
-    .star.active{
+    .star.active {
         color: #000000;
     }
 
-    button{
-        font-family: 'KakaoSmallSans-Bold', sans-serif;    
+    button {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+    }
+
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 198%;
+        left: 0%;
+        z-index: -3;
     }
 
 

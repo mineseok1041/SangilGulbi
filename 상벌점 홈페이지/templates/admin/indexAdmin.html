@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +64,7 @@
                 <tbody>
                     {% for student in studentList %}
                     <tr>
-                        <td>{{ student.stdNum }}</td>                        
+                        <td>{{ student.stdNum }}</td>
                         <td>{{ student.name }}</td>
                         <td>{{ student.lastlogindate }}</td>
                         <td>{{ student.point }}</td>
@@ -116,14 +117,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for notice in notices[::-1][:5] %}
-                <tr>
-                    <td>{{ loop.index }}</td>
-                    <td>{{ notice.title }}</td>
-                    <td>{{ notice.created_date }}</td>
-                    <td>{{ notice.author }}</td>
-                </tr>
-                {% endfor %}                
+                    {% for notice in notices[::-1][:5] %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ notice.title }}</td>
+                        <td>{{ notice.created_date }}</td>
+                        <td>{{ notice.author }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -155,7 +156,7 @@
                             <button class="approve">승인</button>
                             <button class="reject">거부</button>
                         </td>
-                    <!-- {% for teacher in unverifiedTeachers %}
+                        <!-- {% for teacher in unverifiedTeachers %}
                     <tr>
                         <td>{{ teacher.name }}</td>
                         <td>{{ teacher.id }}</td>
@@ -168,9 +169,11 @@
         </div>
         <button class="more-teacher-btn">더보기</button>
     </div>
+    <div class="footer"></div>
 
     <script src="{{ url_for('static', filename='js/admin/indexAdmin.js') }}"></script>
     <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
 </body>
+
 
 </html>
