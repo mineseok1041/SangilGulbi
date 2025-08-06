@@ -588,7 +588,9 @@ nav>.five {
 }
 
 .reason,
-.opinion {
+.opinion,
+.date,
+.num {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
