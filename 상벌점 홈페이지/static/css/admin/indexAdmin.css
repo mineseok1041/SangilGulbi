@@ -1228,8 +1228,8 @@ button {
     }
 
     .studentInfo>.more {
-        width: 20%;
-        height: 10%;
+        width: 17%;
+        height: 12%;
         background-color: #9AA6B2;
         border: none;
         border-radius: 5px;
@@ -1239,7 +1239,7 @@ button {
         color: white;
         cursor: pointer;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
@@ -1360,8 +1360,8 @@ button {
 
 
     .teacherManagement_box>.more {
-        width: 20%;
-        height: 10%;
+        width: 17%;
+        height: 12%;
         background-color: #9AA6B2;
         border: none;
         border-radius: 5px;
@@ -1371,7 +1371,7 @@ button {
         color: white;
         cursor: pointer;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
@@ -1502,8 +1502,8 @@ button {
     }
 
     .community_box>.more {
-        width: 20%;
-        height: 10%;
+        width: 17%;
+        height: 12%;
         background-color: #9AA6B2;
         border: none;
         border-radius: 5px;
@@ -1513,7 +1513,7 @@ button {
         color: white;
         cursor: pointer;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
@@ -1639,8 +1639,8 @@ button {
 
 
     .teacherConfirmBox>.more-teacher-btn {
-        width: 20%;
-        height: 10%;
+        width: 17%;
+        height: 12%;
         background-color: #9AA6B2;
         border: none;
         border-radius: 5px;
@@ -1650,7 +1650,7 @@ button {
         color: white;
         cursor: pointer;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
