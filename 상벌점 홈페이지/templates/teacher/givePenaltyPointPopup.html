@@ -35,7 +35,7 @@
 
         <!-- 오른쪽 박스: 선택한 학생 정보 -->
         <div class="studentInfoBox">
-            <h2 class="boxHead">부여 정보</h2>
+            <h2 class="boxHead">벌점 부여 정보</h2>
             <div class="studentInfo">
                 <div class="infoRow">
                     <span class="infoLabel">학번:</span>
@@ -50,6 +50,7 @@
                 <div class="infoRow">
                     <span class="infoLabel">사유:</span>
                     <span class="infoValue reason"></span>
+                    <img class="searchReasonIcon" src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="사유 검색" />
                 </div>
                 <div class="infoRow">
                     <span class="infoLabel">점수:</span>
@@ -100,6 +101,37 @@
                                     </tr>
                                     {% endfor %}
                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- 사유 검색 모달 -->
+                <div class="reasonSearchModal hidden">
+                    <div class="modalContent">
+                        <div class="searchBar">
+                            <input type="text" class="searchInput reasonSearchInput" placeholder="찾으실 사유를 적어주세요.">
+                            <button class="searchButton reasonSearchButton">
+                                <img src="{{ url_for('static', filename='img/searchIcon.png') }}" alt="검색" class="searchIcon" />
+                            </button>
+                        </div>
+                        <div class="reasonList">
+                            <table class="reasonTable">
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>사유</th>
+                                        <th>점수</th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                {% for i in range( pointReasonList | length) %}
+                                <tr>
+                                    <td>{{ i }}</td>
+                                    <td>{{ pointReasonList[i].reason }}</td>
+                                    <td>{{ pointReasonList[i].value }}</td>
+                                </tr>
+                                {% endfor %}
+                                 </tbody>
                             </table>
                         </div>
                     </div>

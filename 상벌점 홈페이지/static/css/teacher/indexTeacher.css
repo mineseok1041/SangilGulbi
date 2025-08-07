@@ -326,10 +326,10 @@ nav>.five {
     height: 100%;
     color: white;
     position: absolute;
-    top: 0%;
-    right: 0;
+    top: 10%;
+    right: -40%;
     margin: 0%;
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -708,10 +708,10 @@ nav>.five {
     height: 100%;
     color: white;
     position: absolute;
-    top: 0%;
-    right: 0;
+    top: 10%;
+    right: -40%;
     margin: 0%;
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1153,12 +1153,9 @@ button{
         color: white;
         position: absolute;
         top: 10%;
-        right: -20%;
+        right: -35%;
         margin: 0%;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        font-size: 12px;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
         font-weight: 500;
     }
@@ -1230,7 +1227,7 @@ button{
     }
 
     .awardGive>.more {
-        width: 15%;
+        width: 20%;
         height: 10%;
         background-color: #9AA6B2;
         border: none;
@@ -1344,7 +1341,7 @@ button{
     }
 
     .manyUseList_box>.more {
-        width: 17%;
+        width: 20%;
         height: 10%;
         background-color: #9AA6B2;
         border: none;
@@ -1462,7 +1459,7 @@ button{
     }
 
     .community_box>.more {
-        width: 17%;
+        width: 20%;
         height: 10%;
         background-color: #9AA6B2;
         border: none;
@@ -1535,12 +1532,9 @@ button{
         color: white;
         position: absolute;
         top: 10%;
-        right: -20%;
+        right: -35%;
         margin: 0%;
-        font-size: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        font-size: 12px;
         font-family: 'KakaoSmallSans-Bold', sans-serif;
         font-weight: 500;
     }
@@ -1602,7 +1596,7 @@ button{
     }
 
     .penaltyGive_box>.more {
-        width: 15%;
+        width: 20%;
         height: 10%;
         background-color: #9AA6B2;
         border: none;
