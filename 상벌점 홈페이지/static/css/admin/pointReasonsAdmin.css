@@ -550,7 +550,7 @@ button{
     nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
-        left: -100%;
+        left: -125%;
         width: 85%;
         height: 100%;
         top: 0%;
