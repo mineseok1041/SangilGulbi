@@ -581,16 +581,48 @@ button{
     }
 
     table {
-        width: 90%;
+        width : 90%;
     }
 
     th {
-        font-size: 15px;
-        min-width: 70px;
+        padding: 3%;
+    }
+    
+    .notice_table {
+        width: 100%;
+        margin-top: 10%;
+        border-collapse: collapse;
+        font-size: 14px;
     }
 
-    td {
-        font-size: 13px;
+    .notice_table td {
+        line-height: 1.2;   
+    }
+
+    .notice_table th:nth-child(1),
+    .notice_table td:nth-child(1) {
+        max-width: 80px;
+        min-width: 60px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(2),
+    .notice_table td:nth-child(2) {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(3),
+    .notice_table td:nth-child(3) {
+        max-width: 100px;
+        min-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .notice_table th:nth-child(4),
+    .notice_table td:nth-child(4) {
+        display: none;
     }
 
     .pageNation-btn {
