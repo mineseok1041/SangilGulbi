@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상벌점 항목</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/pointReasonsAdmin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/pointReasonsEditAdmin.css') }}">
 </head>
 
 <button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
 
 <header>
     <h2 class="main">상벌점 항목</h2>
-    <button class="editButton" onclick="location.href='/admin/pointReasonsEdit'">수정</button>
+    <button class="confirmButton">확인</button>
+    <button class="cancelButton" onclick="location.href='/admin/pointReasons'">취소</button>
 </header>
 
 <nav class="sidebar">
@@ -40,6 +41,10 @@
      <div class="rewardList">
         <div class="header">
             <h1>상점 항목</h1>
+                <div class="table-controls">
+                    <button class="addButton">+</button>
+                    <button class="removeButton">-</button>
+                </div>
         </div>
         <div class="rewardList_table">
             <table>
@@ -126,11 +131,15 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
     </div>
-</div>
     <div class="penaltyList">
     <div class="header">
         <h1>벌점 항목</h1>
+        <div class="table-controls">
+            <button class="addButton">+</button>
+            <button class="removeButton">-</button>
+        </div>
     </div>
     <div class="penaltyList_table">
         <table>
@@ -289,10 +298,10 @@
                 </tr>
             </tbody>
         </table>
-
+    </div>
     </div>
     <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/admin/pointReasonsAdmin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/pointReasonsEditAdmin.js') }}"></script>
 </body>
 
 </html>
