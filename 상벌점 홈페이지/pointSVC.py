@@ -83,3 +83,6 @@ class pointSVC:
             self.pointDAO.deletePointLog(logNo)
         except Exception as e:
             raise Exception(f"deletePointLog Error: {e}")
+        
+    def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
+        return self.pointDAO.searchPointLogs(keyword, teacher_id)

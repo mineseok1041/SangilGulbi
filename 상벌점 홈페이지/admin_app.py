@@ -364,3 +364,13 @@ def deleteTeacherAccount():
         return jsonify({"success": True})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
+    
+@adminBlue.route('/searchPointLogs')
+@adminAuth
+def search_point_logs():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        result = pointSVC.searchPointLogs(keyword)
+        return jsonify([log.__dict__ for log in result])
+    except Exception as e:
+        return jsonify([])

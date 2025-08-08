@@ -456,3 +456,14 @@ def pointCancel():
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
+    
+@teacherBlue.route('/searchPointLogs')
+@teacherAuth
+def search_point_logs():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        # 본인(선생님)이 부여한 로그만 검색하려면 session['id'] 활용
+        result = pointSVC.searchPointLogs(keyword, teacher_id=session['id'])
+        return jsonify([log.__dict__ for log in result])
+    except Exception as e:
+        return jsonify([])
