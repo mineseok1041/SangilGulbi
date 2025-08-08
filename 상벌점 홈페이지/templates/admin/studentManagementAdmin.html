@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +43,8 @@
                 <input type="text" class="searchInput" placeholder="찾으실 학생의 정보을 적어주세요.">
             </div>
             <button class="searchButton">검색</button>
-            <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon"></img> <!-- 필터 아이콘 이미지 -->
+            <img src="{{ url_for('static', filename='img/filterIcon.png') }}" alt="필터 아이콘" class="filterIcon"></img>
+            <!-- 필터 아이콘 이미지 -->
             <div class="filterPopup hidden">
                 <h4>학년 구분</h4>
                 <label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
@@ -51,12 +53,28 @@
                 <button class="resetFilters">초기화</button>
             </div>
             <div class="actionButtons">
-                <button class="addStudent">학생 계정 추가</button>
-                <button class="resetPasswd">학생 비밀번호 재설정</button>
-                <button class="giveBonus">학생 상점 부여</button>
-                <button class="givePenalty">학생 벌점 부여</button>
-                <button class="deleteAccount">학생 계정 삭제</button>
+                <button class="addStudent">
+                    <p>학생 계정 추가</p>
+                    <img src="{{ url_for('static', filename='img/plus.png') }}" alt="학생 계정 추가"></img>
+                </button>
+                <button class="resetPasswd">
+                    <p>학생 비밀번호 재설정</p>
+                    <img src="{{ url_for('static', filename='img/reset.png') }}" alt="학생 비밀번호 재설정"></img>
+                </button>
+                <button class="giveBonus">
+                    <p>학생 상점 부여</p>
+                    <img src="{{ url_for('static', filename='img/bonus.png') }}" alt="학생 상점 부여"></img>
+                </button>
+                <button class="givePenalty">
+                    <p>학생 벌점 부여</p>
+                    <img src="{{ url_for('static', filename='img/penalty.png') }}" alt="학생 벌점 부여"></img>
+                </button>
+                <button class="deleteAccount">
+                    <p>학생 계정 삭제</p>
+                    <img src="{{ url_for('static', filename='img/minus.png') }}" alt="학생 계정 삭제"></img>
+                </button>
             </div>
+
         </div>
         <div class="studentInfo_table">
             <table>
@@ -96,4 +114,5 @@
 <script src="{{ url_for('static', filename='js/admin/studentManagementAdmin.js') }}"></script>
 <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
 <script src="{{ url_for('static', filename='js/admin/paging.js') }}"></script>
+
 </html>
