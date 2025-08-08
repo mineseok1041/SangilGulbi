@@ -284,3 +284,34 @@ body {
 .submitButton:hover {
     background-color: #7d8791; /* hover 시 색상 변경 */
 }
+
+@media (max-width: 768px) {
+
+    body {
+        width: 320px;
+        height: 510px;
+
+    }
+
+    .studentInfoBox {
+        margin-top: 3%;
+        width: 85%;
+        height: 90%;
+        position: absolute;
+        left: 5%;
+        padding: 2%;
+        border-radius: 5px;
+        overflow-y: auto;
+        border: 2px solid #BCCCDC;
+        flex-direction: column;
+    }
+
+    .passwordBox {
+        width: 60%;
+    }
+
+    .submitButton {
+        bottom: 2%;
+        right: 2%;
+    }
+}

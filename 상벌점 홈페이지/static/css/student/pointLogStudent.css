@@ -488,15 +488,19 @@ button {
     }
 
     nav.sidebar {
-        position: fixed;
-        background-color: #BCCCDC;
-        left: -100%;
-        width: 85%;
-        height: 100%;
-        top: 0%;
-        z-index: 10;
-        transition: left 0.3s;
-    }
+    position: fixed;
+    background-color: #BCCCDC;
+    left: -125%;
+    width: 85%;
+    height: 100%;
+    top: 0%;
+    z-index: 10;
+    transition: left 0.3s;
+}
+/* nav가 열렸을 때 */
+.sidebar.active {
+    left: 0;
+}
 
     /* nav가 열렸을 때 */
     .sidebar.active {

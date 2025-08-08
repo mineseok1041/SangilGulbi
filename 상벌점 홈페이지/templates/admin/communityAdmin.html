@@ -37,7 +37,7 @@
 </nav>
 
 <div class="container">
-    <table>
+    <table class="notice_table">
         <tr>
             <th scope="list">번호</th>
             <th scope="list" class="wide-column">제목</th>
@@ -50,8 +50,8 @@
                 <td class="wide-column">
                     <a class="nextpage" href="{{ url_for('admin.communityDetail', noticeId=notice.id) }}">{{ notice.title }}</a>
                 </td>
-                <td>{{ notice.created_date }}</td>
                 <td>{{ notice.author }}</td>
+                <td>{{ notice.created_date }}</td>
             </tr>
             {% endfor %}
     </table>  

@@ -28,6 +28,38 @@ header {
     font-size: 35px;
 }
 
+.confirmButton {
+    width: 9%;
+    height: 50%;
+    background-color: #9AA6B2;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    right: 5%;
+    top: 23%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 20px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.cancelButton {
+    width: 9%;
+    height: 50%;
+    background-color: #b29a9a;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    right: 16%;
+    top: 23%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 20px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
 nav {
     background-color: #9AA6B2;
     width: 20%;
@@ -440,20 +472,34 @@ table{
     color: #000000;
 }
 
-.editButton {
-    width: 9%;
-    height: 50%;
-    background-color: #9AA6B2;
+
+.table-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1%;
+    margin-right: 5%;
+    z-index: 10;
+}
+
+.addButton, .removeButton {
+    padding: 20% 40%;
     border: none;
     border-radius: 10px;
-    position: absolute;
-    right: 5%;
-    top: 23%;
-    color: white;
-    cursor: pointer;
     font-family: 'KakaoSmallSans-Bold', sans-serif;
-    font-size: 20px;
-    transition: transform 0.1s ease, background-color 0.3s ease;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    color: #9AA6B2;
+}
+
+.addButton:hover, .removeButton:hover {
+    background-color: #e1e1e1;
+}
+
+.addButton:active, .removeButton:active {
+    transform: scale(0.95);
 }
 
 button{
@@ -508,8 +554,8 @@ button{
         margin: 0%;
     }
 
-    .editButton {
-        width: 20%;
+    .confirmButton {
+        width: 18%;
         height: 60%;
         background-color: #9AA6B2;
         border: none;
@@ -524,11 +570,35 @@ button{
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
-    .editButton:hover {
+    .confirmButton:hover {
         background-color: #7d8791; /* hover 시 어두운 색 */
     }
 
-    .editButton:active {
+    .confirmButton:active {
+        transform: scale(0.95); /* 살짝 눌리는 효과 */
+    }
+
+    .cancelButton {
+        width: 18%;
+        height: 60%;
+        background-color: #b29a9a;
+        border: none;
+        border-radius: 10px;
+        position: absolute;
+        right: 25%;
+        top: 20%;
+        color: white;
+        cursor: pointer;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        font-size: 18px;
+        transition: transform 0.1s ease, background-color 0.3s ease;
+    }
+
+    .cancelButton:hover {
+        background-color: #927e7e; /* hover 시 어두운 색 */
+    }
+
+    .cancelButton:active {
         transform: scale(0.95); /* 살짝 눌리는 효과 */
     }
 
@@ -550,7 +620,7 @@ button{
     nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
-        left: -125%;
+        left: -100%;
         width: 85%;
         height: 100%;
         top: 0%;
@@ -807,6 +877,7 @@ button{
         font-size: 14px;
     }
 
+    
     .rewardList_table td:nth-child(1),
     .rewardList_table th:nth-child(1) {
         min-width: 40px;
@@ -907,8 +978,37 @@ button{
     .penaltyList_table th:nth-child(4) {
         min-width: 50px;
     }
-
     
+.table-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1%;
+    margin-right: 10%;
+    z-index: 10;
+}
+
+.addButton, .removeButton {
+    padding: 10% 35%;
+    border: none;
+    border-radius: 10px;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    color: #9AA6B2;
+}
+
+.addButton:hover, .removeButton:hover {
+    background-color: #e1e1e1;
+}
+
+.addButton:active, .removeButton:active {
+    transform: scale(0.95);
+}
+
+
 .star{
     font-size: 25px;     /* 별 크기 */
     color: #ccc;         /* 기본 회색 */
