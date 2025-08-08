@@ -600,15 +600,13 @@ nav>.six {
 }
 
 .reason,
-.opinion {
+.opinion,
+.num,
+.date {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
-}
-
-.date {
-    margin: -1% 0% 0% 78%;
-    font-size: 15px;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .main-row {
@@ -778,7 +776,7 @@ button {
     nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
-        left: -100%;
+        left: -125%;
         width: 85%;
         height: 100%;
         top: 0%;
