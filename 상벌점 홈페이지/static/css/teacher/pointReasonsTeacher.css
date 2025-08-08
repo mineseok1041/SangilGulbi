@@ -13,16 +13,16 @@ header {
     width: 80%;
     height: 10%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 0px 3px 3px gray;
-    background-attachment: fixed;
+    z-index: 1;
 }
 
 .main {
     position: absolute;
-    top: 0%;
+    top: -6%;
     left: 3%;
     color: #55595D;
     font-size: 35px;
@@ -205,36 +205,39 @@ table {
 
 .rewardList {
     width: 35%;
-    height: 75%;
+    height: 82%;
     position: absolute;
     top: 12%;
     left: 23%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+    overflow-y: auto;
     overflow-x: hidden;
-    overflow-y: scroll;
+    padding-bottom: 2%;
 }
 
 .rewardList>.header {
     width: 100%;
-    height: 8%;
-    position: absolute;
-    top: 0%;
+    height: 10%;
+    position: sticky;
+    top: 0;
     right: 0%;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
 .rewardList>.header>h1 {
     width: 100%;
     color: white;
-    position: absolute;
-    top: 30%;
-    left: 3%;
-    margin: 0%;
+    margin: 0;
     font-size: 25px;
+    position: static;
 }
 
 
@@ -250,24 +253,22 @@ table {
 .rewardList_table table {
     width: 90%;
     border-collapse: collapse;
-    margin: auto;
-    border-top: #000000 solid 3px;
+    margin: 5% auto; /* 가운데 정렬 */
     font-size: 14px;
+    border-top: #000000 solid 3px;
 }
 
 .rewardList_table th {
     background: #ffffff;
-    padding: 1.5%;
-    text-align: center;
-    /* 가운데 정렬 */
+    padding: 2%;
+    text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .rewardList_table td {
-    padding: 1.5%;
-    text-align: center;
-    /* 가운데 정렬 */
+    padding: 2%;
+    text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
@@ -306,11 +307,10 @@ table {
 
 .penaltyList {
     width: 35%;
-    height: 71%;
+    height: 82%;
     position: absolute;
     top: 12%;
     left: 62%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -320,23 +320,26 @@ table {
 
 .penaltyList>.header {
     width: 100%;
-    height: 8%;
-    position: absolute;
-    top: 0%;
+    height: 10%;
+    position: sticky;
+    top: 0;
     right: 0%;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
 .penaltyList>.header>h1 {
     width: 100%;
     color: white;
-    position: absolute;
-    top: 30%;
-    left: 3%;
-    margin: 0%;
+    margin: 0;
     font-size: 25px;
+    position: static;
 }
 
 
@@ -352,24 +355,22 @@ table {
 .penaltyList_table table {
     width: 90%;
     border-collapse: collapse;
-    margin: auto;
+    margin: 5% auto; /* 가운데 정렬 */
     font-size: 14px;
     border-top: #000000 solid 3px;
 }
 
 .penaltyList_table th {
     background: #ffffff;
-    padding: 1.5%;
-    text-align: center;
-    /* 가운데 정렬 */
+    padding: 2%;
+    text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .penaltyList_table td {
-    padding: 1.5%;
-    text-align: center;
-    /* 가운데 정렬 */
+    padding: 2%;
+    text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
@@ -422,7 +423,7 @@ table {
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-    font-size: 16px;
+  font-size: 18px;
 }
 
 .star {
@@ -470,7 +471,6 @@ button {
         top: 0%;
         right: 0%;
         margin: 0%;
-        overflow-y: scroll;
     }
 
     header {
@@ -486,33 +486,34 @@ button {
 
     .main {
         position: absolute;
-        top: -15%;
+        top: 25%;
         left: 15%;
         color: #55595D;
         font-size: 30px;
+        margin: 0%;
     }
 
     .hamburger {
-        position: fixed;
-        top: 0.6%;
-        left: 1.5%;
-        z-index: 11;
-        background: none;
-        border: none;
-        font-size: 32px;
-        color: #333;
-        cursor: pointer;
-        display: block;
+    position: fixed;
+    top: 0%;
+    left: 1.5%;
+    z-index: 101;
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #333;
+    cursor: pointer;
+    display: block;
     }
 
     nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
-        left: -100%;
+        left: -125%;
         width: 85%;
         height: 100%;
         top: 0%;
-        z-index: 10;
+        z-index: 100;
         transition: left 0.3s;
     }
 
@@ -665,6 +666,10 @@ button {
         border: 0;
     }
 
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
 
     .logout {
         width: 80%;
@@ -681,44 +686,42 @@ button {
         font-size: 24px;
     }
 
-    table {
-        font-size: 10px;
-    }
-
     .rewardList {
         width: 90%;
-        height: 90%;
+        height: 75%;
         position: absolute;
         top: 12%;
         left: 5%;
-        padding-top: 5%;
         border-radius: 5px;
         box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
+        padding-bottom: 2%;
     }
 
     .rewardList>.header {
         width: 100%;
-        height: 8%;
-        position: absolute;
-        top: 0%;
+        height: 8.5%;
+        position: sticky;
+        top: 0;
         right: 0%;
         background-color: #9AA6B2;
         border-radius: 5px 5px 0px 0px;
-        padding-top: 0.5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3%;
+        box-sizing: border-box;
+        z-index: 10;
     }
 
     .rewardList>.header>h1 {
         width: 100%;
         color: white;
-        position: absolute;
-        top: 30%;
-        left: 3%;
-        margin: 0%;
+        margin: 0;
         font-size: 25px;
+        position: static;
     }
-
 
     .rewardList>.studentInfo_table {
         width: 100%;
@@ -738,13 +741,19 @@ button {
         margin: auto;
         border-top: #000000 solid 3px;
         font-size: 14px;
+
+    .rewardList_table table td {
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #55595D solid 1px;
+        font-size: 20px;
+        color: #3f3f3f;
     }
 
-    .rewardList_table th {
+    .rewardList_table table th {
         background: #ffffff;
-        padding: 1.5%;
-        text-align: center;
-        /* 가운데 정렬 */
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
         border-bottom: #000000 solid 3px;
         font-size: 20px;
     }
@@ -756,10 +765,18 @@ button {
         border-bottom: #55595D solid 1px;
         font-size: 20px;
         color: #3f3f3f;
+      
+    .rewardList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 5% auto; /* 가운데 정렬 */
+        font-size: 14px;
+
     }
 
-    .rewardList_table tbody tr:hover {
-        background: #f9f9f9;
+    .rewardList_table td:nth-child(1),
+    .rewardList_table th:nth-child(1) {
+        min-width: 40px;
     }
 
     .rewardList>.more {
@@ -786,86 +803,87 @@ button {
     .rewardList>.more:active {
         transform: scale(0.95);
         /* 살짝 눌리는 효과 */
+
+    .rewardList_table td:nth-child(2),
+    .rewardList_table th:nth-child(2) {
+        min-width: 50px;
+    }
+
+    .rewardList_table td:nth-child(3),
+    .rewardList_table th:nth-child(3) {
+        min-width: 120px;
+        line-height: 1.2;
+    }
+
+    .rewardList_table td:nth-child(4),
+    .rewardList_table th:nth-child(4) {
+        min-width: 50px;
+
     }
 
     .penaltyList {
         width: 90%;
-        height: 90%;
+        height: 75%;
         position: absolute;
-        top: 107%;
+        top: 95%;
         left: 5%;
-        padding-top: 5%;
         border-radius: 5px;
         box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
         overflow-y: auto;
         overflow-x: hidden;
         padding-bottom: 2%;
-        margin-bottom: 5%;
     }
 
     .penaltyList>.header {
         width: 100%;
-        height: 8%;
-        position: absolute;
-        top: 0%;
-        right: 0%;
-        background-color: #9AA6B2;
+        height: 8.5%;
+        position: sticky;
+        top: 0;
+        right: 0%;  
+        background-color: #9aa6b2;
         border-radius: 5px 5px 0px 0px;
-        padding-top: 0.5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3%;
+        box-sizing: border-box;
+        z-index: 10;
     }
 
     .penaltyList>.header>h1 {
         width: 100%;
         color: white;
-        position: absolute;
-        top: 30%;
-        left: 3%;
-        margin: 0%;
+        margin: 0;
         font-size: 25px;
+        position: static;
     }
 
-
-    .penaltyList>.studentInfo_table {
-        position: absolute;
-        width: 100%;
-        /* 테이블 너비 */
-        max-height: 70%;
-        /* 테이블 높이 */
-        margin: auto;
-        /* 가운데 정렬 */
-    }
-
-    .penaltyList_table table {
-        position: absolute;
-        left: 5%;
-        top: 10%;
-        width: 90%;
-        border-collapse: collapse;
-        margin: auto;
-        font-size: 14px;
-        border-top: #000000 solid 3px;
-    }
-
-    .penaltyList_table th {
-        background: #ffffff;
-        padding: 1.5%;
-        text-align: center;
-        /* 가운데 정렬 */
-        border-bottom: #000000 solid 3px;
-        font-size: 20px;
-    }
-
-    .penaltyList_table td {
-        padding: 1.5%;
-        text-align: center;
-        /* 가운데 정렬 */
+    .penaltyList_table table td {
+       padding: 2%;
+        text-align: center; /* 가운데 정렬 */
         border-bottom: #55595D solid 1px;
         font-size: 20px;
         color: #3f3f3f;
     }
 
-    .penaltyList_table tbody tr:hover {
-        background: #f9f9f9;
+    .penaltyList_table table th {
+        background: #ffffff;
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #000000 solid 3px;
+        font-size: 20px;
+    }
+
+    .penaltyList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 5% auto; /* 가운데 정렬 */
+        font-size: 14px;
+    }
+
+    .penaltyList_table td:nth-child(1),
+    .penaltyList_table th:nth-child(1) {
+        min-width: 40px;
     }
 
     .penaltyList>.more {
@@ -913,6 +931,24 @@ button {
     .penaltyList_table table th {
         font-size: 16px;
     }
+
+    .penaltyList_table td:nth-child(2),
+    .penaltyList_table th:nth-child(2) {
+        min-width: 50px;
+    }
+
+    .penaltyList_table td:nth-child(3),
+    .penaltyList_table th:nth-child(3) {
+        min-width: 120px;
+        line-height: 1.2;
+    }
+
+    .penaltyList_table td:nth-child(4),
+    .penaltyList_table th:nth-child(4) {
+        min-width: 50px;
+    }
+
+
 
     .star {
         font-size: 25px;

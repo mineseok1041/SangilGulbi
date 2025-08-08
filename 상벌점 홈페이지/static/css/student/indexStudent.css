@@ -565,15 +565,19 @@ button {
     }
 
     nav.sidebar {
-        position: fixed;
-        background-color: #BCCCDC;
-        left: -100%;
-        width: 85%;
-        height: 100%;
-        top: 0%;
-        z-index: 10;
-        transition: left 0.3s;
-    }
+    position: fixed;
+    background-color: #BCCCDC;
+    left: -125%;
+    width: 85%;
+    height: 100%;
+    top: 0%;
+    z-index: 10;
+    transition: left 0.3s;
+}
+/* nav가 열렸을 때 */
+.sidebar.active {
+    left: 0;
+}
 
     /* nav가 열렸을 때 */
     .sidebar.active {
@@ -772,19 +776,19 @@ button {
     }
 
     .upscore_box>.more {
-        width: 25%;
-        height: 10%;
-        background-color: #BCCCDC;
-        border: none;
-        border-radius: 10%;
-        position: absolute;
-        bottom: 3%;
-        right: 3%;
-        color: white;
-        cursor: pointer;
-        font-family: 'KakaoSmallSans-Bold', sans-serif;
-        font-size: 15px;
-        transition: transform 0.1s ease, background-color 0.3s ease;
+    width: 20%;
+    height: 10%;
+    background-color: #BCCCDC;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 15px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
     .up_log {
@@ -818,11 +822,45 @@ button {
     }
 
     .downscore_box>.more {
-        width: 25%;
+    width: 20%;
+    height: 10%;
+    background-color: #BCCCDC;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 15px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    }
+
+    .community_box {
+        width: 90%;
+        height: 35%;
+        left: 5%;
+        top: 100%;
+    }
+
+    .community_box>.header {
+        width: 100%;
+        height: 15%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        background-color: #BCCCDC;
+        border-radius: 5px 5px 0px 0px;
+        padding-top: 0.5%;
+    }
+
+    .community_box>.more {
+        width: 20%;
         height: 10%;
         background-color: #BCCCDC;
         border: none;
-        border-radius: 10%;
+        border-radius: 5px;
         position: absolute;
         bottom: 3%;
         right: 3%;
@@ -833,29 +871,12 @@ button {
         transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
-    .community_box {
-        width: 90%;
-        height: 27%;
-        position: absolute;
-        top: 100%;
-        left: 5%;
-        border-radius: 5px;
-        box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
-        overflow: hidden;
-    }
-
-    .community_box>.more {
-        width: 25%;
-        height: 11%;
-        right: 3%;
-    }
-
     .community_box>.header>h1 {
         left: 4%;
     }
 
     .community {
-        margin-top: 15%;
+        margin-top: 17%;
     }
 
     td {
