@@ -488,8 +488,8 @@ nav>.six {
 /* 알림(종) 아이콘 옆 빨간 점(뱃지) */
 .circle {
     position: absolute;
-    top: 18px;      /* 종 아이콘 위치에 맞게 조정 */
-    right: 60px;    /* 종 아이콘 위치에 맞게 조정 */
+    top: 18px;
+    right: 60px;
     width: 14px;
     height: 14px;
     background: transparent;
