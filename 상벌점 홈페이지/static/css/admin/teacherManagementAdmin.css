@@ -488,13 +488,12 @@ nav>.six {
 /* 알림(종) 아이콘 옆 빨간 점(뱃지) */
 .circle {
     position: absolute;
-    top: 18px;
-    right: 60px;
+    top: 20%;
+    right: 33%;
     width: 14px;
     height: 14px;
     background: transparent;
     border-radius: 50%;
-    z-index: 2;
     transition: background 0.2s;
 }
 
