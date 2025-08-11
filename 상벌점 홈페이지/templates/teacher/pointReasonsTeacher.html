@@ -51,7 +51,9 @@
                 <tbody>
                     {% for bonusPointReason in bonusPointReasonDTO %}
                     <tr>
-                        <td><span class="star">★</span></td>
+                        <td><span 
+                            class="star {% if bonusPointReason.no in favoritePointNo %}active{% endif %}"
+                            data-pointno="{{ bonusPointReason.no }}">★</span></td>
                         <td>{{ bonusPointReason.no - 100 }}</td>
                         <td>{{ bonusPointReason.reason }}</td>
                         <td>{{ bonusPointReason.value }}</td>
@@ -78,7 +80,9 @@
             <tbody>
                 {% for penaltyPointReason in penaltyPointReasonDTO %}
                 <tr>
-                    <td><span class="star">★</span></td>
+                    <td><span 
+                        class="star {% if penaltyPointReason.no in favoritePointNo %}active{% endif %}" 
+                        data-pointno="{{ penaltyPointReason.no }}">★</span></td>
                     <td>{{ penaltyPointReason.no - 200 }}</td>
                     <td>{{ penaltyPointReason.reason }}</td>
                     <td>{{ penaltyPointReason.value }}</td>

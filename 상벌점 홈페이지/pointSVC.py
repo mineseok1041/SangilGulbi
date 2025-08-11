@@ -83,3 +83,21 @@ class pointSVC:
             self.pointDAO.deletePointLog(logNo)
         except Exception as e:
             raise Exception(f"deletePointLog Error: {e}")
+        
+    def addFavoritePointReason(self, usersDTO: usersDTO, pointReasonDTO: pointReasonDTO):
+        try:
+            self.pointDAO.addFavoritePointReason(usersDTO, pointReasonDTO)
+        except Exception as e:
+            raise Exception(f"addFavoritePointReason Error: {e}")
+        
+    def removeFavoritePointReason(self, usersDTO: usersDTO, pointReasonDTO: pointReasonDTO):
+        try:
+            self.pointDAO.removeFavoritePointReason(usersDTO, pointReasonDTO)
+        except Exception as e:
+            raise Exception(f"removeFavoritePointReason Error: {e}")
+        
+    def getFavoritePointReasonNo(self, usersDTO: usersDTO) -> list[int]:
+        try:
+            return self.pointDAO.getFavoritePointReasonNo(usersDTO)
+        except Exception as e:
+            raise Exception(f"getFavoritePointReasonNo Error: {e}")
