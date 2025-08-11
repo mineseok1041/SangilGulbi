@@ -34,6 +34,20 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"getPointReason Error: {e}")
         
+    def getFavPointReason(self, type: Literal['bonus', 'penalty'], usersDTO: usersDTO) -> list[pointReasonDTO]: # type: ignore
+        try:
+            pointReason = self.pointDAO.getPointReason(type)
+            favoritePointNo = self.pointDAO.getFavoritePointReasonNo(usersDTO)
+
+            favoriteItems = [pr for pr in pointReason if pr.no in favoritePointNo]
+            otherItems = [pr for pr in pointReason if pr.no not in favoritePointNo]
+
+            sortedPointReason = favoriteItems + otherItems
+
+            return sortedPointReason
+        except Exception as e:
+            raise Exception(f"getFavPointReason Error: {e}")
+        
     def getPointLog(self, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]: # type: ignore
         try:
             return self.pointDAO.getPointLog(page, type)

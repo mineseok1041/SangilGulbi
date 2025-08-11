@@ -240,8 +240,10 @@ def giveBonusPoint():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
-        pointReasonList = pointSVC.getPointReason('bonus')
+        pointReasonList = pointSVC.getFavPointReason('bonus', usersDTO(id=session['id']))
         currentDate = datetime.now().strftime('%Y/%m/%d')
+
+        print(pointReasonList)
     
         return render_template('teacher/giveBonusPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
     except Exception as e:
@@ -255,7 +257,7 @@ def givePenaltyPoint():
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
-        pointReasonList = pointSVC.getPointReason('penalty')
+        pointReasonList = pointSVC.getFavPointReason('penalty', usersDTO(id=session['id']))
         currentDate = datetime.now().strftime('%Y/%m/%d')
             
         return render_template('teacher/givePenaltyPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
