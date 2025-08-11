@@ -19,17 +19,18 @@ pointSVC = pointSVC()
 @teacherAuth
 def index():
     try:
-        pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']), 1, 'all')
-
-        # 상점과 벌점 분리
+        pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'all')
         bonusPointLogList = [log for log in pointLogList if log.type == 'bonus']
         penaltyPointLogList = [log for log in pointLogList if log.type == 'penalty']
-        
         # bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'bonus')
         # penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'penalty')
+
         notices = SVC.get_all_notices()  # 게시글 목록 가져오기
-    
-        return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList)
+
+        pointReason = pointSVC.getPointReason('bonus') + pointSVC.getPointReason('penalty')
+        favoritePointReasonNo = pointSVC.getFavoritePointReasonNo(usersDTO(id=session['id']))
+
+        return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList, pointReason=pointReason, favoritePointReasonNo=favoritePointReasonNo)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -242,8 +243,6 @@ def giveBonusPoint():
         teacherList = usersSVC.getTeachersList(1)
         pointReasonList = pointSVC.getFavPointReason('bonus', usersDTO(id=session['id']))
         currentDate = datetime.now().strftime('%Y/%m/%d')
-
-        print(pointReasonList)
     
         return render_template('teacher/giveBonusPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
     except Exception as e:
