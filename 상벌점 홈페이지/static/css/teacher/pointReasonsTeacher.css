@@ -477,33 +477,37 @@ button {
         width: 100%;
         height: 7%;
         background-color: #ffffff;
-        position: absolute;
+        position: fixed;
         top: 0%;
         right: 0%;
         box-shadow: 0px 3px 3px gray;
-        z-index: 1;
+        z-index: 5;
     }
 
     .main {
-        position: absolute;
-        top: 25%;
+        position: fixed;p
         left: 15%;
+        top: 0%;
         color: #55595D;
-        font-size: 30px;
-        margin: 0%;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%
     }
 
     .hamburger {
-    position: fixed;
-    top: 0%;
-    left: 1.5%;
-    z-index: 101;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #333;
-    cursor: pointer;
-    display: block;
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        height: 7%;
     }
 
     nav.sidebar {
@@ -723,6 +727,25 @@ button {
         position: static;
     }
 
+    .rewardList>.studentInfo_table {
+        width: 100%;
+        /* 테이블 너비 */
+        max-height: 70%;
+        /* 테이블 높이 */
+        margin: auto;
+        /* 가운데 정렬 */
+    }
+
+    .rewardList_table table {
+        position: absolute;
+        width: 90%;
+        left: 5%;
+        top: 10%;
+        border-collapse: collapse;
+        margin: auto;
+        border-top: #000000 solid 3px;
+        font-size: 14px;
+
     .rewardList_table table td {
         padding: 2%;
         text-align: center; /* 가운데 정렬 */
@@ -738,7 +761,7 @@ button {
         border-bottom: #000000 solid 3px;
         font-size: 20px;
     }
-
+      
     .rewardList_table table {
         width: 90%;
         border-collapse: collapse;
@@ -750,7 +773,6 @@ button {
     .rewardList_table th:nth-child(1) {
         min-width: 40px;
     }
-
 
     .rewardList>.more {
         width: 10%;
@@ -830,6 +852,25 @@ button {
         position: static;
     }
 
+    .penaltyList>.studentInfo_table {
+        position: absolute;
+        width: 100%;
+        /* 테이블 너비 */
+        max-height: 70%;
+        /* 테이블 높이 */
+        margin: auto;
+        /* 가운데 정렬 */
+    }
+
+    .penaltyList_table table {
+        position: absolute;
+        left: 5%;
+        top: 10%;
+        width: 90%;
+        border-collapse: collapse;
+        margin: auto;
+        font-size: 14px;
+        border-top: #000000 solid 3px;
 
     .penaltyList_table table td {
        padding: 2%;
@@ -846,6 +887,14 @@ button {
         border-bottom: #000000 solid 3px;
         font-size: 20px;
     }
+
+    .penaltyList_table td {
+        padding: 1.5%;
+        text-align: center;
+        /* 가운데 정렬 */
+        border-bottom: #55595D solid 1px;
+        font-size: 20px;
+        color: #3f3f3f;
 
     .penaltyList_table table {
         width: 90%;
@@ -920,7 +969,6 @@ button {
     .penaltyList_table th:nth-child(4) {
         min-width: 50px;
     }
-
 
     .star {
         font-size: 25px;
