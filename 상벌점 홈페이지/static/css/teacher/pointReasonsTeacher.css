@@ -798,7 +798,7 @@ button {
     .rewardList>.more:active {
         transform: scale(0.95);
         /* 살짝 눌리는 효과 */
-      
+
     .rewardList_table td:nth-child(2),
     .rewardList_table th:nth-child(2) {
         min-width: 50px;
@@ -987,6 +987,16 @@ button {
 
     button {
         font-family: 'KakaoSmallSans-Bold', sans-serif;
+    }
+
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 198%;
+        left: 0%;
+        z-index: -3;
     }
 
 
