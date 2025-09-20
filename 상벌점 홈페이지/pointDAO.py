@@ -325,6 +325,27 @@ class pointDAO:
             cursor.close()
             conn.close()
 
+
+    def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
+        # 이름(studentName), 사유(reason), 부여 점수(point), 부여자(giveTeacherName)만 검색
+        query = """
+            SELECT * FROM pointLog
+            WHERE (studentName LIKE :kw OR reason LIKE :kw OR TO_CHAR(point) LIKE :kw OR giveTeacherName LIKE :kw)
+        """
+        params = {'kw': f'%{keyword}%'}
+        if teacher_id:
+            query += " AND giveTeacherId = :tid"
+            params['tid'] = teacher_id
+
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+        result = [pointLogDTO(*row) for row in rows]
+        cursor.close()
+        conn.close()
+        return result
+
     def addFavoritePointReason(self, usersDTO, pointReasonDTO):
         query = "INSERT INTO favoritePointReason (userId, pointReasonNo) VALUES (:1, :2)"
 

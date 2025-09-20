@@ -98,6 +98,10 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"deletePointLog Error: {e}")
         
+
+    def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
+        return self.pointDAO.searchPointLogs(keyword, teacher_id)
+
     def addFavoritePointReason(self, usersDTO: usersDTO, pointReasonDTO: pointReasonDTO):
         try:
             self.pointDAO.addFavoritePointReason(usersDTO, pointReasonDTO)
