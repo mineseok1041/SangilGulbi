@@ -110,14 +110,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for teacher in teacherList %}
+                    {% for pr in pointReason %}
+                    {% if pr.no in favoritePointReasonNo %}
                     <tr>
                         <td>★</td>
-                        <td>벌점</td>
-                        <td>1번</td>
-                        <td title="">교실에서 친구의 잃어버린 물품을 찾는 것을 도와주었을때</td>
-                        <td>-1000000</td>
+                        <td>{% if pr.type == 'bonus' %}상점{% else %}벌점{% endif %}</td>
+                        <td>{% if pr.type == 'bonus' %} {{ pr.no - 100 }} {% else %} {{ pr.no - 200 }} {% endif %}</td>
+                        <td title="">{{ pr.reason }}</td>
+                        <td>{{ pr.value }}</td>
                     </tr>
+                    {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -155,7 +157,7 @@
         </div>
         <button class="more" onClick="location.href='/teacher/community'">더보기</button>
     </div>
-
+    <div class="footer"></div>
 
 
     <script src="{{ url_for('static', filename='js/teacher/indexTeacher.js') }}"></script>

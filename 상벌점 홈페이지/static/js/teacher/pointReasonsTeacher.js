@@ -2,8 +2,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const stars = document.querySelectorAll('.star');
 
   stars.forEach(function (star) {
-    star.addEventListener('click', function () {
-      star.classList.toggle('active');
+    star.addEventListener('click', async function () {
+      const pointNo = star.dataset.pointno;
+      const isActive = star.classList.contains('active');
+
+      try {
+        if (isActive) {
+          await fetch(`/teacher/removeFavoritePointReason.do/${pointNo}`, { method: 'POST' });
+          star.classList.remove('active');
+        } else {
+          await fetch(`/teacher/addFavoritePointReason.do/${pointNo}`, { method: 'POST' });
+          star.classList.add('active');
+        }
+      } catch (err) {
+        alert('즐겨찾기 처리 중 오류가 발생했습니다.');
+        console.error(err);
+      }
     });
   });
     // ---------- 사이드바 토글 및 외부 클릭 닫기 ----------

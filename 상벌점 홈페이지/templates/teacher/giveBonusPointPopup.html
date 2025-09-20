@@ -23,7 +23,7 @@
                     <tbody>
                         {% for i in range( pointReasonList | length) %}
                         <tr>
-                            <td>{{ i }}</td>
+                            <td>{{ pointReasonList[i].no - 100}}</td>
                             <td>{{ pointReasonList[i].reason }}</td>
                             <td>{{ pointReasonList[i].value }}</td>
                         </tr>
@@ -126,12 +126,12 @@
                             <tbody>
                                 {% for i in range( pointReasonList | length) %}
                                 <tr>
-                                    <td>{{ i }}</td>
+                                    <td>{{ pointReasonList[i].no - 100 }}</td>
                                     <td>{{ pointReasonList[i].reason }}</td>
                                     <td>{{ pointReasonList[i].value }}</td>
                                 </tr>
                                 {% endfor %}
-                                 </tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -49,7 +49,7 @@ nav {
 
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
@@ -141,7 +141,7 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -153,7 +153,7 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
@@ -378,18 +378,14 @@ nav>.four {
 }
 
 .reason,
-.opinion {
+.opinion,
+.date,
+.teacher {
     margin-top: 0%;
     margin-left: 5%;
     white-space: normal;
-        font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
-
-.date,
-.teacher {
-    display: none;
-}
-
 
 .main-row {
     overflow: hidden;
@@ -403,21 +399,23 @@ nav>.four {
     line-height: 2;
 }
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 .pageNation {
     display: flex;
-    justify-content: center; /* 버튼들을 가운데 정렬 */
+    justify-content: center;
+    /* 버튼들을 가운데 정렬 */
     align-items: center;
     flex-wrap: nowrap;
     position: relative;
     margin-top: 2%;
     bottom: -3%;
-    margin-bottom: 3%;
+    margin-bottom: 10%;
     left: 50%;
-    transform: translateX(-50%); /* 정중앙으로 이동 */
+    transform: translateX(-50%);
+    /* 정중앙으로 이동 */
     font-family: 'KakaoSmallSans-Bold', sans-serif;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -452,23 +450,31 @@ button{
     background-color: #eee;
 }
 
-@media (min-width: 900px){
-    .hamburger { display: none; }
-    .sidebar { left: 0; position: absolute; width: 20%; }
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
 }
 
 @media (max-width: 767px) {
     .hamburger {
-    position: fixed;
-    top: 0.6%;
-    left: 1.5%;
-    z-index: 11;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #333;
-    cursor: pointer;
-    display: block;
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        height: 7%;
 }
 
     body {
@@ -481,6 +487,7 @@ button{
         right: 0%;
         margin: 0%;
     }
+
     nav.sidebar {
     position: fixed;
     background-color: #BCCCDC;
@@ -496,166 +503,178 @@ button{
     left: 0;
 }
 
-nav > a {
-    font-size: 24px;
-}
+    /* nav가 열렸을 때 */
+    .sidebar.active {
+        left: 0;
+    }
 
-nav > a:not(.log_nav):hover{
-    color: #d8d8d8;
-}
+    nav>a {
+        font-size: 24px;
+    }
 
-nav > .profiles{
-    width: 30%;
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 10%;
-}
+    nav>a:not(.log_nav):hover {
+        color: #d8d8d8;
+    }
 
-nav > .name {
-    position: absolute;
-    left: 50%;
-    top: 7.5%;
-    font-size: larger;
-    color: white;
-}
+    nav>.profiles {
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
 
-nav > .mypage_nav {
-    color: white;
-    position: absolute;
-    top: 30.5%;
-    left: 10%;
-    text-decoration: none;
-}
+    nav>.name {
+        position: absolute;
+        left: 50%;
+        top: 7.5%;
+        font-size: larger;
+        color: white;
+    }
 
-nav > .first{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 34%;
-    left: 5%;
-}
+    nav>.mypage_nav {
+        color: white;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
 
-nav > .log_nav {
-    color: #575e65;
-    position: absolute;
-    top: 37.3%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.first {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
 
-nav > .two{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 41%;
-    left: 5%;
-}
+    nav>.log_nav {
+        color: #575e65;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .pointReasons_nav {
-    color: white;
-    position: absolute;
-    top: 44.2%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.two {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
 
-nav > .three{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 48%;
-    left: 5%;
-}
+    nav>.pointReasons_nav {
+        color: white;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .community_nav {
-    color: white;
-    position: absolute;
-    top: 51.4%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.three {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
 
-nav > .four{
-    width: 90%;
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-}
+    nav>.community_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .myInfoEdit_nav{
-    color: #ffffff;
-    position: absolute;
-    bottom: 13%;
-    left: 9%;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 24px;
-    background-color: #BCCCDC;
-    border: none;
-}
-.myInfoEdit_nav:hover{
-    color: #d8d8d8;
-}
+    nav>.four {
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+    }
 
-td, th {
-    text-overflow: ellipsis;
-}
+    nav>.myInfoEdit_nav {
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #BCCCDC;
+        border: none;
+    }
 
-.logout {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    bottom: 5%;
-    left: 9%;
-    color: white;
-    cursor: pointer;
-    border: none;
-    background-color: #BCCCDC;
-    font-size: larger;
-    text-align: left;
-    font-size: 24px;
-}
+    .myInfoEdit_nav:hover {
+        color: #d8d8d8;
+    }
+
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #BCCCDC;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
 
 
     header {
     width: 100%;
     height: 7%;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0%;
     right: 0%;
     box-shadow: 0px 3px 3px gray;
-    z-index: 1;
+    z-index: 5;
     }       
 
     .main {
-    position: absolute;
-    left: 15%;
-    top: 2%;
-    color: #55595D;
-    font-size: 30px;
+        position: fixed;
+        left: 15%;
+        top: 0%;
+        color: #55595D;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%;
 }
 
     .log_table {
         width: 90%;
         left: 5%;
     }
+
     .log_table th:nth-child(1),
     .log_table td:nth-child(1) {
         max-width: 120px;
@@ -664,20 +683,24 @@ td, th {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .log_table th:nth-child(2),
     .log_table td:nth-child(2) {
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .log_table th:nth-child(3),
     .log_table td:nth-child(3) {
         display: none;
     }
+
     .log_table th:nth-child(4),
     .log_table td:nth-child(4) {
         display: none;
     }
+
     .log_table th:nth-child(5),
     .log_table td:nth-child(5) {
         max-width: 80px;
@@ -685,13 +708,15 @@ td, th {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .log_table th:nth-child(6),
     .log_table td:nth-child(6) {
         display: none;
     }
+
     .date,
     .teacher {
-        margin-left : 5%;
+        margin-left: 5%;
         display: flex;
-}
+    }
 }

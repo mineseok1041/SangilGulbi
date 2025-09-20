@@ -34,6 +34,20 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"getPointReason Error: {e}")
         
+    def getFavPointReason(self, type: Literal['bonus', 'penalty'], usersDTO: usersDTO) -> list[pointReasonDTO]: # type: ignore
+        try:
+            pointReason = self.pointDAO.getPointReason(type)
+            favoritePointNo = self.pointDAO.getFavoritePointReasonNo(usersDTO)
+
+            favoriteItems = [pr for pr in pointReason if pr.no in favoritePointNo]
+            otherItems = [pr for pr in pointReason if pr.no not in favoritePointNo]
+
+            sortedPointReason = favoriteItems + otherItems
+
+            return sortedPointReason
+        except Exception as e:
+            raise Exception(f"getFavPointReason Error: {e}")
+        
     def getPointLog(self, page: int, type: Literal['all', 'bonus', 'penalty']) -> list[pointLogDTO]: # type: ignore
         try:
             return self.pointDAO.getPointLog(page, type)
@@ -84,5 +98,24 @@ class pointSVC:
         except Exception as e:
             raise Exception(f"deletePointLog Error: {e}")
         
+
     def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
         return self.pointDAO.searchPointLogs(keyword, teacher_id)
+
+    def addFavoritePointReason(self, usersDTO: usersDTO, pointReasonDTO: pointReasonDTO):
+        try:
+            self.pointDAO.addFavoritePointReason(usersDTO, pointReasonDTO)
+        except Exception as e:
+            raise Exception(f"addFavoritePointReason Error: {e}")
+        
+    def removeFavoritePointReason(self, usersDTO: usersDTO, pointReasonDTO: pointReasonDTO):
+        try:
+            self.pointDAO.removeFavoritePointReason(usersDTO, pointReasonDTO)
+        except Exception as e:
+            raise Exception(f"removeFavoritePointReason Error: {e}")
+        
+    def getFavoritePointReasonNo(self, usersDTO: usersDTO) -> list[int]:
+        try:
+            return self.pointDAO.getFavoritePointReasonNo(usersDTO)
+        except Exception as e:
+            raise Exception(f"getFavoritePointReasonNo Error: {e}")

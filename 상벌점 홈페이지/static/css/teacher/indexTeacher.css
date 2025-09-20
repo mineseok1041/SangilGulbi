@@ -45,7 +45,7 @@ nav {
     z-index: 1;
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
@@ -176,7 +176,7 @@ nav>.myInfoEdit_nav {
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
@@ -794,23 +794,32 @@ nav>.five {
     background-color: #7d8791;
     /* hover 시 어두운 색 */
 }
-.penaltyGive_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.penaltyGive_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-@media (min-width: 900px){
-    .hamburger { display: none; }
-    .sidebar { left: 0; position: absolute; width: 20%; }
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
 }
 
 @media (max-width: 768px) {
-* {
-    -webkit-tap-highlight-color: transparent;
-}
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
 
     body {
         font-family: 'KakaoSmallSans-Bold', sans-serif;
@@ -828,35 +837,40 @@ button{
         width: 100%;
         height: 7%;
         background-color: white;
-        position: absolute;
+        position: fixed;
         top: 0%;
         right: 0%;
         box-shadow: 0px 3px 3px gray;
-        z-index: 1;
+        z-index: 5;
     }
 
     .main {
-        position: absolute;
-        top: -15%;
+        position: fixed;
         left: 15%;
+        top: 0%;
         color: #55595D;
-        font-size: 30px;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%
     }
 
     .hamburger {
         position: fixed;
-        top: 0.6%;
+        top: 0%;
         left: 1.5%;
-        z-index: 11;
+        z-index: 101;
         background: none;
         border: none;
         font-size: 32px;
         color: #333;
         cursor: pointer;
         display: block;
+        height: 7%;
     }
 
-    nav.sidebar{
+    nav.sidebar {
         position: fixed;
         background-color: #9AA6B2;
         left: -125%;
@@ -871,7 +885,7 @@ button{
         left: 0;
     }
 
-    nav > a {
+    nav>a {
         font-size: 24px;
     }
 
@@ -1002,7 +1016,7 @@ button{
         border: none;
     }
 
-    .myInfoEdit_nav:hover{
+    .myInfoEdit_nav:hover {
         color: #d8d8d8;
     }
 
@@ -1615,11 +1629,23 @@ button{
         background-color: #7d8791;
         /* hover 시 어두운 색 */
     }
-    .penaltyGive_box > .more:active {
-        transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+    .penaltyGive_box>.more:active {
+        transform: scale(0.95);
+        /* 살짝 눌리는 효과 */
     }
 
-    button{
-        font-family: 'KakaoSmallSans-Bold', sans-serif;    
+    button {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+    }
+
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 156%;
+        left: 0%;
+        z-index: -3;
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +52,9 @@
                 <tbody>
                     {% for bonusPointReason in bonusPointReasonDTO %}
                     <tr>
-                        <td><span class="star">★</span></td>
+                        <td><span 
+                            class="star {% if bonusPointReason.no in favoritePointNo %}active{% endif %}"
+                            data-pointno="{{ bonusPointReason.no }}">★</span></td>
                         <td>{{ bonusPointReason.no - 100 }}</td>
                         <td>{{ bonusPointReason.reason }}</td>
                         <td>{{ bonusPointReason.value }}</td>
@@ -59,8 +62,8 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
     </div>
-</div>
     <div class="penaltyList">
     <div class="header">
         <h1>벌점 항목</h1>
@@ -78,7 +81,9 @@
             <tbody>
                 {% for penaltyPointReason in penaltyPointReasonDTO %}
                 <tr>
-                    <td><span class="star">★</span></td>
+                    <td><span 
+                        class="star {% if penaltyPointReason.no in favoritePointNo %}active{% endif %}" 
+                        data-pointno="{{ penaltyPointReason.no }}">★</span></td>
                     <td>{{ penaltyPointReason.no - 200 }}</td>
                     <td>{{ penaltyPointReason.reason }}</td>
                     <td>{{ penaltyPointReason.value }}</td>
@@ -88,9 +93,9 @@
         </table>
 
     </div>
-
-    <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <div class="footer"></div>
+        <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
 </body>
 
 </html>

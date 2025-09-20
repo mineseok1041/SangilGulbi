@@ -622,7 +622,7 @@ button {
     position: relative;
     margin-top: 2%;
     bottom: -3%;
-    margin-bottom: 3%;
+    margin-bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     /* 정중앙으로 이동 */
@@ -685,32 +685,37 @@ button {
         width: 100%;
         height: 7%;
         background-color: #ffffff;
-        position: absolute;
+        position: fixed;
         top: 0%;
         right: 0%;
         box-shadow: 0px 3px 3px gray;
-        z-index: 1;
+        z-index: 5;
     }
 
     .main {
-        position: absolute;
-        top: -15%;
+        position: fixed;
         left: 15%;
+        top: 0%;
         color: #55595D;
-        font-size: 30px;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%
     }
 
     .hamburger {
-    position: fixed;
-    top: 0.6%;
-    left: 1.5%;
-    z-index: 101;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #333;
-    cursor: pointer;
-    display: block;
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        height: 7%;
     }
 
     nav.sidebar{
@@ -1282,7 +1287,7 @@ button {
         position: relative;
         margin-top: 2%;
         bottom: -3%;
-        margin-bottom: 3%;
+        margin-bottom: 10%;
         left: 50%;
         transform: translateX(-50%);
         /* 정중앙으로 이동 */

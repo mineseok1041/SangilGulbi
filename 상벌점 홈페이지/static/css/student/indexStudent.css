@@ -48,7 +48,7 @@ nav {
 
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
@@ -141,7 +141,7 @@ nav>.community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -153,11 +153,11 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -240,10 +240,13 @@ nav > .four{
 }
 
 .all_log:hover {
-    background-color: #9AA6B2; /* hover 시 어두운 색 */
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
+
 .all_log:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 .upscore_box {
@@ -297,11 +300,14 @@ nav > .four{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.upscore_box > .more:hover {
-    background-color: #9AA6B2; /* hover 시 어두운 색 */
+.upscore_box>.more:hover {
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
-.upscore_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.upscore_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 .up_log {
@@ -374,11 +380,14 @@ nav > .four{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.downscore_box > .more:hover {
-    background-color: #9AA6B2; /* hover 시 어두운 색 */
+.downscore_box>.more:hover {
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
-.downscore_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.downscore_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 .down_log {
@@ -479,11 +488,14 @@ nav > .four{
     /* hover 시 어두운 색 */
 }
 
-.community_box > .more:hover {
-    background-color: #9AA6B2; /* hover 시 어두운 색 */
+.community_box>.more:hover {
+    background-color: #9AA6B2;
+    /* hover 시 어두운 색 */
 }
-.community_box > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.community_box>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 th,
@@ -506,32 +518,40 @@ td {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-td > a{
+td>a {
     text-decoration: none;
     color: #000000;
 }
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
-@media (min-width: 900px){
-    .hamburger { display: none; }
-    .sidebar { left: 0; position: absolute; width: 20%; }
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
 }
 
 @media (max-width: 767px) {
     .hamburger {
-    position: fixed;
-    top: 0.6%;
-    left: 1.5%;
-    z-index: 11;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #333;
-    cursor: pointer;
-    display: block;
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        height: 7%;
     }
 
     body {
@@ -544,6 +564,7 @@ button{
         right: 0%;
         margin: 0%;
     }
+
     nav.sidebar {
     position: fixed;
     background-color: #BCCCDC;
@@ -559,161 +580,172 @@ button{
     left: 0;
 }
 
-nav > a {
-    font-size: 24px;
-}
+    /* nav가 열렸을 때 */
+    .sidebar.active {
+        left: 0;
+    }
 
-nav > a:not(.mypage_nav):hover{
-    color: #d8d8d8;
-}
+    nav>a {
+        font-size: 24px;
+    }
 
-nav > .profiles{
-    width: 30%;
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 10%;
-}
+    nav>a:not(.mypage_nav):hover {
+        color: #d8d8d8;
+    }
 
-nav > .name {
-    position: absolute;
-    left: 50%;
-    top: 7.5%;
-    font-size: larger;
-    color: white;
-}
+    nav>.profiles {
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
 
-nav > .mypage_nav {
-    color: #575e65;
-    position: absolute;
-    top: 30.5%;
-    left: 10%;
-    text-decoration: none;
-}
+    nav>.name {
+        position: absolute;
+        left: 50%;
+        top: 7.5%;
+        font-size: larger;
+        color: white;
+    }
 
-nav > .first{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 34%;
-    left: 5%;
-}
+    nav>.mypage_nav {
+        color: #575e65;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
 
-nav > .log_nav {
-    color: white;
-    position: absolute;
-    top: 37.3%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.first {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
 
-nav > .two{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 41%;
-    left: 5%;
-}
+    nav>.log_nav {
+        color: white;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .pointReasons_nav {
-    color: white;
-    position: absolute;
-    top: 44.2%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.two {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
 
-nav > .three{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 48%;
-    left: 5%;
-}
+    nav>.pointReasons_nav {
+        color: white;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .community_nav {
-    color: white;
-    position: absolute;
-    top: 51.4%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.three {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
 
-nav > .four{
-    width: 90%;
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-}
+    nav>.community_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .myInfoEdit_nav{
-    color: #ffffff;
-    position: absolute;
-    bottom: 13%;
-    left: 9%;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 24px;
-    background-color: #BCCCDC;
-    border: none;
-}
-.myInfoEdit_nav:hover{
-    color: #d8d8d8;
-}
+    nav>.four {
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+    }
 
-td, th {
-    text-overflow: ellipsis;
-}
+    nav>.myInfoEdit_nav {
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #BCCCDC;
+        border: none;
+    }
 
-.logout {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    bottom: 5%;
-    left: 9%;
-    color: white;
-    cursor: pointer;
-    border: none;
-    background-color: #BCCCDC;
-    font-size: larger;
-    text-align: left;
-    font-size: 24px;
-}
+    .myInfoEdit_nav:hover {
+        color: #d8d8d8;
+    }
+
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #BCCCDC;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
 
 
     header {
-    width: 100%;
-    height: 7%;
-    background-color: white;
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    box-shadow: 0px 3px 3px gray;
-    z-index: 1;
-    }       
+        width: 100%;
+        height: 7%;
+        background-color: white;
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        box-shadow: 0px 3px 3px gray;
+        z-index: 5;
+    }
 
     .main {
-    position: absolute;
-    left: 15%;
-    top: 2%;
-    color: #55595D;
-    font-size: 30px;
-}
+        position: fixed;
+        left: 15%;
+        top: 0%;
+        color: #55595D;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%;
+    }
 
     .all_score {
         width: 90%;
@@ -749,19 +781,19 @@ td, th {
     }
 
     .upscore_box>.more {
-    width: 20%;
-    height: 10%;
-    background-color: #BCCCDC;
-    border: none;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-    color: white;
-    cursor: pointer;
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
-    font-size: 15px;
-    transition: transform 0.1s ease, background-color 0.3s ease;
+        width: 25%;
+        height: 10%;
+        background-color: #BCCCDC;
+        border: none;
+        border-radius: 10%;
+        position: absolute;
+        bottom: 3%;
+        right: 3%;
+        color: white;
+        cursor: pointer;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        font-size: 15px;
+        transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
     .up_log {
@@ -795,19 +827,19 @@ td, th {
     }
 
     .downscore_box>.more {
-    width: 20%;
-    height: 10%;
-    background-color: #BCCCDC;
-    border: none;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-    color: white;
-    cursor: pointer;
-    font-family: 'KakaoSmallSans-Bold', sans-serif;
-    font-size: 15px;
-    transition: transform 0.1s ease, background-color 0.3s ease;
+        width: 25%;
+        height: 10%;
+        background-color: #BCCCDC;
+        border: none;
+        border-radius: 10%;
+        position: absolute;
+        bottom: 3%;
+        right: 3%;
+        color: white;
+        cursor: pointer;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        font-size: 15px;
+        transition: transform 0.1s ease, background-color 0.3s ease;
     }
 
     .community_box {
@@ -853,7 +885,16 @@ td, th {
     }
 
     td {
-        font-size:15px;
+        font-size: 15px;
+  }
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 124%;
+        left: 0%;
+        z-index: -3;
     }
 
 
