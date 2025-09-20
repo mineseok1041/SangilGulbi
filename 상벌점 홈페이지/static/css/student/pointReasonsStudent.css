@@ -39,18 +39,18 @@ nav {
     position: absolute;
     top: 0%;
     left: 0%;
-    
+
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
-nav > a:not(.pointReasons_nav):hover{
+nav>a:not(.pointReasons_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -66,7 +66,7 @@ nav>.name {
     font-size: 20px;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -74,18 +74,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .log_nav {
+nav>.log_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -94,18 +94,18 @@ nav > .log_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: #575e65;
     position: absolute;
     top: 44.2%;
@@ -114,18 +114,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 51%;
@@ -134,7 +134,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -146,18 +146,18 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 
@@ -177,8 +177,8 @@ nav > .four{
 }
 
 
-table{
-   font-size:10px;
+table {
+    font-size: 10px;
 }
 
 .rewardList {
@@ -194,7 +194,7 @@ table{
     padding-bottom: 2%;
 }
 
-.rewardList> .header{
+.rewardList>.header {
     width: 100%;
     height: 10%;
     position: sticky;
@@ -210,7 +210,7 @@ table{
     z-index: 10;
 }
 
-.rewardList > .header >  h1{
+.rewardList>.header>h1 {
     color: white;
     margin: 0;
     font-size: 25px;
@@ -218,10 +218,13 @@ table{
 }
 
 
-.rewardList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.rewardList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .rewardList_table table {
@@ -252,7 +255,7 @@ table{
     background: #f9f9f9;
 }
 
-.rewardList > .more {
+.rewardList>.more {
     width: 10%;
     height: 5%;
     background-color: #BCCCDC;
@@ -268,11 +271,14 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.rewardList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.rewardList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.rewardList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.rewardList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 
@@ -289,7 +295,7 @@ table{
     padding-bottom: 2%;
 }
 
-.penaltyList> .header{
+.penaltyList>.header {
     width: 100%;
     height: 10%;
     position: sticky;
@@ -305,7 +311,8 @@ table{
     z-index: 10;
 }
 
-.penaltyList > .header >  h1{
+.penaltyList>.header>h1 {
+    width: 100%;
     color: white;
     margin: 0;
     font-size: 25px;
@@ -313,10 +320,13 @@ table{
 }
 
 
-.penaltyList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.penaltyList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .penaltyList_table table {
@@ -347,7 +357,7 @@ table{
     background: #f9f9f9;
 }
 
-.penaltyList > .more {
+.penaltyList>.more {
     width: 10%;
     height: 5%;
     background-color: #BCCCDC;
@@ -363,20 +373,25 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
-}
-.penaltyList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+.penaltyList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 
-.num{
+.penaltyList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
+}
+
+.num {
     width: 12%;
 }
-.reward{
+
+.reward {
     width: 13%;
 }
-.penalty{
+
+.penalty {
     width: 13%;
 }
 
@@ -385,17 +400,24 @@ table{
 .rewardList_table table th,
 .penaltyList_table table td,
 .penaltyList_table table th {
-  font-size: 18px;
+    font-size: 18px;
 }
 
-button{
-    font-family: 'KakaoSmallSans-Bold', sans-serif;    
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 
-@media (min-width: 900px){
-    .hamburger { display: none; }
-    .sidebar { left: 0; position: absolute; width: 20%; }
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
 }
 
 @media (max-width: 767px) {
@@ -411,7 +433,6 @@ button{
         cursor: pointer;
         display: block;
         height: 7%;
-}
 
     body {
         font-family: 'KakaoSmallSans-Bold', sans-serif;
@@ -423,6 +444,7 @@ button{
         right: 0%;
         margin: 0%;
     }
+
     nav.sidebar {
     position: fixed;
     background-color: #BCCCDC;
@@ -438,141 +460,148 @@ button{
     left: 0;
 }
 
-nav > a {
-    font-size: 24px;
-}
+    /* nav가 열렸을 때 */
+    .sidebar.active {
+        left: 0;
+    }
 
-nav > a:not(.pointReasons_nav):hover{
-    color: #d8d8d8;
-}
+    nav>a {
+        font-size: 24px;
+    }
 
-nav > .profiles{
-    width: 30%;
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 10%;
-}
+    nav>a:not(.pointReasons_nav):hover {
+        color: #d8d8d8;
+    }
 
-nav > .name {
-    position: absolute;
-    left: 50%;
-    top: 7.5%;
-    font-size: larger;
-    color: white;
-}
+    nav>.profiles {
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
 
-nav > .mypage_nav {
-    color: white;
-    position: absolute;
-    top: 30.5%;
-    left: 10%;
-    text-decoration: none;
-}
+    nav>.name {
+        position: absolute;
+        left: 50%;
+        top: 7.5%;
+        font-size: larger;
+        color: white;
+    }
 
-nav > .first{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 34%;
-    left: 5%;
-}
+    nav>.mypage_nav {
+        color: white;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
 
-nav > .log_nav {
-    color: white;
-    position: absolute;
-    top: 37.3%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.first {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
 
-nav > .two{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 41%;
-    left: 5%;
-}
+    nav>.log_nav {
+        color: white;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .pointReasons_nav {
-    color: #575e65;
-    position: absolute;
-    top: 44.2%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.two {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
 
-nav > .three{
-    width: 90%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-    position: absolute;
-    top: 48%;
-    left: 5%;
-}
+    nav>.pointReasons_nav {
+        color: #575e65;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .community_nav {
-    color: white;
-    position: absolute;
-    top: 51.4%;
-    left: 10%;
-    text-decoration: none;
-    cursor: pointer;
-}
+    nav>.three {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
 
-nav > .four{
-    width: 90%;
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
-    background:white;
-    height:1px;
-    border:0;
-}
+    nav>.community_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-nav > .myInfoEdit_nav{
-    color: #ffffff;
-    position: absolute;
-    bottom: 13%;
-    left: 9%;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 24px;
-    background-color: #BCCCDC;
-    border: none;
-}
-.myInfoEdit_nav:hover{
-    color: #d8d8d8;
-}
+    nav>.four {
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+    }
 
-td, th {
-    text-overflow: ellipsis;
-}
+    nav>.myInfoEdit_nav {
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #BCCCDC;
+        border: none;
+    }
 
-.logout {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    bottom: 5%;
-    left: 9%;
-    color: white;
-    cursor: pointer;
-    border: none;
-    background-color: #BCCCDC;
-    font-size: larger;
-    text-align: left;
-    font-size: 24px;
-}
+    .myInfoEdit_nav:hover {
+        color: #d8d8d8;
+    }
+
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #BCCCDC;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
 
 
     header {
@@ -611,7 +640,7 @@ td, th {
         padding-bottom: 2%;
     }
 
-    .rewardList > .header {
+    .rewardList>.header {
         width: 100%;
         height: 8.5%;
         position: sticky;
@@ -626,7 +655,9 @@ td, th {
         box-sizing: border-box;
         z-index: 10;
     }
-    .rewardList > .header > h1 {
+  
+    .rewardList>.header>h1 {
+        width: 100%;
         color: white;
         margin: 0;
         font-size: 25px;
@@ -668,12 +699,14 @@ td, th {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .rewardList_table th:nth-child(2),
     .rewardList_table td:nth-child(2) {
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .rewardList_table th:nth-child(3),
     .rewardList_table td:nth-child(3) {
         max-width: 80px;
@@ -694,8 +727,8 @@ td, th {
         overflow-x: hidden;
         padding-bottom: 2%;
     }
-    
-    .penaltyList > .header {
+
+    .penaltyList>.header {
         width: 100%;
         height: 8.5%;
         position: sticky;
@@ -710,7 +743,9 @@ td, th {
         box-sizing: border-box;
         z-index: 10;
     }
-    .penaltyList > .header > h1 {
+  
+    .penaltyList>.header>h1 {
+        width: 100%;
         color: white;
         margin: 0;
         font-size: 25px;
@@ -753,17 +788,29 @@ td, th {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .penaltyList_table th:nth-child(2),
     .penaltyList_table td:nth-child(2) {
         max-width: 100px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     .penaltyList_table th:nth-child(3),
     .rewardList_table td:nth-child(3) {
         max-width: 80px;
         min-width: 50px;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 170%;
+        left: 0%;
+        z-index: -3;
     }
 }
