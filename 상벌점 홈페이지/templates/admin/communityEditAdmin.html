@@ -6,11 +6,14 @@
     <title>게시판 수정</title>
     <link href="{{ url_for('static', filename='css/admin/communityAddAdmin.css') }}" rel="stylesheet">
 </head>
+
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">게시판</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}</p>
@@ -45,5 +48,6 @@
         <button class="sumit" type="submit">수정</button>
     </form>
     <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/communityEditAdmin.js') }}"></script>
 </body>
 </html>

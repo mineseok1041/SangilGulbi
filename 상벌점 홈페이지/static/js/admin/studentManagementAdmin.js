@@ -242,4 +242,72 @@ document.addEventListener("DOMContentLoaded", function () {
             searchButton.click();
         }
     });
+
+    // ---------- 사이드바 토글 및 외부 클릭 닫기 ----------
+    const navToggle = document.querySelector('.nav-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (navToggle && sidebar) {
+        // 햄버거 버튼 클릭
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation(); // 이벤트 전파 방지
+            sidebar.classList.toggle('active');
+            document.body.classList.toggle('sidebar-open', sidebar.classList.contains('active'));
+        });
+
+        // 사이드바 내부 클릭 시 이벤트 전파 방지
+        sidebar.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // 문서 전체 클릭 시 사이드바 닫기
+        document.addEventListener('click', function() {
+        if (sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            document.body.classList.remove('sidebar-open');
+    }
+        });
+
+    }
+
+    // ----------- 학년 필터 기능 추가 시작 -----------
+    if (filterPopup) {
+        const gradeCheckboxes = filterPopup.querySelectorAll("input[type='checkbox'][name='grade']");
+        gradeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", function () {
+                applyGradeFilter();
+            });
+        });
+    }
+
+    function applyGradeFilter() {
+        if (!filterPopup) return;
+        const checkedGrades = Array.from(filterPopup.querySelectorAll("input[type='checkbox'][name='grade']:checked"))
+            .map(cb => cb.value.replace("학년", ""));
+        tableRows.forEach(row => {
+            const stdNumCell = row.querySelector("td");
+            if (!stdNumCell) return;
+            const stdNum = stdNumCell.textContent.trim();
+            const grade = stdNum.charAt(0);
+            if (checkedGrades.length === 0 || checkedGrades.includes(grade)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+    // ----------- 학년 필터 기능 추가 끝 -----------
+
+    // 초기화 버튼 클릭 이벤트 (필터 해제)
+    if (resetFiltersButton) {
+        resetFiltersButton.addEventListener("click", function () {
+            const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            tableRows.forEach(row => {
+                row.style.display = "";
+            });
+        });
+    }
 });

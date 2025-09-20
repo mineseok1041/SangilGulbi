@@ -324,3 +324,83 @@ class pointDAO:
         finally:
             cursor.close()
             conn.close()
+
+
+    def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
+        # 이름(studentName), 사유(reason), 부여 점수(point), 부여자(giveTeacherName)만 검색
+        query = """
+            SELECT * FROM pointLog
+            WHERE (studentName LIKE :kw OR reason LIKE :kw OR TO_CHAR(point) LIKE :kw OR giveTeacherName LIKE :kw)
+        """
+        params = {'kw': f'%{keyword}%'}
+        if teacher_id:
+            query += " AND giveTeacherId = :tid"
+            params['tid'] = teacher_id
+
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+        result = [pointLogDTO(*row) for row in rows]
+        cursor.close()
+        conn.close()
+        return result
+
+    def addFavoritePointReason(self, usersDTO, pointReasonDTO):
+        query = "INSERT INTO favoritePointReason (userId, pointReasonNo) VALUES (:1, :2)"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [usersDTO.id, pointReasonDTO.no])
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    def removeFavoritePointReason(self, usersDTO, pointReasonDTO):
+        query = "DELETE FROM favoritePointReason WHERE userId = :1 AND pointReasonNo = :2"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [usersDTO.id, pointReasonDTO.no])
+            conn.commit()
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
+    def getFavoritePointReasonNo(self, usersDTO: usersDTO) -> list[int]:
+        query = "SELECT pointReasonNo FROM favoritePointReason WHERE userId = :1"
+
+        conn = None
+        cursor = None
+        try:
+            conn = self.get_connection()
+            cursor = conn.cursor()
+
+            cursor.execute(query, [usersDTO.id])
+            results = cursor.fetchall()
+
+            return [row[0] for row in results]
+        except cx_Oracle.DatabaseError as e:
+            raise Exception(f"DB Error: {e}")
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()

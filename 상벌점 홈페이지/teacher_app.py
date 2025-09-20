@@ -19,20 +19,18 @@ pointSVC = pointSVC()
 @teacherAuth
 def index():
     try:
-        if 'id' not in session:
-            return redirect(url_for('auth.login'))
-        
-        pointLogList = pointSVC.getPointLogByStdID(usersDTO(id=session['id']), 1, 'all')
-
-        # 상점과 벌점 분리
+        pointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'all')
         bonusPointLogList = [log for log in pointLogList if log.type == 'bonus']
         penaltyPointLogList = [log for log in pointLogList if log.type == 'penalty']
-        
         # bonusPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'bonus')
         # penaltyPointLogList = pointSVC.getPointLogByTeacherID(usersDTO(id=session['id']), 1, 'penalty')
+
         notices = SVC.get_all_notices()  # 게시글 목록 가져오기
-    
-        return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList)
+
+        pointReason = pointSVC.getPointReason('bonus') + pointSVC.getPointReason('penalty')
+        favoritePointReasonNo = pointSVC.getFavoritePointReasonNo(usersDTO(id=session['id']))
+
+        return render_template('teacher/indexTeacher.html', notices=notices, bonusPointLogList=bonusPointLogList, penaltyPointLogList=penaltyPointLogList, pointReason=pointReason, favoritePointReasonNo=favoritePointReasonNo)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -41,9 +39,6 @@ def index():
 @teacherAuth
 def pointLog():
     try:
-        if 'id' not in session:
-            return redirect(url_for('auth.login'))
-
         page = request.args.get('page', default=1, type=int)
         maxPage = pointSVC.getTeacherPointLogMaxPage(usersDTO(id=session['id']))
         
@@ -62,21 +57,17 @@ def pointLog():
 @teacherBlue.route('/pointReasons')
 @teacherAuth
 def pointReasons():
-    if 'id' not in session:
-        return redirect(url_for('index'))
-
     bonusPointReasons = pointSVC.getPointReason('bonus')
     penaltyPointReasons = pointSVC.getPointReason('penalty')
+
+    favoritePointNo = pointSVC.getFavoritePointReasonNo(usersDTO(id=session['id']))
     
-    return render_template('teacher/pointReasonsTeacher.html', bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
+    return render_template('teacher/pointReasonsTeacher.html', bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons, favoritePointNo=favoritePointNo)
 
 @teacherBlue.route('/studentManagement')
 @teacherAuth
 def studentManagement():
     try:
-        if 'id' not in session:
-            return redirect(url_for('auth.login'))
-        
         page = request.args.get('page', default=1, type=int)
         maxPage = usersSVC.getStudentMaxPage()
 
@@ -89,19 +80,6 @@ def studentManagement():
             page = 1
     
         return render_template('teacher/studentManagementTeacher.html', usersDTO=teacherDTO, studentList=studentList, currentPage=page, maxPage=maxPage)
-    except Exception as e:
-        print(e)
-        return redirect(url_for('auth.login'))
-
-@teacherBlue.route('/teacherManagement')
-@teacherAuth
-def teacherManagement():
-    try:
-        if 'id' not in session or session.get('identity') != 0:
-            return redirect(url_for('auth.login'))
-        teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
-        teacherList = usersSVC.getTeachersList(1)
-        return render_template('teacher/teacherManagement.html', usersDTO=teacherDTO, teacherList=teacherList)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
@@ -198,9 +176,6 @@ def deleteTeacherAccount():
 @teacherAuth
 def community():
     try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         notices = SVC.get_all_notices()
         return render_template('teacher/communityTeacher.html', usersDTO=teacherDTO, notices=notices)
@@ -212,8 +187,6 @@ def community():
 @teacherAuth
 def communityDetail(noticeId):
     try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
         notice = SVC.get_notice_by_id(noticeId)
         return render_template('teacher/communityInfoTeacher.html', notice=notice)
     except Exception as e:
@@ -224,8 +197,6 @@ def communityDetail(noticeId):
 @teacherAuth
 def communityAdd():
     try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
         if request.method == 'POST':
             title = request.form['title']
             content = request.form['content']
@@ -242,8 +213,6 @@ def communityAdd():
 @teacherAuth
 def communityEdit(noticeId):
     try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
         notice = SVC.get_notice_by_id(noticeId)
         if request.method == 'POST':
             notice.title = request.form['title']
@@ -259,8 +228,6 @@ def communityEdit(noticeId):
 @teacherAuth
 def communityDelete(noticeId):
     try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
         SVC.delete_notice(noticeId)
         return redirect(url_for('teacher.community'))
     except Exception as e:
@@ -271,13 +238,10 @@ def communityDelete(noticeId):
 @teacherAuth
 def giveBonusPoint():
     try:
-        if 'id' not in session:
-            return '로그인이 필요합니다'
-        
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
-        pointReasonList = pointSVC.getPointReason('bonus')
+        pointReasonList = pointSVC.getFavPointReason('bonus', usersDTO(id=session['id']))
         currentDate = datetime.now().strftime('%Y/%m/%d')
     
         return render_template('teacher/giveBonusPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
@@ -289,13 +253,10 @@ def giveBonusPoint():
 @teacherAuth
 def givePenaltyPoint():
     try:
-        if 'id' not in session:
-            return '로그인이 필요합니다'
-
         teacherDTO = usersDTO(id=session['id'], name=session['name'], identity=session['identity'])
         studentList = usersSVC.getStudentsList(1)
         teacherList = usersSVC.getTeachersList(1)
-        pointReasonList = pointSVC.getPointReason('penalty')
+        pointReasonList = pointSVC.getFavPointReason('penalty', usersDTO(id=session['id']))
         currentDate = datetime.now().strftime('%Y/%m/%d')
             
         return render_template('teacher/givePenaltyPointPopup.html', usersDTO=teacherDTO, studentList=studentList, teacherList=teacherList, pointReasonList=pointReasonList, currentDate=currentDate)
@@ -350,18 +311,6 @@ def doGivePenaltyPoint():
         print(e)
         flash('모든 항목을 작성해주세요')
         return redirect(url_for('teacher.giveBonusPoint'))
-    
-@teacherBlue.route('/teacherSignupApprovalPopup')
-@teacherAuth
-def teacherSignupApprovalPopup():
-    try:
-        if 'id' not in session or session.get('identity') != 0:
-            return redirect(url_for('index'))
-        unverified_teachers = usersSVC.getUnverifiedTeachers()
-        return render_template('teacher/teacherSignupApprovalPopup.html', unverified_teachers=unverified_teachers)
-    except Exception as e:
-        print(e)
-        return 'Error'
 
 @teacherBlue.route('/resetTeacherPasswdPopup')
 @teacherAuth
@@ -387,30 +336,6 @@ def resetStudentPasswdPopup():
         print(e)
         return 'Error'
     
-@teacherBlue.route('/approveTeacher', methods=['POST'])
-@teacherAuth
-def approveTeacher():
-    if 'identity' not in session or session['identity'] != 0:
-        return jsonify({"success": False, "error": "권한이 없습니다."})
-    teacher_id = request.form.get('teacherId')
-    try:
-        usersSVC.usersDAO.updateTeacherVerified(teacher_id, 1)
-        return jsonify({"success": True})
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)})
-    
-@teacherBlue.route('/myInfoEditPopup')
-@teacherAuth
-def myinfoEdit():
-    try:
-        if 'id' not in session:
-            return redirect(url_for('index'))
-        
-        return render_template('teacher/myInfoEditTeacher.html')
-    except Exception as e:
-        print(e)
-        return redirect(url_for('index'))
-    
 @teacherBlue.route('/searchStudents')
 @teacherAuth
 def searchStudents():
@@ -429,21 +354,6 @@ def searchStudents():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-@teacherBlue.route('/searchTeachers')
-@teacherAuth
-def searchTeachers():
-    keyword = request.args.get('keyword', '').strip()
-    try:
-        teachers = usersSVC.searchTeachersByKeyword(keyword)
-        return jsonify([
-            {
-                'name': t.name,
-                'id': t.id,
-            } for t in teachers
-        ])
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-    
 @teacherBlue.route('/pointCancel.do' , methods=['POST'])
 @teacherAuth
 def pointCancel():
@@ -456,3 +366,38 @@ def pointCancel():
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
+    
+@teacherBlue.route('/searchPointLogs')
+@teacherAuth
+def search_point_logs():
+    keyword = request.args.get('keyword', '').strip()
+    try:
+        # 본인(선생님)이 부여한 로그만 검색하려면 session['id'] 활용
+        result = pointSVC.searchPointLogs(keyword, teacher_id=session['id'])
+        return jsonify([log.__dict__ for log in result])
+    except Exception as e:
+        return jsonify([])
+
+@teacherBlue.route('/addFavoritePointReason.do/<int:pointNo>', methods=['POST'])
+@teacherAuth
+def addFavoritePointReason(pointNo):
+    try:
+        user = usersDTO(id=session.get('id'))
+        pointReason = pointReasonDTO(no=pointNo)
+
+        pointSVC.addFavoritePointReason(user, pointReason)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+@teacherBlue.route('/removeFavoritePointReason.do/<int:pointNo>', methods=['POST'])
+@teacherAuth
+def removeFavoritePointReason(pointNo):
+    try:
+        user = usersDTO(id=session.get('id'))
+        pointReason = pointReasonDTO(no=pointNo)
+
+        pointSVC.removeFavoritePointReason(user, pointReason)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

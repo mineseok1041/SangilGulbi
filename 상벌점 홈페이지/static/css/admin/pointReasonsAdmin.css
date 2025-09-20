@@ -7,7 +7,6 @@
 
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
-    overflow-y: hidden;
 }
 
 header {
@@ -39,15 +38,15 @@ nav {
     z-index: 1;
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
-nav > a:not(.pointReasons_nav):hover{
+nav>a:not(.pointReasons_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -55,14 +54,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -70,7 +69,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -78,18 +77,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .givePoint_nav {
+nav>.givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -98,18 +97,18 @@ nav > .givePoint_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: #575e65;
     position: absolute;
     top: 44.2%;
@@ -118,18 +117,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav>.studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -138,18 +137,18 @@ nav > .studentManagement_nav {
     cursor: pointer;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 55%;
     left: 5%;
 }
 
-nav > .teacherManagement_nav {
+nav>.teacherManagement_nav {
     color: white;
     position: absolute;
     top: 58.3%;
@@ -158,18 +157,18 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
+nav>.five {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 62%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 65.3%;
@@ -178,7 +177,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -190,18 +189,18 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .six{
+nav>.six {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 .logout {
@@ -219,69 +218,75 @@ nav > .six{
     font-size: 24px;
 }
 
-table{
-   font-size:10px;
+table {
+    font-size: 10px;
 }
 
 .rewardList {
     width: 35%;
-    height: 75%;
+    height: 82%;
     position: absolute;
     top: 12%;
     left: 23%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+    overflow-y: auto;
     overflow-x: hidden;
-    overflow-y: scroll;
+    padding-bottom: 2%;
 }
 
-.rewardList> .header{
+.rewardList>.header {
     width: 100%;
-    height: 8%;
-    position: absolute;
-    top: 0%;
+    height: 10%;
+    position: sticky;
+    top: 0;
     right: 0%;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
-.rewardList > .header >  h1{
+.rewardList>.header>h1 {
     width: 100%;
     color: white;
-    position: absolute;
-    top: 30%;
-    left: 3%;
-    margin: 0%;
+    margin: 0;
     font-size: 25px;
+    position: static;
 }
 
 
-.rewardList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.rewardList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .rewardList_table table {
     width: 90%;
     border-collapse: collapse;
-    margin: auto;
-    border-top: #000000 solid 3px;
+    margin: 5% auto; /* 가운데 정렬 */
     font-size: 14px;
+    border-top: #000000 solid 3px;
 }
 
 .rewardList_table th {
     background: #ffffff;
-    padding: 1.5%;
+    padding: 2%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .rewardList_table td {
-    padding: 1.5%;
+    padding: 2%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
@@ -292,7 +297,7 @@ table{
     background: #f9f9f9;
 }
 
-.rewardList > .more {
+.rewardList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -308,21 +313,23 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.rewardList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.rewardList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.rewardList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.rewardList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 
 .penaltyList {
     width: 35%;
-    height: 71%;
+    height: 82%;
     position: absolute;
     top: 12%;
     left: 62%;
-    padding-top: 5%;
     border-radius: 5px;
     box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
     overflow-y: auto;
@@ -330,52 +337,57 @@ table{
     padding-bottom: 2%;
 }
 
-.penaltyList> .header{
+.penaltyList>.header {
     width: 100%;
-    height: 8%;
-    position: absolute;
-    top: 0%;
+    height: 10%;
+    position: sticky;
+    top: 0;
     right: 0%;
     background-color: #9AA6B2;
     border-radius: 5px 5px 0px 0px;
-    padding-top: 0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
-.penaltyList > .header >  h1{
-    width: 100%;
+.penaltyList>.header>h1 {
     color: white;
-    position: absolute;
-    top: 30%;
-    left: 3%;
-    margin: 0%;
+    margin: 0;
     font-size: 25px;
+    position: static;
 }
 
 
-.penaltyList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.penaltyList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .penaltyList_table table {
     width: 90%;
     border-collapse: collapse;
-    margin: auto;
+    margin: 5% auto; /* 가운데 정렬 */
     font-size: 14px;
     border-top: #000000 solid 3px;
 }
 
 .penaltyList_table th {
     background: #ffffff;
-    padding: 1.5%;
+    padding: 2%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #000000 solid 3px;
     font-size: 20px;
 }
 
 .penaltyList_table td {
-    padding: 1.5%;
+    padding: 2%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;
     font-size: 20px;
@@ -386,7 +398,7 @@ table{
     background: #f9f9f9;
 }
 
-.penaltyList > .more {
+.penaltyList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -402,20 +414,25 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
-}
-.penaltyList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+.penaltyList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 
-.num{
+.penaltyList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
+}
+
+.num {
     width: 12%;
 }
-.reward{
+
+.reward {
     width: 13%;
 }
-.penalty{
+
+.penalty {
     width: 13%;
 }
 
@@ -427,6 +444,508 @@ table{
     font-size: 18px;
 }
 
+.star{
+    font-size: 25px;     /* 별 크기 */
+    color: #ccc;         /* 기본 회색 */
+    cursor: pointer;     /* 마우스 오버 시 손 모양 */
+    transition: color 0.2s;  /* 부드러운 색 전환 */
+}
+
+.star.active{
+    color: #000000;
+}
+
+.editButton {
+    width: 9%;
+    height: 50%;
+    background-color: #9AA6B2;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    right: 5%;
+    top: 23%;
+    color: white;
+    cursor: pointer;
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
+    font-size: 20px;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
 button{
         font-family: 'KakaoSmallSans-Bold', sans-serif;
+}
+
+@media (min-width: 900px) {
+    .hamburger {
+        display: none;
+    }
+
+    .sidebar {
+        left: 0;
+        position: absolute;
+        width: 20%;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        margin: 0%;
+    }
+
+    header {
+        width: 100%;
+        height: 7%;
+        background-color: white;
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        box-shadow: 0px 3px 3px gray;
+        z-index: 5;
+    }
+
+    .main {
+        position: fixed;
+        left: 15%;
+        top: 0%;
+        color: #55595D;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        height: 7%;
+        margin: 0%
+    }
+
+    .editButton {
+        width: 20%;
+        height: 60%;
+        background-color: #9AA6B2;
+        border: none;
+        border-radius: 10px;
+        position: absolute;
+        right: 5%;
+        top: 20%;
+        color: white;
+        cursor: pointer;
+        font-family: 'KakaoSmallSans-Bold', sans-serif;
+        font-size: 18px;
+        transition: transform 0.1s ease, background-color 0.3s ease;
+    }
+
+    .editButton:hover {
+        background-color: #7d8791; /* hover 시 어두운 색 */
+    }
+
+    .editButton:active {
+        transform: scale(0.95); /* 살짝 눌리는 효과 */
+    }
+
+    /* 햄버거 버튼 스타일 */
+    .hamburger {
+        position: fixed;
+        top: 0%;
+        left: 1.5%;
+        z-index: 101;
+        background: none;
+        border: none;
+        font-size: 32px;
+        color: #333;
+        cursor: pointer;
+        display: block;
+        height: 7%;
+    }
+
+
+    nav.sidebar {
+        position: fixed;
+        background-color: #9AA6B2;
+        left: -125%;
+        width: 85%;
+        height: 100%;
+        top: 0%;
+        z-index: 100;
+        transition: left 0.3s;
+    }
+
+    /* nav가 열렸을 때 */
+    .sidebar.active {
+        left: 0;
+    }
+
+    nav>a {
+        font-size: 24px;
+    }
+
+    nav>a:not(.pointReasons_nav):hover {
+        color: #d8d8d8;
+    }
+
+    nav>.profiles {
+        width: 30%;
+        border-radius: 50%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
+
+    nav>.number {
+        position: absolute;
+        left: 50%;
+        top: 6%;
+        color: white;
+    }
+
+    nav>.name {
+        position: absolute;
+        left: 50%;
+        top: 9%;
+        font-size: larger;
+        color: white;
+    }
+
+    nav>.mypage_nav {
+        color: white;
+        position: absolute;
+        top: 30.5%;
+        left: 10%;
+        text-decoration: none;
+    }
+
+    nav>.first {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 34%;
+        left: 5%;
+    }
+
+    nav>.givePoint_nav {
+        color: white;
+        position: absolute;
+        top: 37.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.two {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 41%;
+        left: 5%;
+    }
+
+    nav>.pointReasons_nav {
+        color: #575e65;
+        position: absolute;
+        top: 44.2%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.three {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 48%;
+        left: 5%;
+    }
+
+    nav>.studentManagement_nav {
+        color: white;
+        position: absolute;
+        top: 51.4%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.four {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 55%;
+        left: 5%;
+    }
+
+    nav>.teacherManagement_nav {
+        color: white;
+        position: absolute;
+        top: 58.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.five {
+        width: 90%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+        position: absolute;
+        top: 62%;
+        left: 5%;
+    }
+
+    nav>.community_nav {
+        color: white;
+        position: absolute;
+        top: 65.3%;
+        left: 10%;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav>.myInfoEdit_nav {
+        color: #ffffff;
+        position: absolute;
+        bottom: 13%;
+        left: 9%;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: #9aa6b2;
+        border: none;
+    }
+
+    .myInfoEdit_nav:hover {
+        color: #d8d8d8;
+    }
+
+    nav>.six {
+        width: 90%;
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+        background: white;
+        height: 1px;
+        border: 0;
+    }
+
+    td,
+    th {
+        text-overflow: ellipsis;
+    }
+
+    .logout {
+        width: 80%;
+        height: auto;
+        position: absolute;
+        bottom: 5%;
+        left: 9%;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background-color: #9AA6B2;
+        font-size: larger;
+        text-align: left;
+        font-size: 24px;
+    }
+
+    .rewardList {
+        width: 90%;
+        height: 75%;
+        position: absolute;
+        top: 12%;
+        left: 5%;
+        border-radius: 5px;
+        box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-bottom: 2%;
+    }
+
+    .rewardList>.header {
+        width: 100%;
+        height: 8.5%;
+        position: sticky;
+        top: 0;
+        right: 0%;
+        background-color: #9AA6B2;
+        border-radius: 5px 5px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3%;
+        box-sizing: border-box;
+        z-index: 10;
+    }
+
+    .rewardList>.header>h1 {
+        color: white;
+        margin: 0;
+        font-size: 25px;
+        position: static;
+    }
+
+    .rewardList_table table td {
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #55595D solid 1px;
+        font-size: 20px;
+        color: #3f3f3f;
+    }
+
+    .rewardList_table table th {
+        background: #ffffff;
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #000000 solid 3px;
+        font-size: 20px;
+    }
+
+    .rewardList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 5% auto; /* 가운데 정렬 */
+        font-size: 14px;
+    }
+
+    .rewardList_table td:nth-child(1),
+    .rewardList_table th:nth-child(1) {
+        min-width: 40px;
+    }
+
+    .rewardList_table td:nth-child(2),
+    .rewardList_table th:nth-child(2) {
+        min-width: 50px;
+    }
+
+    .rewardList_table td:nth-child(3),
+    .rewardList_table th:nth-child(3) {
+        min-width: 120px;
+        line-height: 1.2;
+    }
+
+    .rewardList_table td:nth-child(4),
+    .rewardList_table th:nth-child(4) {
+        min-width: 50px;
+    }
+
+    .penaltyList {
+        width: 90%;
+        height: 75%;
+        position: absolute;
+        top: 95%;
+        left: 5%;
+        border-radius: 5px;
+        box-shadow: 4px 4px 18px 4px rgb(207, 207, 207);
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-bottom: 2%;
+    }
+
+    .penaltyList>.header {
+        width: 100%;
+        height: 8.5%;
+        position: sticky;
+        top: 0;
+        right: 0%;  
+        background-color: #9aa6b2;
+        border-radius: 5px 5px 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3%;
+        box-sizing: border-box;
+        z-index: 10;
+    }
+
+    .penaltyList>.header>h1 {
+        color: white;
+        margin: 0;
+        font-size: 25px;
+        position: static;
+    }
+
+    .penaltyList_table table td {
+       padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #55595D solid 1px;
+        font-size: 20px;
+        color: #3f3f3f;
+    }
+
+    .penaltyList_table table th {
+        background: #ffffff;
+        padding: 2%;
+        text-align: center; /* 가운데 정렬 */
+        border-bottom: #000000 solid 3px;
+        font-size: 20px;
+    }
+
+    .penaltyList_table table {
+        width: 90%;
+        border-collapse: collapse;
+        margin: 5% auto; /* 가운데 정렬 */
+        font-size: 14px;
+    }
+    
+    .penaltyList_table td:nth-child(1),
+    .penaltyList_table th:nth-child(1) {
+        min-width: 40px;
+    }
+
+    .penaltyList_table td:nth-child(2),
+    .penaltyList_table th:nth-child(2) {
+        min-width: 50px;
+    }
+
+    .penaltyList_table td:nth-child(3),
+    .penaltyList_table th:nth-child(3) {
+        min-width: 120px;
+        line-height: 1.2;
+    }
+
+    .penaltyList_table td:nth-child(4),
+    .penaltyList_table th:nth-child(4) {
+        min-width: 50px;
+    }
+
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 149%;
+        left: 0%;
+        z-index: -3;
+    }
+    
+.star{
+    font-size: 25px;     /* 별 크기 */
+    color: #ccc;         /* 기본 회색 */
+    cursor: pointer;     /* 마우스 오버 시 손 모양 */
+    transition: color 0.2s;  /* 부드러운 색 전환 */
+}
+
+.star.active{
+    color: #000000;
+}
+
 }

@@ -7,11 +7,13 @@
     <title>상벌점 관리 페이지</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">선생님 관리</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}</p>
@@ -44,14 +46,25 @@
             </div>
             <button class="searchButton">검색</button>
             <img class="bell" src="{{ url_for('static', filename='img/notification_Bell.png') }}">
+            <div class="circle{% if unverified_count > 0 %} active{% endif %}"></div>
 
             <div class="circle"></div>
             
             <div class="actionButtons">
-                <button class="addTeacher">선생님 추가</button>
-                <button class="resetPasswd">선생님 비밀번호 재설정</button>
-                <button class="deleteAccount">선생님 계정 삭제</button>
+                <button class="addTeacher">
+                    <p>선생님 추가</p>
+                    <img src="{{ url_for('static', filename='img/plus.png') }}" alt="선생님 추가"></img>
+                </button>
+                <button class="resetPasswd">
+                    <p>선생님 비밀번호 재설정</p>
+                    <img src="{{ url_for('static', filename='img/reset.png') }}" alt="선생님 비밀번호 재설정"></img>
+                </button>
+                <button class="deleteAccount">
+                    <p>선생님 계정 삭제</p>
+                    <img src="{{ url_for('static', filename='img/minus.png') }}" alt="선생님 계정 삭제"></img>
+                </button>
             </div>
+
         </div>
         <div class="teacherInfo_table">
             <table>

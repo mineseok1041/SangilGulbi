@@ -7,11 +7,13 @@
     <title>상벌점 관리 페이지</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">상벌점 내역</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}선생님</p>
@@ -56,10 +58,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th data-column="1" class="sortable">학번 </th>
                         <th data-column="2" class="sortable">이름</th>
                         <th data-column="3" class="sortable">사유</th>
-                        <th data-column="4" class="sortable">부여 시각</th>
                         <th data-column="5" class="sortable">부여 점수</th>
                         <th data-column="6" class="sortable">부여자</th>
                     </tr>
@@ -67,19 +67,18 @@
                 <tbody>
                     {% for pointLog in pointLogList %}
                     <tr class="main-row" data-no="{{ pointLog.no }}">
-                        <td>{{ pointLog.studentNum }}</td>
                         <td>{{ pointLog.studentName }}</td>
-                        <td title="{{ pointLog.reason }}">{{ pointLog.reason }}</td>
-                        <td>{{ pointLog.addDate }}</td>
+                        <td>{{ pointLog.reason }}</td>
                         <td>{{ pointLog.point }}</td>
                         <td>{{ pointLog.giveTeacherName }}</td>
                     </tr>
 
                     <tr class="dropdown-row">
-                        <td colspan="6" class="pointReason">
+                        <td colspan="4" class="pointReason">
+                            <p class="date">날짜 : {{ pointLog.addDate }}</p>
+                            <p class="num">학번 : {{ pointLog.studentNum }}</p>
                             <p class="reason">사유 : {{ pointLog.reason }}</p>
                             <p class="opinion">의견 : {{ pointLog.opinion }}</p>
-                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

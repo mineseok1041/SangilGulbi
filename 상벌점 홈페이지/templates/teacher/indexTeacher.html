@@ -8,11 +8,13 @@
     <title>상벌점 관리 페이지</title>
 </head>
 
+<button class="nav-toggle hamburger" aria-label="메뉴 열기">&#9776;</button>
+
 <header>
     <h2 class="main">마이페이지</h2>
 </header>
 
-<nav>
+<nav class="sidebar">
     <img class="profiles" src="{{ url_for('static', filename='img/simple.png') }}">
     <p class="number">인공지능소프트웨어과</p>
     <p class="name">{{ session["name"] }}선생님</p>
@@ -36,7 +38,7 @@
     <div class="awardGive">
         <button class="giveBonus">
             <h1>상점 부여</h1>
-            <p>여기를 누르시면 상점을 부여하실 수 있습니다</p>
+            <p>클릭시 상점 부여 가능</p>
         </button>
         <div class="awardGive_table">
             <table>
@@ -66,7 +68,7 @@
     <div class="penaltyGive_box">
         <button class="givePenalty">
             <h1>벌점 부여</h1>
-            <p>여기를 누르시면 벌점을 부여하실 수 있습니다</p>
+            <p>클릭 시 벌점 부여 가능</p>
         </button>
         <div class="penaltyGive_table">
             <table>
@@ -108,14 +110,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for teacher in teacherList %}
+                    {% for pr in pointReason %}
+                    {% if pr.no in favoritePointReasonNo %}
                     <tr>
                         <td>★</td>
-                        <td>벌점</td>
-                        <td>1번</td>
-                        <td title="">교실에서 친구의 잃어버린 물품을 찾는 것을 도와주었을때</td>
-                        <td>-1000000</td>
+                        <td>{% if pr.type == 'bonus' %}상점{% else %}벌점{% endif %}</td>
+                        <td>{% if pr.type == 'bonus' %} {{ pr.no - 100 }} {% else %} {{ pr.no - 200 }} {% endif %}</td>
+                        <td title="">{{ pr.reason }}</td>
+                        <td>{{ pr.value }}</td>
                     </tr>
+                    {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -153,7 +157,7 @@
         </div>
         <button class="more" onClick="location.href='/teacher/community'">더보기</button>
     </div>
-
+    <div class="footer"></div>
 
 
     <script src="{{ url_for('static', filename='js/teacher/indexTeacher.js') }}"></script>
