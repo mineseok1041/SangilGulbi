@@ -52,21 +52,20 @@ def studentManagement():
 @adminAuth
 def teacherManagement():
     try:
-        page = request.args.get('page', default=1, type=int)
-        maxPage = usersSVC.getTeacherMaxPage()
-
-        print(page, maxPage)
-    
+        page = int(request.args.get('page', 1))
         teacherList = usersSVC.getTeachersList(page)
-
-        if page > maxPage:
-            page = maxPage
-        if page < 1:
-            page = 1
-        return render_template('admin/teacherManagementAdmin.html', teacherList=teacherList, currentPage=page, maxPage=maxPage)
+        maxPage = usersSVC.getTeacherMaxPage()
+        unverified_count = len(usersSVC.getUnverifiedTeachers())
+        return render_template(
+            'admin/teacherManagementAdmin.html',
+            teacherList=teacherList,
+            currentPage=page,
+            maxPage=maxPage,
+            unverified_count=unverified_count
+        )
     except Exception as e:
-        print(e)
-        return redirect(url_for('auth.login'))
+        flash(str(e))
+        return redirect(url_for('admin.index'))
 
 @adminBlue.route('/addStudentPopup')
 @adminAuth

@@ -46,6 +46,7 @@
             </div>
             <button class="searchButton">검색</button>
             <img class="bell" src="{{ url_for('static', filename='img/notification_Bell.png') }}">
+            <div class="circle{% if unverified_count > 0 %} active{% endif %}"></div>
 
             <div class="circle"></div>
             
