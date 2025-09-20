@@ -254,4 +254,47 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+    // ----------- 학년 필터 기능 추가 시작 -----------
+    // 학년 체크박스 이벤트 바인딩
+    if (filterPopup) {
+        const gradeCheckboxes = filterPopup.querySelectorAll("input[type='checkbox'][name='grade']");
+        gradeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", function () {
+                applyGradeFilter();
+            });
+        });
+    }
+
+    // 학년 필터 적용 함수
+    function applyGradeFilter() {
+        if (!filterPopup) return;
+        const checkedGrades = Array.from(filterPopup.querySelectorAll("input[type='checkbox'][name='grade']:checked"))
+            .map(cb => cb.value.replace("학년", "")); // ["1", "2", ...]
+        tableRows.forEach(row => {
+            const stdNumCell = row.querySelector("td"); // 첫 번째 칸(학번)
+            if (!stdNumCell) return;
+            const stdNum = stdNumCell.textContent.trim();
+            const grade = stdNum.charAt(0); // 학번 맨 앞자리
+            if (checkedGrades.length === 0 || checkedGrades.includes(grade)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+    // ----------- 학년 필터 기능 추가 끝 -----------
+
+    // 초기화 버튼 클릭 이벤트 (필터 해제)
+    if (resetFiltersButton) {
+        resetFiltersButton.addEventListener("click", function () {
+            const checkboxes = filterPopup.querySelectorAll("input[type='checkbox']");
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            tableRows.forEach(row => {
+                row.style.display = "";
+            });
+        });
+    }
 });
