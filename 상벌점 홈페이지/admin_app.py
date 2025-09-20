@@ -231,7 +231,10 @@ def pointCancel():
 @adminAuth
 def pointReasons():
     try:
-        return render_template('admin/pointReasonsAdmin.html')
+        bonusPointReasons = pointSVC.getPointReason('bonus')
+        penaltyPointReasons = pointSVC.getPointReason('penalty')
+
+        return render_template('admin/pointReasonsAdmin.html', bonusPointReasonDTO=bonusPointReasons, penaltyPointReasonDTO=penaltyPointReasons)
     except Exception as e:
         print(e)
         return redirect(url_for('auth.login'))
