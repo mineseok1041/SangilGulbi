@@ -38,15 +38,15 @@ nav {
     z-index: 1;
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
-nav > a:not(.pointReasons_nav):hover{
+nav>a:not(.pointReasons_nav):hover {
     color: #d8d8d8;
 }
 
-nav > .profiles{
+nav>.profiles {
     width: 30%;
     border-radius: 50%;
     position: absolute;
@@ -54,14 +54,14 @@ nav > .profiles{
     left: 10%;
 }
 
-nav > .number {
+nav>.number {
     position: absolute;
     left: 50%;
     top: 6%;
     color: white;
 }
 
-nav > .name {
+nav>.name {
     position: absolute;
     left: 50%;
     top: 9%;
@@ -69,7 +69,7 @@ nav > .name {
     color: white;
 }
 
-nav > .mypage_nav {
+nav>.mypage_nav {
     color: white;
     position: absolute;
     top: 30.5%;
@@ -77,18 +77,18 @@ nav > .mypage_nav {
     text-decoration: none;
 }
 
-nav > .first{
+nav>.first {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 34%;
     left: 5%;
 }
 
-nav > .givePoint_nav {
+nav>.givePoint_nav {
     color: white;
     position: absolute;
     top: 37.3%;
@@ -97,18 +97,18 @@ nav > .givePoint_nav {
     cursor: pointer;
 }
 
-nav > .two{
+nav>.two {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 41%;
     left: 5%;
 }
 
-nav > .pointReasons_nav {
+nav>.pointReasons_nav {
     color: #575e65;
     position: absolute;
     top: 44.2%;
@@ -117,18 +117,18 @@ nav > .pointReasons_nav {
     cursor: pointer;
 }
 
-nav > .three{
+nav>.three {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 48%;
     left: 5%;
 }
 
-nav > .studentManagement_nav {
+nav>.studentManagement_nav {
     color: white;
     position: absolute;
     top: 51.4%;
@@ -137,18 +137,18 @@ nav > .studentManagement_nav {
     cursor: pointer;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 55%;
     left: 5%;
 }
 
-nav > .teacherManagement_nav {
+nav>.teacherManagement_nav {
     color: white;
     position: absolute;
     top: 58.3%;
@@ -157,18 +157,18 @@ nav > .teacherManagement_nav {
     cursor: pointer;
 }
 
-nav > .five{
+nav>.five {
     width: 90%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
     position: absolute;
     top: 62%;
     left: 5%;
 }
 
-nav > .community_nav {
+nav>.community_nav {
     color: white;
     position: absolute;
     top: 65.3%;
@@ -177,7 +177,7 @@ nav > .community_nav {
     cursor: pointer;
 }
 
-nav > .myInfoEdit_nav{
+nav>.myInfoEdit_nav {
     color: #ffffff;
     position: absolute;
     bottom: 13%;
@@ -189,18 +189,18 @@ nav > .myInfoEdit_nav{
     border: none;
 }
 
-.myInfoEdit_nav:hover{
+.myInfoEdit_nav:hover {
     color: #d8d8d8;
 }
 
-nav > .six{
+nav>.six {
     width: 90%;
     position: absolute;
     bottom: 10%;
     left: 5%;
-    background:white;
-    height:1px;
-    border:0;
+    background: white;
+    height: 1px;
+    border: 0;
 }
 
 .logout {
@@ -218,8 +218,8 @@ nav > .six{
     font-size: 24px;
 }
 
-table{
-   font-size:10px;
+table {
+    font-size: 10px;
 }
 
 .rewardList {
@@ -235,7 +235,7 @@ table{
     padding-bottom: 2%;
 }
 
-.rewardList> .header{
+.rewardList>.header {
     width: 100%;
     height: 10%;
     position: sticky;
@@ -251,7 +251,8 @@ table{
     z-index: 10;
 }
 
-.rewardList > .header >  h1{
+.rewardList>.header>h1 {
+    width: 100%;
     color: white;
     margin: 0;
     font-size: 25px;
@@ -259,10 +260,13 @@ table{
 }
 
 
-.rewardList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.rewardList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .rewardList_table table {
@@ -293,7 +297,7 @@ table{
     background: #f9f9f9;
 }
 
-.rewardList > .more {
+.rewardList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -309,11 +313,14 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.rewardList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
+.rewardList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
-.rewardList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+
+.rewardList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
 }
 
 
@@ -330,7 +337,7 @@ table{
     padding-bottom: 2%;
 }
 
-.penaltyList> .header{
+.penaltyList>.header {
     width: 100%;
     height: 10%;
     position: sticky;
@@ -346,7 +353,7 @@ table{
     z-index: 10;
 }
 
-.penaltyList > .header >  h1{
+.penaltyList>.header>h1 {
     color: white;
     margin: 0;
     font-size: 25px;
@@ -354,10 +361,13 @@ table{
 }
 
 
-.penaltyList> .studentInfo_table {
-    width: 100%; /* 테이블 너비 */
-    max-height: 70%; /* 테이블 높이 */
-    margin: auto; /* 가운데 정렬 */
+.penaltyList>.studentInfo_table {
+    width: 100%;
+    /* 테이블 너비 */
+    max-height: 70%;
+    /* 테이블 높이 */
+    margin: auto;
+    /* 가운데 정렬 */
 }
 
 .penaltyList_table table {
@@ -388,7 +398,7 @@ table{
     background: #f9f9f9;
 }
 
-.penaltyList > .more {
+.penaltyList>.more {
     width: 10%;
     height: 5%;
     background-color: #9AA6B2;
@@ -404,20 +414,25 @@ table{
     transition: transform 0.1s ease, background-color 0.3s ease;
 }
 
-.penaltyList > .more:hover {
-    background-color: #7d8791; /* hover 시 어두운 색 */
-}
-.penaltyList > .more:active {
-    transform: scale(0.95); /* 살짝 눌리는 효과 */
+.penaltyList>.more:hover {
+    background-color: #7d8791;
+    /* hover 시 어두운 색 */
 }
 
-.num{
+.penaltyList>.more:active {
+    transform: scale(0.95);
+    /* 살짝 눌리는 효과 */
+}
+
+.num {
     width: 12%;
 }
-.reward{
+
+.reward {
     width: 13%;
 }
-.penalty{
+
+.penalty {
     width: 13%;
 }
 
@@ -912,6 +927,15 @@ button{
         min-width: 50px;
     }
 
+    .footer {
+        width: 100%;
+        height: 5%;
+        background-color: white;
+        position: absolute;
+        top: 149%;
+        left: 0%;
+        z-index: -3;
+    }
     
 .star{
     font-size: 25px;     /* 별 크기 */
@@ -923,6 +947,5 @@ button{
 .star.active{
     color: #000000;
 }
-
 
 }

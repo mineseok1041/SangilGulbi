@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,8 +62,8 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
     </div>
-</div>
     <div class="penaltyList">
     <div class="header">
         <h1>벌점 항목</h1>
@@ -92,9 +93,9 @@
         </table>
 
     </div>
-
-    <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
+    <div class="footer"></div>
+        <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/auth/myInfoEditOpen.js') }}"></script>
 </body>
 
 </html>
