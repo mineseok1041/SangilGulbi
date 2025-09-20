@@ -326,10 +326,10 @@ class pointDAO:
             conn.close()
 
     def searchPointLogs(self, keyword: str, teacher_id: str = None) -> list[pointLogDTO]:
-        # 이름 제외, 사유(reason), 부여 점수(point), 부여자(giveTeacherName)만 검색
+        # 이름(studentName), 사유(reason), 부여 점수(point), 부여자(giveTeacherName)만 검색
         query = """
             SELECT * FROM pointLog
-            WHERE (reason LIKE :kw OR TO_CHAR(point) LIKE :kw OR giveTeacherName LIKE :kw)
+            WHERE (studentName LIKE :kw OR reason LIKE :kw OR TO_CHAR(point) LIKE :kw OR giveTeacherName LIKE :kw)
         """
         params = {'kw': f'%{keyword}%'}
         if teacher_id:
