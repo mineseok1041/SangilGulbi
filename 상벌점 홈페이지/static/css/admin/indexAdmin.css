@@ -1449,6 +1449,7 @@ footer {
     .community_table th:nth-child(1),
     .community_table td:nth-child(1) {
         max-width: 40px;
+        width: 100px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
