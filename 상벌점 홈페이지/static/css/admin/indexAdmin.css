@@ -557,6 +557,7 @@ nav>.six {
     border-collapse: collapse;
     margin: auto;
     border-top: #000000 solid 3px;
+    table-layout: fixed;
 }
 
 .community_table a {
@@ -580,6 +581,9 @@ nav>.six {
     border-bottom: #55595D solid 1px;
     font-size: 15px;
     color: #3f3f3f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .community_table thead {
