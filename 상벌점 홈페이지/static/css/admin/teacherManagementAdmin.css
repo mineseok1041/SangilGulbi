@@ -485,15 +485,22 @@ nav>.six {
     cursor: pointer;
 }
 
+/* 알림(종) 아이콘 옆 빨간 점(뱃지) */
 .circle {
     position: absolute;
-    height: 10px;
-    width: 10px;
-    background-color: #ff0000;
+    top: 20%;
+    right: 33%;
+    width: 14px;
+    height: 14px;
+    background: transparent;
     border-radius: 50%;
-    left: 73.5%;
-    top: 215%;
-    visibility: hidden;
+    transition: background 0.2s;
+}
+
+.circle.active {
+    background: #ff5757;
+    border: 2px solid #fff;
+    box-shadow: 0 0 4px #ff5757;
 }
 
 button {

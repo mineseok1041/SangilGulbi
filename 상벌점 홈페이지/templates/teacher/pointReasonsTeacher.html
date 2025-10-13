@@ -52,7 +52,9 @@
                 <tbody>
                     {% for bonusPointReason in bonusPointReasonDTO %}
                     <tr>
-                        <td><span class="star">★</span></td>
+                        <td><span 
+                            class="star {% if bonusPointReason.no in favoritePointNo %}active{% endif %}"
+                            data-pointno="{{ bonusPointReason.no }}">★</span></td>
                         <td>{{ bonusPointReason.no - 100 }}</td>
                         <td>{{ bonusPointReason.reason }}</td>
                         <td>{{ bonusPointReason.value }}</td>
@@ -63,31 +65,33 @@
         </div>
     </div>
     <div class="penaltyList">
-        <div class="header">
-            <h1>벌점 항목</h1>
-        </div>
-        <div class="penaltyList_table">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th class="num">번호</th>
-                        <th>사유</th>
-                        <th class="penalty">벌점</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for penaltyPointReason in penaltyPointReasonDTO %}
-                    <tr>
-                        <td><span class="star">★</span></td>
-                        <td>{{ penaltyPointReason.no - 200 }}</td>
-                        <td>{{ penaltyPointReason.reason }}</td>
-                        <td>{{ penaltyPointReason.value }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+    <div class="header">
+        <h1>벌점 항목</h1>
+    </div>
+    <div class="penaltyList_table">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="num">번호</th>
+                    <th>사유</th>
+                    <th class="penalty">벌점</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for penaltyPointReason in penaltyPointReasonDTO %}
+                <tr>
+                    <td><span 
+                        class="star {% if penaltyPointReason.no in favoritePointNo %}active{% endif %}" 
+                        data-pointno="{{ penaltyPointReason.no }}">★</span></td>
+                    <td>{{ penaltyPointReason.no - 200 }}</td>
+                    <td>{{ penaltyPointReason.reason }}</td>
+                    <td>{{ penaltyPointReason.value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
     </div>
     <div class="footer"></div>
         <script src="{{ url_for('static', filename='js/teacher/pointReasonsTeacher.js') }}"></script>

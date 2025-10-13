@@ -434,7 +434,6 @@ button {
         cursor: pointer;
         display: block;
         height: 7%;
-}
 
     body {
         font-family: 'KakaoSmallSans-Bold', sans-serif;
@@ -745,7 +744,7 @@ button {
         box-sizing: border-box;
         z-index: 10;
     }
-
+  
     .penaltyList>.header>h1 {
         width: 100%;
         color: white;
