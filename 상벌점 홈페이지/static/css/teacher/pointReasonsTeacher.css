@@ -485,7 +485,7 @@ button {
     }
 
     .main {
-        position: fixed;p
+        position: fixed;
         left: 15%;
         top: 0%;
         color: #55595D;
@@ -745,6 +745,7 @@ button {
         margin: auto;
         border-top: #000000 solid 3px;
         font-size: 14px;
+    }
 
     .rewardList_table table td {
         padding: 2%;
@@ -799,6 +800,7 @@ button {
     .rewardList>.more:active {
         transform: scale(0.95);
         /* 살짝 눌리는 효과 */
+    }
 
     .rewardList_table td:nth-child(2),
     .rewardList_table th:nth-child(2) {
@@ -873,6 +875,7 @@ button {
         margin: auto;
         font-size: 14px;
         border-top: #000000 solid 3px;
+    }
 
     .penaltyList_table table td {
        padding: 2%;
@@ -1001,5 +1004,5 @@ button {
         z-index: -3;
     }
 
-
+}
 }
