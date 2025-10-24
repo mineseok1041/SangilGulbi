@@ -28,16 +28,11 @@ header {
 }
 
 .main {
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 3%;
     color: #55595D;
     font-size: 35px;
-    margin: 0%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 nav {
