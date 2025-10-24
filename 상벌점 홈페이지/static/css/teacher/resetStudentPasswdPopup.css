@@ -20,12 +20,13 @@ body {
 }
 
 .popupMain {
+    margin-left: 90%;
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 180%;
     gap: 2%;
     /* 박스 간 간격을 %로 설정 */
-    height: 90%;
+    height: 100%;
 }
 
 .boxHead {
@@ -36,12 +37,12 @@ body {
 
 .studentInfoBox {
     margin-top: 3%;
-    width: 35%;
+    width: 100%;
     /* 오른쪽 박스 너비 */
     height: 95%;
     /* 오른쪽 박스 높이 */
     position: relative;
-    padding: 3%;
+    padding: 5%;
     /* 내부 여백 */
     border-radius: 5px;
     overflow-y: auto;
@@ -61,7 +62,7 @@ body {
     justify-content: space-between;
     /* 라벨과 값 양쪽 정렬 */
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 1%;
     /* 위아래 간격 */
     border-bottom: 1px solid #ddd;
     /* 각 행 구분선 */

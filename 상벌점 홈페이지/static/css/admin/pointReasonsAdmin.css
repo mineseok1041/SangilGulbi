@@ -386,7 +386,7 @@ table {
     font-size: 20px;
 }
 
-.penaltyList_table td {
+.penaltyList_table td {=
     padding: 2%;
     text-align: center; /* 가운데 정렬 */
     border-bottom: #55595D solid 1px;

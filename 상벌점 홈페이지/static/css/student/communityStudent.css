@@ -28,16 +28,11 @@ header {
 }
 
 .main {
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 3%;
     color: #55595D;
     font-size: 35px;
-    margin: 0%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 nav {
@@ -199,6 +194,7 @@ table {
     margin: auto;
     border-top: #000000 solid 3px;
     margin-top: 3%;
+    table-layout: fixed;
 }
 
 table a {
@@ -223,6 +219,9 @@ td {
     border-bottom: #55595D solid 1px;
     font-size: 20px;
     color: #3f3f3f;
+        overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 button {

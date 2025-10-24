@@ -5,8 +5,16 @@
     font-style: normal;
 }
 
+
 body {
     font-family: 'KakaoSmallSans-Bold', sans-serif;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 0%;
 }
 
 header {
@@ -17,19 +25,15 @@ header {
     top: 0%;
     right: 0%;
     box-shadow: 3px 3px 3px gray;
-    z-index: 5;
+    background-attachment: fixed;
 }
 
 .main {
-    position: fixed;
+    position: absolute;
     top: 0%;
     left: 3%;
     color: #55595D;
     font-size: 35px;
-    margin: 0%;
-    height: 100%;
-    display: flex;
-    align-items: center;
 }
 
 nav {
@@ -42,7 +46,7 @@ nav {
 
 }
 
-nav > a {
+nav>a {
     font-size: 24px;
 }
 
@@ -150,7 +154,7 @@ nav>.myInfoEdit_nav {
     color: #d8d8d8;
 }
 
-nav > .four{
+nav>.four {
     width: 90%;
     position: absolute;
     bottom: 10%;
@@ -212,7 +216,7 @@ nav > .four{
 
 .text_box {
     width: 66%;
-    height: 50%;
+    height: 47%;
     position: absolute;
     top: 30%;
     left: 25%;
@@ -229,17 +233,19 @@ nav > .four{
 }
 
 .input {
-    width: 50%;
+    width: 56.5%;
     height: 5%;
     border: 1;
+    position: absolute;
+    bottom: -13%;
+    left: 25%;
     text-align: center;
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-bottom: solid 1px #55595D;
     color: #55595D;
-    margin-top: 8%;
-    margin-left: 25%;
+    margin-top: 17%;
     font-size: 18px;
 }
 
@@ -250,9 +256,9 @@ nav > .four{
 .sumit {
     width: 10%;
     height: 5%;
-    position: relative;
-    left: 10%;
-    top: 0%;
+    position: absolute;
+    right: 5%;
+    bottom: -13%;
     border: none;
     border-radius: 5px;
     background-color: #8392a0;
@@ -265,7 +271,7 @@ nav > .four{
     width: 80%;
     height: 100%;
     position: absolute;
-    top: 100%;
+    top: 115%;
     left: 20%;
 }
 
@@ -282,14 +288,14 @@ nav > .four{
     height: 60%;
     position: absolute;
     left: 0%;
-    top: 20%;
+    top: 10%;
 }
 
 .comments>.ID {
     width: 53%;
     position: absolute;
     left: 7%;
-    top: 25%;
+    top: 8%;
 }
 
 .ID>.name {
@@ -309,12 +315,53 @@ nav > .four{
 
 .comment {
     position: absolute;
-    top: 40%;
+    top: 25%;
+
     left: 7%;
 }
 
-button{
-        font-family: 'KakaoSmallSans-Bold', sans-serif;
+.agree-btn {
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    padding: 5px 10px;
+    background-color: #9AA6B2;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left: 78%;
+}
+
+.agree-btn:hover {
+    background-color: #6b6d70;
+}
+
+
+.decline-btn {
+    position: absolute;
+    z-index: 1000;
+    width: 8%;
+    height: 5%;
+    background-color: #bb6b6b;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: none;
+    bottom: 8%;
+    left: 87%;
+}
+
+.decline-btn:hover {
+    background-color: #8a4b4b;
+}
+
+button {
+    font-family: 'KakaoSmallSans-Bold', sans-serif;
 }
 
 @media (min-width: 900px){

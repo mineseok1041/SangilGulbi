@@ -211,6 +211,7 @@ table {
 }
 
 .rewardList>.header>h1 {
+    width: 100%;
     color: white;
     margin: 0;
     font-size: 25px;
